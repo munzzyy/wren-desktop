@@ -218,6 +218,22 @@ function renderToast({
     );
   }
 
+  if (toastType === ToastType.ChatExported) {
+    return (
+      <Toast
+        onClose={hideToast}
+        toastAction={{
+          label: i18n('icu:attachmentSavedShow'),
+          onClick: () => {
+            openFileInFolder(toast.parameters.fullPath);
+          },
+        }}
+      >
+        {i18n('icu:ExportChatDialog__toast')}
+      </Toast>
+    );
+  }
+
   if (toastType === ToastType.CannotStartGroupCall) {
     return (
       <Toast onClose={hideToast}>

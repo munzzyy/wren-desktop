@@ -54,6 +54,10 @@ import { SmartMiniPlayer } from './MiniPlayer.preload.tsx';
 import { SmartPinnedMessagesBar } from './PinnedMessagesBar.preload.tsx';
 import { getContactSpoofingWarningSelector } from '../selectors/timeline.preload.ts';
 import { useNavActions } from '../ducks/nav.std.ts';
+import { useToastActions } from '../ducks/toast.preload.ts';
+import { ToastType } from '../../types/Toast.dom.tsx';
+import type { ExportChatRunner } from '../../components/conversation/ExportChatDialog.dom.tsx';
+import { runChatExport } from '../../wren/export/runChatExport.preload.ts';
 
 function renderCollidingAvatars(
   props: SmartCollidingAvatarsProps
@@ -161,6 +165,7 @@ export const SmartConversationHeader = memo(function SmartConversationHeader({
   } = useCallingActions();
   const { searchInConversation } = useSearchActions();
   const { viewUserStories } = useStoriesActions();
+  const { showToast } = useToastActions();
 
   const conversationByServiceIdSelector = useSelector(
     getConversationByServiceIdSelector
@@ -279,6 +284,25 @@ export const SmartConversationHeader = memo(function SmartConversationHeader({
     pushPanelForConversation({ type: PanelType.AllMedia });
   }, [pushPanelForConversation]);
 
+  const onExportChat = useCallback<ExportChatRunner>(
+    async ({ format, includeMedia }, onProgress, signal) => {
+      const result = await runChatExport({
+        conversationId: conversation.id,
+        format,
+        includeMedia,
+        onProgress,
+        signal,
+      });
+      if (result.status === 'done') {
+        showToast({
+          toastType: ToastType.ChatExported,
+          parameters: { fullPath: result.filePath },
+        });
+      }
+    },
+    [conversation.id, showToast]
+  );
+
   const onViewUserStories = useCallback(() => {
     viewUserStories({
       conversationId: conversation.id,
@@ -323,6 +347,7 @@ export const SmartConversationHeader = memo(function SmartConversationHeader({
       onConversationReportSpam={onConversationReportSpam}
       onConversationUnarchive={onConversationUnarchive}
       onConversationUnpin={onConversationUnpin}
+      onExportChat={onExportChat}
       onOutgoingAudioCall={onOutgoingAudioCall}
       onOutgoingVideoCall={onOutgoingVideoCall}
       onSearchInConversation={onSearchInConversation}

@@ -85,6 +85,9 @@ const commonProps: PropsType = {
   onConversationReportSpam: action('onConversationReportSpam'),
   onConversationUnarchive: action('onConversationUnarchive'),
   onConversationUnpin: action('onConversationUnpin'),
+  onExportChat: async options => {
+    action('onExportChat')(options);
+  },
   onOutgoingAudioCall: action('onOutgoingAudioCall'),
   onOutgoingVideoCall: action('onOutgoingVideoCall'),
   onSearchInConversation: action('onSearchInConversation'),

@@ -567,6 +567,70 @@
     "messageformat": "Select messages",
     "description": "Shown in menu for conversation, allows the user to start selecting multiple messages in the conversation"
   },
+  "icu:ConversationHeader__menu__exportChat": {
+    "messageformat": "Export chat",
+    "description": "Shown in menu for conversation, opens a dialog to export this chat to a folder"
+  },
+  "icu:ExportChatDialog__title": {
+    "messageformat": "Export chat",
+    "description": "Title of the dialog that exports one chat to files"
+  },
+  "icu:ExportChatDialog__format": {
+    "messageformat": "Format",
+    "description": "Label above the export format choices in the export chat dialog"
+  },
+  "icu:ExportChatDialog__format--html": {
+    "messageformat": "Web page (HTML)",
+    "description": "Export format choice: a single HTML page that opens in a browser"
+  },
+  "icu:ExportChatDialog__format--text": {
+    "messageformat": "Plain text",
+    "description": "Export format choice: a plain text file"
+  },
+  "icu:ExportChatDialog__format--json": {
+    "messageformat": "JSON",
+    "description": "Export format choice: a JSON file for scripts and other tools"
+  },
+  "icu:ExportChatDialog__include-media": {
+    "messageformat": "Include media",
+    "description": "Checkbox in the export chat dialog. When checked, photos, videos, voice notes and files are copied next to the export"
+  },
+  "icu:ExportChatDialog__warning": {
+    "messageformat": "The export is not encrypted and includes disappearing messages as they are right now.",
+    "description": "Warning shown in the export chat dialog before the export starts"
+  },
+  "icu:ExportChatDialog__export": {
+    "messageformat": "Export",
+    "description": "Button in the export chat dialog that asks for a folder and starts the export"
+  },
+  "icu:ExportChatDialog__folder-title": {
+    "messageformat": "Choose a folder for the export",
+    "description": "Title of the folder picker opened by the export chat dialog"
+  },
+  "icu:ExportChatDialog__folder-button": {
+    "messageformat": "Export here",
+    "description": "Confirm button of the folder picker opened by the export chat dialog"
+  },
+  "icu:ExportChatDialog__progress-title": {
+    "messageformat": "Exporting chat",
+    "description": "Title of the export chat dialog while the export runs"
+  },
+  "icu:ExportChatDialog__progress": {
+    "messageformat": "{total, plural, one {{processed, number} of # message} other {{processed, number} of # messages}}",
+    "description": "Progress line in the export chat dialog while the export runs"
+  },
+  "icu:ExportChatDialog__error-title": {
+    "messageformat": "Export failed",
+    "description": "Title of the export chat dialog when the export failed"
+  },
+  "icu:ExportChatDialog__error": {
+    "messageformat": "Nothing was saved. Check that the folder can be written to and has free space, then try again.",
+    "description": "Body of the export chat dialog when the export failed"
+  },
+  "icu:ExportChatDialog__toast": {
+    "messageformat": "Chat exported",
+    "description": "Toast shown when a chat export finished"
+  },
   "icu:ConversationHeader__MenuItem--Accept": {
     "messageformat": "Accept",
     "description": "Shown in menu for conversation, allows the user to accept a message request"
