@@ -4,6 +4,7 @@
 # Wren Desktop
 
 [![License: AGPL-3.0-only](https://img.shields.io/badge/license-AGPL--3.0--only-blue.svg)](LICENSE)
+[![CI](https://github.com/munzzyy/wren-desktop/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/munzzyy/wren-desktop/actions/workflows/ci.yml)
 
 Wren Desktop is a fork of [Signal Desktop](https://github.com/signalapp/Signal-Desktop). You link it to your phone the same way you link Signal Desktop, as another device on your account. It talks to Signal's servers, so your contacts, groups and calls stay where they are.
 
