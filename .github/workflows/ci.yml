@@ -48,11 +48,11 @@ jobs:
       - name: Lint intl
         run: pnpm run lint-intl
 
-      - name: Run node tests
-        run: xvfb-run --auto-servernum pnpm run test-node
-
       - name: Allow the Electron sandbox on Ubuntu 24.04
         run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Run node tests
+        run: xvfb-run --auto-servernum pnpm run test-node
 
       - name: Create preload cache
         run: xvfb-run --auto-servernum pnpm run build:preload-cache
