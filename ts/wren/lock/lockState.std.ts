@@ -34,6 +34,15 @@ export function getIdleSeconds({
   return Math.max(systemIdle, appIdleSeconds);
 }
 
+// For wipe-after and auto-lock, 0 means off and a bigger number gives an
+// attacker more room, so either direction away from strict is weaker.
+export function isWeakerLimit(current: number, next: number): boolean {
+  if (next === current || current === 0) {
+    return false;
+  }
+  return next === 0 || next > current;
+}
+
 export function shouldAutoLock(
   autoLockMinutes: AutoLockMinutesType,
   idleSeconds: number

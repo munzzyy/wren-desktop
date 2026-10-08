@@ -12,11 +12,12 @@ export const lockSettingsApi: LockSettingsApiType = {
   change: (current, next) => ipcRenderer.invoke(LockIpc.change, current, next),
   disable: current => ipcRenderer.invoke(LockIpc.disable, current),
   setDuress: duress => ipcRenderer.invoke(LockIpc.setDuress, duress),
-  clearDuress: () => ipcRenderer.invoke(LockIpc.clearDuress),
-  setWipeAfter: value => ipcRenderer.invoke(LockIpc.setWipeAfter, value),
-  setAutoLockMinutes: value =>
-    ipcRenderer.invoke(LockIpc.setAutoLockMinutes, value),
-  setLockOnSystemLock: value =>
-    ipcRenderer.invoke(LockIpc.setLockOnSystemLock, value),
+  clearDuress: current => ipcRenderer.invoke(LockIpc.clearDuress, current),
+  setWipeAfter: (value, current) =>
+    ipcRenderer.invoke(LockIpc.setWipeAfter, value, current),
+  setAutoLockMinutes: (value, current) =>
+    ipcRenderer.invoke(LockIpc.setAutoLockMinutes, value, current),
+  setLockOnSystemLock: (value, current) =>
+    ipcRenderer.invoke(LockIpc.setLockOnSystemLock, value, current),
   lockNow: () => ipcRenderer.send(LockIpc.lockNow),
 };

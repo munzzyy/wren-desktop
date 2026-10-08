@@ -599,6 +599,14 @@
     "messageformat": "The export is not encrypted and includes disappearing messages as they are right now.",
     "description": "Warning shown in the export chat dialog before the export starts"
   },
+  "icu:ExportChatDialog__passphrase": {
+    "messageformat": "Wren passphrase",
+    "description": "Placeholder of the passphrase field in the export chat dialog, shown when the passphrase lock is on"
+  },
+  "icu:ExportChatDialog__passphrase-wrong": {
+    "messageformat": "Type your Wren passphrase to export. The passphrase lock is on, so exports need it.",
+    "description": "Shown in the export chat dialog when the passphrase is missing or wrong"
+  },
   "icu:ExportChatDialog__export": {
     "messageformat": "Export",
     "description": "Button in the export chat dialog that asks for a folder and starts the export"
@@ -12348,6 +12356,14 @@
   "icu:WrenLock__dialog-duress-body": {
     "messageformat": "Typing this on the lock screen erases everything Wren keeps on this computer at once, with no question asked. It can't be the same as your passphrase. Pick something you won't type by accident.",
     "description": "Passphrase dialog text when setting a duress passphrase"
+  },
+  "icu:WrenLock__dialog-confirm-title": {
+    "messageformat": "Confirm with your passphrase",
+    "description": "Passphrase dialog title when a settings change makes the lock weaker"
+  },
+  "icu:WrenLock__dialog-confirm-body": {
+    "messageformat": "This change makes the lock weaker, so Wren needs your passphrase first.",
+    "description": "Passphrase dialog text when removing the duress passphrase, raising or turning off the wipe or auto-lock limits, or turning off lock with the computer"
   },
   "icu:WrenLock__field-current": {
     "messageformat": "Current passphrase",

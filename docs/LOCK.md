@@ -40,6 +40,12 @@ Erasing goes in this order. First Wren checks that the data folder really is its
 
 If the data folder is your home folder, the system's app data folder, a parent of either, the root of a drive or a mount point (say you pointed Wren at a USB stick with `--user-data-dir`), Wren deletes only the files and folders it knows it made and leaves the folder itself.
 
+## Settings that make the lock weaker
+
+With the lock on, Wren asks for your passphrase before it removes the duress passphrase, raises or turns off the wipe limit, makes auto-lock slower or turns it off, or stops locking along with the computer. Making any of them stricter doesn't ask. Someone who finds Wren unlocked can't quietly switch the protections off before you come back.
+
+Only Wren's main window can reach the lock settings and the chat export. The main process checks which window sent each request and refuses anything else.
+
 ## Locking
 
 - Lock Wren in the File menu, or Ctrl+Alt+L (Cmd+Option+L on macOS). Ctrl+Shift+L was the first pick, but Signal already uses it to open the conversation menu.

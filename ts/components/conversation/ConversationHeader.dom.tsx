@@ -187,6 +187,7 @@ export type PropsActionsType = {
   onConversationReportSpam: () => void;
   onConversationUnarchive: () => void;
   onExportChat: ExportChatRunner;
+  isExportPassphraseRequired: () => Promise<boolean>;
   onOutgoingAudioCall: () => void;
   onOutgoingVideoCall: () => void;
   onSearchInConversation: () => void;
@@ -237,6 +238,7 @@ export const ConversationHeader = memo(function ConversationHeader({
   onConversationUnarchive,
   onConversationUnpin,
   onExportChat,
+  isExportPassphraseRequired,
   onOutgoingAudioCall,
   onOutgoingVideoCall,
   onSearchInConversation,
@@ -336,6 +338,7 @@ export const ConversationHeader = memo(function ConversationHeader({
       {hasExportChatDialog && (
         <ExportChatDialog
           i18n={i18n}
+          isPassphraseRequired={isExportPassphraseRequired}
           onClose={() => {
             setHasExportChatDialog(false);
           }}

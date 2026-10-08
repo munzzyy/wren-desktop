@@ -696,6 +696,14 @@ async function safeLoadURL(window: BrowserWindow, url: string): Promise<void> {
   }
 }
 
+function isMainWindowSender(sender: Electron.WebContents): boolean {
+  return (
+    mainWindow != null &&
+    !mainWindow.isDestroyed() &&
+    sender === mainWindow.webContents
+  );
+}
+
 const wrenLock = new LockController({
   config: userConfig,
   log,
@@ -706,6 +714,7 @@ const wrenLock = new LockController({
   getTheme: () => getResolvedThemeSetting({ ephemeralOnly: true }),
   getSqlKeyFromKeychain: () => getSQLKey(),
   rekeyDatabase: key => sql.rekey(key),
+  isMainWindowSender: sender => isMainWindowSender(sender),
   beforeLock: () => wrenExport.abortAll(),
   relaunch: appRelaunch,
   loadURL: safeLoadURL,
@@ -2484,7 +2493,12 @@ app.on('ready', async () => {
     sql,
     configDir: userDataPath,
   });
-  wrenExport.initialize({ configDir: userDataPath, config: userConfig });
+  wrenExport.initialize({
+    configDir: userDataPath,
+    config: userConfig,
+    isMainWindowSender,
+    checkPassphrase: passphrase => wrenLock.checkPassphrase(passphrase),
+  });
   sqlChannels.initialize(sql);
   PowerChannel.initialize({
     send(event) {

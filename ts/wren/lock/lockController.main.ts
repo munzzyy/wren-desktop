@@ -4,7 +4,7 @@
 import { randomBytes } from 'node:crypto';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import type { IpcMainInvokeEvent, WebContents } from 'electron';
+import type { IpcMainEvent, IpcMainInvokeEvent, WebContents } from 'electron';
 import {
   app,
   BrowserWindow,
@@ -28,6 +28,7 @@ import {
   LOCK_STATE_CONFIG_KEY,
   getIdleSeconds,
   isAutoLockMinutes,
+  isWeakerLimit,
   parseLockState,
   serializeLockState,
   shouldAutoLock,
@@ -64,6 +65,7 @@ export type LockControllerOptionsType = Readonly<{
   getTheme: () => Promise<'light' | 'dark'>;
   getSqlKeyFromKeychain: () => string;
   rekeyDatabase: (key: string) => Promise<void>;
+  isMainWindowSender: (sender: WebContents) => boolean;
   beforeLock?: () => void;
   relaunch: () => void;
   loadURL: (window: BrowserWindow, url: string) => Promise<void>;
@@ -202,57 +204,98 @@ export class LockController {
   }
 
   installSettingsHandlers(): void {
+    const { log, isMainWindowSender } = this.#options;
+    const fromMainWindow = (event: IpcMainInvokeEvent | IpcMainEvent) =>
+      isMainWindowSender(event.sender) &&
+      event.senderFrame === event.sender.mainFrame;
+
     const handle = (
       channel: string,
       fn: (...args: Array<unknown>) => LockResultType | Promise<LockResultType>
     ) => {
-      ipcMain.handle(channel, async (_event, ...args: Array<unknown>) => {
+      ipcMain.handle(channel, async (event, ...args: Array<unknown>) => {
+        if (!fromMainWindow(event)) {
+          throw new Error(`wren-lock: ${channel} from an unknown sender`);
+        }
         if (this.#unlockPending) {
           return failure('failed');
         }
         try {
           return await fn(...args);
         } catch (error) {
-          this.#options.log.error(
-            `wren-lock: ${channel} failed`,
-            Errors.toLogFormat(error)
-          );
+          log.error(`wren-lock: ${channel} failed`, Errors.toLogFormat(error));
           return failure('failed');
         }
       });
     };
 
-    ipcMain.handle(LockIpc.getStatus, async () => this.#getStatus());
+    ipcMain.handle(LockIpc.getStatus, async event => {
+      if (!fromMainWindow(event)) {
+        throw new Error('wren-lock: status from an unknown sender');
+      }
+      return this.#getStatus();
+    });
     handle(LockIpc.enable, passphrase => this.#enable(passphrase));
     handle(LockIpc.change, (current, next) => this.#change(current, next));
     handle(LockIpc.disable, current => this.#disable(current));
     handle(LockIpc.setDuress, duress => this.#setDuress(duress));
-    handle(LockIpc.clearDuress, () =>
-      this.#update(state => ({ ...state, duress: undefined }))
+    handle(LockIpc.clearDuress, current =>
+      this.#updateWithPassphrase(current, state => ({
+        ...state,
+        duress: undefined,
+      }))
     );
-    handle(LockIpc.setWipeAfter, value => {
+    handle(LockIpc.setWipeAfter, (value, current) => {
       if (!isWipeAfter(value)) {
         return failure('failed');
       }
-      return this.#update(state => ({
-        ...state,
-        wipeAfter: value,
-        failedAttempts: resetFailedAttempts(),
-      }));
+      return this.#updateSetting(
+        current,
+        state => isWeakerLimit(state.wipeAfter, value),
+        state => ({
+          ...state,
+          wipeAfter: value,
+          failedAttempts: resetFailedAttempts(),
+        })
+      );
     });
-    handle(LockIpc.setAutoLockMinutes, value => {
+    handle(LockIpc.setAutoLockMinutes, (value, current) => {
       if (!isAutoLockMinutes(value)) {
         return failure('failed');
       }
-      return this.#update(state => ({ ...state, autoLockMinutes: value }));
+      return this.#updateSetting(
+        current,
+        state => isWeakerLimit(state.autoLockMinutes, value),
+        state => ({ ...state, autoLockMinutes: value })
+      );
     });
-    handle(LockIpc.setLockOnSystemLock, value => {
+    handle(LockIpc.setLockOnSystemLock, (value, current) => {
       if (typeof value !== 'boolean') {
         return failure('failed');
       }
-      return this.#update(state => ({ ...state, lockOnSystemLock: value }));
+      return this.#updateSetting(
+        current,
+        state => state.lockOnSystemLock && !value,
+        state => ({ ...state, lockOnSystemLock: value })
+      );
     });
-    ipcMain.on(LockIpc.lockNow, () => this.lockFromMenu());
+    ipcMain.on(LockIpc.lockNow, event => {
+      if (fromMainWindow(event)) {
+        this.lockFromMenu();
+      }
+    });
+  }
+
+  // For callers outside the settings page, like starting a chat export.
+  checkPassphrase(passphrase: unknown): 'not-enabled' | 'ok' | 'wrong' {
+    const state = this.#readState();
+    if (!state) {
+      return 'not-enabled';
+    }
+    return isPassphrase(passphrase) &&
+      unwrapKey(state, passphrase) !== undefined
+      ? 'ok'
+      : 'wrong';
   }
 
   startAutoLock(): void {
@@ -379,6 +422,36 @@ export class LockController {
 
   #ok(): LockResultType {
     return { ok: true, status: this.#getStatus() };
+  }
+
+  // Anything that makes the lock weaker needs the passphrase, so someone at
+  // an unlocked Wren can't quietly switch the protections off.
+  #updateSetting(
+    current: unknown,
+    isWeaker: (state: LockStateType) => boolean,
+    fn: (state: LockStateType) => LockStateType
+  ): LockResultType {
+    const state = this.#readState();
+    if (!state) {
+      return failure('not-enabled');
+    }
+    return isWeaker(state)
+      ? this.#updateWithPassphrase(current, fn)
+      : this.#update(fn);
+  }
+
+  #updateWithPassphrase(
+    current: unknown,
+    fn: (state: LockStateType) => LockStateType
+  ): LockResultType {
+    const state = this.#readState();
+    if (!state) {
+      return failure('not-enabled');
+    }
+    if (!isPassphrase(current) || unwrapKey(state, current) === undefined) {
+      return failure('wrong-passphrase');
+    }
+    return this.#update(fn);
   }
 
   #update(fn: (state: LockStateType) => LockStateType): LockResultType {

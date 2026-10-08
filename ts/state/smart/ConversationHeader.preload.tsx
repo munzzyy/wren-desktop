@@ -57,7 +57,10 @@ import { useNavActions } from '../ducks/nav.std.ts';
 import { useToastActions } from '../ducks/toast.preload.ts';
 import { ToastType } from '../../types/Toast.dom.tsx';
 import type { ExportChatRunner } from '../../components/conversation/ExportChatDialog.dom.tsx';
-import { runChatExport } from '../../wren/export/runChatExport.preload.ts';
+import {
+  isExportPassphraseRequired,
+  runChatExport,
+} from '../../wren/export/runChatExport.preload.ts';
 
 function renderCollidingAvatars(
   props: SmartCollidingAvatarsProps
@@ -285,20 +288,25 @@ export const SmartConversationHeader = memo(function SmartConversationHeader({
   }, [pushPanelForConversation]);
 
   const onExportChat = useCallback<ExportChatRunner>(
-    async ({ format, includeMedia }, onProgress, signal) => {
+    async ({ format, includeMedia, passphrase }, onProgress, signal) => {
       const result = await runChatExport({
         conversationId: conversation.id,
         format,
         includeMedia,
+        passphrase,
         onProgress,
         signal,
       });
+      if (result.status === 'wrong-passphrase') {
+        return 'wrong-passphrase';
+      }
       if (result.status === 'done') {
         showToast({
           toastType: ToastType.ChatExported,
           parameters: { fullPath: result.filePath },
         });
       }
+      return undefined;
     },
     [conversation.id, showToast]
   );
@@ -348,6 +356,7 @@ export const SmartConversationHeader = memo(function SmartConversationHeader({
       onConversationUnarchive={onConversationUnarchive}
       onConversationUnpin={onConversationUnpin}
       onExportChat={onExportChat}
+      isExportPassphraseRequired={isExportPassphraseRequired}
       onOutgoingAudioCall={onOutgoingAudioCall}
       onOutgoingVideoCall={onOutgoingVideoCall}
       onSearchInConversation={onSearchInConversation}

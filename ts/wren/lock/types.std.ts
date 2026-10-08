@@ -34,10 +34,21 @@ export type LockSettingsApiType = Readonly<{
   change: (current: string, next: string) => Promise<LockResultType>;
   disable: (current: string) => Promise<LockResultType>;
   setDuress: (duress: string) => Promise<LockResultType>;
-  clearDuress: () => Promise<LockResultType>;
-  setWipeAfter: (value: WipeAfterType) => Promise<LockResultType>;
-  setAutoLockMinutes: (value: AutoLockMinutesType) => Promise<LockResultType>;
-  setLockOnSystemLock: (value: boolean) => Promise<LockResultType>;
+  // current is the passphrase; the main process asks for it whenever the
+  // change makes the lock weaker.
+  clearDuress: (current: string) => Promise<LockResultType>;
+  setWipeAfter: (
+    value: WipeAfterType,
+    current?: string
+  ) => Promise<LockResultType>;
+  setAutoLockMinutes: (
+    value: AutoLockMinutesType,
+    current?: string
+  ) => Promise<LockResultType>;
+  setLockOnSystemLock: (
+    value: boolean,
+    current?: string
+  ) => Promise<LockResultType>;
   lockNow: () => void;
 }>;
 

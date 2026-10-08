@@ -5,6 +5,7 @@ import { randomUUID } from 'node:crypto';
 import { existsSync, rmSync } from 'node:fs';
 import { basename, isAbsolute } from 'node:path';
 import type { BrowserWindow } from 'electron';
+import type { IpcMainInvokeEvent, WebContents } from 'electron';
 import { dialog, ipcMain } from 'electron';
 
 import { getAttachmentsPath } from './attachments.node.ts';
@@ -64,7 +65,9 @@ function writePartials(paths: ReadonlyArray<string>): void {
   }
 }
 
-function parseBeginRequest(payload: unknown): BeginExportRequest {
+function parseBeginRequest(
+  payload: unknown
+): Omit<BeginExportRequest, 'passphrase'> {
   const request = payload as Partial<BeginExportRequest> | undefined;
   const chat = request?.chat;
   if (
@@ -180,16 +183,38 @@ export async function offerToDeleteLeftovers({
 export function initialize({
   configDir,
   config,
+  isMainWindowSender,
+  checkPassphrase,
 }: {
   configDir: string;
   config: ExportConfigType;
+  isMainWindowSender: (sender: WebContents) => boolean;
+  checkPassphrase: (passphrase: unknown) => 'not-enabled' | 'ok' | 'wrong';
 }): void {
   const attachmentsDir = getAttachmentsPath(configDir);
   exportConfig = config;
 
+  const assertFromMainWindow = (event: IpcMainInvokeEvent): void => {
+    if (
+      !isMainWindowSender(event.sender) ||
+      event.senderFrame !== event.sender.mainFrame
+    ) {
+      throw new Error('wren-export: request from an unknown sender');
+    }
+  };
+
   ipcMain.handle(
     EXPORT_CHANNELS.begin,
-    async (_event, payload: unknown): Promise<BeginExportResponse> => {
+    async (event, payload: unknown): Promise<BeginExportResponse> => {
+      assertFromMainWindow(event);
+      // A chat leaves the encrypted database here, so with the lock on it
+      // takes the passphrase, same as turning the lock off would.
+      const passphrase = (payload as Partial<BeginExportRequest> | undefined)
+        ?.passphrase;
+      if (checkPassphrase(passphrase) === 'wrong') {
+        log.warn('begin: wrong passphrase');
+        return { status: 'wrong-passphrase' };
+      }
       const request = parseBeginRequest(payload);
       const session = await ChatExportSession.create({
         ...request,
@@ -199,13 +224,14 @@ export function initialize({
       sessions.set(exportId, session);
       writePartials([...readPartials(), session.partialPath]);
       log.info(`begin: ${exportId} format=${request.format}`);
-      return { exportId, folderPath: session.folderPath };
+      return { status: 'started', exportId, folderPath: session.folderPath };
     }
   );
 
   ipcMain.handle(
     EXPORT_CHANNELS.write,
-    async (_event, payload: unknown): Promise<WriteResult> => {
+    async (event, payload: unknown): Promise<WriteResult> => {
+      assertFromMainWindow(event);
       const [, session] = getSession(payload);
       const { messages } = payload as WriteExportRequest;
       if (!Array.isArray(messages)) {
@@ -217,7 +243,8 @@ export function initialize({
 
   ipcMain.handle(
     EXPORT_CHANNELS.finish,
-    async (_event, payload: unknown): Promise<FinishExportResponse> => {
+    async (event, payload: unknown): Promise<FinishExportResponse> => {
+      assertFromMainWindow(event);
       const [exportId, session] = getSession(payload);
       try {
         const filePath = await session.finish();
@@ -236,7 +263,8 @@ export function initialize({
 
   ipcMain.handle(
     EXPORT_CHANNELS.abort,
-    async (_event, payload: unknown): Promise<void> => {
+    async (event, payload: unknown): Promise<void> => {
+      assertFromMainWindow(event);
       const exportId = (payload as Partial<ExportIdRequest> | undefined)
         ?.exportId;
       const session =

@@ -6,6 +6,7 @@ import { memo, useCallback, useEffect, useId, useRef, useState } from 'react';
 import { AxoDialog } from '../../axo/AxoDialog.dom.tsx';
 import { AxoAlertDialog } from '../../axo/AxoAlertDialog.dom.tsx';
 import { AxoCheckbox } from '../../axo/AxoCheckbox.dom.tsx';
+import { AxoPasswordField } from '../../axo/fields/AxoPasswordField.dom.tsx';
 import { AxoRadioGroup } from '../../axo/controls/AxoRadioGroup.dom.tsx';
 import { tw } from '../../axo/tw.dom.tsx';
 import type { LocalizerType } from '../../types/I18N.std.ts';
@@ -22,13 +23,18 @@ export type ExportChatProgress = Readonly<{
 }>;
 
 export type ExportChatRunner = (
-  options: Readonly<{ format: ExportFormat; includeMedia: boolean }>,
+  options: Readonly<{
+    format: ExportFormat;
+    includeMedia: boolean;
+    passphrase?: string;
+  }>,
   onProgress: (progress: ExportChatProgress) => void,
   signal: AbortSignal
-) => Promise<void>;
+) => Promise<'wrong-passphrase' | void>;
 
 export type ExportChatDialogProps = Readonly<{
   i18n: LocalizerType;
+  isPassphraseRequired: () => Promise<boolean>;
   onClose: () => void;
   onExport: ExportChatRunner;
 }>;
@@ -37,12 +43,16 @@ type Step = 'options' | 'running' | 'error';
 
 export const ExportChatDialog = memo(function ExportChatDialog({
   i18n,
+  isPassphraseRequired,
   onClose,
   onExport,
 }: ExportChatDialogProps) {
   const [step, setStep] = useState<Step>('options');
   const [format, setFormat] = useState<ExportFormat>('html');
   const [includeMedia, setIncludeMedia] = useState(true);
+  const [needsPassphrase, setNeedsPassphrase] = useState<boolean>();
+  const [passphrase, setPassphrase] = useState('');
+  const [passphraseError, setPassphraseError] = useState(false);
   const [progress, setProgress] = useState<ExportChatProgress | null>(null);
   const controllerRef = useRef<AbortController | null>(null);
   const formatLabelId = useId();
@@ -52,6 +62,26 @@ export const ExportChatDialog = memo(function ExportChatDialog({
       controllerRef.current?.abort();
     };
   }, []);
+
+  useEffect(() => {
+    let active = true;
+    drop(
+      (async () => {
+        let required: boolean;
+        try {
+          required = await isPassphraseRequired();
+        } catch {
+          required = true;
+        }
+        if (active) {
+          setNeedsPassphrase(required);
+        }
+      })()
+    );
+    return () => {
+      active = false;
+    };
+  }, [isPassphraseRequired]);
 
   const handleFormatChange = useCallback((value: string) => {
     if (isExportFormat(value)) {
@@ -65,14 +95,28 @@ export const ExportChatDialog = memo(function ExportChatDialog({
   }, [onClose]);
 
   const handleExport = useCallback(async () => {
+    if (needsPassphrase == null || (needsPassphrase && !passphrase)) {
+      setPassphraseError(needsPassphrase === true);
+      return;
+    }
     const controller = new AbortController();
     controllerRef.current = controller;
     setProgress(null);
+    setPassphraseError(false);
     setStep('running');
 
     let failed = false;
+    let outcome: 'wrong-passphrase' | void = undefined;
     try {
-      await onExport({ format, includeMedia }, setProgress, controller.signal);
+      outcome = await onExport(
+        {
+          format,
+          includeMedia,
+          passphrase: needsPassphrase ? passphrase : undefined,
+        },
+        setProgress,
+        controller.signal
+      );
     } catch {
       failed = true;
     }
@@ -83,12 +127,16 @@ export const ExportChatDialog = memo(function ExportChatDialog({
     if (controller.signal.aborted) {
       return;
     }
-    if (failed) {
+    if (outcome === 'wrong-passphrase') {
+      setPassphrase('');
+      setPassphraseError(true);
+      setStep('options');
+    } else if (failed) {
       setStep('error');
     } else {
       onClose();
     }
-  }, [format, includeMedia, onClose, onExport]);
+  }, [format, includeMedia, needsPassphrase, onClose, onExport, passphrase]);
 
   const handleOpenChange = useCallback(
     (open: boolean) => {
@@ -219,6 +267,30 @@ export const ExportChatDialog = memo(function ExportChatDialog({
             <AxoDialog.Description>
               {i18n('icu:ExportChatDialog__warning')}
             </AxoDialog.Description>
+            {needsPassphrase && (
+              <>
+                <AxoPasswordField.Root
+                  value={passphrase}
+                  onValueChange={setPassphrase}
+                  maxGraphemes={1024}
+                  maxBytes={4096}
+                >
+                  <AxoPasswordField.Input
+                    placeholder={i18n('icu:ExportChatDialog__passphrase')}
+                    autoComplete="current-password"
+                  />
+                  <AxoPasswordField.Reveal />
+                </AxoPasswordField.Root>
+                {passphraseError && (
+                  <p
+                    role="alert"
+                    className={tw('type-body-small text-destructive')}
+                  >
+                    {i18n('icu:ExportChatDialog__passphrase-wrong')}
+                  </p>
+                )}
+              </>
+            )}
           </div>
         </AxoDialog.Body>
         <AxoDialog.Footer>
@@ -228,6 +300,7 @@ export const ExportChatDialog = memo(function ExportChatDialog({
             </AxoDialog.Action>
             <AxoDialog.Action
               variant="strong-primary"
+              disabled={needsPassphrase == null}
               onClick={() => drop(handleExport())}
             >
               {i18n('icu:ExportChatDialog__export')}

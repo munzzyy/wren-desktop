@@ -7,6 +7,7 @@ import lodash from 'lodash';
 import type { LockStateType } from '../../../wren/lock/lockState.std.ts';
 import {
   getIdleSeconds,
+  isWeakerLimit,
   parseLockState,
   serializeLockState,
   shouldAutoLock,
@@ -118,6 +119,20 @@ describe('wren/lock/passphraseStrength', () => {
       getPassphraseStrength('quiet river under old stone'),
       'strong'
     );
+  });
+});
+
+describe('wren/lock isWeakerLimit', () => {
+  it('negative control: tightening or keeping a limit is not weaker', () => {
+    assert.isFalse(isWeakerLimit(0, 5));
+    assert.isFalse(isWeakerLimit(20, 5));
+    assert.isFalse(isWeakerLimit(10, 10));
+  });
+
+  it('turning a limit off or raising it is weaker', () => {
+    assert.isTrue(isWeakerLimit(5, 0));
+    assert.isTrue(isWeakerLimit(5, 10));
+    assert.isTrue(isWeakerLimit(15, 60));
   });
 });
 

@@ -5,9 +5,11 @@
 
 Wren Desktop can export one chat to a folder on your computer. Signal Desktop has no per-chat export at all, so this is new.
 
-Open the chat, click the menu button in the chat header (or press Ctrl+Shift+L, Cmd+Shift+L on a Mac) and pick **Export chat**. Choose a format, decide whether to include media, click **Export** and pick a folder. You can cancel while it runs. If you cancel or something fails, I delete the half-written folder so nothing partial is left behind.
+Open the chat, click the menu button in the chat header (or press Ctrl+Shift+L, Cmd+Shift+L on a Mac) and pick **Export chat**. Choose a format, decide whether to include media, click **Export** and pick a folder. You can cancel while it runs. If you cancel or something fails, I delete the half-written folder so nothing partial is left behind. When it's done a toast shows up with a button that opens the folder.
 
-While it runs, the export is written into a hidden working folder with a random name, like `.wren-export-3f9c0a1b2d4e5f60.partial`, and only takes the chat's name once it's complete. Locking Wren (by hand, by the timer or along with the computer) or quitting while an export runs deletes that working folder right away. If Wren is killed or crashes instead, it keeps the working folder's path in `config.json` (the random name, never the chat's) and offers to delete it the next time you unlock. When it's done a toast shows up with a button that opens the folder.
+With the passphrase lock on, exporting asks for your passphrase too, since the chat is about to leave the encrypted database. The main process checks it before a single file is written.
+
+While it runs, the export is written into a hidden working folder with a random name, like `.wren-export-3f9c0a1b2d4e5f60.partial`, and only takes the chat's name once it's complete. Locking Wren (by hand, by the timer or along with the computer) or quitting while an export runs deletes that working folder right away. If Wren is killed or crashes instead, it keeps the working folder's path in `config.json` (the random name, never the chat's) and offers to delete it the next time you unlock.
 
 ## What you get
 
