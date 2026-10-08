@@ -20,6 +20,8 @@ Book Club 2026-10-08 1403/
     ...
 ```
 
+Files in `media/` are named after the message, and the extension comes from the file's type, not from the name the sender gave it. Only types that a browser or file viewer opens as plain data keep a real extension: common image, video and audio formats, PDF, plain text, CSV, zip and Office documents. When the sender's extension matches the type I keep it (`.jpeg` stays `.jpeg`). Everything else, including HTML, SVG, XML and scripts, is saved as `.bin`, so double-clicking a file next to `chat.html` can't run it.
+
 Messages are written oldest first. Every message carries its sender, the time it was sent, the text with mentions written as `@Name`, the quote it replied to, reactions and who sent them, attachments, link previews, whether it was edited, and the disappearing timer if one was set. Group updates, timer changes, safety number changes and other system messages are included as short lines.
 
 Deleted messages show as "This message was deleted." View-once media never leaves the app: those messages show as a placeholder and nothing is copied.
@@ -28,7 +30,7 @@ Deleted messages show as "This message was deleted." View-once media never leave
 
 ### HTML
 
-This is the default. It's one self-contained page that opens in any browser. The styling is inline, there is no JavaScript, and a Content-Security-Policy in the page blocks scripts and anything loaded from the network. Your messages sit on the right and everyone else's on the left. System messages go in the middle. Images show inline, videos and voice notes get players, other files are links into `media/`. Everything that came from a message is escaped, and a link preview only becomes a clickable link when it starts with `http://` or `https://`.
+This is the default. It's one self-contained page that opens in any browser. The styling is inline, there is no JavaScript, and a Content-Security-Policy in the page blocks scripts and anything loaded from the network. Your messages sit on the right and everyone else's on the left. System messages go in the middle. Images show inline and videos and voice notes get players when their type is on the list above; every other file is a plain link into `media/`. Everything that came from a message is escaped, and a link preview only becomes a clickable link when it starts with `http://` or `https://`.
 
 ### Plain text
 
@@ -42,6 +44,8 @@ A `.txt` file that reads like a chat log:
 ```
 
 Quotes, attachments, links and reactions are indented under the message. Lines of a multi-line message are indented too, so no message text can pass itself off as a new message.
+
+Terminal control characters, and the bidi marks that can reorder a line, are replaced with U+FFFD in the text file, so `cat chat.txt` can't move your cursor, change colors or flip a line around. Tabs and newlines stay. The HTML and JSON files keep message text as it was sent, escaped, but strip the same characters out of names.
 
 ### JSON
 

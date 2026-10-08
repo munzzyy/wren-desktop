@@ -7,17 +7,12 @@ import {
   FALLBACK_CHAT_NAME,
   MAX_CHAT_NAME_LENGTH,
   getExportFolderName,
+  getMediaExtension,
   getMediaFileName,
+  getMediaKind,
   sanitizeChatName,
 } from '../../../wren/export/fileNames.std.ts';
 import { getUtcDateParts } from '../../../wren/export/time.std.ts';
-
-const lookup = (contentType: string): string | undefined =>
-  ({
-    'image/jpeg': 'jpg',
-    'video/quicktime': 'mov',
-    'image/svg+xml': 'svg+xml',
-  })[contentType];
 
 describe('wren/export/fileNames', () => {
   describe('sanitizeChatName', () => {
@@ -72,78 +67,153 @@ describe('wren/export/fileNames', () => {
   });
 
   describe('getMediaFileName', () => {
-    it('uses the original extension when it is safe', () => {
+    it('keeps the original extension when it matches the content type', () => {
       assert.strictEqual(
-        getMediaFileName(
-          {
-            messageId: 'abc',
-            index: 1,
-            fileName: 'Holiday.JPEG',
-            contentType: 'image/jpeg',
-          },
-          lookup
-        ),
+        getMediaFileName({
+          messageId: 'abc',
+          index: 1,
+          fileName: 'Holiday.JPEG',
+          contentType: 'image/jpeg',
+        }),
         'abc-1.jpeg'
+      );
+      assert.strictEqual(
+        getMediaFileName({
+          messageId: 'abc',
+          index: 2,
+          fileName: 'song.opus',
+          contentType: 'audio/ogg; codecs=opus',
+        }),
+        'abc-2.opus'
       );
     });
 
-    it('falls back to the content type for unsafe or missing extensions', () => {
+    it('uses the content type when the name is missing or odd', () => {
       assert.strictEqual(
-        getMediaFileName(
-          {
-            messageId: 'abc',
-            index: 2,
-            fileName: 'evil.jp g/../../x',
-            contentType: 'image/jpeg',
-          },
-          lookup
-        ),
+        getMediaFileName({
+          messageId: 'abc',
+          index: 2,
+          fileName: 'evil.jp g/../../x',
+          contentType: 'image/jpeg',
+        }),
         'abc-2.jpg'
       );
       assert.strictEqual(
-        getMediaFileName(
-          { messageId: 'abc', index: 3, contentType: 'video/quicktime' },
-          lookup
-        ),
+        getMediaFileName({
+          messageId: 'abc',
+          index: 3,
+          contentType: 'video/quicktime',
+        }),
         'abc-3.mov'
       );
       assert.strictEqual(
-        getMediaFileName(
-          {
-            messageId: 'abc',
-            index: 4,
-            fileName: '.bashrc',
-            contentType: 'x/y',
-          },
-          lookup
-        ),
+        getMediaFileName({
+          messageId: 'abc',
+          index: 4,
+          fileName: '.bashrc',
+          contentType: 'x/y',
+        }),
         'abc-4.bin'
       );
     });
 
-    it('rejects unsafe extensions from the lookup', () => {
+    it('never trusts a sender extension that differs from the type', () => {
+      const name = 'photo.html';
+      assert.match(name, /\.html$/, 'negative control');
       assert.strictEqual(
-        getMediaFileName(
-          { messageId: 'abc', index: 1, contentType: 'image/svg+xml' },
-          lookup
-        ),
-        'abc-1.bin'
+        getMediaFileName({
+          messageId: 'abc',
+          index: 1,
+          fileName: name,
+          contentType: 'image/png',
+        }),
+        'abc-1.png'
+      );
+      assert.strictEqual(
+        getMediaFileName({
+          messageId: 'abc',
+          index: 2,
+          fileName: 'page.png',
+          contentType: 'text/html',
+        }),
+        'abc-2.bin'
       );
     });
 
+    it('writes active types as .bin whatever they are called', () => {
+      const cases: ReadonlyArray<[string, string]> = [
+        ['image/svg+xml', 'x.svg'],
+        ['text/html', 'x.html'],
+        ['text/html', 'x.htm'],
+        ['application/xhtml+xml', 'x.xhtml'],
+        ['application/xml', 'x.xml'],
+        ['text/xml', 'x.xml'],
+        ['multipart/related', 'x.mht'],
+        ['text/javascript', 'x.js'],
+        ['application/hta', 'x.hta'],
+        ['application/x-msdownload', 'x.exe'],
+        ['application/octet-stream', 'x.scr'],
+        ['application/octet-stream', 'x.jpg'],
+        ['', 'x.html'],
+      ];
+      for (const [contentType, fileName] of cases) {
+        const result = getMediaFileName({
+          messageId: 'm',
+          index: 1,
+          fileName,
+          contentType,
+        });
+        assert.strictEqual(result, 'm-1.bin', `${contentType} ${fileName}`);
+      }
+    });
+
+    it('getMediaExtension never returns an active extension', () => {
+      const active = /^(html?|xhtml|svg|xml|mht|js|hta|exe|scr)$/;
+      const types = [
+        'image/jpeg',
+        'image/svg+xml',
+        'text/html',
+        'text/plain',
+        'application/pdf',
+        'audio/mpeg',
+      ];
+      const names = ['a.html', 'a.svg', 'a.js', 'a.exe', 'a', undefined];
+      for (const contentType of types) {
+        for (const fileName of names) {
+          assert.notMatch(getMediaExtension(fileName, contentType), active);
+        }
+      }
+      assert.match('html', active, 'negative control');
+    });
+
     it('never lets the message id escape the media folder', () => {
-      const name = getMediaFileName(
-        { messageId: '../../x/y', index: 1, contentType: 'image/jpeg' },
-        lookup
-      );
+      const name = getMediaFileName({
+        messageId: '../../x/y',
+        index: 1,
+        contentType: 'image/jpeg',
+      });
       assert.strictEqual(name, 'xy-1.jpg');
       assert.strictEqual(
-        getMediaFileName(
-          { messageId: '../', index: 1, contentType: 'image/jpeg' },
-          lookup
-        ),
+        getMediaFileName({
+          messageId: '../',
+          index: 1,
+          contentType: 'image/jpeg',
+        }),
         'message-1.jpg'
       );
+    });
+  });
+
+  describe('getMediaKind', () => {
+    it('names only passive image, video and audio types', () => {
+      assert.strictEqual(getMediaKind('image/png'), 'image');
+      assert.strictEqual(getMediaKind('IMAGE/JPEG; q=1'), 'image');
+      assert.strictEqual(getMediaKind('video/mp4'), 'video');
+      assert.strictEqual(getMediaKind('audio/aac'), 'audio');
+      assert.isUndefined(getMediaKind('image/svg+xml'));
+      assert.isUndefined(getMediaKind('text/html'));
+      assert.isUndefined(getMediaKind('application/pdf'));
+      assert.isUndefined(getMediaKind('constructor'));
     });
   });
 });

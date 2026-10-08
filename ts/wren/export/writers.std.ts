@@ -17,6 +17,8 @@ import {
   toIsoUtc,
   type GetDateParts,
 } from './time.std.ts';
+import { getMediaKind } from './fileNames.std.ts';
+import { cleanName, replaceUnsafeText } from './unsafeText.std.ts';
 
 export type Sink = (chunk: string) => void;
 
@@ -174,20 +176,20 @@ function createHtmlWriter(sink: Sink, getDateParts: GetDateParts): ChatWriter {
     const size = escapeHtml(formatSize(attachment.size));
     if (attachment.status === 'exported' && attachment.mediaPath) {
       const href = escapeHtml(encodeMediaPath(attachment.mediaPath));
-      const { contentType } = attachment;
-      if (contentType.startsWith('image/')) {
+      const kind = getMediaKind(attachment.contentType);
+      if (kind === 'image') {
         return (
           `<div class="att"><a href="${href}">` +
           `<img src="${href}" alt="${label}" loading="lazy"></a></div>`
         );
       }
-      if (contentType.startsWith('video/')) {
+      if (kind === 'video') {
         return (
           `<div class="att"><video controls preload="metadata" src="${href}">` +
           `</video><a href="${href}">${label}</a></div>`
         );
       }
-      if (contentType.startsWith('audio/')) {
+      if (kind === 'audio') {
         return (
           `<div class="att"><audio controls preload="none" src="${href}">` +
           `</audio><a href="${href}">${label}</a></div>`
@@ -476,6 +478,58 @@ function createJsonWriter(sink: Sink): ChatWriter {
   };
 }
 
+function cleanMessageNames(message: ExportMessage): ExportMessage {
+  return {
+    ...message,
+    authorName: cleanName(message.authorName),
+    quote: message.quote && {
+      ...message.quote,
+      authorName: cleanName(message.quote.authorName),
+      attachmentNames: message.quote.attachmentNames.map(cleanName),
+    },
+    reactions: message.reactions.map(reaction => ({
+      ...reaction,
+      emoji: cleanName(reaction.emoji),
+      fromName: cleanName(reaction.fromName),
+    })),
+    attachments: message.attachments.map(attachment => ({
+      ...attachment,
+      fileName:
+        attachment.fileName == null
+          ? undefined
+          : cleanName(attachment.fileName),
+    })),
+  };
+}
+
+function cleanMessageText(message: ExportMessage): ExportMessage {
+  return {
+    ...message,
+    body: replaceUnsafeText(message.body),
+    quote: message.quote && {
+      ...message.quote,
+      text: replaceUnsafeText(message.quote.text),
+    },
+    links: message.links.map(link => ({
+      ...link,
+      url: replaceUnsafeText(link.url),
+      title: link.title == null ? undefined : replaceUnsafeText(link.title),
+    })),
+  };
+}
+
+function cleaningWriter(
+  writer: ChatWriter,
+  cleanMessage: (message: ExportMessage) => ExportMessage
+): ChatWriter {
+  return {
+    writeHeader: chat =>
+      writer.writeHeader({ ...chat, name: cleanName(chat.name) }),
+    writeMessage: message => writer.writeMessage(cleanMessage(message)),
+    writeFooter: () => writer.writeFooter(),
+  };
+}
+
 export function createChatWriter(
   format: ExportFormat,
   sink: Sink,
@@ -483,11 +537,17 @@ export function createChatWriter(
 ): ChatWriter {
   switch (format) {
     case 'html':
-      return createHtmlWriter(sink, getDateParts);
+      return cleaningWriter(
+        createHtmlWriter(sink, getDateParts),
+        cleanMessageNames
+      );
     case 'text':
-      return createTextWriter(sink, getDateParts);
+      // chat.txt gets read in terminals, where escapes and bidi overrides act.
+      return cleaningWriter(createTextWriter(sink, getDateParts), message =>
+        cleanMessageText(cleanMessageNames(message))
+      );
     case 'json':
-      return createJsonWriter(sink);
+      return cleaningWriter(createJsonWriter(sink), cleanMessageNames);
     default:
       throw missingCaseError(format);
   }

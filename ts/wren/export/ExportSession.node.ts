@@ -5,7 +5,7 @@ import { constants as fsConstants, createWriteStream } from 'node:fs';
 import type { WriteStream } from 'node:fs';
 import { copyFile, mkdir, open, rm, stat } from 'node:fs/promises';
 import type { FileHandle } from 'node:fs/promises';
-import { isAbsolute, join, normalize } from 'node:path';
+import { extname, isAbsolute, join, normalize } from 'node:path';
 
 import { decryptAttachmentV2ToSink } from '../../AttachmentCrypto.node.ts';
 import { isPathInside } from '../../util/isPathInside.node.ts';
@@ -16,7 +16,11 @@ import {
   type ExportFormat,
   type ExportMessage,
 } from './model.std.ts';
-import { MEDIA_DIR, getExportFolderName } from './fileNames.std.ts';
+import {
+  MEDIA_DIR,
+  getExportFolderName,
+  getMediaExtension,
+} from './fileNames.std.ts';
 import { createChatWriter, type ChatWriter } from './writers.std.ts';
 import type { GetDateParts } from './time.std.ts';
 
@@ -215,7 +219,9 @@ export class ChatExportSession {
     const sourcePath = normalize(join(this.#attachmentsDir, source.path));
     if (
       !isPathInside(targetPath, mediaDir) ||
-      !isPathInside(sourcePath, this.#attachmentsDir)
+      !isPathInside(sourcePath, this.#attachmentsDir) ||
+      extname(targetPath) !==
+        `.${getMediaExtension(exportable.fileName, exportable.contentType)}`
     ) {
       return markMissing();
     }

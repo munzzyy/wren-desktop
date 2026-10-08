@@ -13,11 +13,7 @@ import type {
   ExportQuote,
   ExportReaction,
 } from './model.std.ts';
-import {
-  getMediaFileName,
-  getMediaPath,
-  type ExtensionLookup,
-} from './fileNames.std.ts';
+import { getMediaFileName, getMediaPath } from './fileNames.std.ts';
 
 const UNKNOWN_NAME = 'Unknown';
 
@@ -29,7 +25,6 @@ export type MapperContext = Readonly<{
   isSystemMessage: (message: ReadonlyMessageAttributesType) => boolean;
   describeMessage: (message: ReadonlyMessageAttributesType) => string;
   isVoiceMessage: (attachment: ReadonlyDeep<AttachmentType>) => boolean;
-  lookupExtension: ExtensionLookup;
 }>;
 
 export function renderMentions(
@@ -125,10 +120,12 @@ function mapAttachment(
     return { ...base, status: 'missing' };
   }
 
-  const mediaFileName = getMediaFileName(
-    { messageId, index, fileName: attachment.fileName, contentType },
-    context.lookupExtension
-  );
+  const mediaFileName = getMediaFileName({
+    messageId,
+    index,
+    fileName: attachment.fileName,
+    contentType,
+  });
   return {
     ...base,
     status: 'exported',

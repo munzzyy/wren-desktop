@@ -6,10 +6,7 @@ import { assert } from 'chai';
 import type { MessageAttributesType } from '../../../model-types.d.ts';
 import type { AciString } from '../../../types/ServiceId.std.ts';
 import { stringToMIMEType } from '../../../types/MIME.std.ts';
-import {
-  isVoiceMessage,
-  getFileExtension,
-} from '../../../util/Attachment.std.ts';
+import { isVoiceMessage } from '../../../util/Attachment.std.ts';
 import { DurationInSeconds } from '../../../util/durations/index.std.ts';
 import type { Emoji } from '../../../axo/emoji.std.ts';
 import {
@@ -42,8 +39,6 @@ function createContext(overrides: Partial<MapperContext> = {}): MapperContext {
     describeMessage: message =>
       message.type === 'timer-notification' ? 'Timer set to 1 hour' : '',
     isVoiceMessage,
-    lookupExtension: contentType =>
-      getFileExtension({ contentType: stringToMIMEType(contentType) }),
     ...overrides,
   };
 }

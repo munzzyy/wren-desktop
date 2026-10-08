@@ -6,8 +6,7 @@ import { ipcRenderer } from 'electron';
 import { DataReader } from '../../sql/Client.preload.ts';
 import { isNormalBubble } from '../../state/selectors/message.preload.ts';
 import { getNotificationDataForMessage } from '../../util/getNotificationDataForMessage.preload.ts';
-import { getFileExtension, isVoiceMessage } from '../../util/Attachment.std.ts';
-import { stringToMIMEType } from '../../types/MIME.std.ts';
+import { isVoiceMessage } from '../../util/Attachment.std.ts';
 import { isGroup } from '../../util/whatTypeOfConversation.dom.ts';
 import { strictAssert } from '../../util/assert.std.ts';
 import { createLogger } from '../../logging/log.std.ts';
@@ -82,8 +81,6 @@ function createMapperContext(includeMedia: boolean): MapperContext {
       }
     },
     isVoiceMessage,
-    lookupExtension: contentType =>
-      getFileExtension({ contentType: stringToMIMEType(contentType) }),
   };
 }
 
