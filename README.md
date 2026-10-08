@@ -25,13 +25,13 @@ Everything else Signal Desktop does, Wren Desktop does, because it is Signal Des
 
 ## How it compares
 
-|               | Signal Desktop | Wren Desktop                          |
-| ------------- | -------------- | ------------------------------------- |
-| App lock      | no             | yes                                   |
-| Duress wipe   | no             | yes, plus wipe after failed attempts  |
+|               | Signal Desktop         | Wren Desktop                            |
+| ------------- | ---------------------- | --------------------------------------- |
+| App lock      | no                     | yes                                     |
+| Duress wipe   | no                     | yes, plus wipe after failed attempts    |
 | Chat export   | JSON of all chats only | one chat: HTML, text or JSON with media |
-| Auto update   | yes            | no, you update from the releases page |
-| Signed builds | yes            | no                                    |
+| Auto update   | yes                    | no, you update from the releases page   |
+| Signed builds | yes                    | no                                      |
 
 ## Install
 
