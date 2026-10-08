@@ -11,15 +11,18 @@ Turn it on in Settings, Privacy, App lock. From then on Wren asks for your passp
 
 Your messages live in a SQLCipher database. Signal Desktop keeps that database key in `config.json` in the data folder, encrypted with your system keychain (Keychain on macOS, DPAPI on Windows, Secret Service or KWallet on Linux) through Electron's `safeStorage`, or in plain text when no keychain is around.
 
-When you set a passphrase I take that key out of the keychain path and wrap it with your passphrase instead:
+When you set a passphrase Wren gives the database a brand new random 32 byte key, re-encrypts every page of it under that key with SQLCipher's `PRAGMA rekey`, and wraps the new key with your passphrase instead of the keychain:
 
 - scrypt turns the passphrase into a 32 byte key, with N = 2^17, r = 8, p = 1 and a fresh random 16 byte salt. That costs about half a second and 128 MiB of memory per guess, on purpose.
 - AES-256-GCM with a fresh random 12 byte nonce encrypts the database key under it. The GCM tag means a wrong passphrase fails cleanly instead of producing a bad key.
 - The salt, the nonce and the wrapped key go into a `wrenLock` entry in `config.json`. The old `encryptedKey` and `key` entries are removed after Wren has checked that the new wrapped key opens.
+- The old key stops opening the database. A copy of `config.json` from before, or the old key pulled out of a backup, doesn't open the current database.
+
+While the rekey runs, the old key sits in `wrenLock` next to the new one, wrapped with the same passphrase. If Wren is killed halfway, the next unlock finishes the rekey and then drops the old key. Database access pauses for the few seconds the rekey takes; a big database takes longer.
 
 At startup Wren sees `wrenLock`, does not touch the database key and does not open the main window. It opens a small lock window instead. Once the passphrase unwraps the key, the key is held only in memory and startup carries on as normal. While the lock is on, the key is never written back to disk.
 
-Changing the passphrase asks for the current one and rewraps the same database key with a new salt and nonce. Turning the lock off asks for the passphrase and hands the key back to the keychain through the same code path Signal Desktop uses.
+Changing the passphrase asks for the current one and rewraps the same database key with a new salt and nonce. Turning the lock off asks for the passphrase and hands the current key back to the keychain through the same code path Signal Desktop uses.
 
 ## Duress passphrase
 
@@ -52,7 +55,7 @@ I want to be straight about the limits.
 
 - Another account on the same computer that can read your files. They can copy the data folder and try passphrases offline. scrypt slows that down; a weak passphrase still falls. The failed attempt counter only works on the lock screen, not against a copy.
 - Malware running as you. If something can read your memory or log your keys while Wren is unlocked, the passphrase and the key are exposed.
-- A copy of the data folder taken before you turned the lock on, or any time it was off, including old backups. That copy still has the keychain wrapped key.
+- A copy of the whole data folder taken before you turned the lock on, or while it was off, including old backups. That copy holds the old database together with the old key, so it opens. The rekey only makes sure the old key can't open the database you have now.
 - Files outside the database. Logs, `ephemeral.json` and some caches are not encrypted with the database key. Signal Desktop redacts its logs, but they still show when you used the app.
 - Swap, hibernation and crash dump files. The key sits in memory while Wren is unlocked, and the OS can write memory to disk. Encrypt your disk.
 - Free blocks on the disk. Removing the old `encryptedKey` entry rewrites `config.json`, but an SSD or a journaling filesystem can keep the old bytes for a while. Full disk encryption covers this too.

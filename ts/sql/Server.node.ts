@@ -5,7 +5,7 @@
 import type { RowType } from '@signalapp/sqlcipher';
 import SQL, { setLogger as setSqliteLogger } from '@signalapp/sqlcipher';
 import { randomBytes } from 'node:crypto';
-import { mkdirSync, rmSync } from 'node:fs';
+import { existsSync, mkdirSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import type { ReadonlyDeep } from 'type-fest';
 import { z } from 'zod';
@@ -966,6 +966,19 @@ function openAndMigrateDatabase(filePath: string, key: string): WritableDB {
   return db;
 }
 
+const WREN_KEY = /^[0-9a-f]{64}$/;
+
+// Wren: re-encrypt every page under a new key. The WAL is emptied before and
+// after so no frame under the old key is left for the next open to replay.
+export function rekeyDatabase(db: WritableDB, key: string): void {
+  if (!WREN_KEY.test(key)) {
+    throw new Error('rekeyDatabase: key must be 32 bytes of hex');
+  }
+  db.pragma('wal_checkpoint(TRUNCATE)');
+  db.pragma(`rekey = "x'${key}'"`);
+  db.pragma('wal_checkpoint(TRUNCATE)');
+}
+
 const INVALID_KEY = /[^0-9A-Fa-f]/;
 function openAndSetUpSQLCipher(filePath: string, { key }: { key: string }) {
   const match = INVALID_KEY.exec(key);
@@ -1021,14 +1034,50 @@ setSqliteLogger((code, message) => {
   logger.warn(`sqlite(${code}): ${message}`);
 });
 
+function opensWithKey(filePath: string, key: string): boolean {
+  const db = new SQL(filePath) as WritableDB;
+  try {
+    keyDatabase(db, key);
+    db.prepare('SELECT count(*) FROM sqlite_master').get();
+    return true;
+  } catch {
+    return false;
+  } finally {
+    db.close();
+  }
+}
+
+// Wren: a rekey that was cut short leaves the database under either key.
+export function finishInterruptedRekey(
+  filePath: string,
+  key: string,
+  previousKey: string
+): void {
+  if (!existsSync(filePath) || opensWithKey(filePath, key)) {
+    return;
+  }
+  if (!opensWithKey(filePath, previousKey)) {
+    throw new Error('initialize: neither the new nor the previous key opens');
+  }
+  logger.warn('initialize: finishing an interrupted rekey');
+  const db = openAndSetUpSQLCipher(filePath, { key: previousKey });
+  try {
+    rekeyDatabase(db, key);
+  } finally {
+    db.close();
+  }
+}
+
 export function initialize({
   configDir,
   key,
+  previousKey,
   isPrimary,
 }: {
   appVersion: string;
   configDir: string;
   key: string;
+  previousKey?: string;
   isPrimary: boolean;
 }): WritableDB {
   if (!isString(configDir)) {
@@ -1048,6 +1097,9 @@ export function initialize({
   let db: WritableDB | undefined;
 
   try {
+    if (isPrimary && previousKey !== undefined) {
+      finishInterruptedRekey(databaseFilePath, key, previousKey);
+    }
     db = openAndSetUpSQLCipher(databaseFilePath, {
       key,
     });

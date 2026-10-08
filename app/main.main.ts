@@ -145,7 +145,10 @@ import { getAppRootDir } from '../ts/util/appRootDir.main.ts';
 import { trackHeapSize } from '../ts/util/oomNotifier.node.ts';
 import { sendDummyKeystroke } from './WindowsNotifications.main.ts';
 import { maybeMigrateSafeStorageBackend } from '../ts/util/linuxPasswordStoreMigration.main.ts';
-import { LockController } from '../ts/wren/lock/lockController.main.ts';
+import {
+  LockController,
+  type UnlockedKeyType,
+} from '../ts/wren/lock/lockController.main.ts';
 import { ProxyController } from '../ts/wren/proxy/proxyController.main.ts';
 import { getActiveProxyUrl } from '../ts/wren/proxy/activeProxy.std.ts';
 
@@ -702,6 +705,7 @@ const wrenLock = new LockController({
   getI18n: () => getResolvedMessagesLocale().i18n,
   getTheme: () => getResolvedThemeSetting({ ephemeralOnly: true }),
   getSqlKeyFromKeychain: () => getSQLKey(),
+  rekeyDatabase: key => sql.rekey(key),
   relaunch: appRelaunch,
   loadURL: safeLoadURL,
 });
@@ -1906,13 +1910,13 @@ function handleSafeStorageDecryptionError(): 'continue' | 'quit' {
 
 async function initializeSQL(
   userDataPath: string,
-  unlockedKey: string | undefined
+  unlocked: UnlockedKeyType | undefined
 ): Promise<{ ok: true; error: undefined } | { ok: false; error: Error }> {
   sqlInitTimeStart = Date.now();
 
   let key: string;
   try {
-    key = unlockedKey ?? getSQLKey();
+    key = unlocked?.key ?? getSQLKey();
   } catch (error) {
     try {
       // Initialize with *some* key to setup paths
@@ -1944,6 +1948,7 @@ async function initializeSQL(
       appVersion: app.getVersion(),
       configDir: userDataPath,
       key,
+      previousKey: unlocked?.previousKey,
       logger: log,
     });
   } catch (error: unknown) {
@@ -2265,13 +2270,13 @@ app.on('ready', async () => {
 
   resolveTranslationsLocale();
 
-  const unlockedKey = wrenLock.isEnabled()
+  const unlocked = wrenLock.isEnabled()
     ? await wrenLock.waitForUnlock(userDataPath)
     : undefined;
   wrenLock.installSettingsHandlers();
   wrenProxy.installHandlers();
 
-  sqlInitPromise = initializeSQL(userDataPath, unlockedKey);
+  sqlInitPromise = initializeSQL(userDataPath, unlocked);
 
   // First run: configure Signal to minimize to tray. Additionally, on Windows
   // enable auto-start with start-in-tray so that starting from a Desktop icon
@@ -2502,6 +2507,7 @@ app.on('ready', async () => {
 
     return;
   }
+  wrenLock.finishPendingRekey();
 
   try {
     const IDB_KEY = 'indexeddb-delete-needed';

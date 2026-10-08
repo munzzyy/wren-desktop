@@ -1,6 +1,7 @@
 // Copyright 2026 Cole Munz
 // SPDX-License-Identifier: AGPL-3.0-only
 
+import { randomBytes } from 'node:crypto';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import type { IpcMainInvokeEvent, WebContents } from 'electron';
@@ -62,8 +63,15 @@ export type LockControllerOptionsType = Readonly<{
   getI18n: () => LocalizerType;
   getTheme: () => Promise<'light' | 'dark'>;
   getSqlKeyFromKeychain: () => string;
+  rekeyDatabase: (key: string) => Promise<void>;
   relaunch: () => void;
   loadURL: (window: BrowserWindow, url: string) => Promise<void>;
+}>;
+
+export type UnlockedKeyType = Readonly<{
+  key: string;
+  // Set only when a rekey was cut short; the database opens under one of them.
+  previousKey?: string;
 }>;
 
 function isPassphrase(value: unknown): value is string {
@@ -109,7 +117,7 @@ export class LockController {
     this.#lockWindow.focus();
   }
 
-  async waitForUnlock(userDataPath: string): Promise<string> {
+  async waitForUnlock(userDataPath: string): Promise<UnlockedKeyType> {
     const { log, getI18n } = this.#options;
     const initial = this.#readState();
     if (!initial) {
@@ -122,11 +130,11 @@ export class LockController {
         noLink: true,
       });
       app.exit(1);
-      return new Promise<string>(() => undefined);
+      return new Promise<UnlockedKeyType>(() => undefined);
     }
 
     this.#unlockPending = true;
-    const { promise, resolve } = explodePromise<string>();
+    const { promise, resolve } = explodePromise<UnlockedKeyType>();
     const window = await this.#createLockWindow();
     let unlocked = false;
 
@@ -161,7 +169,7 @@ export class LockController {
         this.#busy = true;
         try {
           const result = await this.#tryUnlock(passphrase, userDataPath);
-          if (typeof result === 'string') {
+          if ('key' in result) {
             unlocked = true;
             resolve(result);
             setImmediate(() => {
@@ -195,14 +203,14 @@ export class LockController {
   installSettingsHandlers(): void {
     const handle = (
       channel: string,
-      fn: (...args: Array<unknown>) => LockResultType
+      fn: (...args: Array<unknown>) => LockResultType | Promise<LockResultType>
     ) => {
       ipcMain.handle(channel, async (_event, ...args: Array<unknown>) => {
         if (this.#unlockPending) {
           return failure('failed');
         }
         try {
-          return fn(...args);
+          return await fn(...args);
         } catch (error) {
           this.#options.log.error(
             `wren-lock: ${channel} failed`,
@@ -373,7 +381,11 @@ export class LockController {
     return this.#ok();
   }
 
-  #enable(passphrase: unknown): LockResultType {
+  // The lock gets a database key of its own, so a copy of config.json or a
+  // backup from before still holds only the old key, which no longer opens
+  // anything. The old key stays wrapped next to the new one until the rekey
+  // is done, so a crash in between is finished on the next unlock.
+  async #enable(passphrase: unknown): Promise<LockResultType> {
     if (!isPassphrase(passphrase)) {
       return failure('failed');
     }
@@ -384,25 +396,53 @@ export class LockController {
       return failure('too-short');
     }
 
-    const key = this.#options.getSqlKeyFromKeychain();
-    this.#writeState({
+    const { getSqlKeyFromKeychain, rekeyDatabase, log } = this.#options;
+    const oldKey = getSqlKeyFromKeychain();
+    const newKey = randomBytes(32).toString('hex');
+    const pending: LockStateType = {
       version: 1,
-      ...wrapKey(key, passphrase),
+      ...wrapKey(newKey, passphrase),
+      previous: wrapKey(oldKey, passphrase),
       wipeAfter: 0,
       failedAttempts: 0,
       autoLockMinutes: 0,
       lockOnSystemLock: false,
-    });
+    };
+    this.#writeState(pending);
 
     const written = this.#readState();
-    if (!written || unwrapKey(written, passphrase) !== key) {
+    if (
+      !written ||
+      written.previous?.wrappedKey !== pending.previous?.wrappedKey ||
+      unwrapKey(written, passphrase) !== newKey
+    ) {
       this.#writeState(undefined);
       return failure('failed');
     }
 
     this.#scrubKeychainKey();
-    this.#options.log.info('wren-lock: passphrase lock turned on');
+    try {
+      await rekeyDatabase(newKey);
+    } catch (error) {
+      log.error(
+        'wren-lock: the database rekey failed, restarting to finish it',
+        Errors.toLogFormat(error)
+      );
+      setImmediate(() => this.#lockNow('rekey'));
+      return failure('failed');
+    }
+
+    this.finishPendingRekey();
+    log.info('wren-lock: passphrase lock turned on with a new database key');
     return this.#ok();
+  }
+
+  finishPendingRekey(): void {
+    const state = this.#readState();
+    if (state?.previous) {
+      this.#writeState({ ...state, previous: undefined });
+      this.#options.log.info('wren-lock: database rekey finished');
+    }
   }
 
   #change(current: unknown, next: unknown): LockResultType {
@@ -410,7 +450,7 @@ export class LockController {
     if (!state) {
       return failure('not-enabled');
     }
-    if (!isPassphrase(current) || !isPassphrase(next)) {
+    if (!isPassphrase(current) || !isPassphrase(next) || state.previous) {
       return failure('failed');
     }
     if (!isLongEnough(next)) {
@@ -434,7 +474,7 @@ export class LockController {
     if (!state) {
       return failure('not-enabled');
     }
-    if (!isPassphrase(current)) {
+    if (!isPassphrase(current) || state.previous) {
       return failure('failed');
     }
     const key = unwrapKey(state, current);
@@ -475,7 +515,7 @@ export class LockController {
   async #tryUnlock(
     passphrase: string,
     userDataPath: string
-  ): Promise<string | UnlockResultType> {
+  ): Promise<UnlockedKeyType | UnlockResultType> {
     const state = this.#readState();
     if (!state) {
       throw new Error('wren-lock: lock settings disappeared');
@@ -504,7 +544,12 @@ export class LockController {
     if (attempt.kind === 'unlocked') {
       this.#scrubKeychainKey();
       log.info('wren-lock: unlocked');
-      return attempt.key;
+      const previousKey = state.previous
+        ? unwrapKey(state.previous, passphrase)
+        : undefined;
+      return previousKey === undefined
+        ? { key: attempt.key }
+        : { key: attempt.key, previousKey };
     }
     if (attempt.kind === 'duress') {
       await this.#wipe(userDataPath);

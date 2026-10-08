@@ -38,6 +38,21 @@ describe('wren/lock/lockState', () => {
     assert.deepEqual(parseLockState(serialized), withoutDuress);
   });
 
+  it('keeps the previous key during a rekey and rejects a damaged one', () => {
+    const previous = {
+      salt: '11'.repeat(16),
+      nonce: '22'.repeat(12),
+      wrappedKey: '33'.repeat(48),
+    };
+    const pending = { ...STATE, previous };
+    const stored = JSON.parse(JSON.stringify(serializeLockState(pending)));
+    assert.deepEqual(parseLockState(stored), pending);
+    assert.notProperty(serializeLockState(STATE), 'previous');
+    assert.isUndefined(
+      parseLockState({ ...stored, previous: { ...previous, nonce: 'xyz' } })
+    );
+  });
+
   it('never serializes anything but the listed fields', () => {
     const serialized = serializeLockState({
       ...STATE,

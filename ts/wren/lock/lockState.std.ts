@@ -41,12 +41,20 @@ export function shouldAutoLock(
   return autoLockMinutes > 0 && idleSeconds >= autoLockMinutes * 60;
 }
 
+export type WrappedKeyStateType = Readonly<{
+  salt: string;
+  nonce: string;
+  wrappedKey: string;
+}>;
+
 export type LockStateType = Readonly<{
   version: 1;
   salt: string;
   nonce: string;
   wrappedKey: string;
   duress?: Readonly<{ salt: string; verifier: string }>;
+  // The database key from before a rekey that hasn't finished yet.
+  previous?: WrappedKeyStateType;
   wipeAfter: WipeAfterType;
   failedAttempts: number;
   autoLockMinutes: AutoLockMinutesType;
@@ -73,6 +81,7 @@ export function parseLockState(value: unknown): LockStateType | undefined {
     nonce,
     wrappedKey,
     duress,
+    previous,
     wipeAfter,
     failedAttempts,
     autoLockMinutes,
@@ -95,12 +104,30 @@ export function parseLockState(value: unknown): LockStateType | undefined {
     parsedDuress = { salt: duress.salt, verifier: duress.verifier };
   }
 
+  let parsedPrevious: LockStateType['previous'];
+  if (previous !== undefined) {
+    if (
+      !isRecord(previous) ||
+      !isHexString(previous.salt) ||
+      !isHexString(previous.nonce) ||
+      !isHexString(previous.wrappedKey)
+    ) {
+      return undefined;
+    }
+    parsedPrevious = {
+      salt: previous.salt,
+      nonce: previous.nonce,
+      wrappedKey: previous.wrappedKey,
+    };
+  }
+
   return {
     version: 1,
     salt,
     nonce,
     wrappedKey,
     ...(parsedDuress ? { duress: parsedDuress } : {}),
+    ...(parsedPrevious ? { previous: parsedPrevious } : {}),
     wipeAfter: isWipeAfter(wipeAfter) ? wipeAfter : 0,
     failedAttempts:
       typeof failedAttempts === 'number' &&
@@ -124,6 +151,15 @@ export function serializeLockState(
     ...(state.duress
       ? {
           duress: { salt: state.duress.salt, verifier: state.duress.verifier },
+        }
+      : {}),
+    ...(state.previous
+      ? {
+          previous: {
+            salt: state.previous.salt,
+            nonce: state.previous.nonce,
+            wrappedKey: state.previous.wrappedKey,
+          },
         }
       : {}),
     wipeAfter: state.wipeAfter,
