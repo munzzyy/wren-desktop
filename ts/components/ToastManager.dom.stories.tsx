@@ -71,6 +71,11 @@ function getToast(toastType: ToastType): AnyToast {
       return { toastType: ToastType.CaptchaFailed };
     case ToastType.CaptchaSolved:
       return { toastType: ToastType.CaptchaSolved };
+    case ToastType.ChatExported:
+      return {
+        toastType: ToastType.ChatExported,
+        parameters: { fullPath: '/Book Club 2026-10-08 1403/chat.html' },
+      };
     case ToastType.ChatFolderAddedChat:
       return {
         toastType: ToastType.ChatFolderCreated,

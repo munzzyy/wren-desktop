@@ -65,6 +65,10 @@ import { AxoIconButton } from '../../axo/AxoIconButton.dom.tsx';
 import { AxoButton } from '../../axo/AxoButton.dom.tsx';
 import { AxoConfirmDialog } from '../../axo/AxoConfirmDialog.dom.tsx';
 import { getControlOrAltKey } from '../../hooks/useKeyboardShortcuts.dom.tsx';
+import {
+  ExportChatDialog,
+  type ExportChatRunner,
+} from './ExportChatDialog.dom.tsx';
 
 function HeaderInfoTitle({
   name,
@@ -182,6 +186,7 @@ export type PropsActionsType = {
   onConversationUnpin: () => void;
   onConversationReportSpam: () => void;
   onConversationUnarchive: () => void;
+  onExportChat: ExportChatRunner;
   onOutgoingAudioCall: () => void;
   onOutgoingVideoCall: () => void;
   onSearchInConversation: () => void;
@@ -231,6 +236,7 @@ export const ConversationHeader = memo(function ConversationHeader({
   onConversationReportSpam,
   onConversationUnarchive,
   onConversationUnpin,
+  onExportChat,
   onOutgoingAudioCall,
   onOutgoingVideoCall,
   onSearchInConversation,
@@ -261,6 +267,7 @@ export const ConversationHeader = memo(function ConversationHeader({
   ] = useState(false);
   const [hasDeleteMessagesConfirmation, setHasDeleteMessagesConfirmation] =
     useState(false);
+  const [hasExportChatDialog, setHasExportChatDialog] = useState(false);
   const [hasLeaveGroupConfirmation, setHasLeaveGroupConfirmation] =
     useState(false);
   const [
@@ -324,6 +331,15 @@ export const ConversationHeader = memo(function ConversationHeader({
             setHasDeleteMessagesConfirmation(false);
           }}
           areWeMember={areWeMember}
+        />
+      )}
+      {hasExportChatDialog && (
+        <ExportChatDialog
+          i18n={i18n}
+          onClose={() => {
+            setHasExportChatDialog(false);
+          }}
+          onExport={onExportChat}
         />
       )}
       {hasLeaveGroupConfirmation && (
@@ -438,6 +454,9 @@ export const ConversationHeader = memo(function ConversationHeader({
                   }}
                   onConversationDeleteMessages={() => {
                     setHasDeleteMessagesConfirmation(true);
+                  }}
+                  onExportChat={() => {
+                    setHasExportChatDialog(true);
                   }}
                   onConversationLeaveGroup={() => {
                     if (cannotLeaveBecauseYouAreLastAdmin) {
@@ -655,6 +674,7 @@ function HeaderDropdownMenuContent({
   onConversationUnarchive,
   onConversationUnblock,
   onConversationUnpin,
+  onExportChat,
   onSelectModeEnter,
   onSetupCustomDisappearingTimeout,
   onShowMembers,
@@ -681,6 +701,7 @@ function HeaderDropdownMenuContent({
   onConversationUnarchive: () => void;
   onConversationUnblock: () => void;
   onConversationUnpin: () => void;
+  onExportChat: () => void;
   onSelectModeEnter: () => void;
   onSetupCustomDisappearingTimeout: () => void;
   onShowMembers: () => void;
@@ -769,6 +790,9 @@ function HeaderDropdownMenuContent({
         </AxoDropdownMenu.Item>
         <AxoDropdownMenu.Item symbol="album" onSelect={onViewAllMedia}>
           {i18n('icu:allMediaMenuItem')}
+        </AxoDropdownMenu.Item>
+        <AxoDropdownMenu.Item symbol="share" onSelect={onExportChat}>
+          {i18n('icu:ConversationHeader__menu__exportChat')}
         </AxoDropdownMenu.Item>
         <AxoDropdownMenu.Separator />
         {conversation.isArchived ? (
@@ -894,6 +918,9 @@ function HeaderDropdownMenuContent({
           ) : null}
           <AxoDropdownMenu.Item symbol="album" onSelect={onViewAllMedia}>
             {i18n('icu:allMediaMenuItem')}
+          </AxoDropdownMenu.Item>
+          <AxoDropdownMenu.Item symbol="share" onSelect={onExportChat}>
+            {i18n('icu:ConversationHeader__menu__exportChat')}
           </AxoDropdownMenu.Item>
           <AxoDropdownMenu.Separator />
           <AxoDropdownMenu.Item
