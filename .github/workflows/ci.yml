@@ -96,7 +96,7 @@ jobs:
   macos:
     name: macOS
     runs-on: macos-latest
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    if: github.event.repository.private == false
     timeout-minutes: 30
     steps:
       - name: Checkout code
