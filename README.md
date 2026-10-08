@@ -11,6 +11,31 @@ It is the desktop sibling of Wren for Android, a fork of Molly. It is built
 from Signal Desktop's main branch at 8.33.0-alpha.1, not from a release tag;
 the first Wren Desktop release will move to Signal's next stable tag first. Signal Desktop has no app lock, no wipe and no way to export a single chat. Wren Desktop is my attempt at filling those gaps.
 
+## Why Wren Desktop instead of Signal Desktop or Molly
+
+Signal Desktop opens straight into your messages for anyone at your keyboard,
+keeps the database key in a config file guarded only by the OS keyring, has
+no proxy setting beyond an environment variable, and cannot export a chat.
+Signal has turned down an app lock for years. Molly, the hardened Android
+client, has no desktop app at all, so Molly users run plain Signal Desktop
+next to a locked phone.
+
+Wren Desktop closes that gap:
+
+- A passphrase lock. The database key is wrapped with scrypt and AES-GCM and
+  the plain key leaves the config file and the keyring while the lock is on;
+  turning the lock on also gives the database a fresh key, so an old copy of
+  the config cannot open it.
+- Erase under pressure. A duress passphrase and a limit on wrong tries, both
+  of which erase the data folder, and a lock that fires on idle, on screen
+  lock, on quit, or from the File menu.
+- A proxy and Tor setting that refuses to connect any other way. When the
+  proxy is down Wren Desktop stays offline instead of leaking a direct
+  connection, and the limits of that (calls, GIF search, a race inside
+  libsignal) are written down in [docs/PROXY.md](docs/PROXY.md).
+- Chat export to HTML, text or JSON with the attachments, from the chat menu.
+- The passphrase asked again before an export or before the lock gets weaker.
+
 ## What it adds
 
 These are in the code now. They have unit tests, type checks and lint behind them, and they have not yet been through a round of use on real machines by anyone but me, so treat the first release as a beta.
@@ -25,13 +50,14 @@ Everything else Signal Desktop does, Wren Desktop does, because it is Signal Des
 
 ## How it compares
 
-|               | Signal Desktop         | Wren Desktop                            |
-| ------------- | ---------------------- | --------------------------------------- |
-| App lock      | no                     | yes                                     |
-| Duress wipe   | no                     | yes, plus wipe after failed attempts    |
-| Chat export   | JSON of all chats only | one chat: HTML, text or JSON with media |
-| Auto update   | yes                    | no, you update from the releases page   |
-| Signed builds | yes                    | no                                      |
+|               | Signal Desktop         | Molly          | Wren Desktop                            |
+| ------------- | ---------------------- | -------------- | --------------------------------------- |
+| App lock      | no                     | no desktop app | yes                                     |
+| Duress wipe   | no                     | no desktop app | yes, plus wipe after failed attempts    |
+| Proxy and Tor | env variable only      | no desktop app | setting, fails closed                   |
+| Chat export   | JSON of all chats only | no desktop app | one chat: HTML, text or JSON with media |
+| Auto update   | yes                    | no desktop app | no, you update from the releases page   |
+| Signed builds | yes                    | no desktop app | no                                      |
 
 ## Install
 
