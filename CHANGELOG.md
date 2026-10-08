@@ -3,7 +3,7 @@
 
 # Changelog
 
-## Unreleased
+## 0.1.0 (2026-10-08)
 
 Forked from Signal Desktop's main branch at 8.33.0-alpha.1 (an unreleased snapshot; the first release rebases onto Signal's next stable tag).
 

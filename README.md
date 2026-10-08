@@ -7,16 +7,20 @@
 
 Wren Desktop is a fork of [Signal Desktop](https://github.com/signalapp/Signal-Desktop). You link it to your phone the same way you link Signal Desktop, as another device on your account. It talks to Signal's servers, so your contacts, groups and calls stay where they are.
 
-It is the desktop sibling of Wren for Android, a fork of Molly. It is built
-from Signal Desktop's main branch at 8.33.0-alpha.1, not from a release tag;
-the first Wren Desktop release will move to Signal's next stable tag first. Signal Desktop has no app lock, no wipe and no way to export a single chat. Wren Desktop is my attempt at filling those gaps.
+It is the desktop sibling of Wren for Android, a fork of Molly. Version 0.1.0
+is built from Signal Desktop's main branch at 8.33.0-alpha.1, not from a
+release tag, which is why the file names carry 8.33.0-alpha.1 and the release
+is marked a pre-release. The next release moves to Signal's next stable tag. Signal Desktop has no app lock, no wipe and no way to export a single chat. Wren Desktop is my attempt at filling those gaps.
 
 ## Why Wren Desktop instead of Signal Desktop or Molly
 
 Signal Desktop opens straight into your messages for anyone at your keyboard,
 keeps the database key in a config file guarded only by the OS keyring, has
-no proxy setting beyond an environment variable, and cannot export a chat.
-Signal has turned down an app lock for years. Molly, the hardened Android
+no proxy setting beyond an environment variable, and can only export every
+chat at once as JSON. Signal Desktop has closed app-lock requests for years
+([#1850](https://github.com/signalapp/Signal-Desktop/issues/1850),
+[#2679](https://github.com/signalapp/Signal-Desktop/issues/2679),
+[#4397](https://github.com/signalapp/Signal-Desktop/issues/4397)). Molly, the hardened Android
 client, has no desktop app at all, so Molly users run plain Signal Desktop
 next to a locked phone.
 
@@ -29,23 +33,18 @@ Wren Desktop closes that gap:
 - Erase under pressure. A duress passphrase and a limit on wrong tries, both
   of which erase the data folder, and a lock that fires on idle, on screen
   lock, on quit, or from the File menu.
-- A proxy and Tor setting that refuses to connect any other way. When the
-  proxy is down Wren Desktop stays offline instead of leaking a direct
-  connection, and the limits of that (calls, GIF search, a race inside
-  libsignal) are written down in [docs/PROXY.md](docs/PROXY.md).
+- A proxy and Tor setting that keeps Wren Desktop offline when the proxy is
+  down instead of leaking a direct connection. One limit is real and written
+  down in [docs/PROXY.md](docs/PROXY.md): Signal's own network library can
+  still race a direct connection while a proxy is slow, so pair the setting
+  with the firewall rule in that document. Calls and GIF search cannot be
+  proxied and are refused in strict mode.
 - Chat export to HTML, text or JSON with the attachments, from the chat menu.
 - The passphrase asked again before an export or before the lock gets weaker.
 
 ## What it adds
 
-These are in the code now. They have unit tests, type checks and lint behind them, and they have not yet been through a round of use on real machines by anyone but me, so treat the first release as a beta.
-
-- A passphrase lock. The database key is wrapped with a key derived from your passphrase using scrypt and AES-GCM, and the plain key leaves the config file and the OS keyring while the lock is on. Settings, Privacy, App lock. Lock at any time from the File menu or with Ctrl+Alt+L.
-- A duress passphrase. Type it at the lock screen instead of your real one and Wren Desktop erases the database and its keys.
-- Wipe after failed attempts. After a set number of wrong passphrases the data is erased.
-- Auto-lock after you have been away for a while.
-- Export of one chat to HTML, plain text or JSON, with the attachments next to it, from the chat's menu.
-
+The list above is what is in the code now. They have unit tests, type checks and lint behind them, and they have not yet been through a round of use on real machines by anyone but me, so treat the first release as a beta.
 Everything else Signal Desktop does, Wren Desktop does, because it is Signal Desktop underneath.
 
 ## How it compares
@@ -54,14 +53,14 @@ Everything else Signal Desktop does, Wren Desktop does, because it is Signal Des
 | ------------- | ---------------------- | -------------- | --------------------------------------- |
 | App lock      | no                     | no desktop app | yes                                     |
 | Duress wipe   | no                     | no desktop app | yes, plus wipe after failed attempts    |
-| Proxy and Tor | env variable only      | no desktop app | setting, fails closed                   |
+| Proxy and Tor | env variable only      | no desktop app | setting, offline when the proxy is down |
 | Chat export   | JSON of all chats only | no desktop app | one chat: HTML, text or JSON with media |
 | Auto update   | yes                    | no desktop app | no, you update from the releases page   |
 | Signed builds | yes                    | no desktop app | no                                      |
 
 ## Install
 
-There is no release yet. When there is one, the [releases page](https://github.com/munzzyy/wren-desktop/releases) will carry a `.deb` and an `.AppImage` for Linux, an installer `.exe` for Windows, and a `.dmg` and `.zip` for macOS, plus a `SHA256SUMS` file. Check the sum of what you downloaded against it.
+The first release is 0.1.0. The [releases page](https://github.com/munzzyy/wren-desktop/releases) carries a `.deb` and an `.AppImage` for Linux, an installer `.exe` for Windows, and a `.dmg` and `.zip` for macOS, plus a `SHA256SUMS` file. Check the sum of what you downloaded against it. If the page is empty, the release is being published; [docs/BUILDING.md](docs/BUILDING.md) has the build.
 
 The builds are unsigned. I have no code signing certificate and no Apple notarization, so each system complains in its own way.
 
