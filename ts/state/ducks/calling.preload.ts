@@ -80,6 +80,7 @@ import * as mapUtil from '../../util/mapUtil.std.ts';
 import { isCallSafe } from '../../util/isCallSafe.dom.ts';
 import { isDirectConversation } from '../../util/whatTypeOfConversation.dom.ts';
 import { SHOW_TOAST } from './toast.preload.ts';
+import { isDirectFeatureAllowedHere } from '../../wren/proxy/proxyPolicy.dom.ts';
 import { ToastType } from '../../types/Toast.dom.tsx';
 import type { ShowToastActionType } from './toast.preload.ts';
 import type { BoundActionCreatorsMapObject } from '../../hooks/useBoundActions.std.ts';
@@ -454,7 +455,9 @@ type StartCallLinkLobbyThunkActionType = ReadonlyDeep<
     void,
     RootStateType,
     unknown,
-    StartCallLinkLobbyActionType | ShowErrorModalActionType
+    | StartCallLinkLobbyActionType
+    | ShowErrorModalActionType
+    | ShowToastActionType
   >
 >;
 
@@ -2472,12 +2475,21 @@ const _startCallLinkLobby = async ({
     | CallLobbyFailedActionType
     | StartCallLinkLobbyActionType
     | ShowErrorModalActionType
+    | ShowToastActionType
     | ToggleConfirmLeaveCallModalActionType
     | TogglePipActionType
     | WaitingForCallLinkLobbyActionType
   >;
   getState: () => RootStateType;
 }) => {
+  if (!isDirectFeatureAllowedHere('calls')) {
+    dispatch({
+      type: SHOW_TOAST,
+      payload: { toastType: ToastType.CallsBlockedByProxy },
+    });
+    return;
+  }
+
   const callLinkRootKey = CallLinkRootKey.parse(rootKey);
   const roomId = getRoomIdFromRootKey(callLinkRootKey);
   const state = getState();
@@ -2660,12 +2672,20 @@ function startCallingLobby({
   RootStateType,
   unknown,
   | CallLobbyFailedActionType
+  | ShowToastActionType
   | StartCallingLobbyActionType
   | ToggleConfirmLeaveCallModalActionType
   | TogglePipActionType
   | WaitingForCallingLobbyActionType
 > {
   return async (dispatch, getState) => {
+    if (!isDirectFeatureAllowedHere('calls')) {
+      dispatch({
+        type: SHOW_TOAST,
+        payload: { toastType: ToastType.CallsBlockedByProxy },
+      });
+      return;
+    }
     const state = getState();
     const conversation = getOwn(
       state.conversations.conversationLookup,

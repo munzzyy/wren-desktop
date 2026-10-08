@@ -8,6 +8,7 @@ import type {
 import { createLogger } from '../logging/log.std.ts';
 import { SECOND } from '../util/durations/index.std.ts';
 import { electronLookup } from '../util/dns.node.ts';
+import { isDirectFeatureAllowedHere } from '../wren/proxy/proxyPolicy.dom.ts';
 import { drop } from '../util/drop.std.ts';
 import { SocketStatus } from '../types/SocketStatus.std.ts';
 
@@ -55,6 +56,9 @@ export function initializeNetworkObserver(
   let outageTimer: NodeJS.Timeout | undefined;
 
   const checkOutage = async (): Promise<void> => {
+    if (!isDirectFeatureAllowedHere('outage-dns-check')) {
+      return;
+    }
     electronLookup('uptime.signal.org', { all: false }, (error, address) => {
       if (error) {
         log.error('outage check failure', error);

@@ -12388,5 +12388,165 @@
   "icu:WrenLock__error-failed": {
     "messageformat": "Something went wrong. Try again.",
     "description": "Passphrase dialog: generic error"
+  },
+  "icu:WrenProxy__section": {
+    "messageformat": "Proxy",
+    "description": "Settings > Privacy > Proxy: section header"
+  },
+  "icu:WrenProxy__section-footer": {
+    "messageformat": "Wren sends its connections to Signal through this proxy. Calls cannot use a proxy. One gap is left: Signal's network library can still try a direct connection when the proxy is slow, so use a firewall if a direct connection must never happen. PROXY.md in the source explains it. Changes apply the next time Wren starts.",
+    "description": "Settings > Privacy > Proxy: footer under the proxy section"
+  },
+  "icu:WrenProxy__mode-label": {
+    "messageformat": "Connect through",
+    "description": "Settings > Privacy > Proxy: label of the proxy type picker"
+  },
+  "icu:WrenProxy__mode-description": {
+    "messageformat": "Hide your IP address from Signal and your network by routing Wren through a proxy.",
+    "description": "Settings > Privacy > Proxy: description under the proxy type picker when Tor is not selected"
+  },
+  "icu:WrenProxy__tor-description": {
+    "messageformat": "Tor running on this computer at {host}, port {port}. Tor Browser listens on {browserPort} instead.",
+    "description": "Settings > Privacy > Proxy: description under the proxy type picker when Tor is selected"
+  },
+  "icu:WrenProxy__mode-off": {
+    "messageformat": "No proxy",
+    "description": "Settings > Privacy > Proxy: proxy type option: none"
+  },
+  "icu:WrenProxy__mode-tor": {
+    "messageformat": "Tor",
+    "description": "Settings > Privacy > Proxy: proxy type option: Tor on this computer"
+  },
+  "icu:WrenProxy__mode-socks5": {
+    "messageformat": "SOCKS5 proxy",
+    "description": "Settings > Privacy > Proxy: proxy type option: a SOCKS5 proxy"
+  },
+  "icu:WrenProxy__mode-http": {
+    "messageformat": "HTTP proxy",
+    "description": "Settings > Privacy > Proxy: proxy type option: an HTTP CONNECT proxy"
+  },
+  "icu:WrenProxy__host-label": {
+    "messageformat": "Host",
+    "description": "Settings > Privacy > Proxy: placeholder of the proxy host field"
+  },
+  "icu:WrenProxy__port-label": {
+    "messageformat": "Port",
+    "description": "Settings > Privacy > Proxy: placeholder of the proxy port field"
+  },
+  "icu:WrenProxy__username-label": {
+    "messageformat": "Username (optional)",
+    "description": "Settings > Privacy > Proxy: placeholder of the SOCKS username field"
+  },
+  "icu:WrenProxy__password-label": {
+    "messageformat": "Password (optional)",
+    "description": "Settings > Privacy > Proxy: placeholder of the SOCKS password field"
+  },
+  "icu:WrenProxy__url-label": {
+    "messageformat": "Proxy URL, like http://proxy.example:3128",
+    "description": "Settings > Privacy > Proxy: placeholder of the HTTP proxy URL field"
+  },
+  "icu:WrenProxy__only-label": {
+    "messageformat": "Only connect through the proxy",
+    "description": "Settings > Privacy > Proxy: label of the fail-closed switch"
+  },
+  "icu:WrenProxy__only-description": {
+    "messageformat": "If the proxy stops answering, Wren stops connecting and says so. Calls and GIF search are off because they cannot go through a proxy.",
+    "description": "Settings > Privacy > Proxy: description of the fail-closed switch"
+  },
+  "icu:WrenProxy__apply-label": {
+    "messageformat": "Proxy settings",
+    "description": "Settings > Privacy > Proxy: label of the row with the Test and Save buttons"
+  },
+  "icu:WrenProxy__apply-description": {
+    "messageformat": "Test sends one request to Signal through the proxy and nothing else.",
+    "description": "Settings > Privacy > Proxy: description of the row with the Test and Save buttons"
+  },
+  "icu:WrenProxy__test": {
+    "messageformat": "Test",
+    "description": "Settings > Privacy > Proxy: button that tests the proxy"
+  },
+  "icu:WrenProxy__testing": {
+    "messageformat": "Testing the proxy",
+    "description": "Settings > Privacy > Proxy: shown while a proxy test runs"
+  },
+  "icu:WrenProxy__test-reachable": {
+    "messageformat": "Signal answered through the proxy in {ms, number} ms. Calls still cannot use the proxy.",
+    "description": "Settings > Privacy > Proxy: proxy test result: success"
+  },
+  "icu:WrenProxy__test-proxy-unreachable": {
+    "messageformat": "Could not reach the proxy. Is it running?",
+    "description": "Settings > Privacy > Proxy: proxy test result: the proxy itself did not answer"
+  },
+  "icu:WrenProxy__test-server-unreachable": {
+    "messageformat": "The proxy answered, but Signal's server could not be reached through it.",
+    "description": "Settings > Privacy > Proxy: proxy test result: the proxy answered but Signal did not"
+  },
+  "icu:WrenProxy__test-timeout": {
+    "messageformat": "No answer through the proxy within 30 seconds.",
+    "description": "Settings > Privacy > Proxy: proxy test result: timed out"
+  },
+  "icu:WrenProxy__test-off": {
+    "messageformat": "Pick a proxy first.",
+    "description": "Settings > Privacy > Proxy: proxy test result: no proxy chosen"
+  },
+  "icu:WrenProxy__save": {
+    "messageformat": "Save",
+    "description": "Settings > Privacy > Proxy: button that saves the proxy settings"
+  },
+  "icu:WrenProxy__saved": {
+    "messageformat": "Saved.",
+    "description": "Settings > Privacy > Proxy: shown after saving when nothing changes for this run"
+  },
+  "icu:WrenProxy__saved-relaunch": {
+    "messageformat": "Saved. Restart Wren to use the new proxy settings.",
+    "description": "Settings > Privacy > Proxy: shown after saving when a restart is needed"
+  },
+  "icu:WrenProxy__relaunch": {
+    "messageformat": "Restart now",
+    "description": "Settings > Privacy > Proxy: button that restarts Wren to apply proxy settings"
+  },
+  "icu:WrenProxy__error-host": {
+    "messageformat": "Enter a host name or an IP address.",
+    "description": "Settings > Privacy > Proxy: error: bad proxy host"
+  },
+  "icu:WrenProxy__error-port": {
+    "messageformat": "Enter a port from 1 to 65535.",
+    "description": "Settings > Privacy > Proxy: error: bad proxy port"
+  },
+  "icu:WrenProxy__error-credentials": {
+    "messageformat": "The username and password can be up to {max, number} bytes each, and a password needs a username.",
+    "description": "Settings > Privacy > Proxy: error: bad SOCKS username or password"
+  },
+  "icu:WrenProxy__error-url": {
+    "messageformat": "Enter a URL like http://host:port with nothing after the port.",
+    "description": "Settings > Privacy > Proxy: error: bad HTTP proxy URL"
+  },
+  "icu:WrenProxy__error-failed": {
+    "messageformat": "Could not save the proxy settings.",
+    "description": "Settings > Privacy > Proxy: error: saving failed"
+  },
+  "icu:WrenProxy__unreadable": {
+    "messageformat": "The saved proxy settings could not be read, so Wren is not connecting. Save new settings to fix it.",
+    "description": "Settings > Privacy > Proxy: shown when config.json holds proxy settings Wren cannot read"
+  },
+  "icu:WrenProxy__env-override": {
+    "messageformat": "The HTTPS_PROXY environment variable is set, so this run uses it instead of the saved proxy.",
+    "description": "Settings > Privacy > Proxy: shown when the HTTPS_PROXY environment variable overrides the saved proxy"
+  },
+  "icu:WrenProxy__flag-override": {
+    "messageformat": "Wren was started with --proxy-server, which replaces the saved proxy for the browser layer.",
+    "description": "Settings > Privacy > Proxy: shown when the --proxy-server flag overrides the saved proxy"
+  },
+  "icu:WrenProxy__calls-blocked-toast": {
+    "messageformat": "Calls are off while Wren only connects through the proxy",
+    "description": "Toast shown when starting a call while the fail-closed proxy setting is on"
+  },
+  "icu:WrenProxy__unreachable-title": {
+    "messageformat": "Proxy unreachable, not connecting",
+    "description": "Left pane banner: the configured proxy does not answer"
+  },
+  "icu:WrenProxy__unreachable-subtitle": {
+    "messageformat": "Start Tor or your proxy. Wren will not connect without it.",
+    "description": "Left pane banner: what to do when the proxy does not answer"
   }
 }

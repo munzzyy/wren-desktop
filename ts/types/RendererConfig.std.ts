@@ -54,6 +54,7 @@ export const rendererConfigSchema = z.object({
   name: configRequiredStringSchema,
   nodeVersion: configRequiredStringSchema,
   proxyUrl: configOptionalStringSchema,
+  wrenProxyOnly: z.boolean(),
   reducedMotionSetting: z.boolean(),
   registrationChallengeUrl: configRequiredStringSchema,
   serverPublicParams: configRequiredStringSchema,

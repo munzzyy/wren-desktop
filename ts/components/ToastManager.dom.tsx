@@ -218,6 +218,14 @@ function renderToast({
     );
   }
 
+  if (toastType === ToastType.CallsBlockedByProxy) {
+    return (
+      <Toast onClose={hideToast}>
+        {i18n('icu:WrenProxy__calls-blocked-toast')}
+      </Toast>
+    );
+  }
+
   if (toastType === ToastType.ChatExported) {
     return (
       <Toast

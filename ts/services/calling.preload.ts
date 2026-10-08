@@ -191,6 +191,7 @@ import {
 import * as RemoteConfig from '../RemoteConfig.dom.ts';
 import { isAlpha, isBeta, isProduction } from '../util/version.std.ts';
 import { parseIntOrThrow } from '../util/parseIntOrThrow.std.ts';
+import { isDirectFeatureAllowedHere } from '../wren/proxy/proxyPolicy.dom.ts';
 
 const { i18n } = window.SignalContext;
 
@@ -574,6 +575,15 @@ export type SetLocalPreviewContainerType = {
   sizeCallback: SizeCallbackType | undefined;
 };
 
+// RingRTC has no proxy support, so call media would always go out directly.
+function areCallsAllowed(logId: string): boolean {
+  if (isDirectFeatureAllowedHere('calls')) {
+    return true;
+  }
+  log.warn(`${logId}: calls are off while Wren only connects through a proxy`);
+  return false;
+}
+
 class CallingClass {
   readonly #videoCapturer: GumVideoCapturer;
   readonly videoRenderer: CanvasVideoRenderer;
@@ -707,6 +717,10 @@ class CallingClass {
       conversationType: conversation,
     });
     log.info(logId);
+
+    if (!areCallsAllowed(logId)) {
+      return;
+    }
 
     const callMode = getConversationCallMode(conversation);
     switch (callMode) {
@@ -1109,6 +1123,10 @@ class CallingClass {
         remoteParticipants: Array<GroupCallParticipantInfoType>;
       }
   > {
+    if (!areCallsAllowed('CallingClass.startCallLinkLobby')) {
+      return;
+    }
+
     const roomId = getRoomIdFromRootKey(callLinkRootKey);
     const logId = `startCallLinkLobby(roomId=${roomId})`;
     log.info(`${logId}: starting`);
@@ -1161,6 +1179,11 @@ class CallingClass {
     hasLocalAudio: boolean,
     hasLocalVideo: boolean
   ): Promise<void> {
+    if (!areCallsAllowed('CallingClass.startOutgoingDirectCall')) {
+      this.stopCallingLobby();
+      return;
+    }
+
     const conversation = window.ConversationController.get(conversationId);
     if (!conversation) {
       log.error(
@@ -1597,6 +1620,10 @@ class CallingClass {
     hasLocalVideo: boolean,
     shouldRing: boolean
   ): Promise<void> {
+    if (!areCallsAllowed('joinGroupCall')) {
+      return;
+    }
+
     const conversation = window.ConversationController.get(conversationId);
     if (!conversation) {
       log.error('joinGroupCall: Missing conversation; not joining group call');
@@ -1996,6 +2023,10 @@ class CallingClass {
   }): Promise<void> {
     const logId = `joinCallLinkCall(${roomId})`;
     log.info(logId);
+
+    if (!areCallsAllowed(logId)) {
+      return;
+    }
 
     const haveMediaPermissions = await this.#requestPermissions(hasLocalVideo);
     if (!haveMediaPermissions) {
@@ -2429,6 +2460,11 @@ class CallingClass {
       conversationId,
     });
     log.info(logId);
+
+    if (!areCallsAllowed(logId)) {
+      this.declineDirectCall(conversationId);
+      return;
+    }
 
     const call = getOwn(this.#callsLookup, conversationId);
     if (!call || !(call instanceof Call)) {
@@ -3429,6 +3465,10 @@ class CallingClass {
       return;
     }
 
+    if (update === RingUpdate.Requested && !areCallsAllowed('ringUpdate')) {
+      return;
+    }
+
     if (update === RingUpdate.Requested) {
       this.#reduxInterface?.peekNotConnectedGroupCall({
         callMode: CallMode.Group,
@@ -3628,10 +3668,11 @@ class CallingClass {
     }
 
     if (
-      conversation.isMuted() &&
-      !getNotifyWhileMutedForConversation(conversation.attributes).calls
+      !areCallsAllowed(logId) ||
+      (conversation.isMuted() &&
+        !getNotifyWhileMutedForConversation(conversation.attributes).calls)
     ) {
-      log.info(`${logId}: not notifying for calls while muted, ignoring`);
+      log.info(`${logId}: not ringing, recording a missed call`);
 
       const eventTimestamp = Date.now();
       const callEvent = getCallEventDetails({
@@ -4170,6 +4211,11 @@ class CallingClass {
       conversation,
     });
     log.info(logId);
+
+    if (!areCallsAllowed(logId)) {
+      this.#reduxInterface?.declineCall({ conversationId: conversation.id });
+      return false;
+    }
 
     if (call.endedReason) {
       log.warn(

@@ -78,6 +78,7 @@ import * as attachmentChannel from './attachment_channel.main.ts';
 import * as wrenExport from './wren_export.main.ts';
 import * as bounce from '../ts/services/bounce.main.ts';
 import * as updater from '../ts/updater/index.main.ts';
+import { getGotOptions } from '../ts/updater/got.main.ts';
 import { updateDefaultSession } from './updateDefaultSession.main.ts';
 import { PreventDisplaySleepService } from './PreventDisplaySleepService.std.ts';
 import {
@@ -145,6 +146,8 @@ import { trackHeapSize } from '../ts/util/oomNotifier.node.ts';
 import { sendDummyKeystroke } from './WindowsNotifications.main.ts';
 import { maybeMigrateSafeStorageBackend } from '../ts/util/linuxPasswordStoreMigration.main.ts';
 import { LockController } from '../ts/wren/lock/lockController.main.ts';
+import { ProxyController } from '../ts/wren/proxy/proxyController.main.ts';
+import { getActiveProxyUrl } from '../ts/wren/proxy/activeProxy.std.ts';
 
 const { chmod, realpath, writeFile } = fsExtra;
 const { get, pick, isNumber, isBoolean, some, debounce, noop } = lodash;
@@ -702,6 +705,16 @@ const wrenLock = new LockController({
   relaunch: appRelaunch,
   loadURL: safeLoadURL,
 });
+
+const wrenProxy = new ProxyController({
+  config: userConfig,
+  commandLine: app.commandLine,
+  envProxyUrl: process.env.HTTPS_PROXY || process.env.https_proxy,
+  log,
+  getServerUrl: () => config.get<string>('serverUrl'),
+  getCertificateAuthority: () => config.get<string>('certificateAuthority'),
+});
+wrenProxy.applyToChromium();
 
 async function createWindow() {
   const primaryDisplay = screen.getPrimaryDisplay();
@@ -2256,6 +2269,7 @@ app.on('ready', async () => {
     ? await wrenLock.waitForUnlock(userDataPath)
     : undefined;
   wrenLock.installSettingsHandlers();
+  wrenProxy.installHandlers();
 
   sqlInitPromise = initializeSQL(userDataPath, unlockedKey);
 
@@ -3006,7 +3020,8 @@ ipc.on('get-config', async event => {
     osRelease: os.release(),
     osVersion: os.version(),
     appInstance: process.env.NODE_APP_INSTANCE || undefined,
-    proxyUrl: process.env.HTTPS_PROXY || process.env.https_proxy || undefined,
+    proxyUrl: wrenProxy.effective.proxyUrl,
+    wrenProxyOnly: wrenProxy.effective.onlyThroughProxy,
     contentProxyUrl: config.get<string>('contentProxyUrl'),
     sfuUrl: config.get('sfuUrl'),
     reducedMotionSetting: animationSettings.prefersReducedMotion,
@@ -3090,6 +3105,7 @@ ipc.handle('DebugLogs.upload', async (_event, content: string) => {
     content,
     appVersion: app.getVersion(),
     logger: log,
+    agent: getActiveProxyUrl() ? (await getGotOptions()).agent : undefined,
   });
 });
 

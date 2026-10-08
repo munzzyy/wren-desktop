@@ -19,6 +19,7 @@ export type PropsType = Pick<
 > & {
   containerWidthBreakpoint: WidthBreakpoint;
   i18n: LocalizerType;
+  isProxyUnreachable?: boolean;
   manualReconnect: () => void;
 };
 
@@ -27,6 +28,7 @@ export function DialogNetworkStatus({
   i18n,
   isOnline,
   isOutage,
+  isProxyUnreachable,
   socketStatus,
   manualReconnect,
 }: PropsType): JSX.Element | null {
@@ -59,6 +61,21 @@ export function DialogNetworkStatus({
         type="warning"
         icon="error"
         subtitle={i18n('icu:DialogNetworkStatus__outage')}
+      />
+    );
+  }
+
+  if (isProxyUnreachable) {
+    return (
+      <LeftPaneDialog
+        containerWidthBreakpoint={containerWidthBreakpoint}
+        type="warning"
+        icon="network"
+        title={i18n('icu:WrenProxy__unreachable-title')}
+        subtitle={i18n('icu:WrenProxy__unreachable-subtitle')}
+        hasAction
+        clickLabel={i18n('icu:connect')}
+        onClick={reconnect}
       />
     );
   }
