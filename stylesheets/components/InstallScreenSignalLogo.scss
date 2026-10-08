@@ -2,28 +2,28 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 @use '../mixins';
-@use '../variables';
 
 .InstallScreenSignalLogo {
   @include mixins.font-title-1;
   align-items: center;
   display: flex;
+  gap: 10px;
   font-weight: bold;
   position: absolute;
   top: calc(35px + var(--title-bar-drag-area-height));
   inset-inline-start: 32px;
 
+  // The Wren mark is a full-color square, so it can't be a mask like Signal's wordmark.
   &::before {
-    @include mixins.color-svg-themed(
-      '../images/signal-logo-and-wordmark.svg',
-      variables.$color-ultramarine-logo,
-      variables.$color-white
-    );
-    & {
-      content: '';
-      display: block;
-      height: 32px;
-      width: 112px;
-    }
+    content: '';
+    display: block;
+    height: 32px;
+    width: 32px;
+    border-radius: 8px;
+    background: url('../images/signal-logo.svg') no-repeat center / contain;
+  }
+
+  &::after {
+    content: 'Wren';
   }
 }

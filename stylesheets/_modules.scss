@@ -40,10 +40,8 @@
   margin-block: 24px;
   margin-inline: 0;
 
-  @include mixins.color-svg(
-    '../images/signal-logo.svg',
-    light-dark(variables.$color-ultramarine-logo, variables.$color-white)
-  );
+  border-radius: 22%;
+  background: url('../images/signal-logo.svg') no-repeat center / contain;
 
   &.module-splash-screen__logo--128 {
     height: 128px;
