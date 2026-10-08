@@ -15,12 +15,55 @@ export function isAutoLockMinutes(
   return AUTO_LOCK_OPTIONS.some(option => option === value);
 }
 
+// Wayland reports a system idle time of 0 forever, so Wren also keeps its own
+// clock of the last input in its windows and goes by whichever is longer.
+export function getIdleSeconds({
+  systemIdleSeconds,
+  lastActivityMs,
+  nowMs,
+}: Readonly<{
+  systemIdleSeconds: number;
+  lastActivityMs: number;
+  nowMs: number;
+}>): number {
+  const appIdleSeconds = Math.max(
+    0,
+    Math.floor((nowMs - lastActivityMs) / 1000)
+  );
+  const systemIdle = Number.isFinite(systemIdleSeconds) ? systemIdleSeconds : 0;
+  return Math.max(systemIdle, appIdleSeconds);
+}
+
+// For wipe-after and auto-lock, 0 means off and a bigger number gives an
+// attacker more room, so either direction away from strict is weaker.
+export function isWeakerLimit(current: number, next: number): boolean {
+  if (next === current || current === 0) {
+    return false;
+  }
+  return next === 0 || next > current;
+}
+
+export function shouldAutoLock(
+  autoLockMinutes: AutoLockMinutesType,
+  idleSeconds: number
+): boolean {
+  return autoLockMinutes > 0 && idleSeconds >= autoLockMinutes * 60;
+}
+
+export type WrappedKeyStateType = Readonly<{
+  salt: string;
+  nonce: string;
+  wrappedKey: string;
+}>;
+
 export type LockStateType = Readonly<{
   version: 1;
   salt: string;
   nonce: string;
   wrappedKey: string;
   duress?: Readonly<{ salt: string; verifier: string }>;
+  // The database key from before a rekey that hasn't finished yet.
+  previous?: WrappedKeyStateType;
   wipeAfter: WipeAfterType;
   failedAttempts: number;
   autoLockMinutes: AutoLockMinutesType;
@@ -47,6 +90,7 @@ export function parseLockState(value: unknown): LockStateType | undefined {
     nonce,
     wrappedKey,
     duress,
+    previous,
     wipeAfter,
     failedAttempts,
     autoLockMinutes,
@@ -69,12 +113,30 @@ export function parseLockState(value: unknown): LockStateType | undefined {
     parsedDuress = { salt: duress.salt, verifier: duress.verifier };
   }
 
+  let parsedPrevious: LockStateType['previous'];
+  if (previous !== undefined) {
+    if (
+      !isRecord(previous) ||
+      !isHexString(previous.salt) ||
+      !isHexString(previous.nonce) ||
+      !isHexString(previous.wrappedKey)
+    ) {
+      return undefined;
+    }
+    parsedPrevious = {
+      salt: previous.salt,
+      nonce: previous.nonce,
+      wrappedKey: previous.wrappedKey,
+    };
+  }
+
   return {
     version: 1,
     salt,
     nonce,
     wrappedKey,
     ...(parsedDuress ? { duress: parsedDuress } : {}),
+    ...(parsedPrevious ? { previous: parsedPrevious } : {}),
     wipeAfter: isWipeAfter(wipeAfter) ? wipeAfter : 0,
     failedAttempts:
       typeof failedAttempts === 'number' &&
@@ -98,6 +160,15 @@ export function serializeLockState(
     ...(state.duress
       ? {
           duress: { salt: state.duress.salt, verifier: state.duress.verifier },
+        }
+      : {}),
+    ...(state.previous
+      ? {
+          previous: {
+            salt: state.previous.salt,
+            nonce: state.previous.nonce,
+            wrappedKey: state.previous.wrappedKey,
+          },
         }
       : {}),
     wipeAfter: state.wipeAfter,

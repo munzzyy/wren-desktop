@@ -599,6 +599,14 @@
     "messageformat": "The export is not encrypted and includes disappearing messages as they are right now.",
     "description": "Warning shown in the export chat dialog before the export starts"
   },
+  "icu:ExportChatDialog__passphrase": {
+    "messageformat": "Wren passphrase",
+    "description": "Placeholder of the passphrase field in the export chat dialog, shown when the passphrase lock is on"
+  },
+  "icu:ExportChatDialog__passphrase-wrong": {
+    "messageformat": "Type your Wren passphrase to export. The passphrase lock is on, so exports need it.",
+    "description": "Shown in the export chat dialog when the passphrase is missing or wrong"
+  },
   "icu:ExportChatDialog__export": {
     "messageformat": "Export",
     "description": "Button in the export chat dialog that asks for a folder and starts the export"
@@ -626,6 +634,22 @@
   "icu:ExportChatDialog__error": {
     "messageformat": "Nothing was saved. Check that the folder can be written to and has free space, then try again.",
     "description": "Body of the export chat dialog when the export failed"
+  },
+  "icu:ExportChatLeftovers__title": {
+    "messageformat": "Delete unfinished chat exports?",
+    "description": "Dialog at startup when an earlier chat export was cut short by a lock, a quit or a crash"
+  },
+  "icu:ExportChatLeftovers__detail": {
+    "messageformat": "An export didn't finish because Wren was locked or closed. These folders hold part of a chat as plain text:\n\n{paths}",
+    "description": "Body of the unfinished exports dialog; paths is a list of folder paths, one per line"
+  },
+  "icu:ExportChatLeftovers__delete": {
+    "messageformat": "Delete",
+    "description": "Button in the unfinished exports dialog that deletes the folders"
+  },
+  "icu:ExportChatLeftovers__keep": {
+    "messageformat": "Keep",
+    "description": "Button in the unfinished exports dialog that leaves the folders alone"
   },
   "icu:ExportChatDialog__toast": {
     "messageformat": "Chat exported",
@@ -12189,6 +12213,10 @@
     "messageformat": "{count, plural, one {That passphrase is wrong. # more wrong try erases everything Wren keeps on this computer.} other {That passphrase is wrong. # more wrong tries erase everything Wren keeps on this computer.}}",
     "description": "Lock screen: shown after a wrong passphrase when wipe after failed attempts is on; count is the number of tries left"
   },
+  "icu:WrenLock__not-counted": {
+    "messageformat": "Wren couldn't save the try counter, so it didn't check that passphrase. Make sure the data folder is writable and try again.",
+    "description": "Lock screen: shown when the failed attempt counter can't be written to disk, so the attempt is refused"
+  },
   "icu:WrenLock__unreadable": {
     "messageformat": "Wren can't read its lock settings",
     "description": "Error dialog title when the passphrase lock settings in config.json are damaged"
@@ -12282,7 +12310,7 @@
     "description": "Settings > Privacy: label of the auto lock setting"
   },
   "icu:WrenLock__auto-lock-description": {
-    "messageformat": "Lock after the computer has been idle this long.",
+    "messageformat": "Lock after you haven't used Wren for this long.",
     "description": "Settings > Privacy: description of the auto lock setting"
   },
   "icu:WrenLock__auto-lock-never": {
@@ -12328,6 +12356,14 @@
   "icu:WrenLock__dialog-duress-body": {
     "messageformat": "Typing this on the lock screen erases everything Wren keeps on this computer at once, with no question asked. It can't be the same as your passphrase. Pick something you won't type by accident.",
     "description": "Passphrase dialog text when setting a duress passphrase"
+  },
+  "icu:WrenLock__dialog-confirm-title": {
+    "messageformat": "Confirm with your passphrase",
+    "description": "Passphrase dialog title when a settings change makes the lock weaker"
+  },
+  "icu:WrenLock__dialog-confirm-body": {
+    "messageformat": "This change makes the lock weaker, so Wren needs your passphrase first.",
+    "description": "Passphrase dialog text when removing the duress passphrase, raising or turning off the wipe or auto-lock limits, or turning off lock with the computer"
   },
   "icu:WrenLock__field-current": {
     "messageformat": "Current passphrase",

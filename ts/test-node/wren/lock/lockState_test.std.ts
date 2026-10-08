@@ -6,8 +6,11 @@ import lodash from 'lodash';
 
 import type { LockStateType } from '../../../wren/lock/lockState.std.ts';
 import {
+  getIdleSeconds,
+  isWeakerLimit,
   parseLockState,
   serializeLockState,
+  shouldAutoLock,
 } from '../../../wren/lock/lockState.std.ts';
 import { getPassphraseStrength } from '../../../wren/lock/passphraseStrength.std.ts';
 
@@ -34,6 +37,21 @@ describe('wren/lock/lockState', () => {
     const serialized = serializeLockState(withoutDuress);
     assert.notProperty(serialized, 'duress');
     assert.deepEqual(parseLockState(serialized), withoutDuress);
+  });
+
+  it('keeps the previous key during a rekey and rejects a damaged one', () => {
+    const previous = {
+      salt: '11'.repeat(16),
+      nonce: '22'.repeat(12),
+      wrappedKey: '33'.repeat(48),
+    };
+    const pending = { ...STATE, previous };
+    const stored = JSON.parse(JSON.stringify(serializeLockState(pending)));
+    assert.deepEqual(parseLockState(stored), pending);
+    assert.notProperty(serializeLockState(STATE), 'previous');
+    assert.isUndefined(
+      parseLockState({ ...stored, previous: { ...previous, nonce: 'xyz' } })
+    );
   });
 
   it('never serializes anything but the listed fields', () => {
@@ -100,6 +118,65 @@ describe('wren/lock/passphraseStrength', () => {
     assert.strictEqual(
       getPassphraseStrength('quiet river under old stone'),
       'strong'
+    );
+  });
+});
+
+describe('wren/lock isWeakerLimit', () => {
+  it('negative control: tightening or keeping a limit is not weaker', () => {
+    assert.isFalse(isWeakerLimit(0, 5));
+    assert.isFalse(isWeakerLimit(20, 5));
+    assert.isFalse(isWeakerLimit(10, 10));
+  });
+
+  it('turning a limit off or raising it is weaker', () => {
+    assert.isTrue(isWeakerLimit(5, 0));
+    assert.isTrue(isWeakerLimit(5, 10));
+    assert.isTrue(isWeakerLimit(15, 60));
+  });
+});
+
+describe('wren/lock auto-lock clock', () => {
+  const NOW = 10_000_000;
+
+  it('negative control: system idle alone still locks', () => {
+    const idle = getIdleSeconds({
+      systemIdleSeconds: 6 * 60,
+      lastActivityMs: NOW,
+      nowMs: NOW,
+    });
+    assert.isTrue(shouldAutoLock(5, idle));
+  });
+
+  it('locks on app idle when the system reports 0, as on Wayland', () => {
+    const idle = getIdleSeconds({
+      systemIdleSeconds: 0,
+      lastActivityMs: NOW - 5 * 60 * 1000,
+      nowMs: NOW,
+    });
+    assert.strictEqual(idle, 300);
+    assert.isTrue(shouldAutoLock(5, idle));
+    assert.isFalse(shouldAutoLock(15, idle));
+  });
+
+  it('recent input keeps it unlocked and off never locks', () => {
+    const idle = getIdleSeconds({
+      systemIdleSeconds: 0,
+      lastActivityMs: NOW - 1000,
+      nowMs: NOW,
+    });
+    assert.isFalse(shouldAutoLock(5, idle));
+    assert.isFalse(shouldAutoLock(0, 1e9));
+  });
+
+  it('ignores a clock that went backwards and a bad system value', () => {
+    assert.strictEqual(
+      getIdleSeconds({
+        systemIdleSeconds: Number.NaN,
+        lastActivityMs: NOW + 60_000,
+        nowMs: NOW,
+      }),
+      0
     );
   });
 });

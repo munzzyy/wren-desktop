@@ -15,7 +15,11 @@ import { tw } from '../../axo/tw.dom.tsx';
 import { drop } from '../../util/drop.std.ts';
 import { count as countGraphemes } from '../../util/grapheme.std.ts';
 import { WIPE_AFTER_OPTIONS, isWipeAfter } from './failedAttemptPolicy.std.ts';
-import { AUTO_LOCK_OPTIONS, isAutoLockMinutes } from './lockState.std.ts';
+import {
+  AUTO_LOCK_OPTIONS,
+  isAutoLockMinutes,
+  isWeakerLimit,
+} from './lockState.std.ts';
 import type { PassphraseStrengthType } from './passphraseStrength.std.ts';
 import { getPassphraseStrength } from './passphraseStrength.std.ts';
 import { missingCaseError } from '../../util/missingCaseError.std.ts';
@@ -32,7 +36,9 @@ export type WrenLockSettingsProps = Readonly<{
   api: LockSettingsApiType;
 }>;
 
-type DialogModeType = 'set' | 'change' | 'off' | 'duress';
+type DialogModeType = 'set' | 'change' | 'off' | 'duress' | 'confirm';
+
+type ConfirmActionType = (current: string) => Promise<LockResultType>;
 
 export function WrenLockSettings({
   i18n,
@@ -40,6 +46,7 @@ export function WrenLockSettings({
 }: WrenLockSettingsProps): JSX.Element | null {
   const [status, setStatus] = useState<LockStatusType>();
   const [dialogMode, setDialogMode] = useState<DialogModeType>();
+  const [confirmAction, setConfirmAction] = useState<ConfirmActionType>();
 
   useEffect(() => {
     let active = true;
@@ -66,6 +73,12 @@ export function WrenLockSettings({
   if (!status) {
     return null;
   }
+
+  // Weakening the lock goes through the passphrase dialog first.
+  const askPassphrase = (action: ConfirmActionType) => {
+    setConfirmAction(() => action);
+    setDialogMode('confirm');
+  };
 
   return (
     <>
@@ -126,7 +139,9 @@ export function WrenLockSettings({
                   {status.hasDuress ? (
                     <AxoItem.Action
                       variant="subtle-destructive"
-                      onClick={() => drop(apply(api.clearDuress()))}
+                      onClick={() =>
+                        askPassphrase(current => api.clearDuress(current))
+                      }
                     >
                       {i18n('icu:WrenLock__duress-remove')}
                     </AxoItem.Action>
@@ -146,7 +161,14 @@ export function WrenLockSettings({
                   value={String(status.wipeAfter)}
                   onValueChange={value => {
                     const parsed = Number(value);
-                    if (isWipeAfter(parsed)) {
+                    if (!isWipeAfter(parsed)) {
+                      return;
+                    }
+                    if (isWeakerLimit(status.wipeAfter, parsed)) {
+                      askPassphrase(current =>
+                        api.setWipeAfter(parsed, current)
+                      );
+                    } else {
                       drop(apply(api.setWipeAfter(parsed)));
                     }
                   }}
@@ -165,7 +187,14 @@ export function WrenLockSettings({
                   value={String(status.autoLockMinutes)}
                   onValueChange={value => {
                     const parsed = Number(value);
-                    if (isAutoLockMinutes(parsed)) {
+                    if (!isAutoLockMinutes(parsed)) {
+                      return;
+                    }
+                    if (isWeakerLimit(status.autoLockMinutes, parsed)) {
+                      askPassphrase(current =>
+                        api.setAutoLockMinutes(parsed, current)
+                      );
+                    } else {
                       drop(apply(api.setAutoLockMinutes(parsed)));
                     }
                   }}
@@ -181,9 +210,15 @@ export function WrenLockSettings({
                   label={i18n('icu:WrenLock__system-lock-label')}
                   description={i18n('icu:WrenLock__system-lock-description')}
                   checked={status.lockOnSystemLock}
-                  onCheckedChange={checked =>
-                    drop(apply(api.setLockOnSystemLock(checked)))
-                  }
+                  onCheckedChange={checked => {
+                    if (status.lockOnSystemLock && !checked) {
+                      askPassphrase(current =>
+                        api.setLockOnSystemLock(checked, current)
+                      );
+                    } else {
+                      drop(apply(api.setLockOnSystemLock(checked)));
+                    }
+                  }}
                 />
               </>
             )}
@@ -200,10 +235,15 @@ export function WrenLockSettings({
           i18n={i18n}
           api={api}
           mode={dialogMode}
-          onClose={() => setDialogMode(undefined)}
+          confirmAction={confirmAction}
+          onClose={() => {
+            setDialogMode(undefined);
+            setConfirmAction(undefined);
+          }}
           onDone={next => {
             setStatus(next);
             setDialogMode(undefined);
+            setConfirmAction(undefined);
           }}
         />
       )}
@@ -300,12 +340,14 @@ function PassphraseDialog({
   i18n,
   api,
   mode,
+  confirmAction,
   onClose,
   onDone,
 }: Readonly<{
   i18n: LocalizerType;
   api: LockSettingsApiType;
   mode: DialogModeType;
+  confirmAction: ConfirmActionType | undefined;
   onClose: () => void;
   onDone: (status: LockStatusType) => void;
 }>): JSX.Element {
@@ -316,8 +358,9 @@ function PassphraseDialog({
   const [error, setError] = useState<string>();
   const [pending, setPending] = useState(false);
 
-  const needsCurrent = mode === 'change' || mode === 'off';
-  const needsNext = mode !== 'off';
+  const needsCurrent =
+    mode === 'change' || mode === 'off' || mode === 'confirm';
+  const needsNext = mode !== 'off' && mode !== 'confirm';
 
   let title: string;
   let body: string | undefined;
@@ -336,6 +379,10 @@ function PassphraseDialog({
     case 'duress':
       title = i18n('icu:WrenLock__dialog-duress-title');
       body = i18n('icu:WrenLock__dialog-duress-body');
+      break;
+    case 'confirm':
+      title = i18n('icu:WrenLock__dialog-confirm-title');
+      body = i18n('icu:WrenLock__dialog-confirm-body');
       break;
     default:
       title = '';
@@ -375,6 +422,10 @@ function PassphraseDialog({
         result = await api.change(current, next);
       } else if (mode === 'off') {
         result = await api.disable(current);
+      } else if (mode === 'confirm') {
+        result = confirmAction
+          ? await confirmAction(current)
+          : { ok: false, error: 'failed' };
       } else {
         result = await api.setDuress(next);
       }

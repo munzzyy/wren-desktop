@@ -1,10 +1,18 @@
 // Copyright 2026 Cole Munz
 // SPDX-License-Identifier: AGPL-3.0-only
 
+import { randomBytes } from 'node:crypto';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import type { IpcMainInvokeEvent } from 'electron';
-import { app, BrowserWindow, dialog, ipcMain, powerMonitor } from 'electron';
+import type { IpcMainEvent, IpcMainInvokeEvent, WebContents } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  dialog,
+  ipcMain,
+  powerMonitor,
+  webContents,
+} from 'electron';
 
 import type { LoggerType } from '../../types/Logging.std.ts';
 import type { LocalizerType } from '../../types/I18N.std.ts';
@@ -13,17 +21,17 @@ import * as Errors from '../../types/errors.std.ts';
 import { count as countGraphemes } from '../../util/grapheme.std.ts';
 import { unwrapKey, wrapKey } from './keyWrap.node.ts';
 import { createDuressVerifier, matchesDuress } from './duressVerifier.node.ts';
-import {
-  isWipeAfter,
-  recordFailedAttempt,
-  resetFailedAttempts,
-} from './failedAttemptPolicy.std.ts';
+import { attemptUnlock } from './unlockAttempt.node.ts';
+import { isWipeAfter, resetFailedAttempts } from './failedAttemptPolicy.std.ts';
 import type { LockStateType } from './lockState.std.ts';
 import {
   LOCK_STATE_CONFIG_KEY,
+  getIdleSeconds,
   isAutoLockMinutes,
+  isWeakerLimit,
   parseLockState,
   serializeLockState,
+  shouldAutoLock,
 } from './lockState.std.ts';
 import type {
   LockErrorType,
@@ -37,7 +45,6 @@ import {
   MAX_PASSPHRASE_LENGTH,
   MIN_PASSPHRASE_LENGTH,
 } from './types.std.ts';
-import type { WipeReasonType } from './wipe.main.ts';
 import { wipeAndExit } from './wipe.main.ts';
 
 const KEYCHAIN_CONFIG_KEYS = ['encryptedKey', 'key', 'safeStorageBackend'];
@@ -57,8 +64,17 @@ export type LockControllerOptionsType = Readonly<{
   getI18n: () => LocalizerType;
   getTheme: () => Promise<'light' | 'dark'>;
   getSqlKeyFromKeychain: () => string;
+  rekeyDatabase: (key: string) => Promise<void>;
+  isMainWindowSender: (sender: WebContents) => boolean;
+  beforeLock?: () => void;
   relaunch: () => void;
   loadURL: (window: BrowserWindow, url: string) => Promise<void>;
+}>;
+
+export type UnlockedKeyType = Readonly<{
+  key: string;
+  // Set only when a rekey was cut short; the database opens under one of them.
+  previousKey?: string;
 }>;
 
 function isPassphrase(value: unknown): value is string {
@@ -84,6 +100,8 @@ export class LockController {
 
   #autoLockStarted = false;
 
+  #lastActivityMs = Date.now();
+
   constructor(options: LockControllerOptionsType) {
     this.#options = options;
   }
@@ -102,7 +120,7 @@ export class LockController {
     this.#lockWindow.focus();
   }
 
-  async waitForUnlock(userDataPath: string): Promise<string> {
+  async waitForUnlock(userDataPath: string): Promise<UnlockedKeyType> {
     const { log, getI18n } = this.#options;
     const initial = this.#readState();
     if (!initial) {
@@ -115,11 +133,11 @@ export class LockController {
         noLink: true,
       });
       app.exit(1);
-      return new Promise<string>(() => undefined);
+      return new Promise<UnlockedKeyType>(() => undefined);
     }
 
     this.#unlockPending = true;
-    const { promise, resolve } = explodePromise<string>();
+    const { promise, resolve } = explodePromise<UnlockedKeyType>();
     const window = await this.#createLockWindow();
     let unlocked = false;
 
@@ -154,7 +172,7 @@ export class LockController {
         this.#busy = true;
         try {
           const result = await this.#tryUnlock(passphrase, userDataPath);
-          if (typeof result === 'string') {
+          if ('key' in result) {
             unlocked = true;
             resolve(result);
             setImmediate(() => {
@@ -186,57 +204,103 @@ export class LockController {
   }
 
   installSettingsHandlers(): void {
+    const { log, isMainWindowSender } = this.#options;
+    const fromMainWindow = (event: IpcMainInvokeEvent | IpcMainEvent) => {
+      const frame = event.senderFrame;
+      return (
+        isMainWindowSender(event.sender) &&
+        frame != null &&
+        frame.parent == null
+      );
+    };
+
     const handle = (
       channel: string,
-      fn: (...args: Array<unknown>) => LockResultType
+      fn: (...args: Array<unknown>) => LockResultType | Promise<LockResultType>
     ) => {
-      ipcMain.handle(channel, async (_event, ...args: Array<unknown>) => {
+      ipcMain.handle(channel, async (event, ...args: Array<unknown>) => {
+        if (!fromMainWindow(event)) {
+          throw new Error(`wren-lock: ${channel} from an unknown sender`);
+        }
         if (this.#unlockPending) {
           return failure('failed');
         }
         try {
-          return fn(...args);
+          return await fn(...args);
         } catch (error) {
-          this.#options.log.error(
-            `wren-lock: ${channel} failed`,
-            Errors.toLogFormat(error)
-          );
+          log.error(`wren-lock: ${channel} failed`, Errors.toLogFormat(error));
           return failure('failed');
         }
       });
     };
 
-    ipcMain.handle(LockIpc.getStatus, async () => this.#getStatus());
+    ipcMain.handle(LockIpc.getStatus, async event => {
+      if (!fromMainWindow(event)) {
+        throw new Error('wren-lock: status from an unknown sender');
+      }
+      return this.#getStatus();
+    });
     handle(LockIpc.enable, passphrase => this.#enable(passphrase));
     handle(LockIpc.change, (current, next) => this.#change(current, next));
     handle(LockIpc.disable, current => this.#disable(current));
     handle(LockIpc.setDuress, duress => this.#setDuress(duress));
-    handle(LockIpc.clearDuress, () =>
-      this.#update(state => ({ ...state, duress: undefined }))
+    handle(LockIpc.clearDuress, current =>
+      this.#updateWithPassphrase(current, state => ({
+        ...state,
+        duress: undefined,
+      }))
     );
-    handle(LockIpc.setWipeAfter, value => {
+    handle(LockIpc.setWipeAfter, (value, current) => {
       if (!isWipeAfter(value)) {
         return failure('failed');
       }
-      return this.#update(state => ({
-        ...state,
-        wipeAfter: value,
-        failedAttempts: resetFailedAttempts(),
-      }));
+      return this.#updateSetting(
+        current,
+        state => isWeakerLimit(state.wipeAfter, value),
+        state => ({
+          ...state,
+          wipeAfter: value,
+          failedAttempts: resetFailedAttempts(),
+        })
+      );
     });
-    handle(LockIpc.setAutoLockMinutes, value => {
+    handle(LockIpc.setAutoLockMinutes, (value, current) => {
       if (!isAutoLockMinutes(value)) {
         return failure('failed');
       }
-      return this.#update(state => ({ ...state, autoLockMinutes: value }));
+      return this.#updateSetting(
+        current,
+        state => isWeakerLimit(state.autoLockMinutes, value),
+        state => ({ ...state, autoLockMinutes: value })
+      );
     });
-    handle(LockIpc.setLockOnSystemLock, value => {
+    handle(LockIpc.setLockOnSystemLock, (value, current) => {
       if (typeof value !== 'boolean') {
         return failure('failed');
       }
-      return this.#update(state => ({ ...state, lockOnSystemLock: value }));
+      return this.#updateSetting(
+        current,
+        state => state.lockOnSystemLock && !value,
+        state => ({ ...state, lockOnSystemLock: value })
+      );
     });
-    ipcMain.on(LockIpc.lockNow, () => this.lockFromMenu());
+    ipcMain.on(LockIpc.lockNow, event => {
+      if (fromMainWindow(event)) {
+        this.lockFromMenu();
+      }
+    });
+  }
+
+  // For callers outside the settings page, like starting a chat export.
+  checkPassphrase(passphrase: unknown): 'not-enabled' | 'ok' | 'wrong' {
+    const state = this.#readState();
+    if (!state) {
+      return 'not-enabled';
+    }
+    return isPassphrase(passphrase) &&
+      unwrapKey(state, passphrase) !== undefined
+      ? 'ok'
+      : 'wrong';
   }
 
   startAutoLock(): void {
@@ -253,12 +317,48 @@ export class LockController {
     powerMonitor.on('lock-screen', onSystemLock);
     powerMonitor.on('suspend', onSystemLock);
 
-    setInterval(() => {
-      const minutes = this.#readState()?.autoLockMinutes ?? 0;
-      if (minutes > 0 && powerMonitor.getSystemIdleTime() >= minutes * 60) {
-        this.#lockNow('idle');
+    this.#lastActivityMs = Date.now();
+    const watch = (contents: WebContents) => {
+      contents.on('before-input-event', () => this.#noteActivity());
+    };
+    for (const contents of webContents.getAllWebContents()) {
+      watch(contents);
+    }
+    app.on('web-contents-created', (_event, contents) => watch(contents));
+    ipcMain.on(LockIpc.activity, event => {
+      if (BrowserWindow.fromWebContents(event.sender) != null) {
+        this.#noteActivity();
       }
-    }, IDLE_CHECK_INTERVAL).unref();
+    });
+
+    setInterval(() => this.#checkAutoLock(), IDLE_CHECK_INTERVAL).unref();
+  }
+
+  #noteActivity(): void {
+    this.#lastActivityMs = Date.now();
+  }
+
+  #checkAutoLock(): void {
+    const state = this.#readState();
+    if (!state) {
+      return;
+    }
+    // Linux desktops that never send lock-screen still report 'locked' here.
+    if (
+      state.lockOnSystemLock &&
+      powerMonitor.getSystemIdleState(1) === 'locked'
+    ) {
+      this.#lockNow('system lock');
+      return;
+    }
+    const idleSeconds = getIdleSeconds({
+      systemIdleSeconds: powerMonitor.getSystemIdleTime(),
+      lastActivityMs: this.#lastActivityMs,
+      nowMs: Date.now(),
+    });
+    if (shouldAutoLock(state.autoLockMinutes, idleSeconds)) {
+      this.#lockNow('idle');
+    }
   }
 
   lockFromMenu(): void {
@@ -281,6 +381,14 @@ export class LockController {
     this.#options.log.info(`wren-lock: locking (${reason})`);
     for (const window of BrowserWindow.getAllWindows()) {
       window.hide();
+    }
+    try {
+      this.#options.beforeLock?.();
+    } catch (error) {
+      this.#options.log.error(
+        'wren-lock: cleanup before locking failed',
+        Errors.toLogFormat(error)
+      );
     }
     this.#options.relaunch();
     app.exit(0);
@@ -321,6 +429,36 @@ export class LockController {
     return { ok: true, status: this.#getStatus() };
   }
 
+  // Anything that makes the lock weaker needs the passphrase, so someone at
+  // an unlocked Wren can't quietly switch the protections off.
+  #updateSetting(
+    current: unknown,
+    isWeaker: (state: LockStateType) => boolean,
+    fn: (state: LockStateType) => LockStateType
+  ): LockResultType {
+    const state = this.#readState();
+    if (!state) {
+      return failure('not-enabled');
+    }
+    return isWeaker(state)
+      ? this.#updateWithPassphrase(current, fn)
+      : this.#update(fn);
+  }
+
+  #updateWithPassphrase(
+    current: unknown,
+    fn: (state: LockStateType) => LockStateType
+  ): LockResultType {
+    const state = this.#readState();
+    if (!state) {
+      return failure('not-enabled');
+    }
+    if (!isPassphrase(current) || unwrapKey(state, current) === undefined) {
+      return failure('wrong-passphrase');
+    }
+    return this.#update(fn);
+  }
+
   #update(fn: (state: LockStateType) => LockStateType): LockResultType {
     const state = this.#readState();
     if (!state) {
@@ -330,7 +468,11 @@ export class LockController {
     return this.#ok();
   }
 
-  #enable(passphrase: unknown): LockResultType {
+  // The lock gets a database key of its own, so a copy of config.json or a
+  // backup from before still holds only the old key, which no longer opens
+  // anything. The old key stays wrapped next to the new one until the rekey
+  // is done, so a crash in between is finished on the next unlock.
+  async #enable(passphrase: unknown): Promise<LockResultType> {
     if (!isPassphrase(passphrase)) {
       return failure('failed');
     }
@@ -341,25 +483,53 @@ export class LockController {
       return failure('too-short');
     }
 
-    const key = this.#options.getSqlKeyFromKeychain();
-    this.#writeState({
+    const { getSqlKeyFromKeychain, rekeyDatabase, log } = this.#options;
+    const oldKey = getSqlKeyFromKeychain();
+    const newKey = randomBytes(32).toString('hex');
+    const pending: LockStateType = {
       version: 1,
-      ...wrapKey(key, passphrase),
+      ...wrapKey(newKey, passphrase),
+      previous: wrapKey(oldKey, passphrase),
       wipeAfter: 0,
       failedAttempts: 0,
       autoLockMinutes: 0,
       lockOnSystemLock: false,
-    });
+    };
+    this.#writeState(pending);
 
     const written = this.#readState();
-    if (!written || unwrapKey(written, passphrase) !== key) {
+    if (
+      !written ||
+      written.previous?.wrappedKey !== pending.previous?.wrappedKey ||
+      unwrapKey(written, passphrase) !== newKey
+    ) {
       this.#writeState(undefined);
       return failure('failed');
     }
 
     this.#scrubKeychainKey();
-    this.#options.log.info('wren-lock: passphrase lock turned on');
+    try {
+      await rekeyDatabase(newKey);
+    } catch (error) {
+      log.error(
+        'wren-lock: the database rekey failed, restarting to finish it',
+        Errors.toLogFormat(error)
+      );
+      setImmediate(() => this.#lockNow('rekey'));
+      return failure('failed');
+    }
+
+    this.finishPendingRekey();
+    log.info('wren-lock: passphrase lock turned on with a new database key');
     return this.#ok();
+  }
+
+  finishPendingRekey(): void {
+    const state = this.#readState();
+    if (state?.previous) {
+      this.#writeState({ ...state, previous: undefined });
+      this.#options.log.info('wren-lock: database rekey finished');
+    }
   }
 
   #change(current: unknown, next: unknown): LockResultType {
@@ -367,7 +537,7 @@ export class LockController {
     if (!state) {
       return failure('not-enabled');
     }
-    if (!isPassphrase(current) || !isPassphrase(next)) {
+    if (!isPassphrase(current) || !isPassphrase(next) || state.previous) {
       return failure('failed');
     }
     if (!isLongEnough(next)) {
@@ -391,7 +561,7 @@ export class LockController {
     if (!state) {
       return failure('not-enabled');
     }
-    if (!isPassphrase(current)) {
+    if (!isPassphrase(current) || state.previous) {
       return failure('failed');
     }
     const key = unwrapKey(state, current);
@@ -432,35 +602,54 @@ export class LockController {
   async #tryUnlock(
     passphrase: string,
     userDataPath: string
-  ): Promise<string | UnlockResultType> {
+  ): Promise<UnlockedKeyType | UnlockResultType> {
     const state = this.#readState();
     if (!state) {
       throw new Error('wren-lock: lock settings disappeared');
     }
 
-    const key = unwrapKey(state, passphrase);
-    if (key !== undefined) {
-      if (state.failedAttempts !== 0) {
-        this.#writeState({ ...state, failedAttempts: resetFailedAttempts() });
-      }
-      this.#scrubKeychainKey();
-      this.#options.log.info('wren-lock: unlocked');
-      return key;
-    }
+    const { log } = this.#options;
+    const attempt = attemptUnlock(state, passphrase, {
+      writeState: next => this.#writeState(next),
+      onResetFailed: error =>
+        log.error(
+          'wren-lock: could not reset the attempt count',
+          Errors.toLogFormat(error)
+        ),
+    });
 
-    if (state.duress && matchesDuress(passphrase, state.duress)) {
-      await this.#wipe('duress', userDataPath);
+    if (attempt.kind === 'not-counted') {
+      log.error(
+        'wren-lock: could not save the attempt count, refusing the attempt',
+        Errors.toLogFormat(attempt.error)
+      );
+      return {
+        status: 'wrong',
+        message: this.#options.getI18n()('icu:WrenLock__not-counted'),
+      };
+    }
+    if (attempt.kind === 'unlocked') {
+      this.#scrubKeychainKey();
+      log.info('wren-lock: unlocked');
+      const previousKey = state.previous
+        ? unwrapKey(state.previous, passphrase)
+        : undefined;
+      return previousKey === undefined
+        ? { key: attempt.key }
+        : { key: attempt.key, previousKey };
+    }
+    if (attempt.kind === 'duress') {
+      await this.#wipe(userDataPath);
       return { status: 'busy' };
     }
 
-    const outcome = recordFailedAttempt(state.failedAttempts, state.wipeAfter);
-    this.#writeState({ ...state, failedAttempts: outcome.failedAttempts });
-    this.#options.log.warn(
+    const { outcome } = attempt;
+    log.warn(
       `wren-lock: wrong passphrase (${outcome.failedAttempts} in a row)`
     );
 
     if (outcome.shouldWipe) {
-      await this.#wipe('failed-attempts', userDataPath);
+      await this.#wipe(userDataPath);
       return { status: 'busy' };
     }
 
@@ -476,11 +665,11 @@ export class LockController {
     };
   }
 
-  async #wipe(reason: WipeReasonType, userDataPath: string): Promise<void> {
+  async #wipe(userDataPath: string): Promise<void> {
     if (this.#lockWindow && !this.#lockWindow.isDestroyed()) {
       this.#lockWindow.hide();
     }
-    await wipeAndExit({ userDataPath, reason, log: this.#options.log });
+    await wipeAndExit({ userDataPath, log: this.#options.log });
   }
 
   async #getWindowInfo(): Promise<LockWindowInfoType> {

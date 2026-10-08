@@ -9,7 +9,13 @@ import type {
   WrappedWorkerResponse,
 } from './main.main.ts';
 import type { WritableDB } from './Interface.std.ts';
-import { initialize, DataReader, DataWriter, removeDB } from './Server.node.ts';
+import {
+  initialize,
+  DataReader,
+  DataWriter,
+  rekeyDatabase,
+  removeDB,
+} from './Server.node.ts';
 import { SqliteErrorKind, parseSqliteError } from './errors.std.ts';
 import { sqlLogger as logger } from './sqlLogger.node.ts';
 import { WalCheckpoints } from './WalCheckpoints.std.ts';
@@ -35,6 +41,7 @@ function respond(seq: number, response?: any) {
 let db: WritableDB | undefined;
 let isPrimary = false;
 let isRemoved = false;
+let reopenOptions: { appVersion: string; configDir: string } | undefined;
 
 const onMessage = (
   { seq, request }: WrappedWorkerRequest,
@@ -59,7 +66,35 @@ const onMessage = (
         ...request.options,
         isPrimary,
       });
+      reopenOptions = {
+        appVersion: request.options.appVersion,
+        configDir: request.options.configDir,
+      };
 
+      respond(seq, undefined);
+      return;
+    }
+
+    if (request.type === 'rekey') {
+      if (request.phase === 'close') {
+        if (db) {
+          DataReader.close(db);
+          db = undefined;
+        }
+      } else {
+        if (!reopenOptions) {
+          throw new Error('rekey: not initialized');
+        }
+        if (request.phase === 'primary') {
+          if (!db || !isPrimary) {
+            throw new Error('rekey: not the open primary');
+          }
+          rekeyDatabase(db, request.key);
+          DataWriter.close(db);
+          db = undefined;
+        }
+        db = initialize({ ...reopenOptions, key: request.key, isPrimary });
+      }
       respond(seq, undefined);
       return;
     }

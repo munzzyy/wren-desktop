@@ -14,12 +14,14 @@ export type BeginExportRequest = Readonly<{
   parentDir: string;
   format: ExportFormat;
   chat: ExportChat;
+  // Required while the passphrase lock is on.
+  passphrase?: string;
 }>;
 
-export type BeginExportResponse = Readonly<{
-  exportId: string;
-  folderPath: string;
-}>;
+export type BeginExportResponse = Readonly<
+  | { status: 'started'; exportId: string; folderPath: string }
+  | { status: 'wrong-passphrase' }
+>;
 
 export type WriteExportRequest = Readonly<{
   exportId: string;

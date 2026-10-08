@@ -32,6 +32,8 @@ export type InitializeOptions = Readonly<{
   appVersion: string;
   configDir: string;
   key: string;
+  // Wren: the key from before an interrupted rekey; only the primary uses it.
+  previousKey?: string;
   logger: LoggerType;
 }>;
 
@@ -43,6 +45,15 @@ export type WorkerRequest = Readonly<
     }
   | {
       type: 'close' | 'removeDB';
+    }
+  | {
+      type: 'rekey';
+      phase: 'close';
+    }
+  | {
+      type: 'rekey';
+      phase: 'primary' | 'reopen';
+      key: string;
     }
   | {
       type: 'walCheckpoint';
@@ -158,6 +169,8 @@ export class MainSQL {
 
   #checkpointPendingReason: string | null = null;
 
+  #rekeying: Promise<void> | undefined;
+
   readonly #shouldLogQueryTime: (queryName: string) => boolean;
   #shouldTrackQueryStats = false;
 
@@ -186,6 +199,7 @@ export class MainSQL {
     appVersion,
     configDir,
     key,
+    previousKey,
     logger,
   }: InitializeOptions): Promise<void> {
     if (this.#isReady || this.#onReady) {
@@ -201,7 +215,7 @@ export class MainSQL {
 
       await this.#send(primary, {
         type: 'init',
-        options: { appVersion, configDir, key },
+        options: { appVersion, configDir, key, previousKey },
         isPrimary: true,
       });
 
@@ -220,6 +234,37 @@ export class MainSQL {
 
     this.#onReady = undefined;
     this.#isReady = true;
+  }
+
+  // Wren: queries wait while the readers close, the primary re-encrypts and
+  // reopens, and the readers reopen under the new key.
+  public async rekey(key: string): Promise<void> {
+    strictAssert(this.#isReady, 'rekey: not initialized');
+    strictAssert(this.#rekeying == null, 'rekey: already running');
+    const { promise: done, resolve } = explodePromise<void>();
+    this.#rekeying = done;
+    try {
+      while (this.#pool.some(entry => entry.load > 0)) {
+        // oxlint-disable-next-line no-await-in-loop
+        await new Promise(next => setTimeout(next, 10));
+      }
+      const primary = this.#pool[0];
+      strictAssert(primary, 'Missing primary');
+      const rest = this.#pool.slice(1);
+
+      await Promise.all(
+        rest.map(entry => this.#send(entry, { type: 'rekey', phase: 'close' }))
+      );
+      await this.#send(primary, { type: 'rekey', phase: 'primary', key });
+      await Promise.all(
+        rest.map(entry =>
+          this.#send(entry, { type: 'rekey', phase: 'reopen', key })
+        )
+      );
+    } finally {
+      this.#rekeying = undefined;
+      resolve();
+    }
   }
 
   public pauseWriteAccess(): void {
@@ -435,6 +480,11 @@ export class MainSQL {
 
       if (!this.#isReady) {
         throw new Error('Not initialized');
+      }
+
+      while (this.#rekeying != null) {
+        // oxlint-disable-next-line no-await-in-loop
+        await this.#rekeying;
       }
     }
 

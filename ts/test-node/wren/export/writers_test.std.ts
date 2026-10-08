@@ -10,7 +10,9 @@ import {
   getSafeHref,
 } from '../../../wren/export/writers.std.ts';
 import { formatTimer } from '../../../wren/export/time.std.ts';
+import { isUnsafeTextCodePoint } from '../../../wren/export/unsafeText.std.ts';
 import {
+  FIXTURE_CHAT,
   FIXTURE_IMAGE,
   FIXTURE_MESSAGES,
   at,
@@ -415,6 +417,122 @@ describe('wren/export/writers', () => {
       assert.strictEqual(formatTimer(86400), '1d');
       assert.strictEqual(formatTimer(604800), '1w');
       assert.strictEqual(formatTimer(90), '90s');
+    });
+  });
+
+  describe('media elements', () => {
+    const withAttachment = (contentType: string, mediaPath: string) =>
+      render('html', [
+        {
+          ...fixtureMessage('m2'),
+          quote: undefined,
+          reactions: [],
+          attachments: [
+            { ...FIXTURE_IMAGE, contentType, fileName: 'x', mediaPath },
+          ],
+        },
+      ]);
+
+    it('negative control: a passive image still gets an img element', () => {
+      assert.include(
+        withAttachment('image/png', 'media/m2-1.png'),
+        '<img src="media/m2-1.png"'
+      );
+    });
+
+    it('links active types as plain files instead of embedding them', () => {
+      for (const contentType of ['image/svg+xml', 'text/html', 'video/x']) {
+        const output = withAttachment(contentType, 'media/m2-1.bin');
+        assert.notMatch(output, /<(img|video|audio)\b/, contentType);
+        assert.include(output, '<a href="media/m2-1.bin">x</a>');
+      }
+    });
+  });
+
+  describe('control and bidi characters', () => {
+    const ch = (...codePoints: Array<number>) =>
+      String.fromCodePoint(...codePoints);
+    const ESC = ch(0x1b);
+    const C1 = ch(0x9b);
+    const RLO = ch(0x202e);
+    const LRI = ch(0x2066);
+    const FFFD = ch(0xfffd);
+    const BIDI = ch(
+      0x200e,
+      0x200f,
+      0x202a,
+      0x202b,
+      0x202c,
+      0x202d,
+      0x202e,
+      0x2066,
+      0x2067,
+      0x2068,
+      0x2069
+    );
+    const unsafeOnly = `${ESC}${C1}\r${ch(0, 0x7f)}${BIDI}`;
+    const hasUnsafe = (value: string) =>
+      Array.from(value).some(char =>
+        isUnsafeTextCodePoint(char.codePointAt(0) ?? 0)
+      );
+
+    const hostile: ExportMessage = {
+      ...fixtureMessage('m2'),
+      authorName: `Ali${unsafeOnly}ce`,
+      body: `tab\there\nnext line ${ESC}[2J${C1}31m${unsafeOnly} end`,
+      quote: {
+        authorName: `B${ESC}ob`,
+        text: `quoted ${RLO}`,
+        attachmentNames: [`f${RLO}gpj.exe`],
+        isOriginalMissing: false,
+      },
+      reactions: [{ emoji: 'x', fromName: `C${LRI}arol`, timestamp: at(6) }],
+      attachments: [{ ...FIXTURE_IMAGE, fileName: `cat${ESC}.jpg` }],
+      links: [{ url: 'https://a.example/', title: `t${ESC}itle` }],
+    };
+
+    it('negative control: the hostile message carries every unsafe class', () => {
+      assert.isTrue(hasUnsafe(hostile.body));
+      for (const char of Array.from(unsafeOnly)) {
+        assert.isTrue(hasUnsafe(char), `U+${char.codePointAt(0)}`);
+      }
+      assert.isFalse(hasUnsafe('tab\tand\nnewline'));
+    });
+
+    it('chat.txt replaces them and keeps tabs and newlines', () => {
+      const output = render('text', [hostile], {
+        ...FIXTURE_CHAT,
+        name: `Book${ESC}]0;pwned${ch(7)} Club`,
+      });
+      assert.isFalse(hasUnsafe(output));
+      assert.include(
+        output,
+        `tab\there\n    next line ${FFFD}[2J${FFFD}31m${FFFD.repeat(16)} end`
+      );
+      assert.include(output, 'Chat: Book]0;pwned Club\n');
+      assert.include(output, '] Alice: tab');
+      assert.include(output, `> Bob: quoted ${FFFD}`);
+      assert.include(output, '[fgpj.exe]');
+      assert.include(output, 'x Carol');
+      assert.include(output, '[image] cat.jpg (2.0 KB)');
+      assert.include(output, `[link] https://a.example/ t${FFFD}itle`);
+    });
+
+    it('the HTML and JSON writers strip them from names', () => {
+      const html = render('html', [hostile]);
+      assert.include(html, '<span class="author">Alice</span>');
+      assert.include(html, '<div class="quote-author">Bob</div>');
+      assert.include(html, 'title="Carol"');
+      assert.include(html, 'alt="cat.jpg"');
+
+      const json = JSON.parse(render('json', [hostile]));
+      const [message] = json.messages;
+      assert.strictEqual(message.author, 'Alice');
+      assert.strictEqual(message.quote.author, 'Bob');
+      assert.deepEqual(message.quote.attachments, ['fgpj.exe']);
+      assert.strictEqual(message.reactions[0].from, 'Carol');
+      assert.strictEqual(message.attachments[0].fileName, 'cat.jpg');
+      assert.strictEqual(message.body, hostile.body, 'bodies stay as sent');
     });
   });
 });

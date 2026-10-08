@@ -16,6 +16,7 @@ import '../preload.preload.ts';
 import './phase2-dependencies.preload.ts';
 import './phase3-post-signal.preload.ts';
 import './phase4-test.preload.ts';
+import '../../wren/lock/activityPing.preload.ts';
 
 import type {
   CdsLookupOptionsType,

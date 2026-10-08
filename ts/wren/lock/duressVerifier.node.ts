@@ -1,7 +1,7 @@
 // Copyright 2026 Cole Munz
 // SPDX-License-Identifier: AGPL-3.0-only
 
-import { createHash, timingSafeEqual } from 'node:crypto';
+import { createHash, randomBytes, timingSafeEqual } from 'node:crypto';
 
 import type { ScryptParamsType } from './keyWrap.node.ts';
 import { SCRYPT_PARAMS, deriveKey, isHex, newSalt } from './keyWrap.node.ts';
@@ -32,6 +32,14 @@ export function createDuressVerifier(
   return {
     salt: salt.toString('hex'),
     verifier: computeVerifier(passphrase, salt, params).toString('hex'),
+  };
+}
+
+// Random salt and random verifier: costs one scrypt to compare, never matches.
+export function createDecoyVerifier(): DuressVerifierType {
+  return {
+    salt: newSalt().toString('hex'),
+    verifier: randomBytes(32).toString('hex'),
   };
 }
 

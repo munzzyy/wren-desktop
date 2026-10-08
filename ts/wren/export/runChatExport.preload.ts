@@ -6,14 +6,14 @@ import { ipcRenderer } from 'electron';
 import { DataReader } from '../../sql/Client.preload.ts';
 import { isNormalBubble } from '../../state/selectors/message.preload.ts';
 import { getNotificationDataForMessage } from '../../util/getNotificationDataForMessage.preload.ts';
-import { getFileExtension, isVoiceMessage } from '../../util/Attachment.std.ts';
-import { stringToMIMEType } from '../../types/MIME.std.ts';
+import { isVoiceMessage } from '../../util/Attachment.std.ts';
 import { isGroup } from '../../util/whatTypeOfConversation.dom.ts';
 import { strictAssert } from '../../util/assert.std.ts';
 import { createLogger } from '../../logging/log.std.ts';
 import * as Errors from '../../types/errors.std.ts';
 import type { LocalizerType } from '../../types/I18N.std.ts';
 import { mapMessageToExport, type MapperContext } from './mapper.std.ts';
+import { lockSettingsApi } from '../lock/settingsIpc.preload.ts';
 import type { ExportChat, ExportFormat } from './model.std.ts';
 import {
   EXPORT_CHANNELS,
@@ -34,15 +34,22 @@ export type ChatExportProgress = Readonly<{
 
 export type ChatExportResult =
   | Readonly<{ status: 'done'; filePath: string; folderPath: string }>
-  | Readonly<{ status: 'canceled' }>;
+  | Readonly<{ status: 'canceled' }>
+  | Readonly<{ status: 'wrong-passphrase' }>;
 
 export type RunChatExportOptions = Readonly<{
   conversationId: string;
   format: ExportFormat;
   includeMedia: boolean;
+  passphrase?: string;
   onProgress: (progress: ChatExportProgress) => void;
   signal: AbortSignal;
 }>;
+
+export async function isExportPassphraseRequired(): Promise<boolean> {
+  const status = await lockSettingsApi.getStatus();
+  return status.enabled;
+}
 
 async function chooseExportFolder(
   i18n: LocalizerType
@@ -82,8 +89,6 @@ function createMapperContext(includeMedia: boolean): MapperContext {
       }
     },
     isVoiceMessage,
-    lookupExtension: contentType =>
-      getFileExtension({ contentType: stringToMIMEType(contentType) }),
   };
 }
 
@@ -91,6 +96,7 @@ export async function runChatExport({
   conversationId,
   format,
   includeMedia,
+  passphrase,
   onProgress,
   signal,
 }: RunChatExportOptions): Promise<ChatExportResult> {
@@ -114,11 +120,20 @@ export async function runChatExport({
   const total = await DataReader.getMessageCount(conversationId);
   onProgress({ processed: 0, total });
 
-  const beginRequest: BeginExportRequest = { parentDir, format, chat };
-  const { exportId }: BeginExportResponse = await ipcRenderer.invoke(
+  const beginRequest: BeginExportRequest = {
+    parentDir,
+    format,
+    chat,
+    passphrase,
+  };
+  const begun: BeginExportResponse = await ipcRenderer.invoke(
     EXPORT_CHANNELS.begin,
     beginRequest
   );
+  if (begun.status === 'wrong-passphrase') {
+    return { status: 'wrong-passphrase' };
+  }
+  const { exportId } = begun;
 
   const abort = async (): Promise<void> => {
     try {
