@@ -12189,6 +12189,10 @@
     "messageformat": "{count, plural, one {That passphrase is wrong. # more wrong try erases everything Wren keeps on this computer.} other {That passphrase is wrong. # more wrong tries erase everything Wren keeps on this computer.}}",
     "description": "Lock screen: shown after a wrong passphrase when wipe after failed attempts is on; count is the number of tries left"
   },
+  "icu:WrenLock__not-counted": {
+    "messageformat": "Wren couldn't save the try counter, so it didn't check that passphrase. Make sure the data folder is writable and try again.",
+    "description": "Lock screen: shown when the failed attempt counter can't be written to disk, so the attempt is refused"
+  },
   "icu:WrenLock__unreadable": {
     "messageformat": "Wren can't read its lock settings",
     "description": "Error dialog title when the passphrase lock settings in config.json are damaged"

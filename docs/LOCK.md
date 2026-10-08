@@ -27,11 +27,15 @@ You can set a second passphrase. Typing it on the lock screen erases everything 
 
 Wren stores only a salted check for it: the SHA-256 of a scrypt output with its own salt, compared in constant time. It can't be the same as your real passphrase, and Wren refuses a new real passphrase that matches it.
 
+Every try on the lock screen runs both checks, the real passphrase and the duress one. When no duress passphrase is set, the second check runs against a random stand-in that can never match. A wrong guess takes the same time either way, so the lock screen doesn't give away whether a duress passphrase exists.
+
 ## Wipe after failed attempts
 
-Off, 5, 10 or 20. Each wrong passphrase on the lock screen is counted in `config.json` before the lock screen hears back, so killing the app between tries doesn't reset it. When the count reaches your limit, Wren erases its data. A correct passphrase resets the count. The lock screen says how many tries are left when the limit is on.
+Off, 5, 10 or 20. Every try on the lock screen is counted in `config.json` before Wren starts checking the passphrase, and the right passphrase sets the count back to zero. Killing the app in the middle of a check doesn't give a free try, and if Wren can't write the count it refuses to check the passphrase at all. When the count reaches your limit and the passphrase is wrong, Wren erases its data. The lock screen says how many tries are left when the limit is on.
 
-Erasing means: close the database if it is open, delete the whole Wren data folder (database, attachments, config, logs, everything), then quit. The next start is a fresh install that needs linking again.
+Erasing goes in this order. First Wren checks that the data folder really is its own: `config.json` there has to hold the lock settings, or nothing is touched. Then it overwrites `config.json` and `ephemeral.json` with zeros, deletes them and syncs the folder, so the wrapped key is the first thing to go. Then the database folder, then attachments and every other folder Wren and Electron make, then the data folder itself, and Wren quits. A small helper deletes the folder once more after Wren has exited, because Chromium writes a few files while it shuts down. The log line says only that Wren is erasing its data, not why. The next start is a fresh install that needs linking again.
+
+If the data folder is your home folder, the system's app data folder, a parent of either, the root of a drive or a mount point (say you pointed Wren at a USB stick with `--user-data-dir`), Wren deletes only the files and folders it knows it made and leaves the folder itself.
 
 ## Locking
 
@@ -53,6 +57,6 @@ I want to be straight about the limits.
 - Swap, hibernation and crash dump files. The key sits in memory while Wren is unlocked, and the OS can write memory to disk. Encrypt your disk.
 - Free blocks on the disk. Removing the old `encryptedKey` entry rewrites `config.json`, but an SSD or a journaling filesystem can keep the old bytes for a while. Full disk encryption covers this too.
 - The keychain when the lock is off. Then anyone who can log in as you can open Wren, same as Signal Desktop.
-- Wiping is a normal delete. It removes the files and the key; it does not overwrite the disk. Without the key the database is unreadable, which is the point.
+- Wiping overwrites `config.json` and `ephemeral.json` before deleting them, but that only reaches the blocks the file sits in now. Older copies from earlier saves, and everything else Wren deletes, can stay in free blocks on an SSD or a journaling filesystem. Without the key the database is unreadable, which is the point.
 - Your phone. The lock covers this computer only. The messages that synced to your phone, and the phone's own linked device list, are untouched. Unlink this computer from the phone if it is lost.
 - Forgetting the passphrase. There is no recovery. Delete the data folder and link again; the phone still has your messages.

@@ -13,11 +13,8 @@ import * as Errors from '../../types/errors.std.ts';
 import { count as countGraphemes } from '../../util/grapheme.std.ts';
 import { unwrapKey, wrapKey } from './keyWrap.node.ts';
 import { createDuressVerifier, matchesDuress } from './duressVerifier.node.ts';
-import {
-  isWipeAfter,
-  recordFailedAttempt,
-  resetFailedAttempts,
-} from './failedAttemptPolicy.std.ts';
+import { attemptUnlock } from './unlockAttempt.node.ts';
+import { isWipeAfter, resetFailedAttempts } from './failedAttemptPolicy.std.ts';
 import type { LockStateType } from './lockState.std.ts';
 import {
   LOCK_STATE_CONFIG_KEY,
@@ -37,7 +34,6 @@ import {
   MAX_PASSPHRASE_LENGTH,
   MIN_PASSPHRASE_LENGTH,
 } from './types.std.ts';
-import type { WipeReasonType } from './wipe.main.ts';
 import { wipeAndExit } from './wipe.main.ts';
 
 const KEYCHAIN_CONFIG_KEYS = ['encryptedKey', 'key', 'safeStorageBackend'];
@@ -438,29 +434,43 @@ export class LockController {
       throw new Error('wren-lock: lock settings disappeared');
     }
 
-    const key = unwrapKey(state, passphrase);
-    if (key !== undefined) {
-      if (state.failedAttempts !== 0) {
-        this.#writeState({ ...state, failedAttempts: resetFailedAttempts() });
-      }
-      this.#scrubKeychainKey();
-      this.#options.log.info('wren-lock: unlocked');
-      return key;
-    }
+    const { log } = this.#options;
+    const attempt = attemptUnlock(state, passphrase, {
+      writeState: next => this.#writeState(next),
+      onResetFailed: error =>
+        log.error(
+          'wren-lock: could not reset the attempt count',
+          Errors.toLogFormat(error)
+        ),
+    });
 
-    if (state.duress && matchesDuress(passphrase, state.duress)) {
-      await this.#wipe('duress', userDataPath);
+    if (attempt.kind === 'not-counted') {
+      log.error(
+        'wren-lock: could not save the attempt count, refusing the attempt',
+        Errors.toLogFormat(attempt.error)
+      );
+      return {
+        status: 'wrong',
+        message: this.#options.getI18n()('icu:WrenLock__not-counted'),
+      };
+    }
+    if (attempt.kind === 'unlocked') {
+      this.#scrubKeychainKey();
+      log.info('wren-lock: unlocked');
+      return attempt.key;
+    }
+    if (attempt.kind === 'duress') {
+      await this.#wipe(userDataPath);
       return { status: 'busy' };
     }
 
-    const outcome = recordFailedAttempt(state.failedAttempts, state.wipeAfter);
-    this.#writeState({ ...state, failedAttempts: outcome.failedAttempts });
-    this.#options.log.warn(
+    const { outcome } = attempt;
+    log.warn(
       `wren-lock: wrong passphrase (${outcome.failedAttempts} in a row)`
     );
 
     if (outcome.shouldWipe) {
-      await this.#wipe('failed-attempts', userDataPath);
+      await this.#wipe(userDataPath);
       return { status: 'busy' };
     }
 
@@ -476,11 +486,11 @@ export class LockController {
     };
   }
 
-  async #wipe(reason: WipeReasonType, userDataPath: string): Promise<void> {
+  async #wipe(userDataPath: string): Promise<void> {
     if (this.#lockWindow && !this.#lockWindow.isDestroyed()) {
       this.#lockWindow.hide();
     }
-    await wipeAndExit({ userDataPath, reason, log: this.#options.log });
+    await wipeAndExit({ userDataPath, log: this.#options.log });
   }
 
   async #getWindowInfo(): Promise<LockWindowInfoType> {
