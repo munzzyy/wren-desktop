@@ -3,12 +3,13 @@
 
 # Wren Desktop
 
-[![CI](https://github.com/munzzyy/wren-desktop/actions/workflows/ci.yml/badge.svg)](https://github.com/munzzyy/wren-desktop/actions/workflows/ci.yml)
 [![License: AGPL-3.0-only](https://img.shields.io/badge/license-AGPL--3.0--only-blue.svg)](LICENSE)
 
 Wren Desktop is a fork of [Signal Desktop](https://github.com/signalapp/Signal-Desktop). You link it to your phone the same way you link Signal Desktop, as another device on your account. It talks to Signal's servers, so your contacts, groups and calls stay where they are.
 
-It is the desktop sibling of Wren for Android, a fork of Molly. Signal Desktop has no app lock, no wipe and no way to export a single chat. Wren Desktop is my attempt at filling those gaps.
+It is the desktop sibling of Wren for Android, a fork of Molly. It is built
+from Signal Desktop's main branch at 8.33.0-alpha.1, not from a release tag;
+the first Wren Desktop release will move to Signal's next stable tag first. Signal Desktop has no app lock, no wipe and no way to export a single chat. Wren Desktop is my attempt at filling those gaps.
 
 ## What it adds
 
@@ -28,7 +29,7 @@ Everything else Signal Desktop does, Wren Desktop does, because it is Signal Des
 | ------------- | -------------- | ------------------------------------- |
 | App lock      | no             | yes                                   |
 | Duress wipe   | no             | yes, plus wipe after failed attempts  |
-| Chat export   | no             | HTML, text, JSON with media           |
+| Chat export   | JSON of all chats only | one chat: HTML, text or JSON with media |
 | Auto update   | yes            | no, you update from the releases page |
 | Signed builds | yes            | no                                    |
 

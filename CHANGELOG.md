@@ -5,7 +5,7 @@
 
 ## Unreleased
 
-Forked from Signal Desktop 8.33.0-alpha.1.
+Forked from Signal Desktop's main branch at 8.33.0-alpha.1 (an unreleased snapshot; the first release rebases onto Signal's next stable tag).
 
 Done:
 

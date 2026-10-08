@@ -3,7 +3,7 @@
 
 # Passphrase lock
 
-Signal Desktop opens straight into your messages for anyone who sits down at your computer. Signal has said no to an app lock. Wren Desktop has one.
+Signal Desktop opens straight into your messages for anyone who sits down at your computer. Signal Desktop does not have one. Wren Desktop has one.
 
 Turn it on in Settings, Privacy, App lock. From then on Wren asks for your passphrase every time it starts, and the message database stays closed until you type it.
 
