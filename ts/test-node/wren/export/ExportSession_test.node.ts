@@ -225,6 +225,32 @@ describe('wren/export/ExportSession', () => {
     assert.instanceOf(error, Error);
   });
 
+  it('abortNow during a write still removes the folder once the write stops', async () => {
+    const session = await ChatExportSession.create({
+      parentDir: outputDir,
+      format: 'html',
+      chat: FIXTURE_CHAT,
+      attachmentsDir,
+      getDateParts: getUtcDateParts,
+    });
+    const writing = session.writeMessages([message([])]);
+    try {
+      session.abortNow();
+    } catch {
+      // Windows can't remove the folder while the write holds the file.
+    }
+    await writing.catch(() => undefined);
+    const deadline = Date.now() + 5000;
+    let left = await readdir(outputDir);
+    while (left.length > 0 && Date.now() < deadline) {
+      // oxlint-disable-next-line no-await-in-loop
+      await new Promise(resolve => setTimeout(resolve, 50));
+      // oxlint-disable-next-line no-await-in-loop
+      left = await readdir(outputDir);
+    }
+    assert.deepEqual(left, []);
+  });
+
   it('only calls Wren-shaped names partial exports', () => {
     assert.isTrue(isPartialExportName('.wren-export-0123456789abcdef.partial'));
     assert.isFalse(isPartialExportName('Book Club.partial'));
