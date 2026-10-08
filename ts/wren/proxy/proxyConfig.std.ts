@@ -6,7 +6,7 @@ export const PROXY_CONFIG_KEY = 'wrenProxy';
 export const TOR_HOST = '127.0.0.1';
 export const TOR_DEFAULT_PORT = 9050;
 export const TOR_BROWSER_PORT = 9150;
-export const SOCKS_DEFAULT_PORT = 1080;
+const SOCKS_DEFAULT_PORT = 1080;
 
 // RFC 1929 caps the SOCKS5 username and password at 255 bytes each.
 export const MAX_CREDENTIAL_BYTES = 255;
@@ -110,7 +110,7 @@ function utf8Length(value: string): number {
 
 const CONTROL_CHARS = /[\u0000-\u001f\u007f]/;
 
-export function isValidCredential(value: unknown): value is string {
+function isValidCredential(value: unknown): value is string {
   return (
     typeof value === 'string' &&
     utf8Length(value) <= MAX_CREDENTIAL_BYTES &&
@@ -118,7 +118,7 @@ export function isValidCredential(value: unknown): value is string {
   );
 }
 
-export function parseHttpProxyUrl(value: unknown): URL | undefined {
+function parseHttpProxyUrl(value: unknown): URL | undefined {
   if (typeof value !== 'string' || value.length > MAX_URL_LENGTH) {
     return undefined;
   }

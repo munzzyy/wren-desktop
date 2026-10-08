@@ -9,9 +9,9 @@ import { createProxyAgent } from '../../util/createProxyAgent.node.ts';
 import { getProxyEndpoint } from './proxyConfig.std.ts';
 import type { ProxyTestResultType } from './types.std.ts';
 
-export const PROBE_TIMEOUT_MS = 5000;
+const PROBE_TIMEOUT_MS = 5000;
 // Tor can take a while to build a fresh circuit.
-export const TEST_TIMEOUT_MS = 30000;
+const TEST_TIMEOUT_MS = 30000;
 
 export function probeProxy(
   proxyUrl: string,
