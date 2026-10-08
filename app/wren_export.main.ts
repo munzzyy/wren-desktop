@@ -2,10 +2,16 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 import { randomUUID } from 'node:crypto';
-import { ipcMain } from 'electron';
+import { existsSync, rmSync } from 'node:fs';
+import { basename, isAbsolute } from 'node:path';
+import type { BrowserWindow } from 'electron';
+import { dialog, ipcMain } from 'electron';
 
 import { getAttachmentsPath } from './attachments.node.ts';
-import { ChatExportSession } from '../ts/wren/export/ExportSession.node.ts';
+import {
+  ChatExportSession,
+  isPartialExportName,
+} from '../ts/wren/export/ExportSession.node.ts';
 import {
   EXPORT_CHANNELS,
   type BeginExportRequest,
@@ -17,11 +23,46 @@ import {
 import { isExportFormat } from '../ts/wren/export/model.std.ts';
 import type { WriteResult } from '../ts/wren/export/ExportSession.node.ts';
 import { createLogger } from '../ts/logging/log.std.ts';
+import type { LocalizerType } from '../ts/types/I18N.std.ts';
 import * as Errors from '../ts/types/errors.std.ts';
 
 const log = createLogger('wren_export');
 
+// Working folders of exports that are still running, so a crash or a kill
+// in the middle can be cleaned up on the next start.
+const PARTIALS_CONFIG_KEY = 'wrenExportPartials';
+
+export type ExportConfigType = Readonly<{
+  get: (keyPath: string) => unknown;
+  set: (keyPath: string, value: unknown) => void;
+}>;
+
 const sessions = new Map<string, ChatExportSession>();
+let exportConfig: ExportConfigType | undefined;
+
+function isPartialPath(value: unknown): value is string {
+  return (
+    typeof value === 'string' &&
+    isAbsolute(value) &&
+    isPartialExportName(basename(value))
+  );
+}
+
+function readPartials(): Array<string> {
+  const value = exportConfig?.get(PARTIALS_CONFIG_KEY);
+  return Array.isArray(value) ? value.filter(isPartialPath) : [];
+}
+
+function writePartials(paths: ReadonlyArray<string>): void {
+  try {
+    exportConfig?.set(
+      PARTIALS_CONFIG_KEY,
+      paths.length > 0 ? [...paths] : undefined
+    );
+  } catch (error) {
+    log.warn('could not record the export folders', Errors.toLogFormat(error));
+  }
+}
 
 function parseBeginRequest(payload: unknown): BeginExportRequest {
   const request = payload as Partial<BeginExportRequest> | undefined;
@@ -60,8 +101,91 @@ function getSession(payload: unknown): [string, ChatExportSession] {
   return [exportId, session];
 }
 
-export function initialize({ configDir }: { configDir: string }): void {
+function forget(exportId: string, session: ChatExportSession): void {
+  sessions.delete(exportId);
+  writePartials(readPartials().filter(path => path !== session.partialPath));
+}
+
+// Lock, system lock and quit can't wait for the renderer, so every running
+// export loses its half-written folder right here.
+export function abortAll(): void {
+  for (const [exportId, session] of sessions) {
+    sessions.delete(exportId);
+    try {
+      session.abortNow();
+      writePartials(
+        readPartials().filter(path => path !== session.partialPath)
+      );
+    } catch (error) {
+      log.warn('abortAll: a folder stayed behind', Errors.toLogFormat(error));
+    }
+  }
+}
+
+export async function offerToDeleteLeftovers({
+  i18n,
+  getMainWindow,
+}: Readonly<{
+  i18n: LocalizerType;
+  getMainWindow: () => BrowserWindow | undefined;
+}>): Promise<void> {
+  const running = new Set(
+    Array.from(sessions.values(), session => session.partialPath)
+  );
+  const leftovers = readPartials().filter(path => !running.has(path));
+  const present = leftovers.filter(path => existsSync(path));
+  if (present.length === 0) {
+    if (leftovers.length > 0) {
+      writePartials([]);
+    }
+    return;
+  }
+
+  const options = {
+    type: 'warning' as const,
+    message: i18n('icu:ExportChatLeftovers__title'),
+    detail: i18n('icu:ExportChatLeftovers__detail', {
+      paths: present.join('\n'),
+    }),
+    buttons: [
+      i18n('icu:ExportChatLeftovers__delete'),
+      i18n('icu:ExportChatLeftovers__keep'),
+    ],
+    defaultId: 0,
+    cancelId: 1,
+    noLink: true,
+  };
+  const window = getMainWindow();
+  const { response } = window
+    ? await dialog.showMessageBox(window, options)
+    : await dialog.showMessageBox(options);
+
+  const kept = new Array<string>();
+  if (response === 0) {
+    for (const path of present) {
+      try {
+        rmSync(path, { recursive: true, force: true });
+      } catch (error) {
+        kept.push(path);
+        log.warn(
+          'could not delete a leftover export',
+          Errors.toLogFormat(error)
+        );
+      }
+    }
+  }
+  writePartials(kept);
+}
+
+export function initialize({
+  configDir,
+  config,
+}: {
+  configDir: string;
+  config: ExportConfigType;
+}): void {
   const attachmentsDir = getAttachmentsPath(configDir);
+  exportConfig = config;
 
   ipcMain.handle(
     EXPORT_CHANNELS.begin,
@@ -73,6 +197,7 @@ export function initialize({ configDir }: { configDir: string }): void {
       });
       const exportId = randomUUID();
       sessions.set(exportId, session);
+      writePartials([...readPartials(), session.partialPath]);
       log.info(`begin: ${exportId} format=${request.format}`);
       return { exportId, folderPath: session.folderPath };
     }
@@ -94,14 +219,16 @@ export function initialize({ configDir }: { configDir: string }): void {
     EXPORT_CHANNELS.finish,
     async (_event, payload: unknown): Promise<FinishExportResponse> => {
       const [exportId, session] = getSession(payload);
-      sessions.delete(exportId);
       try {
         const filePath = await session.finish();
+        forget(exportId, session);
         log.info(`finish: ${exportId}`);
         return { filePath, folderPath: session.folderPath };
       } catch (error) {
         log.error(`finish: ${exportId} failed`, Errors.toLogFormat(error));
+        sessions.delete(exportId);
         await session.abort();
+        forget(exportId, session);
         throw error;
       }
     }
@@ -117,9 +244,9 @@ export function initialize({ configDir }: { configDir: string }): void {
       if (exportId == null || session == null) {
         return;
       }
-      sessions.delete(exportId);
       log.info(`abort: ${exportId}`);
       await session.abort();
+      forget(exportId, session);
     }
   );
 }

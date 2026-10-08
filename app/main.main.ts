@@ -706,6 +706,7 @@ const wrenLock = new LockController({
   getTheme: () => getResolvedThemeSetting({ ephemeralOnly: true }),
   getSqlKeyFromKeychain: () => getSQLKey(),
   rekeyDatabase: key => sql.rekey(key),
+  beforeLock: () => wrenExport.abortAll(),
   relaunch: appRelaunch,
   loadURL: safeLoadURL,
 });
@@ -2483,7 +2484,7 @@ app.on('ready', async () => {
     sql,
     configDir: userDataPath,
   });
-  wrenExport.initialize({ configDir: userDataPath });
+  wrenExport.initialize({ configDir: userDataPath, config: userConfig });
   sqlChannels.initialize(sql);
   PowerChannel.initialize({
     send(event) {
@@ -2527,6 +2528,12 @@ app.on('ready', async () => {
 
   setupMenu();
   wrenLock.startAutoLock();
+  drop(
+    wrenExport.offerToDeleteLeftovers({
+      i18n: getResolvedMessagesLocale().i18n,
+      getMainWindow: () => mainWindow,
+    })
+  );
 
   systemTrayService = new SystemTrayService({
     i18n: getResolvedMessagesLocale().i18n,
@@ -2742,6 +2749,7 @@ app.on('before-quit', e => {
 
   systemTrayService?.markShouldQuit();
   windowState.markShouldQuit();
+  wrenExport.abortAll();
 });
 
 app.on('will-quit', e => {

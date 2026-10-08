@@ -1,9 +1,10 @@
 // Copyright 2026 Cole Munz
 // SPDX-License-Identifier: AGPL-3.0-only
 
-import { constants as fsConstants, createWriteStream } from 'node:fs';
+import { randomBytes } from 'node:crypto';
+import { constants as fsConstants, createWriteStream, rmSync } from 'node:fs';
 import type { WriteStream } from 'node:fs';
-import { copyFile, mkdir, open, rm, stat } from 'node:fs/promises';
+import { copyFile, mkdir, open, rename, rm, stat } from 'node:fs/promises';
 import type { FileHandle } from 'node:fs/promises';
 import { extname, isAbsolute, join, normalize } from 'node:path';
 
@@ -39,13 +40,27 @@ export type WriteResult = Readonly<{
   missing: number;
 }>;
 
-async function createUniqueFolder(
-  parentDir: string,
-  baseName: string
-): Promise<string> {
+export const PARTIAL_SUFFIX = '.partial';
+const PARTIAL_PREFIX = '.wren-export-';
+
+export function isPartialExportName(name: string): boolean {
+  return (
+    name.startsWith(PARTIAL_PREFIX) &&
+    name.endsWith(PARTIAL_SUFFIX) &&
+    /^[0-9a-f]{16}$/.test(
+      name.slice(PARTIAL_PREFIX.length, -PARTIAL_SUFFIX.length)
+    )
+  );
+}
+
+// The working folder has a random name, so a half-written export never shows
+// up under the chat's name and the path Wren records says nothing about it.
+async function createPartialFolder(parentDir: string): Promise<string> {
   for (let attempt = 1; attempt <= MAX_FOLDER_ATTEMPTS; attempt += 1) {
-    const name = attempt === 1 ? baseName : `${baseName} (${attempt})`;
-    const folderPath = join(parentDir, name);
+    const folderPath = join(
+      parentDir,
+      `${PARTIAL_PREFIX}${randomBytes(8).toString('hex')}${PARTIAL_SUFFIX}`
+    );
     try {
       // oxlint-disable-next-line no-await-in-loop
       await mkdir(folderPath);
@@ -56,37 +71,84 @@ async function createUniqueFolder(
       }
     }
   }
+  throw new Error('Could not create a working folder for the export');
+}
+
+async function exists(path: string): Promise<boolean> {
+  try {
+    await stat(path);
+    return true;
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      return false;
+    }
+    throw error;
+  }
+}
+
+async function moveToUniqueFolder(
+  partialPath: string,
+  parentDir: string,
+  baseName: string
+): Promise<string> {
+  for (let attempt = 1; attempt <= MAX_FOLDER_ATTEMPTS; attempt += 1) {
+    const name = attempt === 1 ? baseName : `${baseName} (${attempt})`;
+    const folderPath = join(parentDir, name);
+    // oxlint-disable-next-line no-await-in-loop
+    if (await exists(folderPath)) {
+      continue;
+    }
+    try {
+      // oxlint-disable-next-line no-await-in-loop
+      await rename(partialPath, folderPath);
+      return folderPath;
+    } catch (error) {
+      if (!['EEXIST', 'ENOTEMPTY', 'EPERM'].includes(error?.code)) {
+        throw error;
+      }
+    }
+  }
   throw new Error('Could not find a free folder name for the export');
 }
 
 export class ChatExportSession {
-  readonly folderPath: string;
-  readonly filePath: string;
+  readonly partialPath: string;
 
+  readonly #parentDir: string;
+  readonly #baseName: string;
+  readonly #fileName: string;
   readonly #attachmentsDir: string;
   readonly #file: FileHandle;
   readonly #writer: ChatWriter;
+  #folderPath: string;
   #pending = '';
   #mediaDirCreated = false;
   #closed = false;
 
   private constructor({
-    folderPath,
-    filePath,
+    partialPath,
+    parentDir,
+    baseName,
+    fileName,
     attachmentsDir,
     file,
     format,
     getDateParts,
   }: Readonly<{
-    folderPath: string;
-    filePath: string;
+    partialPath: string;
+    parentDir: string;
+    baseName: string;
+    fileName: string;
     attachmentsDir: string;
     file: FileHandle;
     format: ExportFormat;
     getDateParts?: GetDateParts;
   }>) {
-    this.folderPath = folderPath;
-    this.filePath = filePath;
+    this.partialPath = partialPath;
+    this.#folderPath = partialPath;
+    this.#parentDir = parentDir;
+    this.#baseName = baseName;
+    this.#fileName = fileName;
     this.#attachmentsDir = attachmentsDir;
     this.#file = file;
     this.#writer = createChatWriter(
@@ -96,6 +158,15 @@ export class ChatExportSession {
       },
       { getDateParts }
     );
+  }
+
+  // The working folder until finish() moves it to its real name.
+  get folderPath(): string {
+    return this.#folderPath;
+  }
+
+  get filePath(): string {
+    return join(this.#folderPath, this.#fileName);
   }
 
   static async create({
@@ -113,23 +184,22 @@ export class ChatExportSession {
       throw new Error('Export folder is not a directory');
     }
 
-    const folderPath = await createUniqueFolder(
-      parentDir,
-      getExportFolderName(chat.name, chat.exportedAt, getDateParts)
-    );
-    const filePath = join(folderPath, EXPORT_FILE_NAMES[format]);
+    const partialPath = await createPartialFolder(parentDir);
+    const fileName = EXPORT_FILE_NAMES[format];
 
     let file: FileHandle;
     try {
-      file = await open(filePath, 'wx');
+      file = await open(join(partialPath, fileName), 'wx');
     } catch (error) {
-      await rm(folderPath, { recursive: true, force: true });
+      await rm(partialPath, { recursive: true, force: true });
       throw error;
     }
 
     const session = new ChatExportSession({
-      folderPath,
-      filePath,
+      partialPath,
+      parentDir,
+      baseName: getExportFolderName(chat.name, chat.exportedAt, getDateParts),
+      fileName,
       attachmentsDir,
       file,
       format,
@@ -170,6 +240,11 @@ export class ChatExportSession {
     await this.#flush();
     this.#closed = true;
     await this.#file.close();
+    this.#folderPath = await moveToUniqueFolder(
+      this.partialPath,
+      this.#parentDir,
+      this.#baseName
+    );
     return this.filePath;
   }
 
@@ -178,7 +253,13 @@ export class ChatExportSession {
       this.#closed = true;
       await this.#file.close().catch(() => undefined);
     }
-    await rm(this.folderPath, { recursive: true, force: true });
+    await rm(this.partialPath, { recursive: true, force: true });
+  }
+
+  // For lock and quit, which can't wait. The handle closes with the process.
+  abortNow(): void {
+    this.#closed = true;
+    rmSync(this.partialPath, { recursive: true, force: true });
   }
 
   #assertOpen(): void {
@@ -214,8 +295,8 @@ export class ChatExportSession {
       return markMissing();
     }
 
-    const mediaDir = join(this.folderPath, MEDIA_DIR);
-    const targetPath = normalize(join(this.folderPath, exportable.mediaPath));
+    const mediaDir = join(this.partialPath, MEDIA_DIR);
+    const targetPath = normalize(join(this.partialPath, exportable.mediaPath));
     const sourcePath = normalize(join(this.#attachmentsDir, source.path));
     if (
       !isPathInside(targetPath, mediaDir) ||

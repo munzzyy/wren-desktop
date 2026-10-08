@@ -64,6 +64,7 @@ export type LockControllerOptionsType = Readonly<{
   getTheme: () => Promise<'light' | 'dark'>;
   getSqlKeyFromKeychain: () => string;
   rekeyDatabase: (key: string) => Promise<void>;
+  beforeLock?: () => void;
   relaunch: () => void;
   loadURL: (window: BrowserWindow, url: string) => Promise<void>;
 }>;
@@ -332,6 +333,14 @@ export class LockController {
     this.#options.log.info(`wren-lock: locking (${reason})`);
     for (const window of BrowserWindow.getAllWindows()) {
       window.hide();
+    }
+    try {
+      this.#options.beforeLock?.();
+    } catch (error) {
+      this.#options.log.error(
+        'wren-lock: cleanup before locking failed',
+        Errors.toLogFormat(error)
+      );
     }
     this.#options.relaunch();
     app.exit(0);

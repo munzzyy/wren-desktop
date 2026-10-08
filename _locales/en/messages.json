@@ -627,6 +627,22 @@
     "messageformat": "Nothing was saved. Check that the folder can be written to and has free space, then try again.",
     "description": "Body of the export chat dialog when the export failed"
   },
+  "icu:ExportChatLeftovers__title": {
+    "messageformat": "Delete unfinished chat exports?",
+    "description": "Dialog at startup when an earlier chat export was cut short by a lock, a quit or a crash"
+  },
+  "icu:ExportChatLeftovers__detail": {
+    "messageformat": "An export didn't finish because Wren was locked or closed. These folders hold part of a chat as plain text:\n\n{paths}",
+    "description": "Body of the unfinished exports dialog; paths is a list of folder paths, one per line"
+  },
+  "icu:ExportChatLeftovers__delete": {
+    "messageformat": "Delete",
+    "description": "Button in the unfinished exports dialog that deletes the folders"
+  },
+  "icu:ExportChatLeftovers__keep": {
+    "messageformat": "Keep",
+    "description": "Button in the unfinished exports dialog that leaves the folders alone"
+  },
   "icu:ExportChatDialog__toast": {
     "messageformat": "Chat exported",
     "description": "Toast shown when a chat export finished"
