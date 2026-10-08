@@ -1,7 +1,7 @@
 // Copyright 2018 Signal Messenger, LLC
 // SPDX-License-Identifier: AGPL-3.0-only
 
-import type { Response } from 'got';
+import type { Agents, Response } from 'got';
 import { z } from 'zod';
 import FormData from 'form-data';
 import got from 'got';
@@ -50,6 +50,7 @@ export type UploadOptionsType = Readonly<{
   contentType?: string;
   compress?: boolean;
   prefix?: string;
+  agent?: Agents;
 }>;
 
 export const upload = async ({
@@ -60,6 +61,7 @@ export const upload = async ({
   contentType = 'application/gzip',
   compress = true,
   prefix,
+  agent,
 }: UploadOptionsType): Promise<string> => {
   const headers = { 'User-Agent': getUserAgent(appVersion) };
 
@@ -73,6 +75,7 @@ export const upload = async ({
     responseType: 'json',
     headers,
     timeout: UPLOAD_TIMEOUT,
+    ...(agent ? { agent } : {}),
   });
   const { fields, url } = parseTokenBody(signedForm.body);
 
@@ -103,6 +106,7 @@ export const upload = async ({
       headers,
       body: form,
       timeout: UPLOAD_TIMEOUT,
+      ...(agent ? { agent } : {}),
     });
     if (statusCode !== 204) {
       throw new Error(

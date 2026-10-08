@@ -11,6 +11,7 @@ import { pemToDer } from '../util/pemToDer.std.ts';
 import { drop } from '../util/drop.std.ts';
 import { toLogFormat } from '../types/errors.std.ts';
 import { createLogger } from '../logging/log.std.ts';
+import { startLibsignalProxyGate } from '../wren/proxy/libsignalGate.preload.ts';
 
 const log = createLogger('preconnect');
 
@@ -74,13 +75,16 @@ if (window.SignalContext.config?.serverUrl) {
   );
 
   libsignalNet.setIpv6Enabled(!config.disableIPv6);
-  if (config.proxyUrl) {
+  if (config.proxyUrl && config.wrenProxyOnly) {
+    log.info('WebAPI: libsignal waits for the proxy');
+    startLibsignalProxyGate(libsignalNet, config.proxyUrl);
+  } else if (config.proxyUrl) {
     log.info('WebAPI: Setting libsignal proxy');
     try {
       libsignalNet.setProxyFromUrl(config.proxyUrl);
-    } catch (error) {
-      log.error(`WebAPI: Failed to set proxy: ${error}`);
-      libsignalNet.clearProxy();
+    } catch {
+      // The invalid proxy it left behind blocks connections; clearing it went direct.
+      log.error('WebAPI: proxy URL rejected, not connecting until it is fixed');
     }
   }
 

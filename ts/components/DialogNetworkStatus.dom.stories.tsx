@@ -179,3 +179,16 @@ export function OutageNarrow(): JSX.Element {
     </FakeLeftPaneContainer>
   );
 }
+
+export function ProxyUnreachableWide(): JSX.Element {
+  return (
+    <FakeLeftPaneContainer containerWidthBreakpoint={WidthBreakpoint.Wide}>
+      <DialogNetworkStatus
+        {...defaultProps}
+        containerWidthBreakpoint={WidthBreakpoint.Wide}
+        socketStatus={SocketStatus.CLOSED}
+        isProxyUnreachable
+      />
+    </FakeLeftPaneContainer>
+  );
+}

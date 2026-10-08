@@ -47,6 +47,10 @@ import { toWebSafeBase64 } from '../util/webSafeBase64.std.ts';
 import { getBasicAuth } from '../util/getBasicAuth.std.ts';
 import { createHTTPSAgent } from '../util/createHTTPSAgent.node.ts';
 import { createProxyAgent } from '../util/createProxyAgent.node.ts';
+import {
+  BlockedByProxyError,
+  isDirectFeatureAllowedHere,
+} from '../wren/proxy/proxyPolicy.dom.ts';
 import type { ProxyAgent } from '../util/createProxyAgent.node.ts';
 import type { FetchFunctionType } from '../util/uploads/tusProtocol.node.ts';
 import { VerificationTransport } from '../types/VerificationTransport.std.ts';
@@ -387,7 +391,9 @@ async function getFetchOptions<Type extends ResponseType, OutputShape>(
   const { timestamp } = agents[cacheKey] || { timestamp: null };
   if (!timestamp || timestamp + FIVE_MINUTES < Date.now()) {
     if (timestamp) {
-      log.info(`Cycling agent for type ${cacheKey}`);
+      log.info(
+        `Cycling agent for type ${agentType}${proxyUrl ? ' via proxy' : ''}`
+      );
     }
     agents[cacheKey] = {
       agent: proxyUrl
@@ -4475,6 +4481,9 @@ export async function fetchLinkPreviewImage(
 export async function fetchJsonViaProxy(
   params: ProxiedRequestParams
 ): Promise<JSONWithDetailsType> {
+  if (!isDirectFeatureAllowedHere('gif-search')) {
+    throw new BlockedByProxyError('gif-search');
+  }
   return _outerAjax(params.url, {
     responseType: 'jsonwithdetails',
     // TODO DESKTOP-8719
@@ -4495,6 +4504,9 @@ export async function fetchJsonViaProxy(
 export async function fetchBytesViaProxy(
   params: ProxiedRequestParams
 ): Promise<BytesWithDetailsType> {
+  if (!isDirectFeatureAllowedHere('gif-search')) {
+    throw new BlockedByProxyError('gif-search');
+  }
   return _outerAjax(params.url, {
     responseType: 'byteswithdetails',
     proxyUrl: contentProxyUrl,

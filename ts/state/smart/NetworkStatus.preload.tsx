@@ -11,6 +11,7 @@ import {
   getNetworkSocketStatus,
 } from '../selectors/network.preload.ts';
 import { useUserActions } from '../ducks/user.preload.ts';
+import { useProxyUnreachable } from '../../wren/proxy/useProxyUnreachable.preload.ts';
 
 type SmartNetworkStatusProps = Readonly<{
   containerWidthBreakpoint: WidthBreakpoint;
@@ -24,12 +25,14 @@ export const SmartNetworkStatus = memo(function SmartNetworkStatus({
   const isOutage = useSelector(getNetworkIsOutage);
   const socketStatus = useSelector(getNetworkSocketStatus);
   const { manualReconnect } = useUserActions();
+  const isProxyUnreachable = useProxyUnreachable();
   return (
     <DialogNetworkStatus
       containerWidthBreakpoint={containerWidthBreakpoint}
       i18n={i18n}
       isOnline={isOnline}
       isOutage={isOutage}
+      isProxyUnreachable={isProxyUnreachable}
       socketStatus={socketStatus}
       manualReconnect={manualReconnect}
     />

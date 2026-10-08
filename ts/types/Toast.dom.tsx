@@ -11,6 +11,7 @@ export enum ToastType {
   Blocked = 'Blocked',
   BlockedGroup = 'BlockedGroup',
   CallHistoryCleared = 'CallHistoryCleared',
+  CallsBlockedByProxy = 'CallsBlockedByProxy',
   CallQualitySurveyFailed = 'CallQualitySurveyFailed',
   CallQualitySurveySuccess = 'CallQualitySurveySuccess',
   CaptchaFailed = 'CaptchaFailed',
@@ -137,6 +138,7 @@ export type AnyToast =
   | { toastType: ToastType.CannotMixMultiAndNonMultiAttachments }
   | { toastType: ToastType.CannotOpenGiftBadgeIncoming }
   | { toastType: ToastType.CannotOpenGiftBadgeOutgoing }
+  | { toastType: ToastType.CallsBlockedByProxy }
   | { toastType: ToastType.CannotStartGroupCall }
   | { toastType: ToastType.CaptchaFailed }
   | { toastType: ToastType.CaptchaSolved }

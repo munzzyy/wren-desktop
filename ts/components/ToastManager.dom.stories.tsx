@@ -71,6 +71,8 @@ function getToast(toastType: ToastType): AnyToast {
       return { toastType: ToastType.CaptchaFailed };
     case ToastType.CaptchaSolved:
       return { toastType: ToastType.CaptchaSolved };
+    case ToastType.CallsBlockedByProxy:
+      return { toastType: ToastType.CallsBlockedByProxy };
     case ToastType.ChatExported:
       return {
         toastType: ToastType.ChatExported,

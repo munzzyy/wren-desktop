@@ -7,6 +7,7 @@ import got from 'got';
 import FormData from 'form-data';
 import * as util from 'node:util';
 import * as zlib from 'node:zlib';
+import { Agent } from 'node:https';
 
 import * as durations from '../../util/durations/index.std.ts';
 import { upload } from '../../logging/uploadDebugLog.node.ts';
@@ -76,6 +77,22 @@ describe('upload', () => {
         return true;
       }, 'FormData'),
     });
+  });
+
+  it('sends both requests through the proxy agent when one is set', async function (this: Mocha.Context) {
+    const agent = { https: new Agent() };
+    await upload({ content: 'hello', appVersion: '1.2.3', logger, agent });
+
+    sinon.assert.calledWith(
+      this.fakeGet,
+      'https://debuglogs.org/',
+      sinon.match({ agent })
+    );
+    sinon.assert.calledWith(
+      this.fakePost,
+      'https://example.com/fake-upload',
+      sinon.match({ agent })
+    );
   });
 
   it("rejects if we can't get a token", async function (this: Mocha.Context) {

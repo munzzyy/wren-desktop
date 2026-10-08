@@ -573,6 +573,7 @@ export default {
     renderNotificationProfilesHome,
     renderProfileEditor,
     renderWrenLockSettings: () => <div />,
+    renderWrenProxySettings: () => <div />,
     renderToastManager,
     renderUpdateDialog,
     renderPreferencesChatFoldersPage,
