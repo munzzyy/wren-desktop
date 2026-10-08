@@ -2,11 +2,19 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 import { randomBytes } from 'node:crypto';
-import { constants as fsConstants, createWriteStream, rmSync } from 'node:fs';
+import {
+  close,
+  closeSync,
+  constants as fsConstants,
+  createWriteStream,
+  open,
+  rmSync,
+  write,
+} from 'node:fs';
 import type { WriteStream } from 'node:fs';
-import { copyFile, mkdir, open, rename, rm, stat } from 'node:fs/promises';
-import type { FileHandle } from 'node:fs/promises';
+import { copyFile, mkdir, rename, rm, stat } from 'node:fs/promises';
 import { extname, isAbsolute, join, normalize } from 'node:path';
+import { promisify } from 'node:util';
 
 import { decryptAttachmentV2ToSink } from '../../AttachmentCrypto.node.ts';
 import { isPathInside } from '../../util/isPathInside.node.ts';
@@ -26,6 +34,10 @@ import { createChatWriter, type ChatWriter } from './writers.std.ts';
 import type { GetDateParts } from './time.std.ts';
 
 const MAX_FOLDER_ATTEMPTS = 100;
+
+const openFd = promisify(open);
+const closeFd = promisify(close);
+const writeFd = promisify(write);
 
 export type ChatExportSessionOptions = Readonly<{
   parentDir: string;
@@ -118,12 +130,17 @@ export class ChatExportSession {
   readonly #baseName: string;
   readonly #fileName: string;
   readonly #attachmentsDir: string;
-  readonly #file: FileHandle;
   readonly #writer: ChatWriter;
+  // A plain fd rather than a FileHandle so abortNow can close it right away:
+  // Windows won't remove a folder while a file in it is open.
+  #fd: number | undefined;
   #folderPath: string;
   #pending = '';
   #mediaDirCreated = false;
   #closed = false;
+  #writing = 0;
+  readonly #busy = new Set<Promise<unknown>>();
+  readonly #sinks = new Set<WriteStream>();
 
   private constructor({
     partialPath,
@@ -131,7 +148,7 @@ export class ChatExportSession {
     baseName,
     fileName,
     attachmentsDir,
-    file,
+    fd,
     format,
     getDateParts,
   }: Readonly<{
@@ -140,7 +157,7 @@ export class ChatExportSession {
     baseName: string;
     fileName: string;
     attachmentsDir: string;
-    file: FileHandle;
+    fd: number;
     format: ExportFormat;
     getDateParts?: GetDateParts;
   }>) {
@@ -150,7 +167,7 @@ export class ChatExportSession {
     this.#baseName = baseName;
     this.#fileName = fileName;
     this.#attachmentsDir = attachmentsDir;
-    this.#file = file;
+    this.#fd = fd;
     this.#writer = createChatWriter(
       format,
       chunk => {
@@ -187,9 +204,9 @@ export class ChatExportSession {
     const partialPath = await createPartialFolder(parentDir);
     const fileName = EXPORT_FILE_NAMES[format];
 
-    let file: FileHandle;
+    let fd: number;
     try {
-      file = await open(join(partialPath, fileName), 'wx');
+      fd = await openFd(join(partialPath, fileName), 'wx');
     } catch (error) {
       await rm(partialPath, { recursive: true, force: true });
       throw error;
@@ -201,12 +218,17 @@ export class ChatExportSession {
       baseName: getExportFolderName(chat.name, chat.exportedAt, getDateParts),
       fileName,
       attachmentsDir,
-      file,
+      fd,
       format,
       getDateParts,
     });
-    session.#writer.writeHeader(chat);
-    await session.#flush();
+    try {
+      session.#writer.writeHeader(chat);
+      await session.#flush();
+    } catch (error) {
+      await session.abort().catch(() => undefined);
+      throw error;
+    }
     return session;
   }
 
@@ -219,8 +241,11 @@ export class ChatExportSession {
     for (const message of messages) {
       const attachments: Array<ExportAttachment> = [];
       for (const attachment of message.attachments) {
+        this.#assertOpen();
         // oxlint-disable-next-line no-await-in-loop
-        const result = await this.#copyAttachment(message.id, attachment);
+        const result = await this.#track(
+          this.#copyAttachment(message.id, attachment)
+        );
         if (result.status === 'exported') {
           copied += 1;
         } else if (result.status === 'missing') {
@@ -239,7 +264,7 @@ export class ChatExportSession {
     this.#writer.writeFooter();
     await this.#flush();
     this.#closed = true;
-    await this.#file.close();
+    await this.#closeFile();
     this.#folderPath = await moveToUniqueFolder(
       this.partialPath,
       this.#parentDir,
@@ -249,17 +274,81 @@ export class ChatExportSession {
   }
 
   async abort(): Promise<void> {
-    if (!this.#closed) {
-      this.#closed = true;
-      await this.#file.close().catch(() => undefined);
-    }
-    await rm(this.partialPath, { recursive: true, force: true });
+    this.#stop();
+    await this.#removeWhenIdle();
   }
 
-  // For lock and quit, which can't wait. The handle closes with the process.
+  // For lock and quit, which can't wait. If a write is still running, the
+  // folder goes as soon as it stops; on Windows that's also when rmSync fails.
   abortNow(): void {
+    this.#stop();
+    if (this.#writing === 0) {
+      this.#closeFileSync();
+    }
+    try {
+      rmSync(this.partialPath, { recursive: true, force: true });
+    } catch (error) {
+      void this.#removeLater();
+      throw error;
+    }
+    if (this.#busy.size > 0 || this.#fd !== undefined) {
+      void this.#removeLater();
+    }
+  }
+
+  async #removeLater(): Promise<void> {
+    try {
+      await this.#removeWhenIdle();
+    } catch {
+      // The folder stays recorded, so the next start offers to delete it.
+    }
+  }
+
+  #stop(): void {
     this.#closed = true;
-    rmSync(this.partialPath, { recursive: true, force: true });
+    for (const sink of this.#sinks) {
+      sink.destroy();
+    }
+  }
+
+  async #removeWhenIdle(): Promise<void> {
+    await Promise.allSettled(this.#busy);
+    await this.#closeFile().catch(() => undefined);
+    await rm(this.partialPath, {
+      recursive: true,
+      force: true,
+      maxRetries: 10,
+      retryDelay: 100,
+    });
+  }
+
+  async #closeFile(): Promise<void> {
+    const fd = this.#fd;
+    if (fd !== undefined) {
+      this.#fd = undefined;
+      await closeFd(fd);
+    }
+  }
+
+  #closeFileSync(): void {
+    const fd = this.#fd;
+    if (fd !== undefined) {
+      this.#fd = undefined;
+      try {
+        closeSync(fd);
+      } catch {
+        // Already gone; the folder removal below is what matters.
+      }
+    }
+  }
+
+  async #track<T>(work: Promise<T>): Promise<T> {
+    this.#busy.add(work);
+    try {
+      return await work;
+    } finally {
+      this.#busy.delete(work);
+    }
   }
 
   #assertOpen(): void {
@@ -272,9 +361,33 @@ export class ChatExportSession {
     if (this.#pending.length === 0) {
       return;
     }
-    const chunk = this.#pending;
+    const data = Buffer.from(this.#pending, 'utf8');
     this.#pending = '';
-    await this.#file.appendFile(chunk, 'utf8');
+    this.#writing += 1;
+    try {
+      await this.#track(this.#writeAll(data));
+    } finally {
+      this.#writing -= 1;
+    }
+  }
+
+  async #writeAll(data: Buffer<ArrayBuffer>): Promise<void> {
+    let offset = 0;
+    while (offset < data.length) {
+      const fd = this.#fd;
+      if (fd === undefined || this.#closed) {
+        throw new Error('Export session is already closed');
+      }
+      // oxlint-disable-next-line no-await-in-loop
+      const { bytesWritten } = await writeFd(
+        fd,
+        data,
+        offset,
+        data.length - offset,
+        null
+      );
+      offset += bytesWritten;
+    }
   }
 
   async #copyAttachment(
@@ -318,7 +431,11 @@ export class ChatExportSession {
         if (source.localKey == null || source.size == null) {
           return markMissing();
         }
+        if (this.#closed) {
+          return markMissing();
+        }
         sink = createWriteStream(targetPath, { flags: 'wx' });
+        this.#sinks.add(sink);
         await decryptAttachmentV2ToSink(
           {
             type: 'local',
@@ -344,6 +461,10 @@ export class ChatExportSession {
       }
       await rm(targetPath, { force: true }).catch(() => undefined);
       return markMissing();
+    } finally {
+      if (sink != null) {
+        this.#sinks.delete(sink);
+      }
     }
   }
 }

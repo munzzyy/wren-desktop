@@ -11,7 +11,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 
 import type { WipeTargetEnvType } from '../../../wren/lock/wipeTarget.node.ts';
 import {
@@ -21,13 +21,20 @@ import {
 
 const LOCKED = JSON.stringify({ wrenLock: { version: 1 } });
 
+// getWipeScope resolves what it gets, so on Windows /home/u becomes D:\home\u
+// and the fakes have to be keyed the same way.
+const lockedAt = (dir: string): Record<string, string> => ({
+  [join(resolve(dir), 'config.json')]: LOCKED,
+});
+
 function env(
   files: Record<string, string>,
-  devices: Record<string, number> = {}
+  devices: Record<string, number> = {},
+  { homeDir = '/home/u', appDataDir = '/home/u/.config' } = {}
 ): WipeTargetEnvType {
   return {
-    homeDir: '/home/u',
-    appDataDir: '/home/u/.config',
+    homeDir,
+    appDataDir,
     readFile: path => {
       const content = files[path];
       if (content === undefined) {
@@ -45,7 +52,7 @@ describe('wren/lock/wipeTarget', () => {
       assert.strictEqual(
         getWipeScope(
           '/home/u/.config/Wren',
-          env({ '/home/u/.config/Wren/config.json': LOCKED })
+          env(lockedAt('/home/u/.config/Wren'))
         ),
         'whole-folder'
       );
@@ -55,7 +62,7 @@ describe('wren/lock/wipeTarget', () => {
       for (const content of [undefined, '{}', '{"key":"ab"}', 'not json']) {
         const files: Record<string, string> = {};
         if (content !== undefined) {
-          files['/home/u/.config/Wren/config.json'] = content;
+          files[join(resolve('/home/u/.config/Wren'), 'config.json')] = content;
         }
         assert.strictEqual(
           getWipeScope('/home/u/.config/Wren', env(files)),
@@ -81,15 +88,54 @@ describe('wren/lock/wipeTarget', () => {
         '/home/u/.config',
       ];
       for (const dir of cases) {
-        const files = { [join(dir, 'config.json')]: LOCKED };
-        assert.strictEqual(getWipeScope(dir, env(files)), 'known-entries', dir);
+        assert.strictEqual(
+          getWipeScope(dir, env(lockedAt(dir))),
+          'known-entries',
+          dir
+        );
       }
       assert.strictEqual(
         getWipeScope(
           '/media/usb',
-          env({ '/media/usb/config.json': LOCKED }, { '/media/usb': 2 })
+          env(lockedAt('/media/usb'), { [resolve('/media/usb')]: 2 })
         ),
         'known-entries'
+      );
+    });
+
+    it('on Windows, keeps drive roots, shares and other-case home whole', function (this: Mocha.Context) {
+      if (process.platform !== 'win32') {
+        this.skip();
+      }
+      const winEnv = (files: Record<string, string>) =>
+        env(
+          files,
+          {},
+          {
+            homeDir: 'C:\\Users\\U',
+            appDataDir: 'C:\\Users\\U\\AppData\\Roaming',
+          }
+        );
+      for (const dir of [
+        'C:\\',
+        'c:\\',
+        '\\\\server\\share\\',
+        'C:\\Users',
+        'c:\\users\\u',
+        'C:/Users/U/AppData/Roaming',
+      ]) {
+        assert.strictEqual(
+          getWipeScope(dir, winEnv(lockedAt(dir))),
+          'known-entries',
+          dir
+        );
+      }
+      assert.strictEqual(
+        getWipeScope(
+          'C:\\Users\\U\\AppData\\Roaming\\Wren',
+          winEnv(lockedAt('C:\\Users\\U\\AppData\\Roaming\\Wren'))
+        ),
+        'whole-folder'
       );
     });
   });
