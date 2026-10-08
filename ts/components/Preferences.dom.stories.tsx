@@ -572,6 +572,7 @@ export default {
     renderNotificationProfilesCreateFlow,
     renderNotificationProfilesHome,
     renderProfileEditor,
+    renderWrenLockSettings: () => <div />,
     renderToastManager,
     renderUpdateDialog,
     renderPreferencesChatFoldersPage,

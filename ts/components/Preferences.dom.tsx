@@ -270,6 +270,7 @@ type PropsFunctionType = {
   ) => JSX.Element;
 
   renderProfileEditor: () => JSX.Element;
+  renderWrenLockSettings: () => JSX.Element;
   renderToastManager: (
     _: Readonly<{ containerWidthBreakpoint: WidthBreakpoint }>
   ) => JSX.Element;
@@ -615,6 +616,7 @@ export function Preferences({
   renderNotificationProfilesCreateFlow,
   renderNotificationProfilesHome,
   renderProfileEditor,
+  renderWrenLockSettings,
   renderToastManager,
   renderUpdateDialog,
   renderPreferencesChatFoldersPage,
@@ -2013,6 +2015,7 @@ export function Preferences({
             ])}
           />
         </List>
+        {renderWrenLockSettings()}
         {isContentProtectionSupported && (
           <List label={i18n('icu:Preferences__Privacy__Application')}>
             <AxoSwitchItem.Root
