@@ -12,13 +12,13 @@ It is the desktop sibling of Wren for Android, a fork of Molly. Signal Desktop h
 
 ## What it adds
 
-This is the plan for the first release. The lanes that build these are not merged yet, so read it as a list of what I am working toward and not as what the app does today. This section gets rewritten when each piece lands.
+These are in the code now. They have unit tests, type checks and lint behind them, and they have not yet been through a round of use on real machines by anyone but me, so treat the first release as a beta.
 
-- A passphrase lock. The database key is wrapped with a key derived from your passphrase using scrypt, so the database cannot be opened without it.
+- A passphrase lock. The database key is wrapped with a key derived from your passphrase using scrypt and AES-GCM, and the plain key leaves the config file and the OS keyring while the lock is on. Settings, Privacy, App lock. Lock at any time from the File menu or with Ctrl+Alt+L.
 - A duress passphrase. Type it at the lock screen instead of your real one and Wren Desktop erases the database and its keys.
 - Wipe after failed attempts. After a set number of wrong passphrases the data is erased.
 - Auto-lock after you have been away for a while.
-- Export of one chat to HTML, plain text or JSON.
+- Export of one chat to HTML, plain text or JSON, with the attachments next to it, from the chat's menu.
 
 Everything else Signal Desktop does, Wren Desktop does, because it is Signal Desktop underneath.
 
@@ -26,9 +26,9 @@ Everything else Signal Desktop does, Wren Desktop does, because it is Signal Des
 
 |               | Signal Desktop | Wren Desktop                          |
 | ------------- | -------------- | ------------------------------------- |
-| App lock      | no             | planned                               |
-| Duress wipe   | no             | planned                               |
-| Chat export   | no             | planned                               |
+| App lock      | no             | yes                                   |
+| Duress wipe   | no             | yes, plus wipe after failed attempts  |
+| Chat export   | no             | HTML, text, JSON with media           |
 | Auto update   | yes            | no, you update from the releases page |
 | Signed builds | yes            | no                                    |
 
