@@ -6,6 +6,7 @@ import { app } from 'electron';
 
 import type { LoggerType } from '../../types/Logging.std.ts';
 import { toLogFormat } from '../../types/errors.std.ts';
+import { sweepAfterExit } from './sweepAfterExit.node.ts';
 
 export type WipeReasonType = 'duress' | 'failed-attempts';
 
@@ -27,6 +28,14 @@ export async function wipeAndExit({
     await closeDatabase?.();
   } catch (error) {
     log.error('wren-lock: closing before the wipe failed', toLogFormat(error));
+  }
+
+  try {
+    if (!sweepAfterExit(userDataPath)) {
+      log.error('wren-lock: refusing to sweep an unsafe data path');
+    }
+  } catch (error) {
+    log.error('wren-lock: could not start the sweep', toLogFormat(error));
   }
 
   try {
