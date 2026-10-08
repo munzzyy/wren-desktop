@@ -1617,7 +1617,7 @@
     "messageformat": "Scrios na sonraí go léir?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Tá tú ag iarraidh cuntas difriúil de chuid Signal a nascadh leis an ríomhaire deisce seo. Má leanann tú leis, scriosfar na sonraí go léir atá in Signal Desktop faoi láthair."
+    "messageformat": "Tá tú ag iarraidh cuntas difriúil de chuid Signal a nascadh leis an ríomhaire deisce seo. Má leanann tú leis, scriosfar na sonraí go léir atá in Wren Desktop faoi láthair."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Ar aghaidh"
@@ -2571,7 +2571,7 @@
     "messageformat": "Dínasctha"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Cliceáil le hathchlárú agus le leanúint le seoladh teachtaireachtaí. Is dócha nach bhfuil Signal Desktop cláraithe toisc gur chláraigh tú d’uimhir ghutháin le Signal ar ghléas eile."
+    "messageformat": "Cliceáil le hathchlárú agus le leanúint le seoladh teachtaireachtaí. Is dócha nach bhfuil Wren Desktop cláraithe toisc gur chláraigh tú d’uimhir ghutháin le Signal ar ghléas eile."
   },
   "icu:unregistered": {
     "messageformat": "Ní cláraithe a thuilleadh"
@@ -7055,7 +7055,7 @@
     "messageformat": "{currentBytes} as {totalBytes} ({percentage,number,percent}) á n-íoslódáil…"
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Le leanúint leis, nuashonraigh Signal Desktop."
+    "messageformat": "Le leanúint leis, nuashonraigh Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Nuashonraigh"
@@ -8346,13 +8346,13 @@
     "messageformat": "UAP nua cruthaithe."
   },
   "icu:UnsupportedOSWarningDialog__body": {
-    "messageformat": "Ní bheidh tacú ag Signal Desktop a thuilleadh don leagan de {OS} ar do ríomhaire. Le leanúint le Signal a úsáid, nuashonraigh córas oibriúcháin do ríomhaire faoin {expirationDate}. <learnMoreLink>Tuilleadh faisnéise</learnMoreLink>"
+    "messageformat": "Ní bheidh tacú ag Wren Desktop a thuilleadh don leagan de {OS} ar do ríomhaire. Le leanúint le Signal a úsáid, nuashonraigh córas oibriúcháin do ríomhaire faoin {expirationDate}. <learnMoreLink>Tuilleadh faisnéise</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Ní oibríonn Signal Desktop ar an ríomhaire seo a thuilleadh. Le Signal Desktop a úsáid arís, nuashonraigh an leagan de {OS} ar do ríomhaire. <learnMoreLink>Tuilleadh faisnéise</learnMoreLink>"
+    "messageformat": "Ní oibríonn Wren Desktop ar an ríomhaire seo a thuilleadh. Le Wren Desktop a úsáid arís, nuashonraigh an leagan de {OS} ar do ríomhaire. <learnMoreLink>Tuilleadh faisnéise</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Ní oibríonn Signal Desktop ar an ríomhaire seo a thuilleadh. Le Signal Desktop a úsáid arís, nuashonraigh an leagan de {OS} ar do ríomhaire."
+    "messageformat": "Ní oibríonn Wren Desktop ar an ríomhaire seo a thuilleadh. Le Wren Desktop a úsáid arís, nuashonraigh an leagan de {OS} ar do ríomhaire."
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "Curtha in eagar"
@@ -9060,7 +9060,7 @@
     "messageformat": "Scrios na sonraí go léir?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Scriosfar na sonraí go léir atá in Signal Desktop faoi láthair. Ansin beidh tú in ann cód QR a scanadh agus do stair teachtaireachtaí a aistriú ó do ghuthán."
+    "messageformat": "Scriosfar na sonraí go léir atá in Wren Desktop faoi láthair. Ansin beidh tú in ann cód QR a scanadh agus do stair teachtaireachtaí a aistriú ó do ghuthán."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Tá roinnt mionathruithe agus paistí ar fhabhtanna sa leagan seo chun Signal a choinneáil ag rith go réidh.",

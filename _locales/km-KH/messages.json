@@ -825,7 +825,7 @@
     "messageformat": "កម្មវិធីបង្កើតកញ្ចប់ស្ទីកគ័រ"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "អំពី Signal Desktop"
+    "messageformat": "អំពី Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "ការចែករំលែកអេក្រង់"
@@ -843,7 +843,7 @@
     "messageformat": "ចាកចេញ"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "ស្វែងរក"
@@ -987,13 +987,13 @@
     "messageformat": "អ្នក"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "ដើម្បីផ្ញើសារជាសំឡេង សូមអនុញ្ញាតឲ្យ Signal Desktop ចូលប្រើមីក្រូហ្វូនរបស់អ្នក។"
+    "messageformat": "ដើម្បីផ្ញើសារជាសំឡេង សូមអនុញ្ញាតឲ្យ Wren Desktop ចូលប្រើមីក្រូហ្វូនរបស់អ្នក។"
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "សម្រាប់ការហៅ អ្នកត្រូវតែអនុញ្ញាតឲ្យ Signal Desktop ចូលប្រើមីក្រូហ្វូនរបស់អ្នក។"
+    "messageformat": "សម្រាប់ការហៅ អ្នកត្រូវតែអនុញ្ញាតឲ្យ Wren Desktop ចូលប្រើមីក្រូហ្វូនរបស់អ្នក។"
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "សម្រាប់ការហៅជាវីដេអូ អ្នកត្រូវតែអនុញ្ញាតឲ្យ Signal Desktop ចូលប្រើកាមេរ៉ារបស់អ្នក។"
+    "messageformat": "សម្រាប់ការហៅជាវីដេអូ អ្នកត្រូវតែអនុញ្ញាតឲ្យ Wren Desktop ចូលប្រើកាមេរ៉ារបស់អ្នក។"
   },
   "icu:allowAccess": {
     "messageformat": "អនុញ្ញាតចូលប្រើប្រាស់"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal មិនអាចដំឡើងកំណែបានទេ។ ចូលទៅកាន់ {url} ដើម្បីដំឡើងវាដោយដៃ។ បន្ទាប់មក<contactSupportLink>ទាក់ទងផ្នែកជំនួយ</contactSupportLink>អំពីបញ្ហានេះ"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop ហាក់ដូចជាត្រូវបានដាក់ដាច់គេនៅ macOS និងមិនអាចធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិបានទេ។​ សូមសាកល្បងផ្លាស់ប្តូរ {app} ទៅ {folder} ជាមួយ Finder។"
+    "messageformat": "Wren Desktop ហាក់ដូចជាត្រូវបានដាក់ដាច់គេនៅ macOS និងមិនអាចធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិបានទេ។​ សូមសាកល្បងផ្លាស់ប្តូរ {app} ទៅ {folder} ជាមួយ Finder។"
   },
   "icu:ok": {
     "messageformat": "យល់ព្រម"
@@ -1617,7 +1617,7 @@
     "messageformat": "លុបទិន្នន័យទាំងអស់?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "អ្នកកំពុងព្យាយាមភ្ជាប់គណនី Signal ផ្សេងជាមួយកុំព្យូទ័រលើតុនេះ។ ប្រសិនបើអ្នកបន្ត ទិន្នន័យទាំងអស់ដែលកំពុងមាននៅក្នុង Signal Desktop នឹងត្រូវបានលុប។"
+    "messageformat": "អ្នកកំពុងព្យាយាមភ្ជាប់គណនី Signal ផ្សេងជាមួយកុំព្យូទ័រលើតុនេះ។ ប្រសិនបើអ្នកបន្ត ទិន្នន័យទាំងអស់ដែលកំពុងមាននៅក្នុង Wren Desktop នឹងត្រូវបានលុប។"
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "បន្ត"
@@ -2214,7 +2214,7 @@
     "messageformat": "លុបទិន្នន័យទាំងអស់?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "លុបទិន្នន័យ និងសារទាំងអស់ចេញពីកំណែ Signal Desktop នេះឬ? ទិន្នន័យ និងគណនី Signal របស់អ្នកនៅលើទូរសព្ទរបស់អ្នក ឬឧបករណ៍ដែលបានភ្ជាប់ផ្សេងទៀតនឹងមិនត្រូវបានលុបឡើយ។"
+    "messageformat": "លុបទិន្នន័យ និងសារទាំងអស់ចេញពីកំណែ Wren Desktop នេះឬ? ទិន្នន័យ និងគណនី Signal របស់អ្នកនៅលើទូរសព្ទរបស់អ្នក ឬឧបករណ៍ដែលបានភ្ជាប់ផ្សេងទៀតនឹងមិនត្រូវបានលុបឡើយ។"
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "កំពុងផ្តាច់ និងលុបទិន្នន័យទាំងអស់…"
@@ -2235,7 +2235,7 @@
     "messageformat": "វានឹងលុបព័ត៌មានគណនី ប្រូហ្វាល់ និងសារទាំងអស់របស់អ្នក។ អ្នកក៏នឹងត្រូវបានដកចេញពីក្រុម Signal ទាំងអស់ផងដែរ។ កម្មវិធីនឹងបិទបន្ទាប់ពីដំណើរការនេះត្រូវបានបញ្ចប់។"
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "អ្នកមានទិន្នន័យដែលលែងប្រើ ពីការដំឡើង Signal Desktop ពីមុន។ ប្រសិនបើអ្នកជ្រើសរើសបន្ត វានឹងត្រូវលុបចោល ហើយអ្នកនឹងចាប់ផ្តើមសាឡើងវិញទាំងអស់។"
+    "messageformat": "អ្នកមានទិន្នន័យដែលលែងប្រើ ពីការដំឡើង Wren Desktop ពីមុន។ ប្រសិនបើអ្នកជ្រើសរើសបន្ត វានឹងត្រូវលុបចោល ហើយអ្នកនឹងចាប់ផ្តើមសាឡើងវិញទាំងអស់។"
   },
   "icu:deleteOldData": {
     "messageformat": "លុបទិន្នន័យចាស់ៗ"
@@ -2292,7 +2292,7 @@
     "messageformat": "បានលុបខ្លះ ចុចមើលព័ត៌មានលម្អិត"
   },
   "icu:expiredWarning": {
-    "messageformat": "ជំនាន់ Signal Desktop នេះ បានហួសសុពលភាព។ សូមដំឡើងទីកាន់ជំនាន់ចុងក្រោយ ដើម្បីបន្តការផ្ញើសារ។"
+    "messageformat": "ជំនាន់ Wren Desktop នេះ បានហួសសុពលភាព។ សូមដំឡើងទីកាន់ជំនាន់ចុងក្រោយ ដើម្បីបន្តការផ្ញើសារ។"
   },
   "icu:upgrade": {
     "messageformat": "ចុចដើម្បីទៅ signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "មិនអាចធ្វើបច្ចុប្បន្នភាពក្រុមបានទេ។ សូមពិនិត្យមើលសេវាអ៊ីនធឺណិតរបស់អ្នក រួចព្យាយាមម្តងទៀត។"
   },
   "icu:unlinkedWarning": {
-    "messageformat": "ចុចដើម្បីភ្ជាប់ Signal Desktop ឡើងវិញជាមួយឧបករណ៍ចល័តរបស់អ្នក ដើម្បីបន្តការផ្ញើសារ។"
+    "messageformat": "ចុចដើម្បីភ្ជាប់ Wren Desktop ឡើងវិញជាមួយឧបករណ៍ចល័តរបស់អ្នក ដើម្បីបន្តការផ្ញើសារ។"
   },
   "icu:unlinked": {
     "messageformat": "បានផ្តាច់"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "ចុចដើម្បីចុះឈ្មោះឡើងវិញ និងបន្តផ្ញើសារ។ Signal Desktop មិនត្រូវបានចុះឈ្មោះទេ ទំនងជាដោយសារតែអ្នកបានចុះឈ្មោះលេខទូរសព្ទរបស់អ្នកជាមួយ Signal នៅលើឧបករណ៍ផ្សេង។"
+    "messageformat": "ចុចដើម្បីចុះឈ្មោះឡើងវិញ និងបន្តផ្ញើសារ។ Wren Desktop មិនត្រូវបានចុះឈ្មោះទេ ទំនងជាដោយសារតែអ្នកបានចុះឈ្មោះលេខទូរសព្ទរបស់អ្នកជាមួយ Signal នៅលើឧបករណ៍ផ្សេង។"
   },
   "icu:unregistered": {
     "messageformat": "លែងចុះឈ្មោះទៀតហើយ"
@@ -4065,7 +4065,7 @@
     "messageformat": "កំណែតំណមិនស្គាល់"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "កំណែរបស់ Signal Desktop នេះមិនស្គាល់តំណនេះទេ។"
+    "messageformat": "កំណែរបស់ Wren Desktop នេះមិនស្គាល់តំណនេះទេ។"
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "មិនអាចចូលរួមក្រុមបាន"
@@ -4818,7 +4818,7 @@
     "messageformat": "បុគ្គលនេះមិនប្រើ Signal ទេ"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop មិនអាចប្រើបានសម្រាប់ផ្ញើសារទៅឈ្មោះទំនាក់ទំនងដែលមិនមានកម្មវិធី Signal ទេ។ ស្នើឲ្យគាត់ម្នាក់នេះដំឡើងកម្មវិធី Signal ដើម្បីទទួលបានបទពិសោធន៍ផ្ញើសារ​ដែលកាន់តែមានសុវត្ថិភាពជាងមុន។"
+    "messageformat": "Wren Desktop មិនអាចប្រើបានសម្រាប់ផ្ញើសារទៅឈ្មោះទំនាក់ទំនងដែលមិនមានកម្មវិធី Signal ទេ។ ស្នើឲ្យគាត់ម្នាក់នេះដំឡើងកម្មវិធី Signal ដើម្បីទទួលបានបទពិសោធន៍ផ្ញើសារ​ដែលកាន់តែមានសុវត្ថិភាពជាងមុន។"
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "កំពុងពិនិត្យមើលស្ថានភាពចុះឈ្មោះរបស់ឈ្មោះទំនាក់ទំនង"
@@ -7055,7 +7055,7 @@
     "messageformat": "កំពុងទាញយក {currentBytes} នៃ {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "ដើម្បីបន្ត សូមដំឡើងកំណែ Signal Desktop។"
+    "messageformat": "ដើម្បីបន្ត សូមដំឡើងកំណែ Wren Desktop។"
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "ដំឡើងកំណែ"
@@ -7076,7 +7076,7 @@
     "messageformat": "ចាប់ផ្តើម Signal ឡើងវិញ ដើម្បីដំឡើងកំណែថ្មី។"
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop មិនអាចដំឡើងកំណែបានទេ ប៉ុន្តែមានកំណែថ្មីមួយដែលអាចប្រើបាន។ សូមចូលទៅកាន់ {downloadUrl} ហើយដំឡើងកំណែថ្មីនោះដោយផ្ទាល់ បន្ទាប់មកទាក់ទងផ្នែកជំនួយ ឬរាយការណ៍អំពីបញ្ហានេះ។"
+    "messageformat": "Wren Desktop មិនអាចដំឡើងកំណែបានទេ ប៉ុន្តែមានកំណែថ្មីមួយដែលអាចប្រើបាន។ សូមចូលទៅកាន់ {downloadUrl} ហើយដំឡើងកំណែថ្មីនោះដោយផ្ទាល់ បន្ទាប់មកទាក់ទងផ្នែកជំនួយ ឬរាយការណ៍អំពីបញ្ហានេះ។"
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "និមិត្តសញ្ញា Signal"
@@ -8346,13 +8346,13 @@
     "messageformat": "លេខកូដសម្ងាត់ថ្មីត្រូវបានបង្កើត។"
   },
   "icu:UnsupportedOSWarningDialog__body": {
-    "messageformat": "Signal Desktop នឹងប្រើលែងបាននៅលើកំណែ {OS} របស់កុំព្យូទ័រអ្នកទៀតហើយក្នុងពេលឆាប់ៗនេះ។ ដើម្បីបន្តប្រើប្រាស់ Signal សូមដំឡើងកំណែប្រព័ន្ធប្រតិបត្តិការកុំព្យូទ័ររបស់អ្នកត្រឹម {expirationDate}។ <learnMoreLink>ស្វែងយល់បន្ថែម</learnMoreLink>"
+    "messageformat": "Wren Desktop នឹងប្រើលែងបាននៅលើកំណែ {OS} របស់កុំព្យូទ័រអ្នកទៀតហើយក្នុងពេលឆាប់ៗនេះ។ ដើម្បីបន្តប្រើប្រាស់ Signal សូមដំឡើងកំណែប្រព័ន្ធប្រតិបត្តិការកុំព្យូទ័ររបស់អ្នកត្រឹម {expirationDate}។ <learnMoreLink>ស្វែងយល់បន្ថែម</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal Desktop លែងដំណើរការលើកុំព្យូទ័រនេះទៀតហើយ។ ដើម្បីប្រើ Signal Desktop ម្តងទៀត សូមដំឡើងកំណែ {OS} របស់កុំព្យូទ័រអ្នក។ <learnMoreLink>ស្វែងយល់បន្ថែម</learnMoreLink>"
+    "messageformat": "Wren Desktop លែងដំណើរការលើកុំព្យូទ័រនេះទៀតហើយ។ ដើម្បីប្រើ Wren Desktop ម្តងទៀត សូមដំឡើងកំណែ {OS} របស់កុំព្យូទ័រអ្នក។ <learnMoreLink>ស្វែងយល់បន្ថែម</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop លែងដំណើរការលើកុំព្យូទ័រនេះទៀតហើយ។ ដើម្បីប្រើ Signal Desktop ម្តងទៀត សូមដំឡើងកំណែ {OS} របស់កុំព្យូទ័រអ្នក។"
+    "messageformat": "Wren Desktop លែងដំណើរការលើកុំព្យូទ័រនេះទៀតហើយ។ ដើម្បីប្រើ Wren Desktop ម្តងទៀត សូមដំឡើងកំណែ {OS} របស់កុំព្យូទ័រអ្នក។"
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "បានកែ"
@@ -9060,7 +9060,7 @@
     "messageformat": "លុបទិន្នន័យទាំងអស់?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "ទិន្នន័យបច្ចុប្បន្នទាំងអស់នៅក្នុង Signal Desktop នឹងត្រូវបានលុប។ បន្ទាប់មក អ្នកអាចស្គែនកូដ QR ហើយផ្ទេរប្រវត្តិសាររបស់អ្នកពីទូរសព្ទរបស់អ្នក។"
+    "messageformat": "ទិន្នន័យបច្ចុប្បន្នទាំងអស់នៅក្នុង Wren Desktop នឹងត្រូវបានលុប។ បន្ទាប់មក អ្នកអាចស្គែនកូដ QR ហើយផ្ទេរប្រវត្តិសាររបស់អ្នកពីទូរសព្ទរបស់អ្នក។"
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "កំណែ​នេះ​មាន​ការ​កែ​សម្រួល និង​ការកែបញ្ហាតូចៗ​មួយ​ចំនួន ដើម្បី​ឲ្យ​ Signal បន្ត​ដំណើរការ​ដោយ​រលូន។",

@@ -825,7 +825,7 @@
     "messageformat": "Креатор на пакет за стикери"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "За Signal Desktop"
+    "messageformat": "За Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Споделување на екранот"
@@ -843,7 +843,7 @@
     "messageformat": "Исклучи"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Барај"
@@ -990,10 +990,10 @@
     "messageformat": "За да испраќате гласовни пораки, овозможете пристап до вашиот микрофон на Signal за десктоп."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "За јавување морате да му дозволите на Signal Desktop пристап до Вашиот микрофон"
+    "messageformat": "За јавување морате да му дозволите на Wren Desktop пристап до Вашиот микрофон"
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "За видео јавување морате да му дозволите на Signal Desktop пристап до Вашиот микрофон"
+    "messageformat": "За видео јавување морате да му дозволите на Wren Desktop пристап до Вашиот микрофон"
   },
   "icu:allowAccess": {
     "messageformat": "Дозволи пристап"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal не можеше да се ажурира. Посетете ја {url} за рачна инсталација. Потоа, <contactSupportLink>контактирајте со тимот за корисничка поддршка</contactSupportLink> за проблемот"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop е најверојатно во macOS карантин, и нема да може автоматски да се ажурира. Ве молиме преместете го {app} во {folder} со помош на Finder."
+    "messageformat": "Wren Desktop е најверојатно во macOS карантин, и нема да може автоматски да се ажурира. Ве молиме преместете го {app} во {folder} со помош на Finder."
   },
   "icu:ok": {
     "messageformat": "Во ред"
@@ -1617,7 +1617,7 @@
     "messageformat": "Избришете ги сите податоци?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Се обидувате да поврзете различна корисничка сметка на Signal на овој десктоп. Ако продолжите, сите податоци кои моментално се на Signal Desktop ќе бидат избришани."
+    "messageformat": "Се обидувате да поврзете различна корисничка сметка на Signal на овој десктоп. Ако продолжите, сите податоци кои моментално се на Wren Desktop ќе бидат избришани."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Продолжи"
@@ -2214,7 +2214,7 @@
     "messageformat": "Избришете ги сите податоци?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Сакате да се избришат сите податоци и пораки од оваа верзија на Signal Desktop? Вашата Signal сметка и податоците на вашиот телефон или други поврзани уреди нема да бидат избришани."
+    "messageformat": "Сакате да се избришат сите податоци и пораки од оваа верзија на Wren Desktop? Вашата Signal сметка и податоците на вашиот телефон или други поврзани уреди нема да бидат избришани."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Го прекинуваме поврзувањето и ги бришеме сите податоци…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Ова ќе ги избрише информациите за вашата корисничка сметка, профилот и сите ваши пораки. Иста така, ќе бидете отстранети од сите Signal групи. Апликацијата ќе се затвори откако ќе заврши овој процес."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Имате стари податоци од претходна инсталација на Signal Desktop. Ако изберете да продолжите, тие ќе бидат избришани и ќе почнете од почеток."
+    "messageformat": "Имате стари податоци од претходна инсталација на Wren Desktop. Ако изберете да продолжите, тие ќе бидат избришани и ќе почнете од почеток."
   },
   "icu:deleteOldData": {
     "messageformat": "Избриши стари податоци"
@@ -2292,7 +2292,7 @@
     "messageformat": "Делумно избришано, кликнете за детали"
   },
   "icu:expiredWarning": {
-    "messageformat": "Оваа верзија на Signal Desktop е истечена. Ве молиме надградете на најновата верзија за да продолжите со употреба."
+    "messageformat": "Оваа верзија на Wren Desktop е истечена. Ве молиме надградете на најновата верзија за да продолжите со употреба."
   },
   "icu:upgrade": {
     "messageformat": "Кликнете за да одите до signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Не успеа да се ажурира групата. Проверете ја Вашата интернет конекција и обидете се повторно."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Кликнете за повторно да се поврзе Signal Desktop со вашиот мобилен уред за да продолжите со допишување."
+    "messageformat": "Кликнете за повторно да се поврзе Wren Desktop со вашиот мобилен уред за да продолжите со допишување."
   },
   "icu:unlinked": {
     "messageformat": "Неповрзан"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Кликнете за да се регистрирате пак и да продолжите да испраќате пораки. Signal Desktop не е повеќе регистриран, најверојатно поради тоа што сте го регистрирале вашиот телефонски број на Signal со друг уред."
+    "messageformat": "Кликнете за да се регистрирате пак и да продолжите да испраќате пораки. Wren Desktop не е повеќе регистриран, најверојатно поради тоа што сте го регистрирале вашиот телефонски број на Signal со друг уред."
   },
   "icu:unregistered": {
     "messageformat": "Повеќе не сте регистрирани"
@@ -4065,7 +4065,7 @@
     "messageformat": "Непозната верзија на линк"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Овој линк не е поддржан на оваа верзија од Signal Desktop"
+    "messageformat": "Овој линк не е поддржан на оваа верзија од Wren Desktop"
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Не можам да се приклучам на групата"
@@ -4818,7 +4818,7 @@
     "messageformat": "Оваа личност не користи Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Десктоп верзијата на Signal Desktop не поддржува испраќање на пораки на контакти вон Signal. Замолете ја оваа личност да инсталира Signal за побебезбедно искуство со допишување."
+    "messageformat": "Десктоп верзијата на Wren Desktop не поддржува испраќање на пораки на контакти вон Signal. Замолете ја оваа личност да инсталира Signal за побебезбедно искуство со допишување."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Проверување на статусот на регистрација на овој контакт"
@@ -7055,7 +7055,7 @@
     "messageformat": "Се преземаат {currentBytes} од {totalBytes} ({percentage,number,percent})…"
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "За да продолжите, ажурирајте го Signal Desktop."
+    "messageformat": "За да продолжите, ажурирајте го Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Aжурирај"
@@ -9060,7 +9060,7 @@
     "messageformat": "Избришете ги сите податоци?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Сите податоци на Signal Desktop ќе бидат избришани. Потоа ќе можете да скенирате QR-код и да ја пренесете историјата на пораки од вашиот телефон."
+    "messageformat": "Сите податоци на Wren Desktop ќе бидат избришани. Потоа ќе можете да скенирате QR-код и да ја пренесете историјата на пораки од вашиот телефон."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Оваа верзија има некои мали подобрувања и решени багови за Signal да функционира беспрекорно.",

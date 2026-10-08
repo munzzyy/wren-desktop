@@ -825,7 +825,7 @@
     "messageformat": "Sticker Pack Creator"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktopについて"
+    "messageformat": "Wren Desktopについて"
   },
   "icu:screenShareWindow": {
     "messageformat": "共有中の画面"
@@ -843,7 +843,7 @@
     "messageformat": "終了"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "検索"
@@ -990,10 +990,10 @@
     "messageformat": "音声メッセージを送るには、Signalのマイクへのアクセスを許可してください。"
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "通話を始めるために、Signal Desktopにマイクへのアクセスを許可してください。"
+    "messageformat": "通話を始めるために、Wren Desktopにマイクへのアクセスを許可してください。"
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "ビデオ通話を始めるために、Signal Desktopにカメラへのアクセスを許可してください。"
+    "messageformat": "ビデオ通話を始めるために、Wren Desktopにカメラへのアクセスを許可してください。"
   },
   "icu:allowAccess": {
     "messageformat": "アクセスを許可"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signalをアップデートできませんでした。{url}から手動でインストールしてください。その後、この問題について<contactSupportLink>サポートに連絡してください</contactSupportLink>"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop が macOS の検疫にかかっていて自動更新できないようです。{app}を Finder で{folder}へ移動してください。"
+    "messageformat": "Wren Desktop が macOS の検疫にかかっていて自動更新できないようです。{app}を Finder で{folder}へ移動してください。"
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "すべてのデータを消去しますか？"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "このデスクトップに別のSignalアカウントをリンクしようとしています。続行すると、Signal Desktop内の既存のすべてのデータが消去されます。"
+    "messageformat": "このデスクトップに別のSignalアカウントをリンクしようとしています。続行すると、Wren Desktop内の既存のすべてのデータが消去されます。"
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "続ける"
@@ -2214,7 +2214,7 @@
     "messageformat": "すべてのデータを消去しますか？"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Signal Desktopからすべてのデータとメッセージを消去しますか？Signalアカウントやスマートフォンのデータ、その他のリンク済み端末のデータは消去されません。"
+    "messageformat": "Wren Desktopからすべてのデータとメッセージを消去しますか？Signalアカウントやスマートフォンのデータ、その他のリンク済み端末のデータは消去されません。"
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "接続を切って全データを消去しています…"
@@ -2235,7 +2235,7 @@
     "messageformat": "あなたのアカウント情報、プロフィールおよびずべてのメッセージを消去します。Signalの各グループからも退出することになります。この処理が完了するとアプリは終了します。"
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "以前のバージョンの Signal Desktop で利用していた、すでに利用できなくなっているデータが残っています。続行するとこのデータは消去され、フレッシュな状態で改めて利用を始めることになります。"
+    "messageformat": "以前のバージョンの Wren Desktop で利用していた、すでに利用できなくなっているデータが残っています。続行するとこのデータは消去され、フレッシュな状態で改めて利用を始めることになります。"
   },
   "icu:deleteOldData": {
     "messageformat": "古いデータを消去"
@@ -2565,13 +2565,13 @@
     "messageformat": "グループを更新できませんでした。インターネット接続を確認して再度試してください。"
   },
   "icu:unlinkedWarning": {
-    "messageformat": "クリックすると、Signal Desktopとスマートフォンが再リンクされ、メッセージのやり取りが継続されます。"
+    "messageformat": "クリックすると、Wren Desktopとスマートフォンが再リンクされ、メッセージのやり取りが継続されます。"
   },
   "icu:unlinked": {
     "messageformat": "未リンク"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "クリックして再登録し、メッセージのやり取りを継続してください。別の端末でSignalに電話番号を登録したため、Signal Desktopの登録が解除された可能性があります。"
+    "messageformat": "クリックして再登録し、メッセージのやり取りを継続してください。別の端末でSignalに電話番号を登録したため、Wren Desktopの登録が解除された可能性があります。"
   },
   "icu:unregistered": {
     "messageformat": "登録されていません"
@@ -4065,7 +4065,7 @@
     "messageformat": "不明なリンクバージョン"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "このリンクは、このバージョンのSignal Desktopではサポートしていません。"
+    "messageformat": "このリンクは、このバージョンのWren Desktopではサポートしていません。"
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "グループに参加できません"
@@ -4818,7 +4818,7 @@
     "messageformat": "この方はSignalを使用していません"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktopは、Signal以外の連絡先とのメッセージ送受信をサポートしていません。この方には、より安全なメッセージ送受信を実現するために、Signalをインストールするよう依頼してください。"
+    "messageformat": "Wren Desktopは、Signal以外の連絡先とのメッセージ送受信をサポートしていません。この方には、より安全なメッセージ送受信を実現するために、Signalをインストールするよう依頼してください。"
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "連絡先の登録状況を確認しています"
@@ -7055,7 +7055,7 @@
     "messageformat": "ダウンロード中：{totalBytes} のうち {currentBytes} （{percentage,number,percent}）"
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "続けるには、Signal Desktopをアップデートしてください。"
+    "messageformat": "続けるには、Wren Desktopをアップデートしてください。"
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "アップデートする"
@@ -7076,7 +7076,7 @@
     "messageformat": "アップデートのインストール完了には Signal の再起動が必要です。"
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop はアップデートに失敗しましたが、ご利用可能な新しいバージョンがあります。{downloadUrl} へアクセスして新しいバージョンを手動でインストールしてから、サポートへ連絡するか、この問題についてのバグを報告してください。"
+    "messageformat": "Wren Desktop はアップデートに失敗しましたが、ご利用可能な新しいバージョンがあります。{downloadUrl} へアクセスして新しいバージョンを手動でインストールしてから、サポートへ連絡するか、この問題についてのバグを報告してください。"
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signalのロゴ"
@@ -9060,7 +9060,7 @@
     "messageformat": "すべてのデータを消去しますか？"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Signal Desktop内の、既存のすべてのデータが消去されます。その後、QRコードをスキャンしてスマートフォンからメッセージ履歴を移行できます。"
+    "messageformat": "Wren Desktop内の、既存のすべてのデータが消去されます。その後、QRコードをスキャンしてスマートフォンからメッセージ履歴を移行できます。"
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Signalをスムーズに動作させるための微調整とバグ修正を行いました。",

@@ -825,7 +825,7 @@
     "messageformat": "Klistremerke-skaperen"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Om Signal Desktop"
+    "messageformat": "Om Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Skjermdeling"
@@ -843,7 +843,7 @@
     "messageformat": "Avslutt"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Søk"
@@ -987,7 +987,7 @@
     "messageformat": "Du"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "For å sende talemeldinger må du gi Signal Desktop tilgang til mikrofonen din."
+    "messageformat": "For å sende talemeldinger må du gi Wren Desktop tilgang til mikrofonen din."
   },
   "icu:audioCallingPermissionNeeded": {
     "messageformat": "For å ringe må du gi Signal desktop tilgang til din mikrofon."
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal kunne ikke oppdateres. Gå til {url} for å installere oppdateringen manuelt. Etterpå kan du <contactSupportLink>gi Signals brukerstøtte beskjed</contactSupportLink> om problemet."
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop er sannsynligvis i en macOS-karantene, og vil derfor ikke kunne oppdatere seg automatisk. Prøv å flytte {app} til {folder} ved bruk av Finder."
+    "messageformat": "Wren Desktop er sannsynligvis i en macOS-karantene, og vil derfor ikke kunne oppdatere seg automatisk. Prøv å flytte {app} til {folder} ved bruk av Finder."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Vil du slette alle dataene?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Du forsøker å koble en annen Signal-konto til denne enheten. Hvis du går videre, slettes alle dataene du har i Signal Desktop."
+    "messageformat": "Du forsøker å koble en annen Signal-konto til denne enheten. Hvis du går videre, slettes alle dataene du har i Wren Desktop."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Fortsett"
@@ -2214,7 +2214,7 @@
     "messageformat": "Vil du slette alle dataene?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Vil du slette alle dataene og meldingene fra denne Signal Desktop-versjonen? Signal-kontoen og dataene du har på mobilen og andre tilkoblede enheter, slettes ikke."
+    "messageformat": "Vil du slette alle dataene og meldingene fra denne Wren Desktop-versjonen? Signal-kontoen og dataene du har på mobilen og andre tilkoblede enheter, slettes ikke."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Kobler fra og sletter alle data …"
@@ -2235,7 +2235,7 @@
     "messageformat": "Dette sletter kontoinformasjonen din, profilen din og alle meldingene dine. Du fjernes også fra alle Signal-grupper. Appen lukkes når prosessen er fullført."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Du har foreldede data fra en tidligere installasjon av Signal Desktop. Hvis du velger å fortsette, blir den slettet, og du vil starte med blank konfigurasjon."
+    "messageformat": "Du har foreldede data fra en tidligere installasjon av Wren Desktop. Hvis du velger å fortsette, blir den slettet, og du vil starte med blank konfigurasjon."
   },
   "icu:deleteOldData": {
     "messageformat": "Slett gamle data"
@@ -2292,7 +2292,7 @@
     "messageformat": "Delvis slettet. Trykk for å lese mer."
   },
   "icu:expiredWarning": {
-    "messageformat": "Denne versjonen av Signal Desktop er utdatert. Oppdater til den nyeste versjonen for å fortsette å sende meldinger."
+    "messageformat": "Denne versjonen av Wren Desktop er utdatert. Oppdater til den nyeste versjonen for å fortsette å sende meldinger."
   },
   "icu:upgrade": {
     "messageformat": "Klikk for å gå til signal.org/download"
@@ -2565,7 +2565,7 @@
     "messageformat": "Kunne ikke oppdatere gruppen. Sjekk din forbindelse og forsøk igjen."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Klikk for å koble Signal Desktop til mobilenheten din for å fortsette samtalene."
+    "messageformat": "Klikk for å koble Wren Desktop til mobilenheten din for å fortsette samtalene."
   },
   "icu:unlinked": {
     "messageformat": "Frakoblet enhet"
@@ -2574,7 +2574,7 @@
     "messageformat": "Trykk her for å registrere deg på nytt og sende meldinger. Dette skyldes sannsynligvis at du registrerte telefonnummeret ditt på Signal med en annen enhet."
   },
   "icu:unregistered": {
-    "messageformat": "Signal Desktop er ikke registrert"
+    "messageformat": "Wren Desktop er ikke registrert"
   },
   "icu:autoUpdateNewVersionTitle": {
     "messageformat": "En oppdatering er tilgjengelig"
@@ -4065,7 +4065,7 @@
     "messageformat": "Ukjent lenkeversjon"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Denne lenken er ikke støttet av denne versjonen av Signal Desktop."
+    "messageformat": "Denne lenken er ikke støttet av denne versjonen av Wren Desktop."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Kan ikke bli med i gruppen"
@@ -4818,7 +4818,7 @@
     "messageformat": "Denne personen bruker ikke Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop støtter ikke sending av meldinger til de som ikke er på Signal. Be denne personen om å installere Signal for en sikrere meldingsopplevelse."
+    "messageformat": "Wren Desktop støtter ikke sending av meldinger til de som ikke er på Signal. Be denne personen om å installere Signal for en sikrere meldingsopplevelse."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Sjekker kontaktens registreringsstatus"
@@ -7055,7 +7055,7 @@
     "messageformat": "Laster ned {currentBytes} av {totalBytes} ({percentage,number,percent}) …"
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Oppdater Signal Desktop for å gå videre."
+    "messageformat": "Oppdater Wren Desktop for å gå videre."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Oppdater"
@@ -7076,7 +7076,7 @@
     "messageformat": "Start Signal på nytt for å installere oppdateringen."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop kunne ikke oppgraderes, med det finnes en ny versjon tilgjengelig. Gå til {downloadUrl} og installer den nyeste versjonen manuelt, og gi gjerne beskjed til brukerstøtte eller send inn en rapport om dette problemet."
+    "messageformat": "Wren Desktop kunne ikke oppgraderes, med det finnes en ny versjon tilgjengelig. Gå til {downloadUrl} og installer den nyeste versjonen manuelt, og gi gjerne beskjed til brukerstøtte eller send inn en rapport om dette problemet."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal-logo"
@@ -8346,13 +8346,13 @@
     "messageformat": "Den nye PIN-koden ble opprettet."
   },
   "icu:UnsupportedOSWarningDialog__body": {
-    "messageformat": "Signal Desktop støtter snart ikke lenger denne versjonen av {OS} på datamaskinen din. Du må oppdatere operativsystemet innen {expirationDate} for å fortsette å bruke Signal. <learnMoreLink>Les mer</learnMoreLink>"
+    "messageformat": "Wren Desktop støtter snart ikke lenger denne versjonen av {OS} på datamaskinen din. Du må oppdatere operativsystemet innen {expirationDate} for å fortsette å bruke Signal. <learnMoreLink>Les mer</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal Desktop fungerer ikke lenger på denne datamaskinen. Du må oppdatere til en nyere versjon av {OS} for å kunne bruke Signal Desktop igjen. <learnMoreLink>Les mer</learnMoreLink>"
+    "messageformat": "Wren Desktop fungerer ikke lenger på denne datamaskinen. Du må oppdatere til en nyere versjon av {OS} for å kunne bruke Wren Desktop igjen. <learnMoreLink>Les mer</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop fungerer ikke lenger på denne datamaskinen. Du må oppdatere til en nyere versjon av {OS} for å kunne bruke Signal Desktop igjen."
+    "messageformat": "Wren Desktop fungerer ikke lenger på denne datamaskinen. Du må oppdatere til en nyere versjon av {OS} for å kunne bruke Wren Desktop igjen."
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "Redigert"
@@ -9060,7 +9060,7 @@
     "messageformat": "Vil du slette alle dataene?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Alle dataene som er lagret i Signal Desktop, slettes. Du kan deretter skanne QR-koden og overføre meldingsloggen fra telefonen din."
+    "messageformat": "Alle dataene som er lagret i Wren Desktop, slettes. Du kan deretter skanne QR-koden og overføre meldingsloggen fra telefonen din."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Denne versjonen inneholder noen justeringer og feilrettinger som sikrer at Signal fungerer optimalt.",

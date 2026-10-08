@@ -825,7 +825,7 @@
     "messageformat": "스티커 팩 제조기"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop 정보"
+    "messageformat": "Wren Desktop 정보"
   },
   "icu:screenShareWindow": {
     "messageformat": "화면 공유하기"
@@ -843,7 +843,7 @@
     "messageformat": "종료"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "검색"
@@ -987,13 +987,13 @@
     "messageformat": "나"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Signal Desktop에서 음성 메시지를 보내려면 마이크 권한이 필요합니다."
+    "messageformat": "Wren Desktop에서 음성 메시지를 보내려면 마이크 권한이 필요합니다."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "통화하려면 Signal Desktop이 마이크에 액세스하도록 허용해야 합니다."
+    "messageformat": "통화하려면 Wren Desktop이 마이크에 액세스하도록 허용해야 합니다."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "영상 통화의 경우 Signal Desktop이 카메라에 액세스하도록 허용해야 합니다."
+    "messageformat": "영상 통화의 경우 Wren Desktop이 카메라에 액세스하도록 허용해야 합니다."
   },
   "icu:allowAccess": {
     "messageformat": "권한 허용"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal을 업데이트하지 못했습니다. {url} 링크를 방문하여 수동으로 설치하세요. 그런 다음 <contactSupportLink>지원팀</contactSupportLink>에 이 문제에 관해 문의해 주세요."
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop이 macOS 검역에 걸렸을 가능성이 크며 자동 업데이트할 수 없습니다. 탐색기를 사용하여 {app} 앱을 {folder} 폴더로 이동하세요."
+    "messageformat": "Wren Desktop이 macOS 검역에 걸렸을 가능성이 크며 자동 업데이트할 수 없습니다. 탐색기를 사용하여 {app} 앱을 {folder} 폴더로 이동하세요."
   },
   "icu:ok": {
     "messageformat": "확인"
@@ -2235,7 +2235,7 @@
     "messageformat": "계정 정보와 프로필, 모든 메시지가 삭제되고, 모든 Signal 그룹에서 내보내기 처리됩니다. 이 절차가 완료되면 자동으로 앱이 종료됩니다."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Signal Desktop의 이전 설치 버전에서 사용하지 않는 데이터가 있습니다. 계속하면 해당 데이터가 삭제되고 앱을 처음부터 시작합니다."
+    "messageformat": "Wren Desktop의 이전 설치 버전에서 사용하지 않는 데이터가 있습니다. 계속하면 해당 데이터가 삭제되고 앱을 처음부터 시작합니다."
   },
   "icu:deleteOldData": {
     "messageformat": "오래된 데이터 삭제"
@@ -2292,7 +2292,7 @@
     "messageformat": "부분 삭제됨, 클릭하여 자세히 알아보기"
   },
   "icu:expiredWarning": {
-    "messageformat": "이 버전의 Signal Desktop이 만료되었습니다. 계속 메시지를 보내려면 최신 버전으로 업데이트하세요."
+    "messageformat": "이 버전의 Wren Desktop이 만료되었습니다. 계속 메시지를 보내려면 최신 버전으로 업데이트하세요."
   },
   "icu:upgrade": {
     "messageformat": "클릭하여 signal.org/download로 이동"
@@ -2565,7 +2565,7 @@
     "messageformat": "그룹을 업데이트하지 못했습니다. 연결 상태를 확인하고 다시 시도하세요."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "클릭하여 Signal Desktop을 모바일 기기와 다시 연동하고 메시지 기능을 계속 이용해 보세요."
+    "messageformat": "클릭하여 Wren Desktop을 모바일 기기와 다시 연동하고 메시지 기능을 계속 이용해 보세요."
   },
   "icu:unlinked": {
     "messageformat": "연동 해제됨"
@@ -4065,7 +4065,7 @@
     "messageformat": "알 수 없는 링크 버전"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "해당 링크는 현재 버전의 Signal Desktop에서 지원하지 않습니다."
+    "messageformat": "해당 링크는 현재 버전의 Wren Desktop에서 지원하지 않습니다."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "그룹에 참가할 수 없음"
@@ -4818,7 +4818,7 @@
     "messageformat": "상대방이 Signal을 사용하지 않습니다."
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop은 Signal을 사용하지 않는 연락처로 메시지를 보낼 수 없습니다. 더 안전한 대화를 위해 상대방에게 Signal 설치를 요청해 보세요."
+    "messageformat": "Wren Desktop은 Signal을 사용하지 않는 연락처로 메시지를 보낼 수 없습니다. 더 안전한 대화를 위해 상대방에게 Signal 설치를 요청해 보세요."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "연락처 등록 상태 확인 중"

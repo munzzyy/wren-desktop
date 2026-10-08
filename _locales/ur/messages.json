@@ -825,7 +825,7 @@
     "messageformat": "اسٹیکر پیک بنانے والا"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop کے بارے میں"
+    "messageformat": "Wren Desktop کے بارے میں"
   },
   "icu:screenShareWindow": {
     "messageformat": "اسکرین کا اشتراک کرنا"
@@ -843,7 +843,7 @@
     "messageformat": "چھوڑ دیں"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "تلا ‎ش کر یں"
@@ -987,13 +987,13 @@
     "messageformat": "آپ"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "وائس پیغامات بھیجنے کے لیے، Signal Desktop کو اپنے مائیکروفون تک رسائی کی اجازت دیں۔"
+    "messageformat": "وائس پیغامات بھیجنے کے لیے، Wren Desktop کو اپنے مائیکروفون تک رسائی کی اجازت دیں۔"
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "کال کرنے کے لیئے ، آپ کو Signal Desktop کو اپنے مائکروفون تک رسائی حاصل کرنے کی اجازت دینی ہوگی۔"
+    "messageformat": "کال کرنے کے لیئے ، آپ کو Wren Desktop کو اپنے مائکروفون تک رسائی حاصل کرنے کی اجازت دینی ہوگی۔"
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "ویڈیو کالنگ کے لیئے ، آپ کو لازمی طور پر Signal Desktop کو اپنے کیمرے تک رسائی حاصل کرنے دیں۔"
+    "messageformat": "ویڈیو کالنگ کے لیئے ، آپ کو لازمی طور پر Wren Desktop کو اپنے کیمرے تک رسائی حاصل کرنے دیں۔"
   },
   "icu:allowAccess": {
     "messageformat": "رسائی کی اجازت دیں"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal اپ ڈیٹ نہیں ہو سکا۔ اسے دستی طور پر انسٹال کرنے کے لیے {url} ملاحظہ کریں۔ اس کے بعد، اس مسئلہ کے بارے میں <contactSupportLink>سپورٹ سے رابطہ</contactSupportLink> کریں"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop ممکنہ طور پر macOS کے quarantine میں ہے ، اور خودبخود تازہ کاری کرنے کے قابل نہیں ہوگا۔ برائے مہربانی فائنڈر کے ساتھ {app} کو {folder} میں منتقل کرنے کی کوشش کریں۔"
+    "messageformat": "Wren Desktop ممکنہ طور پر macOS کے quarantine میں ہے ، اور خودبخود تازہ کاری کرنے کے قابل نہیں ہوگا۔ برائے مہربانی فائنڈر کے ساتھ {app} کو {folder} میں منتقل کرنے کی کوشش کریں۔"
   },
   "icu:ok": {
     "messageformat": "ٹھیک ہے"
@@ -2235,7 +2235,7 @@
     "messageformat": "اس سے آپ کے اکاؤنٹ کی معلومات، پروفائل اور آپ کے سارے میسجز حذف ہو جائیں گے۔ آپ کو Signal کے تمام گروپس سے بھی ہٹا دیا جائے گا۔ اس پراسیس کے مکمل ہونے کے بعد ایپ بند ہو جائے گی۔"
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "آپ کے پاس Signal Desktop کی پہلے والی تنصیب سے متروک ڈیٹا ہے۔ اگر آپ جاری رکھنے کا انتخاب کرتے ہیں تو ، اسے حذف کردیا جائے گا اور آپ شروع سے ہی شروع ہوجائیں گے۔"
+    "messageformat": "آپ کے پاس Wren Desktop کی پہلے والی تنصیب سے متروک ڈیٹا ہے۔ اگر آپ جاری رکھنے کا انتخاب کرتے ہیں تو ، اسے حذف کردیا جائے گا اور آپ شروع سے ہی شروع ہوجائیں گے۔"
   },
   "icu:deleteOldData": {
     "messageformat": "پرانا ڈیٹا حذف کریں"
@@ -2292,7 +2292,7 @@
     "messageformat": "جزوی طور پر حذف کیا گیا، تفصیلات کے لیے کلک کریں"
   },
   "icu:expiredWarning": {
-    "messageformat": "Signal Desktop کا یہ ورژن کی میعاد ختم ہوچکی ہے۔ مہربانی فرما کر پیغامات جاری رکھنے کے لئے حالیہ ورژن میں اپ گریڈ کریں۔"
+    "messageformat": "Wren Desktop کا یہ ورژن کی میعاد ختم ہوچکی ہے۔ مہربانی فرما کر پیغامات جاری رکھنے کے لئے حالیہ ورژن میں اپ گریڈ کریں۔"
   },
   "icu:upgrade": {
     "messageformat": "signal.org/download پر جانے کے لیے کلک کریں"
@@ -2565,7 +2565,7 @@
     "messageformat": "گروپ کو اپ ڈیٹ کرنے میں ناکام۔ اپنا کنکشن چیک کریں اور دوبارہ کوشش کریں۔"
   },
   "icu:unlinkedWarning": {
-    "messageformat": "پیغامات کی ترسیل جاری رکھنے کے لیے اپنے Signal Desktop کو اپنی موبائل ڈیوائس سے دوبارہ مربوط کرنے کی خاطر کلک کریں۔"
+    "messageformat": "پیغامات کی ترسیل جاری رکھنے کے لیے اپنے Wren Desktop کو اپنی موبائل ڈیوائس سے دوبارہ مربوط کرنے کی خاطر کلک کریں۔"
   },
   "icu:unlinked": {
     "messageformat": "لنک ختم ہو گیا ہے"
@@ -4065,7 +4065,7 @@
     "messageformat": "نامعلوم لنک ورژن"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "یہ لنک Signal Desktop کے اس ورژن سے مطابقت نہیں رکھتا۔"
+    "messageformat": "یہ لنک Wren Desktop کے اس ورژن سے مطابقت نہیں رکھتا۔"
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "گروپ میں شامل نہیں ہوسکتے ہیں"
@@ -4818,7 +4818,7 @@
     "messageformat": "یہ شخص Signal استعمال نہیں کررہا ہے"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop پیغام رسانی غیر Signal رابطوں کی حمایت نہیں کرتا ہے۔ مزید محفوظ پیغام رسانی کے تجربے کے لئے اس شخص سے Signal انسٹال کرنے کو کہیں۔"
+    "messageformat": "Wren Desktop پیغام رسانی غیر Signal رابطوں کی حمایت نہیں کرتا ہے۔ مزید محفوظ پیغام رسانی کے تجربے کے لئے اس شخص سے Signal انسٹال کرنے کو کہیں۔"
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "رابطے کی رجسٹریشن کی حیثیت کی جانچ ہو رہی ہے"

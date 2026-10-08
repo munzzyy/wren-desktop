@@ -726,7 +726,7 @@
     "messageformat": "Черновик вложения изображения: {path}"
   },
   "icu:decryptionErrorToast": {
-    "messageformat": "В Signal Desktop произошла ошибка расшифровки сообщения от {name}, устройство {deviceId}"
+    "messageformat": "В Wren Desktop произошла ошибка расшифровки сообщения от {name}, устройство {deviceId}"
   },
   "icu:Toast__ActionLabel--SubmitLog": {
     "messageformat": "Отправить журнал"
@@ -825,7 +825,7 @@
     "messageformat": "Редактор наборов стикеров"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "О приложении Signal Desktop"
+    "messageformat": "О приложении Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Показ экрана"
@@ -843,7 +843,7 @@
     "messageformat": "Выйти"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Поиск"
@@ -987,13 +987,13 @@
     "messageformat": "Вы"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Чтобы отправлять голосовые сообщения, разрешите Signal Desktop доступ к вашему микрофону."
+    "messageformat": "Чтобы отправлять голосовые сообщения, разрешите Wren Desktop доступ к вашему микрофону."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Чтобы совершать звонки, вы должны разрешить Signal Desktop доступ к вашему микрофону."
+    "messageformat": "Чтобы совершать звонки, вы должны разрешить Wren Desktop доступ к вашему микрофону."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Чтобы совершать видеозвонки, вы должны разрешить Signal Desktop доступ к вашей камере."
+    "messageformat": "Чтобы совершать видеозвонки, вы должны разрешить Wren Desktop доступ к вашей камере."
   },
   "icu:allowAccess": {
     "messageformat": "Разрешить доступ"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal не удалось обновиться. Посетите {url}, чтобы установить обновление вручную. Затем <contactSupportLink>сообщите в службу поддержки</contactSupportLink> об этой проблеме"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Скорее всего, Signal Desktop находится в карантине macOS и не сможет обновляться автоматически. Пожалуйста, попробуйте переместить {app} в {folder} при помощи Finder."
+    "messageformat": "Скорее всего, Wren Desktop находится в карантине macOS и не сможет обновляться автоматически. Пожалуйста, попробуйте переместить {app} в {folder} при помощи Finder."
   },
   "icu:ok": {
     "messageformat": "ОК"
@@ -1617,7 +1617,7 @@
     "messageformat": "Удалить все данные?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Вы пытаетесь привязать другую учётную запись Signal к этому ПК. Если вы продолжите, все текущие данные на Signal Desktop будут удалены."
+    "messageformat": "Вы пытаетесь привязать другую учётную запись Signal к этому ПК. Если вы продолжите, все текущие данные на Wren Desktop будут удалены."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Продолжить"
@@ -2214,7 +2214,7 @@
     "messageformat": "Удалить все данные?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Удалить все данные и сообщения из этой версии Signal Desktop? Ваша учётная запись Signal и данные на вашем телефоне или других подключенных устройствах не будут удалены."
+    "messageformat": "Удалить все данные и сообщения из этой версии Wren Desktop? Ваша учётная запись Signal и данные на вашем телефоне или других подключенных устройствах не будут удалены."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Отключается и удаляет все данные…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Будут удалены информация вашей учётной записи, ваш профиль и все ваши сообщения. Вы также будете удалены из всех групп Signal. После завершения этого процесса приложение закроется."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "У вас есть устаревшие данные из предыдущей установки Signal Desktop. Если вы решите продолжить, они будут удалены, и вы начнете с нуля."
+    "messageformat": "У вас есть устаревшие данные из предыдущей установки Wren Desktop. Если вы решите продолжить, они будут удалены, и вы начнете с нуля."
   },
   "icu:deleteOldData": {
     "messageformat": "Удалить старые данные"
@@ -2292,7 +2292,7 @@
     "messageformat": "Частично удалено, нажмите для более подробной информации"
   },
   "icu:expiredWarning": {
-    "messageformat": "Эта версия Signal Desktop устарела. Пожалуйста, выполните обновление до последней версии, чтобы продолжить обмен сообщениями."
+    "messageformat": "Эта версия Wren Desktop устарела. Пожалуйста, выполните обновление до последней версии, чтобы продолжить обмен сообщениями."
   },
   "icu:upgrade": {
     "messageformat": "Нажмите, чтобы перейти на signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Не удалось обновить группу. Проверьте ваше подключение к интернету и попробуйте еще раз."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Нажмите, чтобы повторно привязать Signal Desktop к своему мобильному устройству для продолжения обмена сообщениями."
+    "messageformat": "Нажмите, чтобы повторно привязать Wren Desktop к своему мобильному устройству для продолжения обмена сообщениями."
   },
   "icu:unlinked": {
     "messageformat": "Отвязан"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Нажмите, чтобы зарегистрироваться повторно и продолжить обмен сообщениями. Отмена регистрации Signal Desktop может быть вызвана тем, что вы зарегистрировали свой номер телефона в Signal на другом устройстве."
+    "messageformat": "Нажмите, чтобы зарегистрироваться повторно и продолжить обмен сообщениями. Отмена регистрации Wren Desktop может быть вызвана тем, что вы зарегистрировали свой номер телефона в Signal на другом устройстве."
   },
   "icu:unregistered": {
     "messageformat": "Регистрация отменена"
@@ -4038,7 +4038,7 @@
     "messageformat": "{max, plural, one {Только {max,number} изменение может быть внесено в это сообщение.} few {Только {max,number} изменения могут быть внесены в это сообщение.} many {Только {max,number} изменений могут быть внесены в это сообщение.} other {Только {max,number} изменения могут быть внесены в это сообщение.}}"
   },
   "icu:unknown-sgnl-link": {
-    "messageformat": "Извините, эта ссылка sgnl:// в данный момент не поддерживается Signal Desktop."
+    "messageformat": "Извините, эта ссылка sgnl:// в данный момент не поддерживается Wren Desktop."
   },
   "icu:GroupV2--cannot-send": {
     "messageformat": "Вы не можете отправлять сообщения в ту группу."
@@ -4065,7 +4065,7 @@
     "messageformat": "Неизвестная версия ссылки"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Эта ссылка не поддерживается этой версией Signal Desktop."
+    "messageformat": "Эта ссылка не поддерживается этой версией Wren Desktop."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Невозможно присоединиться к группе"
@@ -4818,7 +4818,7 @@
     "messageformat": "Этот человек не использует Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop не поддерживает общение с контактами, у которых нет Signal. Попросите этого человека установить Signal для более безопасного общения."
+    "messageformat": "Wren Desktop не поддерживает общение с контактами, у которых нет Signal. Попросите этого человека установить Signal для более безопасного общения."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Проверяем, зарегистрирован ли контакт в Signal"
@@ -7055,7 +7055,7 @@
     "messageformat": "Загрузка {currentBytes} из {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Чтобы продолжить, обновите Signal Desktop."
+    "messageformat": "Чтобы продолжить, обновите Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Обновить"
@@ -7076,7 +7076,7 @@
     "messageformat": "Перезапустите Signal, чтобы установить обновление."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop обновить не удалось, но доступна новая версия. Перейдите к {downloadUrl} и установите новую версию вручную, а затем свяжитесь со службой поддержки или напишите сообщение об этой ошибке."
+    "messageformat": "Wren Desktop обновить не удалось, но доступна новая версия. Перейдите к {downloadUrl} и установите новую версию вручную, а затем свяжитесь со службой поддержки или напишите сообщение об этой ошибке."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Логотип Signal"
@@ -8349,10 +8349,10 @@
     "messageformat": "В скором времени Signal перестанет поддерживать версию {OS}, установленную на вашем компьютере. Чтобы продолжить использование Signal, обновите ОС на вашем компьютере до {expirationDate}. <learnMoreLink>Узнать больше</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal больше не работает на этом компьютере. Чтобы продолжить использовать Signal Desktop, обновите версию {OS} на своём компьютере. <learnMoreLink>Узнать больше</learnMoreLink>"
+    "messageformat": "Signal больше не работает на этом компьютере. Чтобы продолжить использовать Wren Desktop, обновите версию {OS} на своём компьютере. <learnMoreLink>Узнать больше</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop больше не работает на этом компьютере. Чтобы продолжить использовать Signal Desktop, обновите версию {OS} на своём компьютере."
+    "messageformat": "Wren Desktop больше не работает на этом компьютере. Чтобы продолжить использовать Wren Desktop, обновите версию {OS} на своём компьютере."
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "Изменено"
@@ -9060,7 +9060,7 @@
     "messageformat": "Удалить все данные?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Все текущие данные на Signal Desktop будут удалены. Затем вы сможете отсканировать QR-код и перенести историю сообщений со своего телефона."
+    "messageformat": "Все текущие данные на Wren Desktop будут удалены. Затем вы сможете отсканировать QR-код и перенести историю сообщений со своего телефона."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Эта версия содержит несколько небольших изменений и исправлений ошибок.",

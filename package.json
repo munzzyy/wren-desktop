@@ -1,16 +1,16 @@
 {
   "$schema": "./package.schema.json",
   "private": true,
-  "name": "signal-desktop",
-  "productName": "Signal",
-  "description": "Private messaging from your desktop",
+  "name": "wren-desktop",
+  "productName": "Wren",
+  "description": "Signal messaging from your desktop, with a passphrase lock",
   "desktopName": "signal.desktop",
-  "repository": "https://github.com/signalapp/Signal-Desktop.git",
+  "repository": "https://github.com/munzzyy/wren-desktop.git",
   "version": "8.33.0-alpha.1",
   "license": "AGPL-3.0-only",
   "author": {
-    "name": "Signal Messenger, LLC",
-    "email": "support@signal.org"
+    "name": "Cole Munz",
+    "email": "Munzzyy1@proton.me"
   },
   "browserslist": "last 1 chrome versions",
   "main": "bundles/main.js",
@@ -355,7 +355,7 @@
     }
   },
   "build": {
-    "appId": "org.whispersystems.signal-desktop",
+    "appId": "io.github.munzzyy.wren-desktop",
     "nativeRebuilder": "parallel",
     "mac": {
       "artifactName": "${name}-mac-${arch}-${version}.${ext}",
@@ -364,13 +364,7 @@
       "hardenedRuntime": true,
       "entitlements": "./build/entitlements.mac.plist",
       "entitlementsInherit": "./build/entitlements.mac.inherit.plist",
-      "icon": "build/icons/mac/AppIcon.icon",
-      "publish": [
-        {
-          "provider": "generic",
-          "url": "https://updates.signal.org/desktop"
-        }
-      ],
+      "icon": "build/icons/png/1024x1024.png",
       "mergeASARs": true,
       "sign": "scripts/sign-macos.mjs",
       "signInstaller": "scripts/sign-mas-installer.mjs",
@@ -446,23 +440,8 @@
       }
     },
     "win": {
-      "signtoolOptions": {
-        "certificateSubjectName": "Signal Messenger, LLC",
-        "certificateSha1": "8D5E3CD800736C5E1FE459A1F5AA48287D4F6EC6",
-        "publisherName": "Signal Messenger, LLC",
-        "sign": "scripts/sign-windows.mjs",
-        "signingHashAlgorithms": [
-          "sha256"
-        ]
-      },
       "artifactName": "${name}-win-${arch}-${version}.${ext}",
       "icon": "build/icons/win/icon.ico",
-      "publish": [
-        {
-          "provider": "generic",
-          "url": "https://updates.signal.org/desktop"
-        }
-      ],
       "releaseInfo": {
         "vendor": {
           "minOSVersion": "10.0.10240"
@@ -494,11 +473,11 @@
       }
     },
     "linux": {
-      "executableName": "signal-desktop",
+      "executableName": "wren-desktop",
       "category": "Network;InstantMessaging;Chat",
       "desktop": {
         "entry": {
-          "StartupWMClass": "signal"
+          "StartupWMClass": "wren"
         }
       },
       "artifactName": "${name}_${version}_${arch}.${ext}",
@@ -509,12 +488,6 @@
         }
       ],
       "icon": "build/icons/png",
-      "publish": [
-        {
-          "provider": "generic",
-          "url": ""
-        }
-      ],
       "releaseInfo": {
         "vendor": {
           "minGlibcVersion": "2.34"
@@ -639,5 +612,6 @@
   },
   "volta": {
     "node": "24.21.0"
-  }
+  },
+  "homepage": "https://github.com/munzzyy/wren-desktop"
 }

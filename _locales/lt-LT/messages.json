@@ -726,7 +726,7 @@
     "messageformat": "Juodraštinis paveikslo priedas: {path}"
   },
   "icu:decryptionErrorToast": {
-    "messageformat": "Signal Desktop susidūrė su iššifravimo klaida nuo {name}, įrenginio {deviceId}"
+    "messageformat": "Wren Desktop susidūrė su iššifravimo klaida nuo {name}, įrenginio {deviceId}"
   },
   "icu:Toast__ActionLabel--SubmitLog": {
     "messageformat": "Pateikti žurnalą"
@@ -825,7 +825,7 @@
     "messageformat": "Lipdukų paketo kūrėjas"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Apie Signal Desktop"
+    "messageformat": "Apie Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Ekrano bendrinimas"
@@ -843,7 +843,7 @@
     "messageformat": "Išeiti"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Ieškoti"
@@ -987,13 +987,13 @@
     "messageformat": "Jūs"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Jei nori siųsti balso žinutes, suteik „Signal Desktop“ prieigą prie savo mikrofono."
+    "messageformat": "Jei nori siųsti balso žinutes, suteik „Wren Desktop“ prieigą prie savo mikrofono."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Norėdami skambinti, privalote leisti Signal Desktop gauti prieigą prie jūsų mikrofono."
+    "messageformat": "Norėdami skambinti, privalote leisti Wren Desktop gauti prieigą prie jūsų mikrofono."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Norėdami skambinti su vaizdu, privalote leisti Signal Desktop gauti prieigą prie jūsų kameros."
+    "messageformat": "Norėdami skambinti su vaizdu, privalote leisti Wren Desktop gauti prieigą prie jūsų kameros."
   },
   "icu:allowAccess": {
     "messageformat": "Leisti prieigą"
@@ -1026,7 +1026,7 @@
     "messageformat": "„Signal“ nepavyko atsinaujinti. Apsilankykite adresu {url}, kad įdiegtumėte naujinį rankiniu būdu. Tada <contactSupportLink>susisiekite su palaikymo komanda</contactSupportLink> dėl šios problemos"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Tikriausiai, Signal Desktop yra macOS karantine ir negalės būti automatiškai atnaujinta. Pabandykite, naudodami Finder, perkelti  {app} į  {folder}."
+    "messageformat": "Tikriausiai, Wren Desktop yra macOS karantine ir negalės būti automatiškai atnaujinta. Pabandykite, naudodami Finder, perkelti  {app} į  {folder}."
   },
   "icu:ok": {
     "messageformat": "Gerai"
@@ -1617,7 +1617,7 @@
     "messageformat": "Ištrinti visus duomenis?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Su šiuo kompiuteriu bandote susieti kitą „Signal“ paskyrą. Jei tęsite, visi šiuo metu „Signal Desktop“ esantys duomenys bus ištrinti."
+    "messageformat": "Su šiuo kompiuteriu bandote susieti kitą „Signal“ paskyrą. Jei tęsite, visi šiuo metu „Wren Desktop“ esantys duomenys bus ištrinti."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Tęsti"
@@ -2214,7 +2214,7 @@
     "messageformat": "Ištrinti visus duomenis?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Ištrinti visus duomenis ir žinutes iš šios „Signal Desktop“ versijos? Jūsų „Signal“ paskyra ir duomenys telefone ar kituose susietuose įrenginiuose nebus ištrinti."
+    "messageformat": "Ištrinti visus duomenis ir žinutes iš šios „Wren Desktop“ versijos? Jūsų „Signal“ paskyra ir duomenys telefone ar kituose susietuose įrenginiuose nebus ištrinti."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Atsijungiama ir ištrinami visi duomenys…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Tai ištrins jūsų paskyros informaciją, profilį ir visas žinutes. Taip pat būsite pašalinti iš visų „Signal“ grupių. Užbaigus šį procesą, programėlė bus užverta."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Turi nebenaudojamų duomenų, likusių iš ankstesnio „Signal Desktop“ diegimo. Jei pasirinksi tęsti, jie bus ištrinti ir pradėsi viską nuo nulio."
+    "messageformat": "Turi nebenaudojamų duomenų, likusių iš ankstesnio „Wren Desktop“ diegimo. Jei pasirinksi tęsti, jie bus ištrinti ir pradėsi viską nuo nulio."
   },
   "icu:deleteOldData": {
     "messageformat": "Ištrinti senus duomenis"
@@ -2292,7 +2292,7 @@
     "messageformat": "Iš dalies ištrinta, spustelėkite, jei norite sužinoti daugiau"
   },
   "icu:expiredWarning": {
-    "messageformat": "Pasibaigė šios Signal Desktop skirtos versijos galiojimas. Norint tęsti susirašinėjimą, prašome atsinaujinti iki naujausios versijos."
+    "messageformat": "Pasibaigė šios Wren Desktop skirtos versijos galiojimas. Norint tęsti susirašinėjimą, prašome atsinaujinti iki naujausios versijos."
   },
   "icu:upgrade": {
     "messageformat": "Spustelėkite, norėdami pereiti į signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Nepavyko atnaujinti grupės. Patikrinkite savo ryšį ir bandykite dar kartą."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Spustelėkite, norėdami iš naujo susieti Signal Desktop su savo mobiliuoju įrenginiu, kad tęstumėte susirašinėjimą."
+    "messageformat": "Spustelėkite, norėdami iš naujo susieti Wren Desktop su savo mobiliuoju įrenginiu, kad tęstumėte susirašinėjimą."
   },
   "icu:unlinked": {
     "messageformat": "Atsietas"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Spustelėkite, jei pageidaujate užsiregistruoti iš naujo ir toliau siųsti žinutes. Gali būti, kad „Signal Desktop“ nebėra registruotas, nes savo telefono numerį „Signal“ užregistravote kitame įrenginyje."
+    "messageformat": "Spustelėkite, jei pageidaujate užsiregistruoti iš naujo ir toliau siųsti žinutes. Gali būti, kad „Wren Desktop“ nebėra registruotas, nes savo telefono numerį „Signal“ užregistravote kitame įrenginyje."
   },
   "icu:unregistered": {
     "messageformat": "Nebėra registruotas"
@@ -4065,7 +4065,7 @@
     "messageformat": "Nežinoma nuorodos versija"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Ši Signal Desktop versija nepalaiko šios nuorodos."
+    "messageformat": "Ši Wren Desktop versija nepalaiko šios nuorodos."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Nepavyksta prisijungti prie grupės"
@@ -4818,7 +4818,7 @@
     "messageformat": "Šis žmogus nesinaudoja Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop nepalaiko žinučių rašymo ne Signal adresatams. Paprašykite šio žmogaus, kad, saugesniam susirašinėjimo patyrimui, įsidiegtų Signal."
+    "messageformat": "Wren Desktop nepalaiko žinučių rašymo ne Signal adresatams. Paprašykite šio žmogaus, kad, saugesniam susirašinėjimo patyrimui, įsidiegtų Signal."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Tikrinama adresato registracijos būsena"
@@ -7055,7 +7055,7 @@
     "messageformat": "Atsisiunčiama {currentBytes} iš {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Norėdami tęsti, atnaujinkite „Signal Desktop“."
+    "messageformat": "Norėdami tęsti, atnaujinkite „Wren Desktop“."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Atnaujinti"
@@ -7076,7 +7076,7 @@
     "messageformat": "Paleisk „Signal“ iš naujo ir įdiek atnaujinimą."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Nepavyko atnaujinti „Signal Desktop“, bet gali atsisiųsti naują versiją. Eik į {downloadUrl} ir įdiek naują versiją rankiniu būdu, o tada kreipkis į aptarnavimo komandą arba pranešk apie šią problemą."
+    "messageformat": "Nepavyko atnaujinti „Wren Desktop“, bet gali atsisiųsti naują versiją. Eik į {downloadUrl} ir įdiek naują versiją rankiniu būdu, o tada kreipkis į aptarnavimo komandą arba pranešk apie šią problemą."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "„Signal“ logotipas"
@@ -9060,7 +9060,7 @@
     "messageformat": "Ištrinti visus duomenis?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Visi dabartiniai „Signal Desktop“ duomenys bus ištrinti. Tuomet galėsite nuskaityti QR kodą ir perkelti žinučių istoriją iš telefono."
+    "messageformat": "Visi dabartiniai „Wren Desktop“ duomenys bus ištrinti. Tuomet galėsite nuskaityti QR kodą ir perkelti žinučių istoriją iš telefono."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Šioje versijoje yra daug smulkių patobulinimų ir klaidų ištaisymų, kurie padės Signal sklandžiai veikti.",

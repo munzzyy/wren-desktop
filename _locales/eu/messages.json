@@ -825,7 +825,7 @@
     "messageformat": "Eranskailuen paketeak sortzeko tresna"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop-i buruz"
+    "messageformat": "Wren Desktop-i buruz"
   },
   "icu:screenShareWindow": {
     "messageformat": "Pantaila partekatzen"
@@ -843,7 +843,7 @@
     "messageformat": "Irten"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Bilatu"
@@ -987,10 +987,10 @@
     "messageformat": "Zu"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Audio-mezuak bidaltzeko, eman mikrofonoa atzitzeko baimena Signal Desktop-i."
+    "messageformat": "Audio-mezuak bidaltzeko, eman mikrofonoa atzitzeko baimena Wren Desktop-i."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Deitzeko, Signal Desktop-i zure mikrofonoa erabiltzeko baimena eman behar diozu."
+    "messageformat": "Deitzeko, Wren Desktop-i zure mikrofonoa erabiltzeko baimena eman behar diozu."
   },
   "icu:videoCallingPermissionNeeded": {
     "messageformat": "Bideodeietarako, baimena eman behar diozu Signal-Desktop-i zure kamera erabiltzeko."
@@ -1026,7 +1026,7 @@
     "messageformat": "Ezin izan da eguneratu Signal. Eskuz instalatzeko, joan {url} helbidera. Ondoren, jakinarazi arazo hau <contactSupportLink>laguntza-zerbitzuari</contactSupportLink>"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop ziur aski macOS koarentena batean dago eta ezingo da automatikoki eguneratu. Mesedez, Finder erabiliz saia zaitez mugitzen {app} aplikazioa {folder} karpetara."
+    "messageformat": "Wren Desktop ziur aski macOS koarentena batean dago eta ezingo da automatikoki eguneratu. Mesedez, Finder erabiliz saia zaitez mugitzen {app} aplikazioa {folder} karpetara."
   },
   "icu:ok": {
     "messageformat": "Ados"
@@ -1617,7 +1617,7 @@
     "messageformat": "Datu guztiak ezabatu nahi dituzu?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Ordenagailu honekin Signal-eko beste kontu bat lotu nahian zabiltza. Jarraituz gero, une honetan Signal Desktop-en dauden datu guztiak ezabatu egingo dira."
+    "messageformat": "Ordenagailu honekin Signal-eko beste kontu bat lotu nahian zabiltza. Jarraituz gero, une honetan Wren Desktop-en dauden datu guztiak ezabatu egingo dira."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Jarraitu"
@@ -2292,7 +2292,7 @@
     "messageformat": "Partzialki ezabatuta; sakatu xehetasunak ikusteko"
   },
   "icu:expiredWarning": {
-    "messageformat": "Signal Desktop bertsio hau iraungi da. Mesedez, mezuak bidaltzen jarraitzeko, eguneratu azken bertsiora."
+    "messageformat": "Wren Desktop bertsio hau iraungi da. Mesedez, mezuak bidaltzen jarraitzeko, eguneratu azken bertsiora."
   },
   "icu:upgrade": {
     "messageformat": "Egin klik signal.org/download helbidera joateko"
@@ -2571,7 +2571,7 @@
     "messageformat": "Lotu gabe"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Egin klik berriro erregistratzeko eta mezuak bidaltzen jarraitzeko. Ziurrenik Signal-eko telefono-zenbakia beste gailu batekin erregistratu duzulako kendu da erregistrotik Signal Desktop."
+    "messageformat": "Egin klik berriro erregistratzeko eta mezuak bidaltzen jarraitzeko. Ziurrenik Signal-eko telefono-zenbakia beste gailu batekin erregistratu duzulako kendu da erregistrotik Wren Desktop."
   },
   "icu:unregistered": {
     "messageformat": "Jada ez dago erregistratuta"
@@ -4065,7 +4065,7 @@
     "messageformat": "Estekaren bertsio ezezaguna"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Esteka hau ezin da Signal Desktopen bertsio honekin ireki."
+    "messageformat": "Esteka hau ezin da Wren Desktopen bertsio honekin ireki."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Ezin zara sartu taldean"
@@ -7055,7 +7055,7 @@
     "messageformat": "{currentBytes}/{totalBytes} deskargatzen ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Jarraitzeko, eguneratu Signal Desktop."
+    "messageformat": "Jarraitzeko, eguneratu Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Eguneratu"
@@ -7076,7 +7076,7 @@
     "messageformat": "Berrabiarazi Signal eguneratzea instalatzeko."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Ezin izan da eguneratu Signal Desktop, baina bertsio berri bat dago eskuragarri. Joan {downloadUrl} atalera eta instalatu bertsio berria eskuz. Ondoren, jarri harremanetan laguntza-zerbitzuarekin edo jakinarazi arazo honi buruzko akats bat."
+    "messageformat": "Ezin izan da eguneratu Wren Desktop, baina bertsio berri bat dago eskuragarri. Joan {downloadUrl} atalera eta instalatu bertsio berria eskuz. Ondoren, jarri harremanetan laguntza-zerbitzuarekin edo jakinarazi arazo honi buruzko akats bat."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal-en logoa"
@@ -9060,7 +9060,7 @@
     "messageformat": "Datu guztiak ezabatu nahi dituzu?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Une honetan Signal Desktop-en dauden datu guztiak ezabatu egingo dira. Ondoren, QR kodea eskanea dezakezu, eta mezu-historia telefonotik transferitu."
+    "messageformat": "Une honetan Wren Desktop-en dauden datu guztiak ezabatu egingo dira. Ondoren, QR kodea eskanea dezakezu, eta mezu-historia telefonotik transferitu."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Bertsio honek hainbat doikuntza txiki eta akats konpontzen ditu Signal-ek ondo funtzionatzen jarraitzeko.",

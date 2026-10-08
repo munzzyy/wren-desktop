@@ -825,7 +825,7 @@
     "messageformat": "Fundi wa pakiti ya vibandiko"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Kuhusu Signal Desktop"
+    "messageformat": "Kuhusu Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Kushiriki skrini"
@@ -843,7 +843,7 @@
     "messageformat": "Toka"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Tafuta"
@@ -987,13 +987,13 @@
     "messageformat": "Wewe"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Ili kutuma jumbe za sauti, iruhusu Signal Desktop iweze kufikia kipaza sauti chako."
+    "messageformat": "Ili kutuma jumbe za sauti, iruhusu Wren Desktop iweze kufikia kipaza sauti chako."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Ili uweze kupiga simu, sharti uiruhusu Signal Desktop ifikie maikrofoni yako."
+    "messageformat": "Ili uweze kupiga simu, sharti uiruhusu Wren Desktop ifikie maikrofoni yako."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Ili uweze kupiga simu za video, sharti uiruhusu Signal Desktop ifikie kamera yako."
+    "messageformat": "Ili uweze kupiga simu za video, sharti uiruhusu Wren Desktop ifikie kamera yako."
   },
   "icu:allowAccess": {
     "messageformat": "Ruhusu Ufikiaji"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal imeshindwa kusasisha. Tembelea {url} ili kusakinisha mwenyewe. Halafu, <contactSupportLink>wasiliana na usaidizi</contactSupportLink> kuhusu tatizo hili"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Huenda Signal Desktop ipo katika karantini ya macOS, na haitaweza kusasisha kiotomatiki. Tafadhali jaribu kuhamishia {app} kwenye {folder} kwa kutumia Kitafutaji."
+    "messageformat": "Huenda Wren Desktop ipo katika karantini ya macOS, na haitaweza kusasisha kiotomatiki. Tafadhali jaribu kuhamishia {app} kwenye {folder} kwa kutumia Kitafutaji."
   },
   "icu:ok": {
     "messageformat": "Sawa"
@@ -1617,7 +1617,7 @@
     "messageformat": "Futa data yote?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Unajaribu kuunganisha akaunti tofauti ya Signal kwenye kompyuta hii. Ukiendelea, data yote iliyo kwenye Signal Desktop itafutwa."
+    "messageformat": "Unajaribu kuunganisha akaunti tofauti ya Signal kwenye kompyuta hii. Ukiendelea, data yote iliyo kwenye Wren Desktop itafutwa."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Endelea"
@@ -2214,7 +2214,7 @@
     "messageformat": "Futa data yote?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Futa data na jumbe zote kutoka kwenye toleo hili la Signal Desktop? Akaunti yako ya Signal na data kwenye simu yako au vifaa vingine vilivyounganishwa havitofutwa."
+    "messageformat": "Futa data na jumbe zote kutoka kwenye toleo hili la Wren Desktop? Akaunti yako ya Signal na data kwenye simu yako au vifaa vingine vilivyounganishwa havitofutwa."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Inatenganisha na kufuta data yote…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Mchakato huu utafuta maelezo ya akaunti yako, wasifu na jumbe zako zote. Pia utaondolewa kwenye vikundi vyote vya Signal. Programu hii itafunga baada ya mchakato huu kukamilika."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Una data nzee kutokana na usanikishaji wa awali wa Signal Desktop. Ukichagua kuendelea, itafutwa na utaanza kutoka mwanzoni."
+    "messageformat": "Una data nzee kutokana na usanikishaji wa awali wa Wren Desktop. Ukichagua kuendelea, itafutwa na utaanza kutoka mwanzoni."
   },
   "icu:deleteOldData": {
     "messageformat": "Futa Data Nzee"
@@ -2292,7 +2292,7 @@
     "messageformat": "Haijafutwa yote, bofya kwa maelezo"
   },
   "icu:expiredWarning": {
-    "messageformat": "Toleo hili la Signal Desktop limeisha. Tafadhali boresha hadi kwenye toleo la hivi punde zaidi  ili uendelee kutuma ujumbe."
+    "messageformat": "Toleo hili la Wren Desktop limeisha. Tafadhali boresha hadi kwenye toleo la hivi punde zaidi  ili uendelee kutuma ujumbe."
   },
   "icu:upgrade": {
     "messageformat": "Bonyeza ili kwenda kwa signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Hukuweza kusasisha kikundi. Kagua muunganisho wako kisha ujaribu tena."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Bonyeza kuelekeza Signal Desktop kwenye kifaa chao chako cha mkononi ili kuendelea kutuma ujumbe."
+    "messageformat": "Bonyeza kuelekeza Wren Desktop kwenye kifaa chao chako cha mkononi ili kuendelea kutuma ujumbe."
   },
   "icu:unlinked": {
     "messageformat": "Havijaunganishwa"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Bofya ili kusajili upya au kuendelea kutuma ujumbe. Signal Desktop haijasajiliwa labda kwa sababu umesajili namba ya simu yako kwa kutumia Signal kwenye kifaa tofauti."
+    "messageformat": "Bofya ili kusajili upya au kuendelea kutuma ujumbe. Wren Desktop haijasajiliwa labda kwa sababu umesajili namba ya simu yako kwa kutumia Signal kwenye kifaa tofauti."
   },
   "icu:unregistered": {
     "messageformat": "Haijasajiliwa tena"
@@ -4065,7 +4065,7 @@
     "messageformat": "Toleo la kiungo halijulikani"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Kiungo hiki hakitumiki katika toleo hili la Signal Desktop."
+    "messageformat": "Kiungo hiki hakitumiki katika toleo hili la Wren Desktop."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Huwezi Kujiunga na Kikundi"
@@ -4818,7 +4818,7 @@
     "messageformat": "Mtu huyu hatumii Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop haikubali kupokea ujumbe kwa watu wasiotumia Signal. Muombe mtu huyu asakinishe Signal afurahie huduma salama zaidi ya ujumbe."
+    "messageformat": "Wren Desktop haikubali kupokea ujumbe kwa watu wasiotumia Signal. Muombe mtu huyu asakinishe Signal afurahie huduma salama zaidi ya ujumbe."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Inakagua hali ya usajili wa mwasiliani"
@@ -7055,7 +7055,7 @@
     "messageformat": "Inapakua {currentBytes} ya {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Ili uendelee, sasisha Signal Desktop."
+    "messageformat": "Ili uendelee, sasisha Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Sasisha"
@@ -7076,7 +7076,7 @@
     "messageformat": "Resta Signal ili kusakinisha sasisho."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop imeshindwa kusasisha, lakini kuna toleo jipya linalopatikana. Nenda kwa {downloadUrl} usakinishe toleo jipya wewe mwenyewe, kisha uwasiliane na Msaada au utume ripoti ya hitilafu kuhusu tatizo hili."
+    "messageformat": "Wren Desktop imeshindwa kusasisha, lakini kuna toleo jipya linalopatikana. Nenda kwa {downloadUrl} usakinishe toleo jipya wewe mwenyewe, kisha uwasiliane na Msaada au utume ripoti ya hitilafu kuhusu tatizo hili."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Nembo ya Signal"
@@ -9060,7 +9060,7 @@
     "messageformat": "Futa data yote?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Data yote iliyo kwenye Signal Desktop itafutwa. Kisha unaweza kuchanganua QR code na kuhamisha historia ya jumbe zako kutoka kwenye simu yako."
+    "messageformat": "Data yote iliyo kwenye Wren Desktop itafutwa. Kisha unaweza kuchanganua QR code na kuhamisha historia ya jumbe zako kutoka kwenye simu yako."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Toleo hili lina mabadiliko kidogo na maboresho ya program kuiwezesha Signal kufanya kazi vizuri.",

@@ -825,7 +825,7 @@
     "messageformat": "Tác giả gói nhãn dán"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Giới thiệu Signal Desktop"
+    "messageformat": "Giới thiệu Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Chia sẻ màn hình"
@@ -843,7 +843,7 @@
     "messageformat": "Thoát"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Tìm kiếm"
@@ -987,13 +987,13 @@
     "messageformat": "Bạn"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Để gửi tin nhắn thoại, cho phép Signal Desktop truy cập microphone."
+    "messageformat": "Để gửi tin nhắn thoại, cho phép Wren Desktop truy cập microphone."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Để thực hiện cuộc gọi, bạn cần phải cho phép Signal Desktop truy cập microphone của bạn."
+    "messageformat": "Để thực hiện cuộc gọi, bạn cần phải cho phép Wren Desktop truy cập microphone của bạn."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Để thực hiện cuộc gọi video, bạn cần phải cho phép Signal Desktop truy cập camera của bạn."
+    "messageformat": "Để thực hiện cuộc gọi video, bạn cần phải cho phép Wren Desktop truy cập camera của bạn."
   },
   "icu:allowAccess": {
     "messageformat": "Cho phép Truy cập"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal không thể cập nhật. Truy cập {url} để cài thủ công. Sau đó, <contactSupportLink>liên hệ bộ phận hỗ trợ</contactSupportLink> về vấn đề này"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop đang trong tình trạng cách ly trên macOS, và sẽ không thể tự-cập nhật được. Xin hãy dời {app} đến {folder} với ứng dụng Finder."
+    "messageformat": "Wren Desktop đang trong tình trạng cách ly trên macOS, và sẽ không thể tự-cập nhật được. Xin hãy dời {app} đến {folder} với ứng dụng Finder."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Xóa tất cả dữ liệu ?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Bạn đang cố gắng liên kết một tài khoản Signal khác với máy tính này. Nếu tiếp tục, tất cả dữ liệu hiện có trong Signal Desktop sẽ bị xóa."
+    "messageformat": "Bạn đang cố gắng liên kết một tài khoản Signal khác với máy tính này. Nếu tiếp tục, tất cả dữ liệu hiện có trong Wren Desktop sẽ bị xóa."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Tiếp tục"
@@ -2214,7 +2214,7 @@
     "messageformat": "Xóa tất cả dữ liệu ?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Xóa tất cả ứng dụng và tin nhắn khỏi phiên bản Signal Desktop này? Tài khoản Signal và dữ liệu của bạn trên điện thoại hoặc các thiết bị đã liên kết sẽ không bị xóa."
+    "messageformat": "Xóa tất cả ứng dụng và tin nhắn khỏi phiên bản Wren Desktop này? Tài khoản Signal và dữ liệu của bạn trên điện thoại hoặc các thiết bị đã liên kết sẽ không bị xóa."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Đang ngắt kết nối và xóa toàn bộ dữ liệu…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Hành động này sẽ xóa thông tin tài khoản, hồ sơ và tất cả tin nhắn của bạn. Chúng tôi cũng sẽ xóa bạn khỏi tất cả nhóm Signal. Ứng dụng sẽ đóng sau khi quá trình này hoàn tất."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Bạn có dữ liệu cũ từ một lần cài đặt trước của Signal Desktop. Nếu bạn chọn để tiếp tục, dữ liệu sẽ bị xoá và bạn sẽ bắt đầu lại từ đầu."
+    "messageformat": "Bạn có dữ liệu cũ từ một lần cài đặt trước của Wren Desktop. Nếu bạn chọn để tiếp tục, dữ liệu sẽ bị xoá và bạn sẽ bắt đầu lại từ đầu."
   },
   "icu:deleteOldData": {
     "messageformat": "Xoá Dữ liệu Cũ"
@@ -2292,7 +2292,7 @@
     "messageformat": "Đã xóa một phần, bấm để xem chi tiết"
   },
   "icu:expiredWarning": {
-    "messageformat": "Phiên bản này của Signal Desktop đã hết hạn. Vui lòng nâng cấp lên phiên bản mới nhất để tiếp tục nhắn tin."
+    "messageformat": "Phiên bản này của Wren Desktop đã hết hạn. Vui lòng nâng cấp lên phiên bản mới nhất để tiếp tục nhắn tin."
   },
   "icu:upgrade": {
     "messageformat": "Nhấn để truy cập signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Cập nhật nhóm không thành công. Kiểm tra kết nối của bạn và thử lại."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Nhấp để liên kết lại Signal Desktop với thiết bị di động của bạn để tiếp tục nhắn tin."
+    "messageformat": "Nhấp để liên kết lại Wren Desktop với thiết bị di động của bạn để tiếp tục nhắn tin."
   },
   "icu:unlinked": {
     "messageformat": "Đã bỏ liên kết"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Bấm để đăng ký lại và tiếp tục nhắn tin. Nguyên nhân Signal Desktop bị hủy đăng ký có thể là do bạn đăng ký số điện thoại của mình với Signal trên một thiết bị khác."
+    "messageformat": "Bấm để đăng ký lại và tiếp tục nhắn tin. Nguyên nhân Wren Desktop bị hủy đăng ký có thể là do bạn đăng ký số điện thoại của mình với Signal trên một thiết bị khác."
   },
   "icu:unregistered": {
     "messageformat": "Không còn được đăng ký"
@@ -4065,7 +4065,7 @@
     "messageformat": "Không rõ phiên bản đường dẫn"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Đường dẫn này không được hỗ trợ bởi phiên bản Signal Desktop này."
+    "messageformat": "Đường dẫn này không được hỗ trợ bởi phiên bản Wren Desktop này."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Không thể Tham gia Nhóm"
@@ -4818,7 +4818,7 @@
     "messageformat": "Người này đang không dùng Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop không hỗ trợ nhắn tin cho các liên hệ ngoài-Signal. Hãy hỏi người này cài đặt Signal để có trải nghiệm nhắn tin bảo mật hơn."
+    "messageformat": "Wren Desktop không hỗ trợ nhắn tin cho các liên hệ ngoài-Signal. Hãy hỏi người này cài đặt Signal để có trải nghiệm nhắn tin bảo mật hơn."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Kiểm tra trạng thái đăng kí của liên hệ"
@@ -7055,7 +7055,7 @@
     "messageformat": "Hiện tải được {currentBytes} của tổng {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Để tiếp tục, hãy cập nhật Signal Desktop."
+    "messageformat": "Để tiếp tục, hãy cập nhật Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Cập nhật"
@@ -7076,7 +7076,7 @@
     "messageformat": "Khởi động lại Signal để cài đặt bản cập nhật."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop cập nhật không thành công, nhưng hiện có phiên bản mới. Truy cập {downloadUrl} và cài đặt thủ công phiên bản mới, sau đó liên hệ bộ phận hỗ trợ hoặc báo cáo về vấn đề này."
+    "messageformat": "Wren Desktop cập nhật không thành công, nhưng hiện có phiên bản mới. Truy cập {downloadUrl} và cài đặt thủ công phiên bản mới, sau đó liên hệ bộ phận hỗ trợ hoặc báo cáo về vấn đề này."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal Logo"
@@ -9060,7 +9060,7 @@
     "messageformat": "Xóa tất cả dữ liệu ?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Tất cả dữ liệu hiện có trong Signal Desktop sẽ bị xóa. Sau đó, bạn có thể quét mã QR và chuyển lịch sử tin nhắn từ điện thoại của mình."
+    "messageformat": "Tất cả dữ liệu hiện có trong Wren Desktop sẽ bị xóa. Sau đó, bạn có thể quét mã QR và chuyển lịch sử tin nhắn từ điện thoại của mình."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Phiên bản này có một số tinh chỉnh và sửa lỗi để giữ cho Signal hoạt động mượt mà.",

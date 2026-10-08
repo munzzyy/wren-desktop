@@ -825,7 +825,7 @@
     "messageformat": "Criador de pacotes de autocolantes"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Acerca do Signal Desktop"
+    "messageformat": "Acerca do Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "A partilhar ecrã"
@@ -843,7 +843,7 @@
     "messageformat": "Sair"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Procurar"
@@ -987,13 +987,13 @@
     "messageformat": "Você"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Para enviar mensagens de voz, permita que o Signal Desktop aceda ao seu microfone."
+    "messageformat": "Para enviar mensagens de voz, permita que o Wren Desktop aceda ao seu microfone."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Para telefonar deverá permitir que o Signal Desktop aceda ao seu microfone."
+    "messageformat": "Para telefonar deverá permitir que o Wren Desktop aceda ao seu microfone."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Para poder fazer videochamadas deverá permitir que o Signal Desktop aceda à sua câmara."
+    "messageformat": "Para poder fazer videochamadas deverá permitir que o Wren Desktop aceda à sua câmara."
   },
   "icu:allowAccess": {
     "messageformat": "Permitir o acesso"
@@ -1026,7 +1026,7 @@
     "messageformat": "O Signal não foi atualizado. Visite {url} para instalar manualmente. Depois, <contactSupportLink>contacte o suporte</contactSupportLink> acerca deste problema"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Provavelmente o Signal Desktop encontra-se na quarentena do macOS e como tal não será possível atualizar automaticamente. Por favor, tente mover {app} para {folder} com o Finder."
+    "messageformat": "Provavelmente o Wren Desktop encontra-se na quarentena do macOS e como tal não será possível atualizar automaticamente. Por favor, tente mover {app} para {folder} com o Finder."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Eliminar todos os dados?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Está a tentar vincular uma conta diferente do Signal a este desktop. Se continuar, todos os dados atualmente no Signal Desktop serão eliminados."
+    "messageformat": "Está a tentar vincular uma conta diferente do Signal a este desktop. Se continuar, todos os dados atualmente no Wren Desktop serão eliminados."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Continuar"
@@ -2214,7 +2214,7 @@
     "messageformat": "Eliminar todos os dados?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Eliminar todos os dados e mensagens desta versão do Signal Desktop? A sua conta Signal e os dados no seu telemóvel ou outros dispositivos conectados não serão eliminados."
+    "messageformat": "Eliminar todos os dados e mensagens desta versão do Wren Desktop? A sua conta Signal e os dados no seu telemóvel ou outros dispositivos conectados não serão eliminados."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "A desligar e a eliminar todos os dados…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Isto irá eliminar a sua informação de conta, perfil e todas as suas mensagens. Também será removido de todos os grupos do Signal. A app será encerrada após a conclusão deste processo."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Você tem dados obsoletos resultantes de uma instalação anterior do Signal Desktop. Se escolher continuar, serão eliminados e irá começar a partir do início."
+    "messageformat": "Você tem dados obsoletos resultantes de uma instalação anterior do Wren Desktop. Se escolher continuar, serão eliminados e irá começar a partir do início."
   },
   "icu:deleteOldData": {
     "messageformat": "Eliminar dados antigos"
@@ -2292,7 +2292,7 @@
     "messageformat": "Parcialmente eliminado, clique para ver detalhes"
   },
   "icu:expiredWarning": {
-    "messageformat": "Esta versão do Signal Desktop expirou. Para poder continuar a enviar mensagens, actualize para a última versão ."
+    "messageformat": "Esta versão do Wren Desktop expirou. Para poder continuar a enviar mensagens, actualize para a última versão ."
   },
   "icu:upgrade": {
     "messageformat": "Clique para ir para signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Ocorreu um erro ao atualizar o grupo. Verifique a sua ligação e tente novamente."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Para continuar a trocar mensagens clique para voltar a associar o Signal Desktop ao seu telemóvel."
+    "messageformat": "Para continuar a trocar mensagens clique para voltar a associar o Wren Desktop ao seu telemóvel."
   },
   "icu:unlinked": {
     "messageformat": "Desassociado"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Clique para voltar a registar e continuar a enviar mensagens. O Signal Desktop não está registado, provavelmente porque registou o seu número de telemóvel num dispositivo diferente."
+    "messageformat": "Clique para voltar a registar e continuar a enviar mensagens. O Wren Desktop não está registado, provavelmente porque registou o seu número de telemóvel num dispositivo diferente."
   },
   "icu:unregistered": {
     "messageformat": "Já não está registado"
@@ -4065,7 +4065,7 @@
     "messageformat": "Versão desconhecida do link."
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Este link não é suportado por esta versão do Signal Desktop."
+    "messageformat": "Este link não é suportado por esta versão do Wren Desktop."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Impossível entrar para o grupo"
@@ -4818,7 +4818,7 @@
     "messageformat": "Esta pessoa não está a utilizar o Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "O Signal Desktop não suporta mensagens para contactos não-Signal. Peça a esta pessoa para instalar o Signal para obterem uma experiência mais segura de trocas de mensagens."
+    "messageformat": "O Wren Desktop não suporta mensagens para contactos não-Signal. Peça a esta pessoa para instalar o Signal para obterem uma experiência mais segura de trocas de mensagens."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "A verificar o estado de registo do seu contacto"
@@ -7055,7 +7055,7 @@
     "messageformat": "A descarregar {currentBytes} de {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Para continuar, atualize o Signal Desktop."
+    "messageformat": "Para continuar, atualize o Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Atualizar"
@@ -7076,7 +7076,7 @@
     "messageformat": "Reinicie o Signal para instalar a atualização."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "O Signal Desktop falhou ao atualizar, mas há uma nova versão disponível. Vá para {downloadUrl} e instale a nova versão manualmente, depois entre em contacto com a equipa de suporte ou envie um relatório de erro sobre esse problema."
+    "messageformat": "O Wren Desktop falhou ao atualizar, mas há uma nova versão disponível. Vá para {downloadUrl} e instale a nova versão manualmente, depois entre em contacto com a equipa de suporte ou envie um relatório de erro sobre esse problema."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Logo do Signal"
@@ -9060,7 +9060,7 @@
     "messageformat": "Eliminar todos os dados?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Todos os dados atuais no Signal Desktop serão eliminados. Depois pode ler um código QR e transferir o histórico de mensagens a partir do seu telemóvel."
+    "messageformat": "Todos os dados atuais no Wren Desktop serão eliminados. Depois pode ler um código QR e transferir o histórico de mensagens a partir do seu telemóvel."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Esta versão contém um número de pequenas funcionalidades e correções de erros de forma a manter o Signal a correr suavemente.",

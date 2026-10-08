@@ -726,7 +726,7 @@
     "messageformat": "Entwurf für Bildanhang: {path}"
   },
   "icu:decryptionErrorToast": {
-    "messageformat": "Signal Desktop hat einen Entschlüsselungsfehler von {name}, Gerät {deviceId} festgestellt."
+    "messageformat": "Wren Desktop hat einen Entschlüsselungsfehler von {name}, Gerät {deviceId} festgestellt."
   },
   "icu:Toast__ActionLabel--SubmitLog": {
     "messageformat": "Diagnoseprotokoll übermitteln"
@@ -825,7 +825,7 @@
     "messageformat": "Sticker-Set-Ersteller"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Über Signal Desktop"
+    "messageformat": "Über Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Teilen des Bildschirms"
@@ -843,7 +843,7 @@
     "messageformat": "Beenden"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Suchen"
@@ -987,7 +987,7 @@
     "messageformat": "Du"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Zum Senden von Sprachnachrichten musst du Signal Desktop den Zugriff auf dein Mikrofon erlauben."
+    "messageformat": "Zum Senden von Sprachnachrichten musst du Wren Desktop den Zugriff auf dein Mikrofon erlauben."
   },
   "icu:audioCallingPermissionNeeded": {
     "messageformat": "Für Anrufe musst du Signal Zugriff auf dein Mikrofon erlauben."
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal konnte nicht aktualisiert werden. Besuche {url}, um Signal manuell zu installieren. Kontaktiere danach den <contactSupportLink>Support</contactSupportLink> hinsichtlich dieses Problems."
   },
   "icu:readOnlyVolume": {
-    "messageformat": "macOS hat Signal Desktop vermutlich unter Dateiquarantäne gestellt und Signal kann daher nicht automatisch aktualisiert werden. Bitte versuche mit Finder, {app} in den Ordner {folder} zu verschieben."
+    "messageformat": "macOS hat Wren Desktop vermutlich unter Dateiquarantäne gestellt und Signal kann daher nicht automatisch aktualisiert werden. Bitte versuche mit Finder, {app} in den Ordner {folder} zu verschieben."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Alle Daten löschen?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Du versuchst gerade, ein anderes Signal-Konto mit diesem Desktop zu koppeln. Wenn du fortfährst, werden alle derzeit in Signal Desktop gespeicherten Daten gelöscht."
+    "messageformat": "Du versuchst gerade, ein anderes Signal-Konto mit diesem Desktop zu koppeln. Wenn du fortfährst, werden alle derzeit in Wren Desktop gespeicherten Daten gelöscht."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Fortfahren"
@@ -2214,7 +2214,7 @@
     "messageformat": "Alle Daten löschen?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Alle Daten und Nachrichten von dieser Version von Signal Desktop löschen? Dein Signal-Konto und die Daten auf deinem Telefon oder auf anderen gekoppelten Geräten werden nicht gelöscht."
+    "messageformat": "Alle Daten und Nachrichten von dieser Version von Wren Desktop löschen? Dein Signal-Konto und die Daten auf deinem Telefon oder auf anderen gekoppelten Geräten werden nicht gelöscht."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Verbindung wird getrennt und alle Daten werden gelöscht …"
@@ -2235,7 +2235,7 @@
     "messageformat": "Dies löscht deine Kontoinformationen, dein Profil und alle deine Nachrichten. Du wirst außerdem aus all deinen Signal-Gruppen entfernt. Die App wird beendet, wenn dieser Vorgang abgeschlossen ist."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Du hast veraltete Daten aus einer früheren Installation von Signal Desktop. Falls du fortfährst, werden sämtliche Daten gelöscht und du beginnst komplett neu."
+    "messageformat": "Du hast veraltete Daten aus einer früheren Installation von Wren Desktop. Falls du fortfährst, werden sämtliche Daten gelöscht und du beginnst komplett neu."
   },
   "icu:deleteOldData": {
     "messageformat": "Alte Daten löschen"
@@ -2292,7 +2292,7 @@
     "messageformat": "Teilweise gelöscht, für Details klicken"
   },
   "icu:expiredWarning": {
-    "messageformat": "Diese Version von Signal Desktop ist veraltet. Bitte führe eine Aktualisierung auf die aktuellste Version durch, um weiterhin Nachrichten austauschen zu können."
+    "messageformat": "Diese Version von Wren Desktop ist veraltet. Bitte führe eine Aktualisierung auf die aktuellste Version durch, um weiterhin Nachrichten austauschen zu können."
   },
   "icu:upgrade": {
     "messageformat": "Anklicken, um signal.org/download aufzurufen"
@@ -2565,13 +2565,13 @@
     "messageformat": "Die Gruppe konnte nicht aktualisiert werden. Überprüfe deine Internetverbindung und versuche es erneut."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Anklicken, um Signal Desktop erneut mit deinem Mobilgerät zu koppeln und so weiterhin Nachrichten austauschen zu können."
+    "messageformat": "Anklicken, um Wren Desktop erneut mit deinem Mobilgerät zu koppeln und so weiterhin Nachrichten austauschen zu können."
   },
   "icu:unlinked": {
     "messageformat": "Entkoppelt"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Klicke um dich neu bei Signal zu registrieren und weiter Nachrichten senden und empfangen zu können. Signal Desktop ist nicht mehr registriert. Das liegt wahrscheinlich daran, dass du deine Telefonnummer mit Signal auf einem anderen Gerät registriert hast."
+    "messageformat": "Klicke um dich neu bei Signal zu registrieren und weiter Nachrichten senden und empfangen zu können. Wren Desktop ist nicht mehr registriert. Das liegt wahrscheinlich daran, dass du deine Telefonnummer mit Signal auf einem anderen Gerät registriert hast."
   },
   "icu:unregistered": {
     "messageformat": "Nicht mehr registriert"
@@ -4065,7 +4065,7 @@
     "messageformat": "Ungültige Link-Version"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Dieser Link wird nicht von dieser Version von Signal Desktop unterstützt."
+    "messageformat": "Dieser Link wird nicht von dieser Version von Wren Desktop unterstützt."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Gruppenbeitritt nicht möglich"
@@ -4818,7 +4818,7 @@
     "messageformat": "Diese Person verwendet Signal nicht"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop unterstützt keine Kommunikation mit Kontakten, die Signal nicht verwenden. Bitte diese Person, für eine sicherere Kommunikation Signal zu installieren."
+    "messageformat": "Wren Desktop unterstützt keine Kommunikation mit Kontakten, die Signal nicht verwenden. Bitte diese Person, für eine sicherere Kommunikation Signal zu installieren."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Registrierungsstatus des Kontakts wird überprüft"
@@ -7055,7 +7055,7 @@
     "messageformat": "{currentBytes} von {totalBytes} ({percentage,number,percent}) werden heruntergeladen ..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Aktualisiere Signal Desktop, um fortzufahren."
+    "messageformat": "Aktualisiere Wren Desktop, um fortzufahren."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Aktualisieren"
@@ -7076,7 +7076,7 @@
     "messageformat": "Starte Signal neu um das Update zu installieren."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop konnte nicht aktualisiert werden, aber es ist eine neue Version verfügbar. Gehe zu {downloadUrl} und installiere die neue Version manuell. Kontaktiere anschließend den Support oder reiche einen Fehlerbericht zu diesem Problem ein."
+    "messageformat": "Wren Desktop konnte nicht aktualisiert werden, aber es ist eine neue Version verfügbar. Gehe zu {downloadUrl} und installiere die neue Version manuell. Kontaktiere anschließend den Support oder reiche einen Fehlerbericht zu diesem Problem ein."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal Logo"
@@ -8346,13 +8346,13 @@
     "messageformat": "Neue PIN erstellt."
   },
   "icu:UnsupportedOSWarningDialog__body": {
-    "messageformat": "Signal Desktop wird die {OS}-Version deines Computers bald nicht mehr unterstützen. Um Signal weiterhin nutzen zu können, aktualisiere das Betriebssystem deines Computers bis {expirationDate}. <learnMoreLink>Mehr erfahren</learnMoreLink>"
+    "messageformat": "Wren Desktop wird die {OS}-Version deines Computers bald nicht mehr unterstützen. Um Signal weiterhin nutzen zu können, aktualisiere das Betriebssystem deines Computers bis {expirationDate}. <learnMoreLink>Mehr erfahren</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal Desktop funktioniert auf diesem Computer nicht mehr. Um Signal Desktop wieder verwenden zu können, aktualisiere die {OS}-Version deines Computers. <learnMoreLink>Mehr erfahren</learnMoreLink>"
+    "messageformat": "Wren Desktop funktioniert auf diesem Computer nicht mehr. Um Wren Desktop wieder verwenden zu können, aktualisiere die {OS}-Version deines Computers. <learnMoreLink>Mehr erfahren</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop funktioniert auf diesem Computer nicht mehr. Um Signal Desktop wieder verwenden zu können, aktualisiere die {OS}-Version deines Computers."
+    "messageformat": "Wren Desktop funktioniert auf diesem Computer nicht mehr. Um Wren Desktop wieder verwenden zu können, aktualisiere die {OS}-Version deines Computers."
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "Bearbeitet"
@@ -9060,7 +9060,7 @@
     "messageformat": "Alle Daten löschen?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Alle derzeit in Signal Desktop gespeicherten Daten werden gelöscht. Du kannst danach einen QR-Code scannen und deinen Nachrichtenverlauf von deinem Telefon übertragen."
+    "messageformat": "Alle derzeit in Wren Desktop gespeicherten Daten werden gelöscht. Du kannst danach einen QR-Code scannen und deinen Nachrichtenverlauf von deinem Telefon übertragen."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Diese Version enthält eine Reihe kleinerer Optimierungen und Fehlerbehebungen, damit Signal weiterhin reibungslos funktioniert.",

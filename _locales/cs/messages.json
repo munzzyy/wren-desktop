@@ -825,7 +825,7 @@
     "messageformat": "Vytváření balíčků nálepek"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "O aplikaci Signal Desktop"
+    "messageformat": "O aplikaci Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Sdílení obrazovky"
@@ -843,7 +843,7 @@
     "messageformat": "Ukončit"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Hledat"
@@ -987,13 +987,13 @@
     "messageformat": "Vy"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Chcete-li odesílat hlasové zprávy, povolte aplikaci Signal Desktop přístup k mikrofonu."
+    "messageformat": "Chcete-li odesílat hlasové zprávy, povolte aplikaci Wren Desktop přístup k mikrofonu."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Pro volání musíte aplikaci Signal Desktop povolit přístup k mikrofonu."
+    "messageformat": "Pro volání musíte aplikaci Wren Desktop povolit přístup k mikrofonu."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Pro videohovory musíte aplikaci Signal Desktop povolit přístup ke kameře."
+    "messageformat": "Pro videohovory musíte aplikaci Wren Desktop povolit přístup ke kameře."
   },
   "icu:allowAccess": {
     "messageformat": "Povolit přístup"
@@ -1026,7 +1026,7 @@
     "messageformat": "Aplikaci Signal nebylo možné aktualizovat. Navštivte {url} a nainstalujte ji ručně. Poté <contactSupportLink>kontaktujte podporu</contactSupportLink> ohledně tohoto problému"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop je pravděpodobně v karanténě macOS a nebude schopen se sám aktualizovat. Zkuste přesunout {app} do {folder} pomocí aplikace Finder."
+    "messageformat": "Wren Desktop je pravděpodobně v karanténě macOS a nebude schopen se sám aktualizovat. Zkuste přesunout {app} do {folder} pomocí aplikace Finder."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Smazat všechna data?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Pokoušíte se s tímto počítačem propojit jiný účet Signal. Pokud budete pokračovat, všechna data, která momentálně v Signal Desktop máte, budou smazána."
+    "messageformat": "Pokoušíte se s tímto počítačem propojit jiný účet Signal. Pokud budete pokračovat, všechna data, která momentálně v Wren Desktop máte, budou smazána."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Pokračovat"
@@ -2214,7 +2214,7 @@
     "messageformat": "Smazat všechna data?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Odstranit všechna data a zprávy z této verze aplikace Signal Desktop? Váš účet Signal a data v telefonu nebo jiných propojených zařízení nebudou odstraněny."
+    "messageformat": "Odstranit všechna data a zprávy z této verze aplikace Wren Desktop? Váš účet Signal a data v telefonu nebo jiných propojených zařízení nebudou odstraněny."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Odpojuji a mažu všechna data…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Tím se vymažou informace o vašem účtu, váš profil a všechny vaše zprávy. Budete také odebráni ze všech skupin ve službě Signal. Po dokončení tohoto procesu se aplikace zavře."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Máte zastaralá data z předchozí instalace aplikace Signal Desktop. Pokud se rozhodnete pokračovat, budou odstraněna a budete muset začít od začátku."
+    "messageformat": "Máte zastaralá data z předchozí instalace aplikace Wren Desktop. Pokud se rozhodnete pokračovat, budou odstraněna a budete muset začít od začátku."
   },
   "icu:deleteOldData": {
     "messageformat": "Odstranit stará data"
@@ -2292,7 +2292,7 @@
     "messageformat": "Odstraněno částečně, kliknutím zobrazíte podrobnosti"
   },
   "icu:expiredWarning": {
-    "messageformat": "Tato verze aplikace Signal Desktop je zastaralá. Abyste mohli dále komunikovat, aktualizujte ji na nejnovější verzi."
+    "messageformat": "Tato verze aplikace Wren Desktop je zastaralá. Abyste mohli dále komunikovat, aktualizujte ji na nejnovější verzi."
   },
   "icu:upgrade": {
     "messageformat": "Kliknutím přejedete na signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Nepodařilo se aktualizovat skupinu. Zkontrolujte připojení a zkuste to znovu."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Kliknutím znovu propojte Signal Desktop s mobilním zařízením a pokračujte v zasílání zpráv."
+    "messageformat": "Kliknutím znovu propojte Wren Desktop s mobilním zařízením a pokračujte v zasílání zpráv."
   },
   "icu:unlinked": {
     "messageformat": "Odpárováno"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Kliknutím se znovu zaregistrujete, abyste mohli dál posílat zprávy. Signal Desktop je odhlášen nejspíše proto, že jste své telefonní číslo pro Signal registrovali na jiném zařízení."
+    "messageformat": "Kliknutím se znovu zaregistrujete, abyste mohli dál posílat zprávy. Wren Desktop je odhlášen nejspíše proto, že jste své telefonní číslo pro Signal registrovali na jiném zařízení."
   },
   "icu:unregistered": {
     "messageformat": "Už nejste zaregistrováni"
@@ -4065,7 +4065,7 @@
     "messageformat": "Neznámá verze odkazu"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Tento odkaz není podporovaný touto verzí aplikace Signal Desktop."
+    "messageformat": "Tento odkaz není podporovaný touto verzí aplikace Wren Desktop."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Ke skupině se nelze připojit"
@@ -4818,7 +4818,7 @@
     "messageformat": "Tato osoba nepoužívá Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Aplikace Signal Desktop nepodporuje zasílání zpráv kontaktům, které nepoužívají Signal. Požádejte tuto osobu, aby si nainstalovala aplikaci Signal, která nabízí bezpečnější zasílání zpráv."
+    "messageformat": "Aplikace Wren Desktop nepodporuje zasílání zpráv kontaktům, které nepoužívají Signal. Požádejte tuto osobu, aby si nainstalovala aplikaci Signal, která nabízí bezpečnější zasílání zpráv."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Ověřuji stav registrace kontaktu"
@@ -7055,7 +7055,7 @@
     "messageformat": "Stahování {currentBytes} z {totalBytes} ({percentage,number,percent})…"
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Abyste mohli pokračovat, aktualizujte Signal Desktop."
+    "messageformat": "Abyste mohli pokračovat, aktualizujte Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Aktualizovat"
@@ -7076,7 +7076,7 @@
     "messageformat": "Restartujte aplikaci Signal, aby se aktualizace nainstalovala."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Aplikaci Signal Desktop se nepodařilo aktualizovat, ale je k dispozici nová verze. Přejděte na {downloadUrl} a nainstalujte si novou verzi ručně, poté se obraťte na podporu nebo chybu nahlaste."
+    "messageformat": "Aplikaci Wren Desktop se nepodařilo aktualizovat, ale je k dispozici nová verze. Přejděte na {downloadUrl} a nainstalujte si novou verzi ručně, poté se obraťte na podporu nebo chybu nahlaste."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Logo Signal"
@@ -9060,7 +9060,7 @@
     "messageformat": "Smazat všechna data?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Všechna současná data v Signal Desktop budou smazána. Poté můžete naskenovat QR kód a přenést historii zpráv ze svého telefonu."
+    "messageformat": "Všechna současná data v Wren Desktop budou smazána. Poté můžete naskenovat QR kód a přenést historii zpráv ze svého telefonu."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Tato verze obsahuje řadu drobných vylepšení a oprav chyb, aby Signal fungoval bez problémů.",

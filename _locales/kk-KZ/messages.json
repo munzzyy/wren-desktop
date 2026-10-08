@@ -1617,7 +1617,7 @@
     "messageformat": "Барлық деректі жою керек пе?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Бұл компьютерге басқа Signal аккаунтын байланыстырайын деп жатырсыз. Әрекетті жалғастырсаңыз, Signal Desktop-тағы қазіргі деректердің барлығы жойылады."
+    "messageformat": "Бұл компьютерге басқа Signal аккаунтын байланыстырайын деп жатырсыз. Әрекетті жалғастырсаңыз, Wren Desktop-тағы қазіргі деректердің барлығы жойылады."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Жалғастыру"
@@ -2214,7 +2214,7 @@
     "messageformat": "Барлық деректі жою керек пе?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Signal Desktop-тың осы нұсқасынан барлық деректі және хатты жою керек пе? Signal аккаунтыңыз және телефоныңыздағы деректер немесе басқа да байланыстырылған құрылғылар жойылмайды."
+    "messageformat": "Wren Desktop-тың осы нұсқасынан барлық деректі және хатты жою керек пе? Signal аккаунтыңыз және телефоныңыздағы деректер немесе басқа да байланыстырылған құрылғылар жойылмайды."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Қолданба ажыратылып жатыр және деректер толығымен жойылып жатыр…"
@@ -2571,7 +2571,7 @@
     "messageformat": "Байланыс ажыратылды"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Қайта тіркелу және хабар алмасуды жалғастыру үшін басыңыз. Signal Desktop тіркеуден шығып кетті. Мұның себебі телефон нөміріңіз басқа құрылғыдағы Signal-да тіркелгендіктен болуы мүмкін."
+    "messageformat": "Қайта тіркелу және хабар алмасуды жалғастыру үшін басыңыз. Wren Desktop тіркеуден шығып кетті. Мұның себебі телефон нөміріңіз басқа құрылғыдағы Signal-да тіркелгендіктен болуы мүмкін."
   },
   "icu:unregistered": {
     "messageformat": "Енді тіркелмеген"
@@ -7055,7 +7055,7 @@
     "messageformat": "{currentBytes}/{totalBytes} ({percentage,number,percent}) жүктеп алынып жатыр..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Жалғастыру үшін Signal Desktop-ты жаңартыңыз."
+    "messageformat": "Жалғастыру үшін Wren Desktop-ты жаңартыңыз."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Жаңарту"
@@ -9060,7 +9060,7 @@
     "messageformat": "Барлық деректі жою керек пе?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Signal Desktop-тағы қазіргі деректердің барлығы жойылады. Содан кейін QR кодын сканерлеп, телефоныңыздан хабарлар тарихын тасымалдай аласыз."
+    "messageformat": "Wren Desktop-тағы қазіргі деректердің барлығы жойылады. Содан кейін QR кодын сканерлеп, телефоныңыздан хабарлар тарихын тасымалдай аласыз."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Бұл нұсқада Signal-дың еш кінәратсыз жұмыс істеуіне қажетті бірнеше шағын түзетпе жасалды және ақаулар түзетілді.",

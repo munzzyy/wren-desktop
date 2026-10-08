@@ -1026,7 +1026,7 @@
     "messageformat": "Ažuriranje Signala nije uspjelo. Posjetite {url} da biste ga ručno instalirali. Zatim <contactSupportLink>kontaktirajte korisničku podršku</contactSupportLink> u vezi s ovim problemom"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop je vjerojatno u macOS karanteni i neće se moći automatski ažurirati. Pokušajte premjestiti {app} u {folder} pomoću programa Finder."
+    "messageformat": "Wren Desktop je vjerojatno u macOS karanteni i neće se moći automatski ažurirati. Pokušajte premjestiti {app} u {folder} pomoću programa Finder."
   },
   "icu:ok": {
     "messageformat": "U redu"
@@ -2565,7 +2565,7 @@
     "messageformat": "Nije moguće ažurirati grupu. Provjerite internetsku vezu i pokušajte ponovo."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Za nastavak dopisivanja kliknite i ponovno povežite Signal Desktop s vašim mobilnim uređajem."
+    "messageformat": "Za nastavak dopisivanja kliknite i ponovno povežite Wren Desktop s vašim mobilnim uređajem."
   },
   "icu:unlinked": {
     "messageformat": "Prekinuta je veza"
@@ -4065,7 +4065,7 @@
     "messageformat": "Nepoznata verzija poveznice"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Poveznica nije podržana u ovoj verziji Signal Desktopa."
+    "messageformat": "Poveznica nije podržana u ovoj verziji Wren Desktopa."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Ne možete se pridružiti grupi"
@@ -4818,7 +4818,7 @@
     "messageformat": "Osoba ne koristi Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop ne podržava razgovore s kontaktima koji ne koriste Signal. Zamolite osobu da instalira Signal radi sigurnijeg razmjene poruka."
+    "messageformat": "Wren Desktop ne podržava razgovore s kontaktima koji ne koriste Signal. Zamolite osobu da instalira Signal radi sigurnijeg razmjene poruka."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Provjera statusa registracije kontakta"

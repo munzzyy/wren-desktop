@@ -825,7 +825,7 @@
     "messageformat": "ஸ்டிக்கர் பேக் கிரியேட்டர்"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop பற்றி"
+    "messageformat": "Wren Desktop பற்றி"
   },
   "icu:screenShareWindow": {
     "messageformat": "திரையைப் பகிர்தல்"
@@ -843,7 +843,7 @@
     "messageformat": "விட்டுவிடு"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "தேடல்"
@@ -1026,7 +1026,7 @@
     "messageformat": "சிக்னலைப் புதுப்பிக்க இயலவில்லை. கைமுறையாக நிறுவ, {url} என்ற இணைப்பைப் பார்வையிடவும். பின்னர், இந்தச் சிக்கலுக்காக <contactSupportLink>ஆதரவைத் தொடர்பு கொள்ளவும்</contactSupportLink>"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop டெஸ்க்டாப் ஒரு macOS தனிமைப்படுத்தலில் இருக்கலாம், அதனால் தானாக புதுப்பிக்க முடியாது.  {app} பயன்பாட்டை {folder} கோப்புறையில் Finder மூலம் நகர்த்த முயற்சிக்கவும்."
+    "messageformat": "Wren Desktop டெஸ்க்டாப் ஒரு macOS தனிமைப்படுத்தலில் இருக்கலாம், அதனால் தானாக புதுப்பிக்க முடியாது.  {app} பயன்பாட்டை {folder} கோப்புறையில் Finder மூலம் நகர்த்த முயற்சிக்கவும்."
   },
   "icu:ok": {
     "messageformat": "சரி"
@@ -2292,7 +2292,7 @@
     "messageformat": "பகுதியளவு நீக்கப்பட்டது, விவரங்களுக்குக் கிளிக் செய்யவும்"
   },
   "icu:expiredWarning": {
-    "messageformat": "Signal Desktop ப்பின் இந்த பதிப்பு காலாவதியானது. செய்தியைத் தொடர சமீபத்திய பதிப்பிற்கு மேம்படுத்தவும்."
+    "messageformat": "Wren Desktop ப்பின் இந்த பதிப்பு காலாவதியானது. செய்தியைத் தொடர சமீபத்திய பதிப்பிற்கு மேம்படுத்தவும்."
   },
   "icu:upgrade": {
     "messageformat": "signal.org/download -க்குச் செல்வதற்கு கிளிக் செய்யவும்"
@@ -4065,7 +4065,7 @@
     "messageformat": "தெரியவில்லை இணைப்பு பதிப்பு"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "இது இணைப்பு இன் இந்த பதிப்பால் ஆதரிக்கப்படவில்லை Signal Desktop."
+    "messageformat": "இது இணைப்பு இன் இந்த பதிப்பால் ஆதரிக்கப்படவில்லை Wren Desktop."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "முடியாது சேர குழு"
@@ -4818,7 +4818,7 @@
     "messageformat": "இந்த நபர் பயன்படுத்தவில்லை Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop இல்லை ஆதரவு செய்தி அனுப்புதல் Signal தொடர்புகள். இந்த நபரை நிறுவச் சொல்லுங்கள் Signal மிகவும் பாதுகாப்பான செய்தியிடல் அனுபவத்திற்காக."
+    "messageformat": "Wren Desktop இல்லை ஆதரவு செய்தி அனுப்புதல் Signal தொடர்புகள். இந்த நபரை நிறுவச் சொல்லுங்கள் Signal மிகவும் பாதுகாப்பான செய்தியிடல் அனுபவத்திற்காக."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "தொடர்புகளின் பதிவு நிலையை சரிபார்க்கிறது"
@@ -7055,7 +7055,7 @@
     "messageformat": "{totalBytes} இல் {currentBytes} ஐப் பதிவிறக்குகிறது({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "தொடர, Signal Desktop-ஐப் புதுப்பிக்கவும்."
+    "messageformat": "தொடர, Wren Desktop-ஐப் புதுப்பிக்கவும்."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "புதுப்பிக்கப்பட்டது"

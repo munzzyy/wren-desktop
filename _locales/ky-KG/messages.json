@@ -825,7 +825,7 @@
     "messageformat": "Стикерлер топтомун жаратуучусу"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop жөнүндө"
+    "messageformat": "Wren Desktop жөнүндө"
   },
   "icu:screenShareWindow": {
     "messageformat": "Экран бөлүшүү"
@@ -843,7 +843,7 @@
     "messageformat": "Чыгуу"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Издөө"
@@ -987,13 +987,13 @@
     "messageformat": "Сиз"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Аудио билдирүүлөрдү жөнөтүү үчүн Signal Desktop'ко микрофонуңузду жеткиликтүү кылыңыз."
+    "messageformat": "Аудио билдирүүлөрдү жөнөтүү үчүн Wren Desktop'ко микрофонуңузду жеткиликтүү кылыңыз."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Чалуу үчүн Signal Desktop'ко микрофонуңузга кирүү уруксатын беришиңиз керек."
+    "messageformat": "Чалуу үчүн Wren Desktop'ко микрофонуңузга кирүү уруксатын беришиңиз керек."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Видео чалуу үчүн Signal Desktop'ко камераңызга кирүү уруксатын беришиңиз керек."
+    "messageformat": "Видео чалуу үчүн Wren Desktop'ко камераңызга кирүү уруксатын беришиңиз керек."
   },
   "icu:allowAccess": {
     "messageformat": "Кирүүгө уруксат берүү"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal'ды жаңыртуу мүмкүн болбой жатат. Бул жерге өтүп {url}, аны кол менен орнотуп көрүңүз. Андан соң, бул көйгөй тууралуу <contactSupportLink>кардарларды тейлөө кызматына</contactSupportLink> кабарлаңыз"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop, macOS карантининде болушу мүмкүн жана автоматтык түрдө жаңыртыла албайт. Сураныч, {app} колдонмосун Finder аркылуу {folder} папкасына жылдырып көрүңүз."
+    "messageformat": "Wren Desktop, macOS карантининде болушу мүмкүн жана автоматтык түрдө жаңыртыла албайт. Сураныч, {app} колдонмосун Finder аркылуу {folder} папкасына жылдырып көрүңүз."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -2214,7 +2214,7 @@
     "messageformat": "Бардык берилмелер өчүрөсүзбү?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Signal Desktop'тун бул версиясындагы бардык нерселерди жана билдирүүлөрдү өчүрөсүзбү? Signal аккаунтуңуз жана телефонуңуздагы жана башка байланышкан түзмөктөрдөгү нерселер өчпөйт."
+    "messageformat": "Wren Desktop'тун бул версиясындагы бардык нерселерди жана билдирүүлөрдү өчүрөсүзбү? Signal аккаунтуңуз жана телефонуңуздагы жана башка байланышкан түзмөктөрдөгү нерселер өчпөйт."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Ажыратылып, бардык нерселер өчүрүлүүдө…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Аккаунтуңуздун маалыматы, профилиңиз жана бардык билдирүүлөрүңүз өчүп калат. Ошондой эле Signal'дагы бардык топтордон чыгасыз. Бул процесс аяктагандан кийин колдонмо жабылат."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Сизде мурунку Signal Desktop орнотуудан эски берилмелер бар. Эгер улантууну тандасаңыз, бул берилмелер өчүрүлөт жана сиз нөлдөн баштап иштей баштайсыз."
+    "messageformat": "Сизде мурунку Wren Desktop орнотуудан эски берилмелер бар. Эгер улантууну тандасаңыз, бул берилмелер өчүрүлөт жана сиз нөлдөн баштап иштей баштайсыз."
   },
   "icu:deleteOldData": {
     "messageformat": "Эски берилмелерди өчүрүү"
@@ -2292,7 +2292,7 @@
     "messageformat": "Жарым-жартылай өчтү, себебин билүү үчүн басыңыз"
   },
   "icu:expiredWarning": {
-    "messageformat": "Бул Signal Desktop версиясынын мөөнөтү бүттү. Билдирүүлөр менен бөлүшүүнү улантуу үчүн акыркы версияга жаңыртыңыз."
+    "messageformat": "Бул Wren Desktop версиясынын мөөнөтү бүттү. Билдирүүлөр менен бөлүшүүнү улантуу үчүн акыркы версияга жаңыртыңыз."
   },
   "icu:upgrade": {
     "messageformat": "signal.org/download дарегине өтүү үчүн басыңыз"
@@ -2565,13 +2565,13 @@
     "messageformat": "Топ жаңыртылган жок. Интернетке туташууңузду текшерип, кайра аракет кылыңыз."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Кабарлашууну улантуу үчүн чыкылдатуу менен Signal Desktop'ту мобилдик түзмөгүңүзгө кайра туташтырыңыз."
+    "messageformat": "Кабарлашууну улантуу үчүн чыкылдатуу менен Wren Desktop'ту мобилдик түзмөгүңүзгө кайра туташтырыңыз."
   },
   "icu:unlinked": {
     "messageformat": "Ажыратылды"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Кайра катталып, жазышуу үчүн бул жерди басыңыз. Signal Desktop катталган эмес окшойт, себеби Signal'га телефон номериңиз менен башка түзмөктөн катталгансыз."
+    "messageformat": "Кайра катталып, жазышуу үчүн бул жерди басыңыз. Wren Desktop катталган эмес окшойт, себеби Signal'га телефон номериңиз менен башка түзмөктөн катталгансыз."
   },
   "icu:unregistered": {
     "messageformat": "Каттоодон чыктыңыз"
@@ -4038,7 +4038,7 @@
     "messageformat": "{max, plural, other {Бул билдирүүнү {max,number} жолу гана оңдой аласыз.}}"
   },
   "icu:unknown-sgnl-link": {
-    "messageformat": "Кечиресиз, бул sgnl:// шилтемеси учурда Signal Desktop тарабынан колдоого алынбайт."
+    "messageformat": "Кечиресиз, бул sgnl:// шилтемеси учурда Wren Desktop тарабынан колдоого алынбайт."
   },
   "icu:GroupV2--cannot-send": {
     "messageformat": "Сиз ал топко билдирүү жөнөтө албайсыз."
@@ -4065,7 +4065,7 @@
     "messageformat": "Белгисиз шилтеме версиясы"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Бул шилтеме Signal Desktop'тун бул версиясында колдоого алынбайт."
+    "messageformat": "Бул шилтеме Wren Desktop'тун бул версиясында колдоого алынбайт."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Топко кошулуу мүмкүн эмес"
@@ -4818,7 +4818,7 @@
     "messageformat": "Бул адам Signal колдонбойт"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop Signal'ды колдонбогон байланыштар менен билдирүүлөрдү алмашууну колдоого албайт. Бул адам менен коопсуз байланышуу үчүн Signal орнотуусун сураныңыз."
+    "messageformat": "Wren Desktop Signal'ды колдонбогон байланыштар менен билдирүүлөрдү алмашууну колдоого албайт. Бул адам менен коопсуз байланышуу үчүн Signal орнотуусун сураныңыз."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Байланыштын каттоо абалы текшерилүүдө"
@@ -7055,7 +7055,7 @@
     "messageformat": "{totalBytes} ичинен {currentBytes} жүктөлүп алынууда ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Улантуу үчүн компьютердеги Signal Desktop жаңыртыңыз."
+    "messageformat": "Улантуу үчүн компьютердеги Wren Desktop жаңыртыңыз."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Жаңыртуу"
@@ -7076,7 +7076,7 @@
     "messageformat": "Жаңы версияны орнотуу үчүн Signal'ды өчүрүп күйгүзүңүз."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop жаңырбай калды, бирок анын жаңы версиясы жеткиликтүү. Бул дарек боюнча өтүп {downloadUrl}, жаңы версияны кол менен орнотсоңуз болот же кардарларды тейлеген борборго кайрылыңыз же ката тууралуу кабарлаңыз."
+    "messageformat": "Wren Desktop жаңырбай калды, бирок анын жаңы версиясы жеткиликтүү. Бул дарек боюнча өтүп {downloadUrl}, жаңы версияны кол менен орнотсоңуз болот же кардарларды тейлеген борборго кайрылыңыз же ката тууралуу кабарлаңыз."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal логотиби"

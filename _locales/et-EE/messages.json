@@ -825,7 +825,7 @@
     "messageformat": "Kleebisepaki looja"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Teave Signal Desktopi kohta"
+    "messageformat": "Teave Wren Desktopi kohta"
   },
   "icu:screenShareWindow": {
     "messageformat": "Ekraani jagamine"
@@ -843,7 +843,7 @@
     "messageformat": "Välju"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Otsi"
@@ -987,13 +987,13 @@
     "messageformat": "Sina"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Häälsõnumite saatmiseks luba Signal Desktopil oma mikrofoni kasutada."
+    "messageformat": "Häälsõnumite saatmiseks luba Wren Desktopil oma mikrofoni kasutada."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Häälkõnede tegemiseks pead andma Signal Desktop-ile mikrofonile ligipääsu."
+    "messageformat": "Häälkõnede tegemiseks pead andma Wren Desktop-ile mikrofonile ligipääsu."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Videokõnede tegemiseks pead andma Signal Desktop-ile kaamerale ligipääsu."
+    "messageformat": "Videokõnede tegemiseks pead andma Wren Desktop-ile kaamerale ligipääsu."
   },
   "icu:allowAccess": {
     "messageformat": "Luba ligipääs"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signalit ei saanud uuendada. Külasta lehte {url}, et see käsitsi paigaldada. Seejärel <contactSupportLink>palun võta ühendust kasutajatoega</contactSupportLink> ning kirjelda probleemi"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop on tõenäoliselt macOS-i karantiinis ja seda pole võimalik automaatselt uuendada. Palun teisalda {app} kausta {folder} Finderi abil."
+    "messageformat": "Wren Desktop on tõenäoliselt macOS-i karantiinis ja seda pole võimalik automaatselt uuendada. Palun teisalda {app} kausta {folder} Finderi abil."
   },
   "icu:ok": {
     "messageformat": "Sobib"
@@ -1617,7 +1617,7 @@
     "messageformat": "Kas kustutada kõik andmed?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Sa üritad selle arvutiga siduda teist Signali kontot. Kui jätkad, kustutatakse kõik praegu Signal Desktopis olevad andmed."
+    "messageformat": "Sa üritad selle arvutiga siduda teist Signali kontot. Kui jätkad, kustutatakse kõik praegu Wren Desktopis olevad andmed."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Jätka"
@@ -2214,7 +2214,7 @@
     "messageformat": "Kas kustutada kõik andmed?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Kas kustutada sellest Signal Desktopi versioonist kõik andmed ja sõnumid? Sinu Signali kontot ja telefonis või muudes lingitud seadmetes olevaid andmeid ei kustutata."
+    "messageformat": "Kas kustutada sellest Wren Desktopi versioonist kõik andmed ja sõnumid? Sinu Signali kontot ja telefonis või muudes lingitud seadmetes olevaid andmeid ei kustutata."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Ühenduse lõpetamine ja kõigi andmete kustutamine …"
@@ -2235,7 +2235,7 @@
     "messageformat": "See toiming kustutab sinu konto teabe, profiili ja kõik su sõnumid. Sind eemaldatakse ka kõigist Signali gruppidest. Rakendus sulgub pärast selle protsessi lõpuleviimist."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Sul on Signal Desktop-i varasematest paigaldustest jäänud üleliigseid andmeid. Kui valid jätkamise, siis need andmed kustutatakse ja sa alustad algusest peale."
+    "messageformat": "Sul on Wren Desktop-i varasematest paigaldustest jäänud üleliigseid andmeid. Kui valid jätkamise, siis need andmed kustutatakse ja sa alustad algusest peale."
   },
   "icu:deleteOldData": {
     "messageformat": "Kustuta vanad andmed"
@@ -2292,7 +2292,7 @@
     "messageformat": "Osaliselt kustutatud, üksikasjade nägemiseks klõpsa"
   },
   "icu:expiredWarning": {
-    "messageformat": "See Signal Desktopi versioon on aegunud. Palun uuenda uusimale versioonile sõnumite saatmiseks jätkamiseks."
+    "messageformat": "See Wren Desktopi versioon on aegunud. Palun uuenda uusimale versioonile sõnumite saatmiseks jätkamiseks."
   },
   "icu:upgrade": {
     "messageformat": "Klõpsa aadressile signal.org/download minemiseks"
@@ -2565,13 +2565,13 @@
     "messageformat": "Grupi uuendamine ei õnnestunud. Kontrolli internetiühendust ja proovi uuesti."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Klõpsa Signal Desktopi nutiseadmega ühendamiseks, et jätkata sõnumite saatmisega."
+    "messageformat": "Klõpsa Wren Desktopi nutiseadmega ühendamiseks, et jätkata sõnumite saatmisega."
   },
   "icu:unlinked": {
     "messageformat": "Ühendus eemaldatud"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Klõpsa, et uuesti registreerida ja jätkata sõnumite saatmist. Tõenäoliselt ei ole Signal Desktop enam registreeritud seepärast, et sa registreerisid oma telefoninumbri Signalis teises seadmes."
+    "messageformat": "Klõpsa, et uuesti registreerida ja jätkata sõnumite saatmist. Tõenäoliselt ei ole Wren Desktop enam registreeritud seepärast, et sa registreerisid oma telefoninumbri Signalis teises seadmes."
   },
   "icu:unregistered": {
     "messageformat": "Ei ole enam registreeritud"
@@ -4065,7 +4065,7 @@
     "messageformat": "Tundmatu lingi versioon"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "See Signal Desktop ei toeta seda linki."
+    "messageformat": "See Wren Desktop ei toeta seda linki."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Grupiga ei saa liituda"
@@ -4818,7 +4818,7 @@
     "messageformat": "See isik ei kasuta Signalit"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop ei toeta sõnumite vahetamist kontaktidega, kes ei kasuta Signalit. Palu sellel isikul turvalisema sõnumivahetuskogemuse saamiseks Signal paigaldada."
+    "messageformat": "Wren Desktop ei toeta sõnumite vahetamist kontaktidega, kes ei kasuta Signalit. Palu sellel isikul turvalisema sõnumivahetuskogemuse saamiseks Signal paigaldada."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Kontakti registreerumisoleku kontrollimine"
@@ -7055,7 +7055,7 @@
     "messageformat": "Allalaadimine: {currentBytes} kogumahust {totalBytes} ({percentage,number,percent}) …"
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Jätkamiseks uuenda Signal Desktoppi."
+    "messageformat": "Jätkamiseks uuenda Wren Desktoppi."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Uuenda"
@@ -7076,7 +7076,7 @@
     "messageformat": "Uuenduse paigaldamiseks taaskäivita Signal."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktopi uuendamine nurjus, kuid uus versioon on saadaval. Ava {downloadUrl} ja paigalda uus versioon käsitsi ning teavita probleemist kasutajatuge või saada veateade."
+    "messageformat": "Wren Desktopi uuendamine nurjus, kuid uus versioon on saadaval. Ava {downloadUrl} ja paigalda uus versioon käsitsi ning teavita probleemist kasutajatuge või saada veateade."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signali logo"
@@ -9060,7 +9060,7 @@
     "messageformat": "Kas kustutada kõik andmed?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Kõik Signal Desktopis olevad jooksvad andmed kustutatakse. Seejärel saad QR-koodi skannides edastada telefonist oma sõnumiajaloo."
+    "messageformat": "Kõik Wren Desktopis olevad jooksvad andmed kustutatakse. Seejärel saad QR-koodi skannides edastada telefonist oma sõnumiajaloo."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "See versioon sisaldab paljusid väikseid parendusi, mis Signali sujuvalt käimas.",

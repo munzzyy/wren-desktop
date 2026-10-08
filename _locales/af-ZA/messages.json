@@ -825,7 +825,7 @@
     "messageformat": "Plakkerpakket-skepper"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Oor Signal Desktop"
+    "messageformat": "Oor Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Besig om skerm te deel"
@@ -843,7 +843,7 @@
     "messageformat": "Sluit af"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Soek"
@@ -987,13 +987,13 @@
     "messageformat": "Jy"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Om stemboodskappe te stuur, gee Signal Desktop toegang tot jou mikrofoon."
+    "messageformat": "Om stemboodskappe te stuur, gee Wren Desktop toegang tot jou mikrofoon."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Om oproepe te maak, moet jy vir Signal Desktop toegang tot jou mikrofoon gee."
+    "messageformat": "Om oproepe te maak, moet jy vir Wren Desktop toegang tot jou mikrofoon gee."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Om video-oproepe te maak, moet jy vir Signal Desktop toegang tot jou mikrofoon gee."
+    "messageformat": "Om video-oproepe te maak, moet jy vir Wren Desktop toegang tot jou mikrofoon gee."
   },
   "icu:allowAccess": {
     "messageformat": "Gee toegang"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal kon nie opdateer nie. Besoek {url} om dit handmatig te installeer. <contactSupportLink>Kontak ons steundiens</contactSupportLink> daarna oor hierdie probleem"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop is waarskynlik in 'n macOS-kwarantyn en sal nie outomaties kan opdateer nie. Probeer {app} na {folder} te skuif met Vindfunksie."
+    "messageformat": "Wren Desktop is waarskynlik in 'n macOS-kwarantyn en sal nie outomaties kan opdateer nie. Probeer {app} na {folder} te skuif met Vindfunksie."
   },
   "icu:ok": {
     "messageformat": "Goed"
@@ -1617,7 +1617,7 @@
     "messageformat": "Skrap alle data?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Jy is besig om 'n ander Signal-rekening aan hierdie rekenaar te probeer koppel. Indien jy voortgaan, sal alle data wat tans in Signal Desktop is, geskrap word."
+    "messageformat": "Jy is besig om 'n ander Signal-rekening aan hierdie rekenaar te probeer koppel. Indien jy voortgaan, sal alle data wat tans in Wren Desktop is, geskrap word."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Gaan voort"
@@ -2214,7 +2214,7 @@
     "messageformat": "Skrap alle data?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Skrap alle data en boodskappe in hierdie weergawe van Signal Desktop? Jou Signal-rekening en data op jou foon of ander gekoppelde toestelle sal nie geskrap word nie."
+    "messageformat": "Skrap alle data en boodskappe in hierdie weergawe van Wren Desktop? Jou Signal-rekening en data op jou foon of ander gekoppelde toestelle sal nie geskrap word nie."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Ontkoppel en skrap tans alle data…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Dit sal jou rekeninginligting, profiel en al jou boodskappe skrap. Jy sal ook van alle Signal-groepe verwyder word. Die toepassing sal toemaak nadat hierdie proses voltooi is."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Jy het verouderde data uit 'n vorige installasie van Signal Desktop. As jy kies om voort te gaan, sal dit geskrap word en jy sal van voor af begin."
+    "messageformat": "Jy het verouderde data uit 'n vorige installasie van Wren Desktop. As jy kies om voort te gaan, sal dit geskrap word en jy sal van voor af begin."
   },
   "icu:deleteOldData": {
     "messageformat": "Skrap ou data"
@@ -2292,7 +2292,7 @@
     "messageformat": "Gedeeltelik geskrap, klik hier vir besonderhede"
   },
   "icu:expiredWarning": {
-    "messageformat": "Hierdie weergawe van Signal Desktop het verval. Gradeer asseblief op na die jongste weergawe om voort te gaan om boodskappe te stuur en ontvang."
+    "messageformat": "Hierdie weergawe van Wren Desktop het verval. Gradeer asseblief op na die jongste weergawe om voort te gaan om boodskappe te stuur en ontvang."
   },
   "icu:upgrade": {
     "messageformat": "Klik om na signal.org/download te gaan"
@@ -2565,13 +2565,13 @@
     "messageformat": "Kon nie die groep bywerk nie. Kontroleer jou verbinding en probeer weer."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Klik om Signal Desktop weer aan jou mobiele toestel te koppel om voort te gaan met boodskappe stuur."
+    "messageformat": "Klik om Wren Desktop weer aan jou mobiele toestel te koppel om voort te gaan met boodskappe stuur."
   },
   "icu:unlinked": {
     "messageformat": "Ontkoppel"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Klik om te herregistreer en aan te hou boodskappe stuur. Signal Desktop is waarskynlik ongeregistreer omdat jy jou telefoonnommer op ’n ander toestel by Signal geregistreer het."
+    "messageformat": "Klik om te herregistreer en aan te hou boodskappe stuur. Wren Desktop is waarskynlik ongeregistreer omdat jy jou telefoonnommer op ’n ander toestel by Signal geregistreer het."
   },
   "icu:unregistered": {
     "messageformat": "Nie meer geregistreer nie"
@@ -4065,7 +4065,7 @@
     "messageformat": "Onbekende skakelweergawe."
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Hierdie skakel word nie deur hierdie weergawe van Signal Desktop ondersteun nie."
+    "messageformat": "Hierdie skakel word nie deur hierdie weergawe van Wren Desktop ondersteun nie."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Kan nie by groep aansluit nie"
@@ -4818,7 +4818,7 @@
     "messageformat": "Hierdie persoon gebruik nie Signal nie"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop kan nie boodskappe stuur aan nie-Signal-kontakte nie. Vra die persoon om Signal te installeer vir ’n veiliger boodskapdiens."
+    "messageformat": "Wren Desktop kan nie boodskappe stuur aan nie-Signal-kontakte nie. Vra die persoon om Signal te installeer vir ’n veiliger boodskapdiens."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Gaan tans kontak se registrasiestatus na"
@@ -7055,7 +7055,7 @@
     "messageformat": "Besig om {currentBytes} van {totalBytes} ({percentage,number,percent}) af te laai…"
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Om voort te gaan, doen 'n opdatering van Signal Desktop."
+    "messageformat": "Om voort te gaan, doen 'n opdatering van Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Werk by"
@@ -7076,7 +7076,7 @@
     "messageformat": "Herlaai Signal om die opdatering te installeer."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop kon nie opdateer nie, maar daar is 'n nuwe weergawe beskikbaar. Gaan na {downloadUrl} en installeer die nuwe weergawe met die hand; kontak dan ondersteuning óf rapporteer 'n fout oor hierdie probleem."
+    "messageformat": "Wren Desktop kon nie opdateer nie, maar daar is 'n nuwe weergawe beskikbaar. Gaan na {downloadUrl} en installeer die nuwe weergawe met die hand; kontak dan ondersteuning óf rapporteer 'n fout oor hierdie probleem."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal-logo"
@@ -9060,7 +9060,7 @@
     "messageformat": "Skrap alle data?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Alle huidige data in Signal Desktop sal geskrap word. Jy kan dan 'n QR-kode skandeer en jou boodskapgeskiedenis van jou foon af oordra."
+    "messageformat": "Alle huidige data in Wren Desktop sal geskrap word. Jy kan dan 'n QR-kode skandeer en jou boodskapgeskiedenis van jou foon af oordra."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Hierdie weergawe bevat ’n aantal klein aanpassings en regstellings om Signal glad te laat werk.",

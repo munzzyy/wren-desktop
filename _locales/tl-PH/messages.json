@@ -825,7 +825,7 @@
     "messageformat": "Sticker pack creator"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "About Signal Desktop"
+    "messageformat": "About Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Sharing screen"
@@ -843,7 +843,7 @@
     "messageformat": "Quit"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Maghanap"
@@ -987,13 +987,13 @@
     "messageformat": "Ikaw"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Para mag-send ng audio message, bigyan ang Signal Desktop ng access sa iyong microphone."
+    "messageformat": "Para mag-send ng audio message, bigyan ang Wren Desktop ng access sa iyong microphone."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Para makapag-call, i-allow ang Signal Desktop na magkaroon ng access sa iyong microphone."
+    "messageformat": "Para makapag-call, i-allow ang Wren Desktop na magkaroon ng access sa iyong microphone."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Para makapag-video call, i-allow ang Signal Desktop na magkaroon ng access sa iyong camera."
+    "messageformat": "Para makapag-video call, i-allow ang Wren Desktop na magkaroon ng access sa iyong camera."
   },
   "icu:allowAccess": {
     "messageformat": "Allow Access"
@@ -1026,7 +1026,7 @@
     "messageformat": "Hindi ma-update ang Signal. Puntahan ang {url} para i-install ito manually. Pagkatapos, <contactSupportLink>kontakin ang support</contactSupportLink> tungkol sa problemang ito"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Ang Signal Desktop ay maaaring nasa macOS quarantine, at hindi pwedeng mag-auto update. Subukang i-move ang {app} sa {folder} with Finder."
+    "messageformat": "Ang Wren Desktop ay maaaring nasa macOS quarantine, at hindi pwedeng mag-auto update. Subukang i-move ang {app} sa {folder} with Finder."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Gusto mo bang i-burahin ang lahat ng data?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Sinusubukan mong mag-link ng ibang Signal account sa desktop na ito. Kung magpapatuloy ka, mabubura ang lahat ng data na kasalukuyang nasa Signal Desktop."
+    "messageformat": "Sinusubukan mong mag-link ng ibang Signal account sa desktop na ito. Kung magpapatuloy ka, mabubura ang lahat ng data na kasalukuyang nasa Wren Desktop."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Magpatuloy"
@@ -2214,7 +2214,7 @@
     "messageformat": "Gusto mo bang i-burahin ang lahat ng data?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Gusto mo bang burahin ang lahat ng data at messages mula sa version na ito ng Signal Desktop? Hindi mabubura ang iyong Signal account at data nito sa phone mo o ibang linked devices."
+    "messageformat": "Gusto mo bang burahin ang lahat ng data at messages mula sa version na ito ng Wren Desktop? Hindi mabubura ang iyong Signal account at data nito sa phone mo o ibang linked devices."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Dini-disconnect at binubura ang lahat ng data…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Buburahin nito ang iyong account info, profile, at lahat ng messages mo. Tatanggalin ka rin mula sa lahat ng Signal groups. Magsasara ang app kapag natapos na ang prosesong ito."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Mayroon kang lumang data mula sa lumang installation ng Signal Desktop. Mabubura ito kapag nagpatuloy ka at magsisimula ka ulit sa simula."
+    "messageformat": "Mayroon kang lumang data mula sa lumang installation ng Wren Desktop. Mabubura ito kapag nagpatuloy ka at magsisimula ka ulit sa simula."
   },
   "icu:deleteOldData": {
     "messageformat": "Burahin ang Lumang Data"
@@ -2292,7 +2292,7 @@
     "messageformat": "Hindi lahat nabura, i-click para sa detalye"
   },
   "icu:expiredWarning": {
-    "messageformat": "Expired na ang version na ito ng Signal Desktop. Mangyaring mag-upgrade sa pinakabagong version upang magpatuloy na makapagpadala ng mensahe."
+    "messageformat": "Expired na ang version na ito ng Wren Desktop. Mangyaring mag-upgrade sa pinakabagong version upang magpatuloy na makapagpadala ng mensahe."
   },
   "icu:upgrade": {
     "messageformat": "I-click para pumunta sa signal.org/download"
@@ -2565,7 +2565,7 @@
     "messageformat": "Failed to update the group. I-check ang iyong internet connection at subukan ulit."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "I-click para ma-relink ang Signal Desktop sa iyong mobile device to continue messaging."
+    "messageformat": "I-click para ma-relink ang Wren Desktop sa iyong mobile device to continue messaging."
   },
   "icu:unlinked": {
     "messageformat": "Unlinked"
@@ -4065,7 +4065,7 @@
     "messageformat": "Unknown link version"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Ang link na ito ay hindi supported nitong Signal Desktop version ."
+    "messageformat": "Ang link na ito ay hindi supported nitong Wren Desktop version ."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Hindi Maka-join sa Group"
@@ -4818,7 +4818,7 @@
     "messageformat": "Ang taong ito'y hindi gumagamit ng Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Hindi suportado ng Signal Desktop ang pag-message sa non-Signal contacts. Sabihan ang taong ito na mag-install ng Signal para sa mas secure na messaging experience."
+    "messageformat": "Hindi suportado ng Wren Desktop ang pag-message sa non-Signal contacts. Sabihan ang taong ito na mag-install ng Signal para sa mas secure na messaging experience."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Checking contact's registration status"
@@ -7055,7 +7055,7 @@
     "messageformat": "Dina-download ang {currentBytes} ng {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Para magpatuloy, i-update ang Signal Desktop."
+    "messageformat": "Para magpatuloy, i-update ang Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "I-update"
@@ -7076,7 +7076,7 @@
     "messageformat": "I-restart ang Signal para ma-install ang update."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Hindi na-update ng Signal Desktop, pero may bagong version na available. Pumunta sa {downloadUrl} at i-install ang bagong version manually, pagkatapos ay kontakin ang support o mag-file ng bug tungkol dito."
+    "messageformat": "Hindi na-update ng Wren Desktop, pero may bagong version na available. Pumunta sa {downloadUrl} at i-install ang bagong version manually, pagkatapos ay kontakin ang support o mag-file ng bug tungkol dito."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal Logo"
@@ -9060,7 +9060,7 @@
     "messageformat": "Gusto mo bang i-burahin ang lahat ng data?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Mabubura ang lahat ng data na kasalukuyang nasa Signal Desktop. Maaari kang mag-scan ng QR code at mag-transfer ng message history mo mula sa phone mo."
+    "messageformat": "Mabubura ang lahat ng data na kasalukuyang nasa Wren Desktop. Maaari kang mag-scan ng QR code at mag-transfer ng message history mo mula sa phone mo."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Ang version na ito'y may small tweaks at bug fixes to keep Signal running smoothly.",

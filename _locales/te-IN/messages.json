@@ -825,7 +825,7 @@
     "messageformat": "స్టిక్కర్ ప్యాక్ సృష్టికర్త"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop గురించి"
+    "messageformat": "Wren Desktop గురించి"
   },
   "icu:screenShareWindow": {
     "messageformat": "స్క్రీన్ భాగస్వామ్యం"
@@ -843,7 +843,7 @@
     "messageformat": "వైదొలగు"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "వెతకండి"
@@ -990,10 +990,10 @@
     "messageformat": "వాయిస్ సందేశాలను పంపడానికి, మీ మైక్రోఫోన్‌ను యాక్సెస్ చేయడానికి Signal డెస్క్‌టాప్‌ను అనుమతించండి."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "కాల్ చేయడానికి, మీరు మీ Signal Desktop‌లో శబ్దప్రసారిణికి ప్రవేశ సౌలభ్యంను అనుమతించాలి."
+    "messageformat": "కాల్ చేయడానికి, మీరు మీ Wren Desktop‌లో శబ్దప్రసారిణికి ప్రవేశ సౌలభ్యంను అనుమతించాలి."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "వీడియో కాలింగ్ కోసం, మీరు మీ మీ Signal Desktop‌లో కెమెరానకి ప్రవేశ సౌలభ్యంను అనుమతించాలి."
+    "messageformat": "వీడియో కాలింగ్ కోసం, మీరు మీ మీ Wren Desktop‌లో కెమెరానకి ప్రవేశ సౌలభ్యంను అనుమతించాలి."
   },
   "icu:allowAccess": {
     "messageformat": "ప్రాప్యతను అనుమతించు"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal ని అప్‌డేట్ చేయలేకపోయాము. దాన్ని మాన్యువల్‌గా ఇన్‌స్టాల్ చేయడానికి {url} సందర్శించండి. ఆ తర్వాత, ఈ సమస్య గురించి <contactSupportLink>మద్దతును సంప్రదించండి</contactSupportLink>"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop macOS నిర్బంధంలో ఉండవచ్చు మరియు స్వయంచాలకంగా నవీకరించబడదు. ఫైండర్‌తో {app} నుండి {folder} వరకు తరలించడానికి ప్రయత్నించండి."
+    "messageformat": "Wren Desktop macOS నిర్బంధంలో ఉండవచ్చు మరియు స్వయంచాలకంగా నవీకరించబడదు. ఫైండర్‌తో {app} నుండి {folder} వరకు తరలించడానికి ప్రయత్నించండి."
   },
   "icu:ok": {
     "messageformat": "అలాగే"
@@ -1617,7 +1617,7 @@
     "messageformat": "మొత్తం సమాచారమును తొలగించేదా?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "మీరు వేరొక Signal ఖాతాను ఈ డెస్క్‌టాప్‌కు అనుసంధానించడానికి ప్రయత్నిస్తున్నారు. ఒకవేళ మీరు కొనసాగిస్తే, Signal Desktop లో ప్రస్తుతం ఉన్న మొత్తం డేటా తొలగించబడుతుంది."
+    "messageformat": "మీరు వేరొక Signal ఖాతాను ఈ డెస్క్‌టాప్‌కు అనుసంధానించడానికి ప్రయత్నిస్తున్నారు. ఒకవేళ మీరు కొనసాగిస్తే, Wren Desktop లో ప్రస్తుతం ఉన్న మొత్తం డేటా తొలగించబడుతుంది."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "కొనసాగించండి"
@@ -2235,7 +2235,7 @@
     "messageformat": "ఇది మీ ఖాతా సమాచారం, ప్రొఫైల్ మరియు మీ సందేశాలన్నింటినీ తొలగిస్తుంది. మీరు అన్ని Signal గ్రూపుల నుండి కూడా .ఈ ప్రక్రియ పూర్తయిన తరువాత యాప్ మూసివేయబడుతుంది."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Signal Desktop యొక్క మునుపటి ఇన్‌స్టాలేషన్ నుండి మీరు వాడుకలో లేని డేటా కలిగి ఉన్నారు. ఒకవేళ మీరు కొనసాగించాలని ఎంచుకుంటే, అది తొలగించబడుతుంది మరియు మీరు మొదటి నుండి ప్రారంభిస్తారు."
+    "messageformat": "Wren Desktop యొక్క మునుపటి ఇన్‌స్టాలేషన్ నుండి మీరు వాడుకలో లేని డేటా కలిగి ఉన్నారు. ఒకవేళ మీరు కొనసాగించాలని ఎంచుకుంటే, అది తొలగించబడుతుంది మరియు మీరు మొదటి నుండి ప్రారంభిస్తారు."
   },
   "icu:deleteOldData": {
     "messageformat": "పాత డేటాను తొలగించండి"
@@ -2292,7 +2292,7 @@
     "messageformat": "పాక్షికంగా తొలగించబడింది, వివరాల కోసం క్లిక్ చేయండి"
   },
   "icu:expiredWarning": {
-    "messageformat": "Signal Desktop యొక్క ఈ వెర్షన్ గడువు ముగిసింది. సందేశాన్ని కొనసాగించడానికి దయచేసి తాజా సంస్కరణకు అభివృద్ధి చేయండి."
+    "messageformat": "Wren Desktop యొక్క ఈ వెర్షన్ గడువు ముగిసింది. సందేశాన్ని కొనసాగించడానికి దయచేసి తాజా సంస్కరణకు అభివృద్ధి చేయండి."
   },
   "icu:upgrade": {
     "messageformat": "signal.org/download కు వెళ్లడానికి క్లిక్ చేయండి"
@@ -2565,13 +2565,13 @@
     "messageformat": "సమూహాన్ని నవీకరించడంలో విఫలమైంది. మీ కనెక్షన్‌ను తనిఖీ చేసి, మళ్లీ ప్రయత్నించండి."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "మెసేజింగ్‌ని కొనసాగించడానికి మీ మొబైల్ పరికరానికి Signal Desktop రీలింక్ చేయడానికి క్లిక్ చేయండి."
+    "messageformat": "మెసేజింగ్‌ని కొనసాగించడానికి మీ మొబైల్ పరికరానికి Wren Desktop రీలింక్ చేయడానికి క్లిక్ చేయండి."
   },
   "icu:unlinked": {
     "messageformat": "లింక్ తొలగించడానికి"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "మళ్ళీ నమోదు చేసుకోవడానికి మరియు సందేశాలు పంపడం కొనసాగించడానికి క్లిక్ చేయండి. Signal Desktop నమోదు కాకపోవడానికి కారణం, మీరు మీ ఫోన్ నంబర్‌ను వేరొక పరికరంలో Signalతో నమోదు చేసి ఉండటమే కావచ్చు."
+    "messageformat": "మళ్ళీ నమోదు చేసుకోవడానికి మరియు సందేశాలు పంపడం కొనసాగించడానికి క్లిక్ చేయండి. Wren Desktop నమోదు కాకపోవడానికి కారణం, మీరు మీ ఫోన్ నంబర్‌ను వేరొక పరికరంలో Signalతో నమోదు చేసి ఉండటమే కావచ్చు."
   },
   "icu:unregistered": {
     "messageformat": "ఇకపై నమోదు కాలేదు"
@@ -4065,7 +4065,7 @@
     "messageformat": "తెలియని లింక్ వెర్షన్"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Signal Desktop యొక్క ఈ సంస్కరణకు ఈ లింక్‌కు మద్దతు లేదు."
+    "messageformat": "Wren Desktop యొక్క ఈ సంస్కరణకు ఈ లింక్‌కు మద్దతు లేదు."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "సమూహంలో చేరలేరు"
@@ -4818,7 +4818,7 @@
     "messageformat": "ఈ వ్యక్తి Signal ఉపయోగించడం లేదు"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal కాని పరిచయాలకు మెసేజింగ్కు Signal Desktop మద్దతు ఇవ్వదు. మరింత సురక్షితమైన సందేశ అనుభవం కోసం Signal ను ఇన్‌స్టాల్ చేయమని ఈ వ్యక్తిని అడగండి."
+    "messageformat": "Signal కాని పరిచయాలకు మెసేజింగ్కు Wren Desktop మద్దతు ఇవ్వదు. మరింత సురక్షితమైన సందేశ అనుభవం కోసం Signal ను ఇన్‌స్టాల్ చేయమని ఈ వ్యక్తిని అడగండి."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "పరిచయం యొక్క నమోదు స్థితిని తనిఖీ చేస్తోంది"
@@ -7055,7 +7055,7 @@
     "messageformat": "{totalBytes} లో {currentBytes} ({percentage,number,percent}) డౌన్‌లోడ్ అవుతోంది..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "కొనసాగడానికి, Signal Desktop ను అప్‌డేట్‌ చేయండి."
+    "messageformat": "కొనసాగడానికి, Wren Desktop ను అప్‌డేట్‌ చేయండి."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "నవీకరణ"
@@ -9060,7 +9060,7 @@
     "messageformat": "మొత్తం సమాచారమును తొలగించేదా?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Signal Desktop లోని ప్రస్తుత డేటా అంతా తొలగించబడుతుంది. ఆ తర్వాత, మీరు ఒక QR కోడ్‌ను స్కాన్ చేసి, మీ ఫోన్ నుండి మీ సందేశ చరిత్రను బదిలీ చేయవచ్చు."
+    "messageformat": "Wren Desktop లోని ప్రస్తుత డేటా అంతా తొలగించబడుతుంది. ఆ తర్వాత, మీరు ఒక QR కోడ్‌ను స్కాన్ చేసి, మీ ఫోన్ నుండి మీ సందేశ చరిత్రను బదిలీ చేయవచ్చు."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Signal ని సజావుగా నడిపించడానికి ఈ వెర్షన్‌లో చిన్నపాటి ట్వీక్‌లు మరియు బగ్ ఫిక్స్‌లు ఉన్నాయి.",

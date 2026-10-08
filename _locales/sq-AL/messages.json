@@ -843,7 +843,7 @@
     "messageformat": "Dil"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Kërko"
@@ -987,7 +987,7 @@
     "messageformat": "Ju"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Për të dërguar mesazhe audio, autorizo Signal Desktop të përdorë mikrofonin tënd."
+    "messageformat": "Për të dërguar mesazhe audio, autorizo Wren Desktop të përdorë mikrofonin tënd."
   },
   "icu:audioCallingPermissionNeeded": {
     "messageformat": "Për thirrje, duhet të lejoni Signal-in për Desktop të përdorë mikrofonin tuaj."
@@ -1617,7 +1617,7 @@
     "messageformat": "Të fshihen krejt të dhënat?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Po përpiqesh të lidhësh një llogari tjetër të Signal me këtë desktop. Nëse vazhdon, të gjitha të dhënat aktuale në Signal Desktop do të fshihen."
+    "messageformat": "Po përpiqesh të lidhësh një llogari tjetër të Signal me këtë desktop. Nëse vazhdon, të gjitha të dhënat aktuale në Wren Desktop do të fshihen."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Vazhdo"
@@ -2214,7 +2214,7 @@
     "messageformat": "Të fshihen krejt të dhënat?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Të fshihen të gjitha të dhënat dhe mesazhet nga versioni i Signal Desktop? Llogaria e Signal dhe të dhënat që gjenden në telefon apo në pajisje të tjera të lidhura nuk do të fshihen."
+    "messageformat": "Të fshihen të gjitha të dhënat dhe mesazhet nga versioni i Wren Desktop? Llogaria e Signal dhe të dhënat që gjenden në telefon apo në pajisje të tjera të lidhura nuk do të fshihen."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Të gjitha të dhënat po shkëputen dhe po fshihen…"
@@ -2571,7 +2571,7 @@
     "messageformat": "Jo e lidhur"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Kliko për t’u regjistruar përsëri dhe për të vazhduar me mesazhet. Signal Desktop është çregjistruar, me shumë mundësi sepse e ke regjistruar numrin e telefonit në Signal në një pajisje tjetër."
+    "messageformat": "Kliko për t’u regjistruar përsëri dhe për të vazhduar me mesazhet. Wren Desktop është çregjistruar, me shumë mundësi sepse e ke regjistruar numrin e telefonit në Signal në një pajisje tjetër."
   },
   "icu:unregistered": {
     "messageformat": "Nuk është më i regjistruar"
@@ -7055,7 +7055,7 @@
     "messageformat": "Po shkarkohen {currentBytes} nga {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Për të vazhduar, përditëso Signal Desktop."
+    "messageformat": "Për të vazhduar, përditëso Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Përditësoje"
@@ -7076,7 +7076,7 @@
     "messageformat": "Rihap Signal për të instaluar përditësimin."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop dështoi të përditësohej, por është i mundshëm një version i ri. Shko te {downloadUrl} dhe instalo manualisht versionin e ri, më pas ose kontakto me asistencën ose paraqit një ankesë në lidhje me këtë problem."
+    "messageformat": "Wren Desktop dështoi të përditësohej, por është i mundshëm një version i ri. Shko te {downloadUrl} dhe instalo manualisht versionin e ri, më pas ose kontakto me asistencën ose paraqit një ankesë në lidhje me këtë problem."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Logoja e Signal"
@@ -9060,7 +9060,7 @@
     "messageformat": "Të fshihen krejt të dhënat?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Të gjitha të dhënat aktuale në Signal Desktop do të fshihen. Më pas mund të skanosh kodin QR dhe të transferosh historikun e mesazheve nga telefoni yt."
+    "messageformat": "Të gjitha të dhënat aktuale në Wren Desktop do të fshihen. Më pas mund të skanosh kodin QR dhe të transferosh historikun e mesazheve nga telefoni yt."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Ky version përmban një numër përimtimesh të vockla dhe ndreqje të metash për ta mbajtur të rrjedhshme punën e Signal-it.",

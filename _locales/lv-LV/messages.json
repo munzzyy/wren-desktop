@@ -726,7 +726,7 @@
     "messageformat": "Attēla uzmetuma pielikums: {path}"
   },
   "icu:decryptionErrorToast": {
-    "messageformat": "Signal Desktop radās kļūda, atšifrējot ziņu no {name}, ierīcē{deviceId}"
+    "messageformat": "Wren Desktop radās kļūda, atšifrējot ziņu no {name}, ierīcē{deviceId}"
   },
   "icu:Toast__ActionLabel--SubmitLog": {
     "messageformat": "Ieniegt žurnālu"
@@ -825,7 +825,7 @@
     "messageformat": "Uzlīmju komplekta izveides programma"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Par Signal Desktop versiju"
+    "messageformat": "Par Wren Desktop versiju"
   },
   "icu:screenShareWindow": {
     "messageformat": "Ekrāna kopīgošana"
@@ -843,7 +843,7 @@
     "messageformat": "Aizvērt"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Meklēt"
@@ -987,13 +987,13 @@
     "messageformat": "Jūs"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Lai nosūtītu balss ziņas, ļaujiet lietotnes Signal Desktop versijai piekļūt ierīces mikrofonam."
+    "messageformat": "Lai nosūtītu balss ziņas, ļaujiet lietotnes Wren Desktop versijai piekļūt ierīces mikrofonam."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Lai zvanītu, jums ir jāļauj lietotnes Signal Desktop versijai piekļūt ierīces mikrofonam."
+    "messageformat": "Lai zvanītu, jums ir jāļauj lietotnes Wren Desktop versijai piekļūt ierīces mikrofonam."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Lai veiktu video zvanu, jums ir jāļauj lietotnes Signal Desktop versijai piekļūt kamerai."
+    "messageformat": "Lai veiktu video zvanu, jums ir jāļauj lietotnes Wren Desktop versijai piekļūt kamerai."
   },
   "icu:allowAccess": {
     "messageformat": "Atļaut piekļuvi"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal nevarēja atjaunināt. Apmeklējiet {url}, lai instalētu atjauninājumu manuāli. Pēc tam informējiet <contactSupportLink>atbalsta dienestu</contactSupportLink> par problēmu, sazinoties ar to."
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop, visticamāk, atrodas macOS karantīnā, un šo lietotnes versiju nevarēs automātiski atjaunināt. Pārvietojiet {app}uz {folder}, izmantojot meklētāju."
+    "messageformat": "Wren Desktop, visticamāk, atrodas macOS karantīnā, un šo lietotnes versiju nevarēs automātiski atjaunināt. Pārvietojiet {app}uz {folder}, izmantojot meklētāju."
   },
   "icu:ok": {
     "messageformat": "Ok"
@@ -1617,7 +1617,7 @@
     "messageformat": "Vai dzēst visus datus?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Jūs šai darbvirsmai cenšaties piesaistīt citu Signal kontu. Ja turpināsiet, visi esošie Signal Desktop dati tiks dzēsti."
+    "messageformat": "Jūs šai darbvirsmai cenšaties piesaistīt citu Signal kontu. Ja turpināsiet, visi esošie Wren Desktop dati tiks dzēsti."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Turpināt"
@@ -2214,7 +2214,7 @@
     "messageformat": "Vai dzēst visus datus?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Vai dzēst visus datus un ziņas no šīs Signal Desktop versijas? Jūsu Signal konts un dati tālrunī vai citās piesaistītās ierīcēs netiks dzēsti."
+    "messageformat": "Vai dzēst visus datus un ziņas no šīs Wren Desktop versijas? Jūsu Signal konts un dati tālrunī vai citās piesaistītās ierīcēs netiks dzēsti."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Notiek atvienošana un visu datu dzēšana…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Tiks dzēsta jūsu konta informācija, profils un visas ziņas. Tāpat tiksiet noņemts no visām Signal grupām. Pēc šī procesa pabeigšanas lietotne tiks aizvērta."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Jums ir novecojuši dati no iepriekšējas Signal Desktop versijas instalācijas. Izvēloties turpināt, šie dati tiks dzēsti un jūs sāksiet no nulles."
+    "messageformat": "Jums ir novecojuši dati no iepriekšējas Wren Desktop versijas instalācijas. Izvēloties turpināt, šie dati tiks dzēsti un jūs sāksiet no nulles."
   },
   "icu:deleteOldData": {
     "messageformat": "Dzēst vecos datus"
@@ -2565,13 +2565,13 @@
     "messageformat": "Grupu nevarēja atjaunināt. Pārbaudiet savienojumu un mēģiniet vēlreiz."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Noklišķiniet, lai no jauna savienotu Signal Desktop ar jūsu mobilo ierīci un turpinātu ziņapmaiņu."
+    "messageformat": "Noklišķiniet, lai no jauna savienotu Wren Desktop ar jūsu mobilo ierīci un turpinātu ziņapmaiņu."
   },
   "icu:unlinked": {
     "messageformat": "Atsaistīts"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Noklikšķiniet, lai reģistrētu atkārtoti un turpinātu ziņapmaiņu. Iespējams, ka Signal Desktop nav reģistrēts, jo esat reģistrējuši savu tālruņa numuru lietotnē Signal citā ierīcē."
+    "messageformat": "Noklikšķiniet, lai reģistrētu atkārtoti un turpinātu ziņapmaiņu. Iespējams, ka Wren Desktop nav reģistrēts, jo esat reģistrējuši savu tālruņa numuru lietotnē Signal citā ierīcē."
   },
   "icu:unregistered": {
     "messageformat": "Vairs nav reģistrēts"
@@ -4065,7 +4065,7 @@
     "messageformat": "Nezināma saites versija."
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Šī Signal Desktop versija neatbalsta šo saiti."
+    "messageformat": "Šī Wren Desktop versija neatbalsta šo saiti."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Nevar pievienoties grupai"
@@ -4818,7 +4818,7 @@
     "messageformat": "Šis cilvēks neizmanto Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop versija neatbalsta ziņapmaiņu ar personām, kas nav Signal kontaktpersonas. Lūdziet šai personai instalēt Signal, lai nodrošinātu drošāku ziņapmaiņu."
+    "messageformat": "Wren Desktop versija neatbalsta ziņapmaiņu ar personām, kas nav Signal kontaktpersonas. Lūdziet šai personai instalēt Signal, lai nodrošinātu drošāku ziņapmaiņu."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Pārbauda kontaktpersonas reģistrācijas statusu"
@@ -7055,7 +7055,7 @@
     "messageformat": "Lejupielādē {currentBytes} no {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Lai turpinātu, atjauniniet Signal Desktop."
+    "messageformat": "Lai turpinātu, atjauniniet Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Atjaunināt"
@@ -7076,7 +7076,7 @@
     "messageformat": "Restartējiet Signal, lai instalētu atjauninājumu."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop neizdevās atjaunināt, taču ir pieejama jauna versija. Dodieties uz vietni {downloadUrl} un manuāli instalējiet jauno versiju, pēc tam sazinieties ar atbalsta dienestu vai ziņojiet par kļūdu saistībā šo problēmu."
+    "messageformat": "Wren Desktop neizdevās atjaunināt, taču ir pieejama jauna versija. Dodieties uz vietni {downloadUrl} un manuāli instalējiet jauno versiju, pēc tam sazinieties ar atbalsta dienestu vai ziņojiet par kļūdu saistībā šo problēmu."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal logotips"
@@ -8346,13 +8346,13 @@
     "messageformat": "Izveidots jauns PIN."
   },
   "icu:UnsupportedOSWarningDialog__body": {
-    "messageformat": "Drīzumā Signal Desktop vairs neatbalstīs jūsu datora {OS} versiju. Lai turpinātu lietot Signal, atjauniniet datora operētājsistēmu līdz {expirationDate}. <learnMoreLink>Lasīt vairāk</learnMoreLink>"
+    "messageformat": "Drīzumā Wren Desktop vairs neatbalstīs jūsu datora {OS} versiju. Lai turpinātu lietot Signal, atjauniniet datora operētājsistēmu līdz {expirationDate}. <learnMoreLink>Lasīt vairāk</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal Desktop vairs nedarbojas šajā datorā. Lai atkal izmantotu Signal Desktop, atjauniniet sava datora {OS} versiju. <learnMoreLink>Lasīt vairāk</learnMoreLink>"
+    "messageformat": "Wren Desktop vairs nedarbojas šajā datorā. Lai atkal izmantotu Wren Desktop, atjauniniet sava datora {OS} versiju. <learnMoreLink>Lasīt vairāk</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop vairs nedarbojas šajā datorā. Lai atkal izmantotu Signal Desktop, atjauniniet sava datora {OS} versiju."
+    "messageformat": "Wren Desktop vairs nedarbojas šajā datorā. Lai atkal izmantotu Wren Desktop, atjauniniet sava datora {OS} versiju."
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "Rediģēta"
@@ -9060,7 +9060,7 @@
     "messageformat": "Vai dzēst visus datus?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Visi esošie Signal Desktop dati tiks dzēsti. Jūs varat skenēt šo QR kodu un pārsūtīt ziņu vēsturi no sava tālruņa."
+    "messageformat": "Visi esošie Wren Desktop dati tiks dzēsti. Jūs varat skenēt šo QR kodu un pārsūtīt ziņu vēsturi no sava tālruņa."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Šī versija ietver vairākus nelielus uzlabojumus un kļūdu labojumus, lai Signal darbotos bez problēmām.",

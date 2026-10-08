@@ -825,7 +825,7 @@
     "messageformat": "Kreator paketa naljepnica"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Informacije o Signal Desktopu"
+    "messageformat": "Informacije o Wren Desktopu"
   },
   "icu:screenShareWindow": {
     "messageformat": "Dijeljenje ekrana"
@@ -843,7 +843,7 @@
     "messageformat": "Odustani"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Traži"
@@ -987,13 +987,13 @@
     "messageformat": "Vi"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Za slanje glasovnih poruka, dozvolite Signal Desktopu da pristupi vašem mikrofonu."
+    "messageformat": "Za slanje glasovnih poruka, dozvolite Wren Desktopu da pristupi vašem mikrofonu."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Za pozivanje, morate dozvoliti Signal Desktopu da pristupi vašem mikrofonu."
+    "messageformat": "Za pozivanje, morate dozvoliti Wren Desktopu da pristupi vašem mikrofonu."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Za vidio pozivanje, morate dozvoliti Signal Desktopu da pristupi vašoj kameri."
+    "messageformat": "Za vidio pozivanje, morate dozvoliti Wren Desktopu da pristupi vašoj kameri."
   },
   "icu:allowAccess": {
     "messageformat": "Dozvoli pristup"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal se nije mogao ažurirati. Posjetite {url} da ga instalirate ručno. Zatim, <contactSupportLink>kontaktirajte podršku</contactSupportLink> u vezi s ovim problemom"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop je vjerovatno u macOS karanteni i neće se moći automatski ažurirati. Pokušajte premjestiti {app} u {folder}pomoću Istraživača."
+    "messageformat": "Wren Desktop je vjerovatno u macOS karanteni i neće se moći automatski ažurirati. Pokušajte premjestiti {app} u {folder}pomoću Istraživača."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Izbrisati sve podatke?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Pokušavate povezati drugi Signal račun s ovim desktopom. Ako nastavite, svi podaci trenutno pohranjeni u aplikaciji Signal Desktop bit će izbrisani."
+    "messageformat": "Pokušavate povezati drugi Signal račun s ovim desktopom. Ako nastavite, svi podaci trenutno pohranjeni u aplikaciji Wren Desktop bit će izbrisani."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Nastavi"
@@ -2214,7 +2214,7 @@
     "messageformat": "Izbrisati sve podatke?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Izbrisati sve podatke i poruke iz ove verzije Signal Desktopa? Vaš Signal račun i podaci na vašem telefonu ili drugim povezanim uređajima neće biti izbrisani."
+    "messageformat": "Izbrisati sve podatke i poruke iz ove verzije Wren Desktopa? Vaš Signal račun i podaci na vašem telefonu ili drugim povezanim uređajima neće biti izbrisani."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Prekidanje veze i brisanje svih podataka…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Ovim ćete izbrisati svoje informacije o računu, profil i sve svoje poruke. Također ćete biti uklonjeni iz Signal Grupa. Aplikacija će se zatvoriti nakon što se ovaj postupak završi."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Imate zastarjele podatke od ranije instalacije Signal Desktopa. Ako se odlučite nastaviti, izbrisat će se i počet ćete ispočetka."
+    "messageformat": "Imate zastarjele podatke od ranije instalacije Wren Desktopa. Ako se odlučite nastaviti, izbrisat će se i počet ćete ispočetka."
   },
   "icu:deleteOldData": {
     "messageformat": "Izbriši stare podatke"
@@ -2292,7 +2292,7 @@
     "messageformat": "Djelomično izbrisano, kliknite za detalje"
   },
   "icu:expiredWarning": {
-    "messageformat": "This version of Signal Desktop has expired. Please upgrade to the latest version to continue messaging."
+    "messageformat": "This version of Wren Desktop has expired. Please upgrade to the latest version to continue messaging."
   },
   "icu:upgrade": {
     "messageformat": "Kliknite da posjetite signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Ažuriranje grupe nije uspjelo. Provjerite vezu i pokušajte ponovo."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Kliknite da ponovo povežete Signal Desktop sa svojim mobilnim uređajem i da nastavite razmjenjivati poruke."
+    "messageformat": "Kliknite da ponovo povežete Wren Desktop sa svojim mobilnim uređajem i da nastavite razmjenjivati poruke."
   },
   "icu:unlinked": {
     "messageformat": "Unlinked"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Kliknite da se ponovno registrirate i da nastavite razmjenjivati poruke. Signal Desktop više nije registriran, vjerovatno jer ste registrirali svoj broj telefona sa Signalom na drugom uređaju."
+    "messageformat": "Kliknite da se ponovno registrirate i da nastavite razmjenjivati poruke. Wren Desktop više nije registriran, vjerovatno jer ste registrirali svoj broj telefona sa Signalom na drugom uređaju."
   },
   "icu:unregistered": {
     "messageformat": "Više niste registrirani"
@@ -4065,7 +4065,7 @@
     "messageformat": "Nepoznata verzija linka"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Ova verzija Signal Desktopa ne podržava ovaj link."
+    "messageformat": "Ova verzija Wren Desktopa ne podržava ovaj link."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Nije se moguće pridružiti grupi"
@@ -4818,7 +4818,7 @@
     "messageformat": "Ova osoba ne koristi Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop ne podržava slanje poruka kontaktima koji nisu korisnici Signala. Zatražite od te osobe da instalira Signal za sigurnije iskustvo razmjenjivanja poruka."
+    "messageformat": "Wren Desktop ne podržava slanje poruka kontaktima koji nisu korisnici Signala. Zatražite od te osobe da instalira Signal za sigurnije iskustvo razmjenjivanja poruka."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Provjeravanje statusa registracije kontakta"
@@ -7055,7 +7055,7 @@
     "messageformat": "Preuzimanje {currentBytes} od {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Da nastavite, ažurirajte Signal Desktop."
+    "messageformat": "Da nastavite, ažurirajte Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Ažuriraj"
@@ -7076,7 +7076,7 @@
     "messageformat": "Ponovo pokrenite Signal da instalirate ažuriranje."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop se nije uspio ažurirati, ali je dostupna nova verzija. Idite na {downloadUrl} i ručno instalirajte novu verziju, a zatim kontaktirajte podršku ili prijavite grešku o ovom problemu."
+    "messageformat": "Wren Desktop se nije uspio ažurirati, ali je dostupna nova verzija. Idite na {downloadUrl} i ručno instalirajte novu verziju, a zatim kontaktirajte podršku ili prijavite grešku o ovom problemu."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Logotip Signala"
@@ -9060,7 +9060,7 @@
     "messageformat": "Izbrisati sve podatke?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Svi trenutni podaci u aplikaciji Signal Desktop bit će izbrisani. Nakon toga možete skenirati QR kod i prenijeti historiju poruka sa svog telefona."
+    "messageformat": "Svi trenutni podaci u aplikaciji Wren Desktop bit će izbrisani. Nakon toga možete skenirati QR kod i prenijeti historiju poruka sa svog telefona."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Ova verzija sadrži brojna mala poboljšanja i ispravke grešaka kako bi Signal nesmetano funkcionirao.",

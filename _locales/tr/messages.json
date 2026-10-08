@@ -825,7 +825,7 @@
     "messageformat": "Çıkartma paketi oluşturucu"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop Hakkında"
+    "messageformat": "Wren Desktop Hakkında"
   },
   "icu:screenShareWindow": {
     "messageformat": "Ekran paylaşımı"
@@ -843,7 +843,7 @@
     "messageformat": "Çıkış Yap"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Ara"
@@ -987,13 +987,13 @@
     "messageformat": "Siz"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Sesli iletiler göndermek için Signal Desktop'ın mikrofonuna erişmesine izin ver."
+    "messageformat": "Sesli iletiler göndermek için Wren Desktop'ın mikrofonuna erişmesine izin ver."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Aramalar için, Signal Desktop'ın mikrofonunuza erişimine izin vermelisiniz."
+    "messageformat": "Aramalar için, Wren Desktop'ın mikrofonunuza erişimine izin vermelisiniz."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Görüntülü aramalar için, Signal Desktop'ın kameranıza erişimine izin vermelisiniz."
+    "messageformat": "Görüntülü aramalar için, Wren Desktop'ın kameranıza erişimine izin vermelisiniz."
   },
   "icu:allowAccess": {
     "messageformat": "Erişimine İzin Ver"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal güncellenemedi. El ile kurmak için {url} adresini ziyaret et. Ardından bu sorun hakkında <contactSupportLink>destek ile iletişime geç</contactSupportLink>"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop muhtemelen macOS karantinasında ve otomatik güncellenemeyecek. Lütfen Bulucu ile  {app} uygulamasını  {folder} klasörüne taşıyın."
+    "messageformat": "Wren Desktop muhtemelen macOS karantinasında ve otomatik güncellenemeyecek. Lütfen Bulucu ile  {app} uygulamasını  {folder} klasörüne taşıyın."
   },
   "icu:ok": {
     "messageformat": "TAMAM"
@@ -1617,7 +1617,7 @@
     "messageformat": "Tüm veri silinsin mi?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Bu masaüstüne farklı bir Signal hesabı bağlamaya çalışıyorsun. Devam edersen, şu anda Signal Desktop'ta bulunan tüm veriler silinecektir."
+    "messageformat": "Bu masaüstüne farklı bir Signal hesabı bağlamaya çalışıyorsun. Devam edersen, şu anda Wren Desktop'ta bulunan tüm veriler silinecektir."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Devam"
@@ -2214,7 +2214,7 @@
     "messageformat": "Tüm veri silinsin mi?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Signal Desktop'ın bu sürümündeki tüm veriler ve mesajlar silinsin mi? Signal hesabın ve telefonundaki veya diğer bağlı cihazlarındaki veriler silinmez."
+    "messageformat": "Wren Desktop'ın bu sürümündeki tüm veriler ve mesajlar silinsin mi? Signal hesabın ve telefonundaki veya diğer bağlı cihazlarındaki veriler silinmez."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Bağlantı kesiliyor ve tüm veriler siliniyor…"
@@ -2292,7 +2292,7 @@
     "messageformat": "Kısmen silindi, ayrıntılar için tıkla"
   },
   "icu:expiredWarning": {
-    "messageformat": "Signal Desktop'ın bu sürümü kullanım dışı kaldı. İletişime devam etmek için lütfen en son sürüme yükseltin."
+    "messageformat": "Wren Desktop'ın bu sürümü kullanım dışı kaldı. İletişime devam etmek için lütfen en son sürüme yükseltin."
   },
   "icu:upgrade": {
     "messageformat": "signal.org/download adresine gitmek için tıklayın"
@@ -2565,13 +2565,13 @@
     "messageformat": "Grup güncellenemedi. Bağlantınızı kontrol edip tekrar deneyin."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Mesajlaşmaya devam etmek için tıklayarak Signal Desktop'ı mobil cihazınıza yeniden bağlayın."
+    "messageformat": "Mesajlaşmaya devam etmek için tıklayarak Wren Desktop'ı mobil cihazınıza yeniden bağlayın."
   },
   "icu:unlinked": {
     "messageformat": "Bağlantı koparıldı"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Yeniden kaydolmak ve mesajlaşmaya devam etmek için tıkla. Signal Desktop'ın kaydedilmemiş olmasının nedeni büyük olasılıkla telefon numaranın farklı bir cihazda Signal'a kaydedilmiş olmasıdır."
+    "messageformat": "Yeniden kaydolmak ve mesajlaşmaya devam etmek için tıkla. Wren Desktop'ın kaydedilmemiş olmasının nedeni büyük olasılıkla telefon numaranın farklı bir cihazda Signal'a kaydedilmiş olmasıdır."
   },
   "icu:unregistered": {
     "messageformat": "Artık kayıtlı değil"
@@ -4065,7 +4065,7 @@
     "messageformat": "Bilinmeyen bağlantı sürümü"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Bu bağlantı Signal Desktop'un bu sürümünde desteklenmiyor."
+    "messageformat": "Bu bağlantı Wren Desktop'un bu sürümünde desteklenmiyor."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Gruba Katılınamadı"
@@ -4818,7 +4818,7 @@
     "messageformat": "Bu kişi Signal kullanmıyor"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop Signal olmayan kişilerle ileti alışverişini desteklemiyor. Bu kişiye daha güvenli ileti deneyimi için Signal kurmasını söyleyin."
+    "messageformat": "Wren Desktop Signal olmayan kişilerle ileti alışverişini desteklemiyor. Bu kişiye daha güvenli ileti deneyimi için Signal kurmasını söyleyin."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Kişinin kayıt durumu denetleniyor"
@@ -7055,7 +7055,7 @@
     "messageformat": "{currentBytes} / {totalBytes} ({percentage,number,percent}) indiriliyor..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Devam etmek için Signal Desktop'ı güncelle."
+    "messageformat": "Devam etmek için Wren Desktop'ı güncelle."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Güncelle"
@@ -7076,7 +7076,7 @@
     "messageformat": "Güncellemeyi yüklemek için Signal'i yeniden başlat."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop güncellenemedi ancak yeni bir sürümü mevcuttur. {downloadUrl} adresine giderek yeni sürümü manuel olarak kur, ardından destekle iletişime geç ya da bu sorunla ilgili bir hata bildir."
+    "messageformat": "Wren Desktop güncellenemedi ancak yeni bir sürümü mevcuttur. {downloadUrl} adresine giderek yeni sürümü manuel olarak kur, ardından destekle iletişime geç ya da bu sorunla ilgili bir hata bildir."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal Logosu"
@@ -8346,13 +8346,13 @@
     "messageformat": "Yeni PIN oluşturuldu."
   },
   "icu:UnsupportedOSWarningDialog__body": {
-    "messageformat": "Signal Desktop, yakında bilgisayarının {OS} sürümünü artık desteklemeyecek. Signal'ı kullanmaya devam etmek için {expirationDate} tarihine kadar bilgisayarının işletim sistemini güncelle. <learnMoreLink>Daha fazlasını öğren</learnMoreLink>"
+    "messageformat": "Wren Desktop, yakında bilgisayarının {OS} sürümünü artık desteklemeyecek. Signal'ı kullanmaya devam etmek için {expirationDate} tarihine kadar bilgisayarının işletim sistemini güncelle. <learnMoreLink>Daha fazlasını öğren</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal Desktop artık bu bilgisayarda çalışmıyor. Signal Desktop'ı tekrar kullanmak için bilgisayarının {OS} sürümünü güncelle. <learnMoreLink>Daha fazlasını öğren</learnMoreLink>"
+    "messageformat": "Wren Desktop artık bu bilgisayarda çalışmıyor. Wren Desktop'ı tekrar kullanmak için bilgisayarının {OS} sürümünü güncelle. <learnMoreLink>Daha fazlasını öğren</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop artık bu bilgisayarda çalışmıyor. Signal Desktop'ı tekrar kullanmak için bilgisayarının {OS} sürümünü güncelle."
+    "messageformat": "Wren Desktop artık bu bilgisayarda çalışmıyor. Wren Desktop'ı tekrar kullanmak için bilgisayarının {OS} sürümünü güncelle."
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "Düzenlendi"
@@ -9060,7 +9060,7 @@
     "messageformat": "Tüm veri silinsin mi?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Signal Desktop'taki tüm güncel veriler silinecektir. Ardından bir kare kod tarayabilir ve mesaj geçmişini telefonundan aktarabilirsin."
+    "messageformat": "Wren Desktop'taki tüm güncel veriler silinecektir. Ardından bir kare kod tarayabilir ve mesaj geçmişini telefonundan aktarabilirsin."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Bu sürüm Signal'in sorunsuz çalışması için gereken bir takım küçük düzeltme ve hata gidermelerini içerir.",

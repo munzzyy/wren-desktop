@@ -825,7 +825,7 @@
     "messageformat": "Matricacsomag-készítő"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "A Signal Desktopról"
+    "messageformat": "A Wren Desktopról"
   },
   "icu:screenShareWindow": {
     "messageformat": "Képernyő megosztása"
@@ -843,7 +843,7 @@
     "messageformat": "Kilépés"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Keresés"
@@ -987,13 +987,13 @@
     "messageformat": "Te"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Hangüzenetek küldéséhez engedélyezd, hogy a Signal Desktop hozzáférjen a mikrofonodhoz!"
+    "messageformat": "Hangüzenetek küldéséhez engedélyezd, hogy a Wren Desktop hozzáférjen a mikrofonodhoz!"
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Hívás indításához engedélyezd, hogy a Signal Desktop hozzáférjen mikrofonodhoz!"
+    "messageformat": "Hívás indításához engedélyezd, hogy a Wren Desktop hozzáférjen mikrofonodhoz!"
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Videóhívás indításához engedélyezd, hogy a Signal Desktop hozzáférjen kamerádhoz!"
+    "messageformat": "Videóhívás indításához engedélyezd, hogy a Wren Desktop hozzáférjen kamerádhoz!"
   },
   "icu:allowAccess": {
     "messageformat": "Hozzáférés engedélyezése"
@@ -1026,7 +1026,7 @@
     "messageformat": "A Signal frissítése nem sikerült. Telepítsd az új verziót manuálisan a {url} weboldalról. Ezután <contactSupportLink>vedd fel a kapcsolatot az ügyfélszolgálattal</contactSupportLink> a problémával kapcsolatban."
   },
   "icu:readOnlyVolume": {
-    "messageformat": "A Signal Desktop valószínűleg macOS karanténban fut, és emiatt nem fog tudni automatikusan frissíteni. Próbáld meg áthelyezni a  {app} fájlt a {folder} mappába a Finder segítségével!"
+    "messageformat": "A Wren Desktop valószínűleg macOS karanténban fut, és emiatt nem fog tudni automatikusan frissíteni. Próbáld meg áthelyezni a  {app} fájlt a {folder} mappába a Finder segítségével!"
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Törlöd az összes adatot?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Egy másik Signal-fiókot próbálsz összekapcsolni ezzel az asztali számítógéppel. Ha folytatod, a Signal Desktopban jelenleg megtalálható összes adat törlődik."
+    "messageformat": "Egy másik Signal-fiókot próbálsz összekapcsolni ezzel az asztali számítógéppel. Ha folytatod, a Wren Desktopban jelenleg megtalálható összes adat törlődik."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Folytatás"
@@ -2214,7 +2214,7 @@
     "messageformat": "Törlöd az összes adatot?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Törlöd az összes adatot és üzenetet a Signal Desktop ezen verziójából? A Signal-fiókod és a telefonodon vagy más társított eszközökön lévő adatok nem törlődnek."
+    "messageformat": "Törlöd az összes adatot és üzenetet a Wren Desktop ezen verziójából? A Signal-fiókod és a telefonodon vagy más társított eszközökön lévő adatok nem törlődnek."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Lecsatlakozás és az összes adat törlése…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Ezzel fiók információid, profilod és minden üzeneted törlésre kerül. Emellett az összes Signal-csoportból is eltávolításra kerülsz. Az alkalmazás a folyamat befejezése után bezárul."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Egy korábbi Signal Desktop telepítés elavult adatokat hagyott hátra. Ha úgy döntesz, hogy folytatod, akkor ezek az adatok törölve lesznek, és elölről kell kezdened."
+    "messageformat": "Egy korábbi Wren Desktop telepítés elavult adatokat hagyott hátra. Ha úgy döntesz, hogy folytatod, akkor ezek az adatok törölve lesznek, és elölről kell kezdened."
   },
   "icu:deleteOldData": {
     "messageformat": "Régi adatok törlése"
@@ -2292,7 +2292,7 @@
     "messageformat": "Részben törölve. Kattints a részletekért!"
   },
   "icu:expiredWarning": {
-    "messageformat": "A Signal Desktop ezen verziója elavult. Kérlek frissíts a legújabb verzióra, hogy folytatni tudd a beszélgetést!"
+    "messageformat": "A Wren Desktop ezen verziója elavult. Kérlek frissíts a legújabb verzióra, hogy folytatni tudd a beszélgetést!"
   },
   "icu:upgrade": {
     "messageformat": "Kattints a signal.org/download oldalra ugráshoz!"
@@ -2565,13 +2565,13 @@
     "messageformat": "A csoport frissítése nem sikerült. Ellenőrizd a hálózatodat, majd próbáld újra!"
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Párosítsd újra a Signal Desktopot mobilkészülékeiddel a beszélgetés folytatásához!"
+    "messageformat": "Párosítsd újra a Wren Desktopot mobilkészülékeiddel a beszélgetés folytatásához!"
   },
   "icu:unlinked": {
     "messageformat": "Nincs párosítva"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Kattints ide az újbóli regisztrációhoz és az üzenetváltás folytatásához. A Signal Desktop valószínűleg azért nincs regisztrálva, mert egy másik eszközön regisztráltad a telefonszámodat a Signalnál."
+    "messageformat": "Kattints ide az újbóli regisztrációhoz és az üzenetváltás folytatásához. A Wren Desktop valószínűleg azért nincs regisztrálva, mert egy másik eszközön regisztráltad a telefonszámodat a Signalnál."
   },
   "icu:unregistered": {
     "messageformat": "Már nincs regisztrálva"
@@ -4065,7 +4065,7 @@
     "messageformat": "Ismeretlen verziójú hivatkozás"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "A Signal Desktop ezen verziója nem támogatja ezt a hivatkozást."
+    "messageformat": "A Wren Desktop ezen verziója nem támogatja ezt a hivatkozást."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Nem sikerült belépni a csoportba"
@@ -4818,7 +4818,7 @@
     "messageformat": "Ez a személy nem használ Signalt"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "A Signal Desktop nem támogatja nem-Signal kontaktokkal való üzenetváltást. Biztonságosabb üzenetváltás érdekében kérd meg ezt a személyt, hogy telepítse a Signalt!"
+    "messageformat": "A Wren Desktop nem támogatja nem-Signal kontaktokkal való üzenetváltást. Biztonságosabb üzenetváltás érdekében kérd meg ezt a személyt, hogy telepítse a Signalt!"
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Ellenőrizzük a kontakt regisztrációjának státuszát"
@@ -7055,7 +7055,7 @@
     "messageformat": "{totalBytes}/{currentBytes} ({percentage,number,percent}) letöltése..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "A folytatáshoz frissítsd a Signal Desktopot!"
+    "messageformat": "A folytatáshoz frissítsd a Wren Desktopot!"
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Frissítés"
@@ -7076,7 +7076,7 @@
     "messageformat": "A frissítés telepítéséhez indítsd újra a Signalt."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "A Signal Desktop frissítése nem sikerült, de elérhető egy új verzió. Nyisd meg a {downloadUrl} weboldalt, és telepítsd manuálisan az új verziót, majd lépj kapcsolatba az ügyfélszolgálattal, vagy jelentsd a hibát a problémával kapcsolatban."
+    "messageformat": "A Wren Desktop frissítése nem sikerült, de elérhető egy új verzió. Nyisd meg a {downloadUrl} weboldalt, és telepítsd manuálisan az új verziót, majd lépj kapcsolatba az ügyfélszolgálattal, vagy jelentsd a hibát a problémával kapcsolatban."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal-logó"
@@ -9060,7 +9060,7 @@
     "messageformat": "Törlöd az összes adatot?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "A Signal Desktopban jelenleg megtalálható összes adat törlődik. Ezután beolvashatsz egy QR-kódot, és áthelyezheted az üzenetelőzményeidet a telefonodról."
+    "messageformat": "A Wren Desktopban jelenleg megtalálható összes adat törlődik. Ezután beolvashatsz egy QR-kódot, és áthelyezheted az üzenetelőzményeidet a telefonodról."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Ebbe a verzióba néhány kisebb újítás és hibajavítás került annak érdekében, hogy a Signal továbbra is gond nélkül fusson.",

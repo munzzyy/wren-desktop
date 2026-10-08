@@ -825,7 +825,7 @@
     "messageformat": "ผู้สร้างสรรค์ชุดสติกเกอร์"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "เกี่ยวกับ Signal Desktop"
+    "messageformat": "เกี่ยวกับ Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "กำลังแบ่งปันหน้าจอ"
@@ -843,7 +843,7 @@
     "messageformat": "ออก"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "ค้นหา"
@@ -990,10 +990,10 @@
     "messageformat": "สำหรับการส่งข้อความเสียง ต้องอนุญาตให้ Signal สำหรับเดสก์ท็อปเข้าถึงไมโครโฟนของคุณ"
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "สำหรับการโทรออก คุณต้องอนุญาตให้ Signal Desktop เข้าถึงไมโครโฟนของคุณ"
+    "messageformat": "สำหรับการโทรออก คุณต้องอนุญาตให้ Wren Desktop เข้าถึงไมโครโฟนของคุณ"
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "สำหรับการโทรวิดีโอ คุณต้องอนุญาตให้ Signal Desktop เข้าถึงกล้องของคุณ"
+    "messageformat": "สำหรับการโทรวิดีโอ คุณต้องอนุญาตให้ Wren Desktop เข้าถึงกล้องของคุณ"
   },
   "icu:allowAccess": {
     "messageformat": "อนุญาตให้เข้าถึง"
@@ -1026,7 +1026,7 @@
     "messageformat": "ไม่สามารถอัปเดต Signal ได้ โปรดไปที่ {url} เพื่อติดตั้งด้วยตัวเอง จากนั้น<contactSupportLink>ติดต่อฝ่ายสนับสนุน</contactSupportLink>เพื่อแจ้งเกี่ยวกับปัญหานี้"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "ดูเหมือนว่า Signal Desktop จะถูก macOS กักบริเวณและไม่สามารถปรับปรุงตัวเองได้อัตโนมัติ ลองย้าย  {app} ไปที่  {folder} ด้วย Finder"
+    "messageformat": "ดูเหมือนว่า Wren Desktop จะถูก macOS กักบริเวณและไม่สามารถปรับปรุงตัวเองได้อัตโนมัติ ลองย้าย  {app} ไปที่  {folder} ด้วย Finder"
   },
   "icu:ok": {
     "messageformat": "ตกลง"
@@ -2292,7 +2292,7 @@
     "messageformat": "ลบแล้วบางส่วน คลิกเพื่อดูรายละเอียด"
   },
   "icu:expiredWarning": {
-    "messageformat": "Signal Desktop รุ่นนี้หมดอายุแล้ว โปรดปรับรุ่นเป็นรุ่นล่าสุดเพื่อรับส่งข้อความต่อ"
+    "messageformat": "Wren Desktop รุ่นนี้หมดอายุแล้ว โปรดปรับรุ่นเป็นรุ่นล่าสุดเพื่อรับส่งข้อความต่อ"
   },
   "icu:upgrade": {
     "messageformat": "คลิกเพื่อไปยัง signal.org/download"
@@ -2565,7 +2565,7 @@
     "messageformat": "การปรับปรุงกลุ่มล้มเหลว ตรวจสอบการเชื่อมต่อของคุณและลองอีกครั้ง"
   },
   "icu:unlinkedWarning": {
-    "messageformat": "คลิกเพื่อเชื่อมโยง Signal Desktop กับอุปกรณ์เคลื่อนที่ของคุณอีกครั้งเพื่อใช้งานการส่งข้อความอย่างต่อเนื่อง"
+    "messageformat": "คลิกเพื่อเชื่อมโยง Wren Desktop กับอุปกรณ์เคลื่อนที่ของคุณอีกครั้งเพื่อใช้งานการส่งข้อความอย่างต่อเนื่อง"
   },
   "icu:unlinked": {
     "messageformat": "เลิกเชื่อมโยงแล้ว"
@@ -4065,7 +4065,7 @@
     "messageformat": "รุ่นลิงก์ที่ไม่รู้จัก"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "ลิงก์นี้ใช้กับ Signal Desktop รุ่นนี้ไม่ได้"
+    "messageformat": "ลิงก์นี้ใช้กับ Wren Desktop รุ่นนี้ไม่ได้"
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "ไม่สามารถเข้าร่วมกลุ่มได้"
@@ -4818,7 +4818,7 @@
     "messageformat": "บุคคลนี้ไม่ได้ใช้ Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop ไม่รองรับการส่งข้อความไปยังผู้ติดต่อที่ไม่ใช้ Signal ขอให้บุคคลนี้ติดตั้ง Signal เพื่อรับประสบการณ์การส่งข้อความที่ปลอดภัยมากขึ้น"
+    "messageformat": "Wren Desktop ไม่รองรับการส่งข้อความไปยังผู้ติดต่อที่ไม่ใช้ Signal ขอให้บุคคลนี้ติดตั้ง Signal เพื่อรับประสบการณ์การส่งข้อความที่ปลอดภัยมากขึ้น"
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "กำลังตรวจสอบสถานะการลงทะเบียนของผู้ติดต่อ"

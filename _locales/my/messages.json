@@ -825,7 +825,7 @@
     "messageformat": "စတစ်ကာတွဲ ဖန်တီးသူ"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop အကြောင်း"
+    "messageformat": "Wren Desktop အကြောင်း"
   },
   "icu:screenShareWindow": {
     "messageformat": "စခရင် မျှဝေခြင်း"
@@ -843,7 +843,7 @@
     "messageformat": "ထွက်ရန်"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "ရှာရန်"
@@ -987,13 +987,13 @@
     "messageformat": "သင်"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "အသံမက်ဆေ့ချ်များ ပို့ရန် Signal Desktop အား သင့်မိုက်ခရိုဖုန်းကို ဝင်ရောက် သုံးစွဲခွင့်ပြုပါ။"
+    "messageformat": "အသံမက်ဆေ့ချ်များ ပို့ရန် Wren Desktop အား သင့်မိုက်ခရိုဖုန်းကို ဝင်ရောက် သုံးစွဲခွင့်ပြုပါ။"
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "ခေါ်ဆိုမှုအတွက် Signal Desktop အား သင့်မိုက်ခရိုဖုန်း ဝင်ရောက် သုံးစွဲခွင့်ပြုရပါမည်။"
+    "messageformat": "ခေါ်ဆိုမှုအတွက် Wren Desktop အား သင့်မိုက်ခရိုဖုန်း ဝင်ရောက် သုံးစွဲခွင့်ပြုရပါမည်။"
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "ဗီဒီယိုခေါ်ဆိုမှုအတွက် Signal Desktop အား သင့်ကင်မရာ ဝင်ရောက် သုံးစွဲခွင့်ပြုရပါမည်။"
+    "messageformat": "ဗီဒီယိုခေါ်ဆိုမှုအတွက် Wren Desktop အား သင့်ကင်မရာ ဝင်ရောက် သုံးစွဲခွင့်ပြုရပါမည်။"
   },
   "icu:allowAccess": {
     "messageformat": "ဝင်ရောက် သုံးစွဲခွင့်ပြုရန်"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal အပ်ဒိတ်လုပ်၍ မရပါ။ ကိုယ်တိုင် ထည့်သွင်းရန် {url} သို့ သွားပါ။ ထို့နောက် ဤပြဿနာနှင့်ပတ်သက်၍ <contactSupportLink>ပံ့ပိုးမှုသို့ ဆက်သွယ်ပါ။</contactSupportLink>"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop သည် macOS Quarantine တွင် ရှိပုံပေါ်ပါသည်၊ အော်တိုအပ်ဒိတ် လုပ်နိုင်မည် မဟုတ်ပါ။ Finder ဖြင့် {app} အား {folder} သို့ ရွှေ့ကြည့်ပါ။"
+    "messageformat": "Wren Desktop သည် macOS Quarantine တွင် ရှိပုံပေါ်ပါသည်၊ အော်တိုအပ်ဒိတ် လုပ်နိုင်မည် မဟုတ်ပါ။ Finder ဖြင့် {app} အား {folder} သို့ ရွှေ့ကြည့်ပါ။"
   },
   "icu:ok": {
     "messageformat": "အိုကေ"
@@ -1617,7 +1617,7 @@
     "messageformat": "ဒေတာအားလုံးကို ဖျက်မည်လား။"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "သင်သည် အခြား Signal အကောင့်တစ်ခုကို ဤ Desktop သို့ ချိတ်ဆက်ရန် ကြိုးစားနေပါသည်။ ဆက်လုပ်ပါက Signal Desktop တွင် လက်ရှိရှိနေသော ဒေတာအားလုံးကို ဖျက်ပစ်ပါမည်။"
+    "messageformat": "သင်သည် အခြား Signal အကောင့်တစ်ခုကို ဤ Desktop သို့ ချိတ်ဆက်ရန် ကြိုးစားနေပါသည်။ ဆက်လုပ်ပါက Wren Desktop တွင် လက်ရှိရှိနေသော ဒေတာအားလုံးကို ဖျက်ပစ်ပါမည်။"
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "ဆက်လုပ်ရန်"
@@ -2214,7 +2214,7 @@
     "messageformat": "ဒေတာအားလုံးကို ဖျက်မည်လား။"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "ဤ Signal Desktop ဗားရှင်းမှ ဒေတာနှင့် မက်ဆေ့ချ်အားလုံးကို ဖျက်ပါမည်လား။ သင့်ဖုန်း သို့မဟုတ် အခြား ချိတ်ထားသည့် စက်များမှ သင့် Signal အကောင့်နှင့် ဒေတာကို ဖျက်မည်မဟုတ်ပါ။"
+    "messageformat": "ဤ Wren Desktop ဗားရှင်းမှ ဒေတာနှင့် မက်ဆေ့ချ်အားလုံးကို ဖျက်ပါမည်လား။ သင့်ဖုန်း သို့မဟုတ် အခြား ချိတ်ထားသည့် စက်များမှ သင့် Signal အကောင့်နှင့် ဒေတာကို ဖျက်မည်မဟုတ်ပါ။"
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "ချိတ်ဆက်မှုကိုဖြုတ်၍ ဒေတာအားလုံးကို ဖျက်နေသည်..."
@@ -2235,7 +2235,7 @@
     "messageformat": "ဤသည်က သင့်အကောင့် အချက်အလက်၊ ပရိုဖိုင်နှင့် မက်ဆေ့ချ်အားလုံးကို ဖျက်ပစ်ပါလိမ့်မည်။ Signal အဖွဲ့အားလုံးမှလည်း သင့်အား ဖယ်ရှားပါမည်။ ဤလုပ်ငန်းစဉ် ပြီးသွားသောအခါ အက်ပ် ပိတ်သွားပါမည်။"
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "သင့်တွင် ယခင် Signal Desktop ထည့်သွင်းမှုမှ ဒေတာအဟောင်းများ ရှိပါသည်။ ဆက်လုပ်ရန်ကို ရွေးချယ်ပါက ၎င်းကို ဖျက်မည်ဖြစ်ပြီး အစမှ စတင်ပါလိမ့်မည်။"
+    "messageformat": "သင့်တွင် ယခင် Wren Desktop ထည့်သွင်းမှုမှ ဒေတာအဟောင်းများ ရှိပါသည်။ ဆက်လုပ်ရန်ကို ရွေးချယ်ပါက ၎င်းကို ဖျက်မည်ဖြစ်ပြီး အစမှ စတင်ပါလိမ့်မည်။"
   },
   "icu:deleteOldData": {
     "messageformat": "ဒေတာအဟောင်းကို ဖျက်ရန်"
@@ -2292,7 +2292,7 @@
     "messageformat": "တစ်စိတ်တစ်ပိုင်း ဖျက်ထားသည်၊ အသေးစိတ်သိရှိရန် နှိပ်ပါ"
   },
   "icu:expiredWarning": {
-    "messageformat": "This version of Signal Desktop has expired. Please upgrade to the latest version to continue messaging."
+    "messageformat": "This version of Wren Desktop has expired. Please upgrade to the latest version to continue messaging."
   },
   "icu:upgrade": {
     "messageformat": "signal.org/download သို့ သွားရန် နှိပ်ပါ"
@@ -2565,13 +2565,13 @@
     "messageformat": "အဖွဲ့ကို အပ်ဒိတ်လုပ်ရန် မအောင်မြင်ပါ။ သင့်ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်ကြိုးစားပါ။"
   },
   "icu:unlinkedWarning": {
-    "messageformat": "မက်ဆေ့ချ် ဆက်လုပ်ရန်အတွက် Signal Desktop ကို သင့်မိုဘိုင်းစက်နှင့် ပြန်ချိတ်ရန် နှိပ်ပါ။"
+    "messageformat": "မက်ဆေ့ချ် ဆက်လုပ်ရန်အတွက် Wren Desktop ကို သင့်မိုဘိုင်းစက်နှင့် ပြန်ချိတ်ရန် နှိပ်ပါ။"
   },
   "icu:unlinked": {
     "messageformat": "Unlinked"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "ပြန်လည် စာရင်းသွင်းရန်နှင့် ဆက်လက်မက်ဆေ့ချ်ပို့ရန် နှိပ်ပါ။ အခြားစက်တစ်ခုတွင် Signal ဖြင့် သင့်ဖုန်းနံပါတ်ကို စာရင်းသွင်းထားသောကြောင့် Signal Desktop သည် စာရင်းသွင်း၍မရခြင်း ဖြစ်နိုင်သည်။"
+    "messageformat": "ပြန်လည် စာရင်းသွင်းရန်နှင့် ဆက်လက်မက်ဆေ့ချ်ပို့ရန် နှိပ်ပါ။ အခြားစက်တစ်ခုတွင် Signal ဖြင့် သင့်ဖုန်းနံပါတ်ကို စာရင်းသွင်းထားသောကြောင့် Wren Desktop သည် စာရင်းသွင်း၍မရခြင်း ဖြစ်နိုင်သည်။"
   },
   "icu:unregistered": {
     "messageformat": "စာရင်းသွင်းထားခြင်း မရှိတော့ပါ"
@@ -4065,7 +4065,7 @@
     "messageformat": "မသိသော လင့်ခ် ဗားရှင်း"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Signal Desktop ၏ ဤဗားရှင်းက ဤလင့်ခ်ကို မပံ့ပိုးပေးပါ။"
+    "messageformat": "Wren Desktop ၏ ဤဗားရှင်းက ဤလင့်ခ်ကို မပံ့ပိုးပေးပါ။"
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "အဖွဲ့တွင် ပါဝင်၍ မရနိုင်ပါ"
@@ -4818,7 +4818,7 @@
     "messageformat": "ဤပုဂ္ဂိုလ်သည် Signal မသုံးနေပါ။"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop သည် Signal မသုံးသည့် အဆက်အသွယ်များထံ မက်ဆေ့ချ် မပို့နိုင်ပါ။ ထိုပုဂ္ဂိုလ်အား ပိုမိုလုံခြုံစိတ်ချရသည့် မက်ဆေ့ချ် သုံးစွဲမှု အတွေ့အကြုံအတွက် Signal ထည့်သွင်းသုံးစွဲရန် တောင်းဆိုပါ။"
+    "messageformat": "Wren Desktop သည် Signal မသုံးသည့် အဆက်အသွယ်များထံ မက်ဆေ့ချ် မပို့နိုင်ပါ။ ထိုပုဂ္ဂိုလ်အား ပိုမိုလုံခြုံစိတ်ချရသည့် မက်ဆေ့ချ် သုံးစွဲမှု အတွေ့အကြုံအတွက် Signal ထည့်သွင်းသုံးစွဲရန် တောင်းဆိုပါ။"
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "အဆက်အသွယ်၏ စာရင်းသွင်းမှု အခြေအနေကို စစ်ဆေးနေဆဲ"
@@ -7055,7 +7055,7 @@
     "messageformat": "{totalBytes} ({percentage,number,percent}) မှ {currentBytes} ကို ဒေါင်းလုဒ်လုပ်နေသည်..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "ဆက်လက်လုပ်ဆောင်ရန် Signal Desktop ကို အပ်ဒိတ်လုပ်ပါ။"
+    "messageformat": "ဆက်လက်လုပ်ဆောင်ရန် Wren Desktop ကို အပ်ဒိတ်လုပ်ပါ။"
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "အပ်ဒိတ်လုပ်မည်"
@@ -7076,7 +7076,7 @@
     "messageformat": "အပ်ဒိတ်ထည့်သွင်းရန် Signal ကို ပြန်လည်စတင်ပါ။"
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop ကို အပ်ဒိတ်လုပ်ခြင်း မအောင်မြင်သော်လည်း ဗားရှင်းအသစ်တစ်ခု ရရှိနိုင်ပါသည်။ {downloadUrl} သို့ သွားပြီး ဗားရှင်းအသစ်ကို ကိုယ်တိုင်ထည့်သွင်းပါ၊ ထို့နောက် ပံ့ပိုးကူညီရေးသို့ ဆက်သွယ်ပါ သို့မဟုတ် ဤပြဿနာနှင့်ပတ်သက်၍ ချို့ယွင်းချက်တစ်ခု တင်သွင်းပါ။"
+    "messageformat": "Wren Desktop ကို အပ်ဒိတ်လုပ်ခြင်း မအောင်မြင်သော်လည်း ဗားရှင်းအသစ်တစ်ခု ရရှိနိုင်ပါသည်။ {downloadUrl} သို့ သွားပြီး ဗားရှင်းအသစ်ကို ကိုယ်တိုင်ထည့်သွင်းပါ၊ ထို့နောက် ပံ့ပိုးကူညီရေးသို့ ဆက်သွယ်ပါ သို့မဟုတ် ဤပြဿနာနှင့်ပတ်သက်၍ ချို့ယွင်းချက်တစ်ခု တင်သွင်းပါ။"
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal လိုဂို"
@@ -8346,13 +8346,13 @@
     "messageformat": "PIN အသစ်ကို ဖန်တီးပြီးပါပြီ။"
   },
   "icu:UnsupportedOSWarningDialog__body": {
-    "messageformat": "သင့်ကွန်ပျူတာ၏ {OS} ဗားရှင်းကို Signal Desktop က မကြာမီ ပံ့ပိုးပေးတော့မည် မဟုတ်ပါ။ Signal ကို ဆက်သုံးရန် သင့်ကွန်ပျူတာ၏ လုပ်ဆောင်မှုစနစ်ကို {expirationDate} မတိုင်မီ အပ်ဒိတ်လုပ်ပါ။ <learnMoreLink>ပိုမိုလေ့လာရန်</learnMoreLink>"
+    "messageformat": "သင့်ကွန်ပျူတာ၏ {OS} ဗားရှင်းကို Wren Desktop က မကြာမီ ပံ့ပိုးပေးတော့မည် မဟုတ်ပါ။ Signal ကို ဆက်သုံးရန် သင့်ကွန်ပျူတာ၏ လုပ်ဆောင်မှုစနစ်ကို {expirationDate} မတိုင်မီ အပ်ဒိတ်လုပ်ပါ။ <learnMoreLink>ပိုမိုလေ့လာရန်</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal Desktop သည် ဤကွန်ပျူတာတွင် အလုပ်မလုပ်တော့ပါ။ Signal Desktop ကို ထပ်မံအသုံးပြုရန် သင့်ကွန်ပျူတာ၏ {OS} ဗားရှင်းကို အပ်ဒိတ်လုပ်ပါ။ <learnMoreLink>ပိုမိုလေ့လာရန်</learnMoreLink>"
+    "messageformat": "Wren Desktop သည် ဤကွန်ပျူတာတွင် အလုပ်မလုပ်တော့ပါ။ Wren Desktop ကို ထပ်မံအသုံးပြုရန် သင့်ကွန်ပျူတာ၏ {OS} ဗားရှင်းကို အပ်ဒိတ်လုပ်ပါ။ <learnMoreLink>ပိုမိုလေ့လာရန်</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop သည် ဤကွန်ပျူတာတွင် အလုပ်မလုပ်တော့ပါ။ Signal Desktop ကို ထပ်မံအသုံးပြုရန် သင့်ကွန်ပျူတာ၏ {OS} ဗားရှင်းကို အပ်ဒိတ်လုပ်ပါ။"
+    "messageformat": "Wren Desktop သည် ဤကွန်ပျူတာတွင် အလုပ်မလုပ်တော့ပါ။ Wren Desktop ကို ထပ်မံအသုံးပြုရန် သင့်ကွန်ပျူတာ၏ {OS} ဗားရှင်းကို အပ်ဒိတ်လုပ်ပါ။"
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "တည်းဖြတ်ပြီး"
@@ -9060,7 +9060,7 @@
     "messageformat": "ဒေတာအားလုံးကို ဖျက်မည်လား။"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Signal Desktop ရှိ လက်ရှိဒေတာအားလုံးကို ဖျက်ပစ်ပါမည်။ ထို့နောက် QR ကုဒ်ကို စကင်န်ဖတ်ပြီး သင့်ဖုန်းမှ မက်ဆေ့ချ်မှတ်တမ်းကို လွှဲပြောင်းနိုင်သည်။"
+    "messageformat": "Wren Desktop ရှိ လက်ရှိဒေတာအားလုံးကို ဖျက်ပစ်ပါမည်။ ထို့နောက် QR ကုဒ်ကို စကင်န်ဖတ်ပြီး သင့်ဖုန်းမှ မက်ဆေ့ချ်မှတ်တမ်းကို လွှဲပြောင်းနိုင်သည်။"
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "ဤဗားရှင်းတွင် Signal အား အထစ်အငေါ့မရှိ လုပ်ဆောင်နိုင်စေရန် ချို့ယွင်းချက် ပြင်ဆင်မှုများနှင့် အနေအထား ပြုပြင်မှု အသေးလေးများ ပါဝင်ပါသည်။",

@@ -825,7 +825,7 @@
     "messageformat": "Creator pachet cu autocolante"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Despre Signal Desktop"
+    "messageformat": "Despre Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Se partajează ecranul"
@@ -843,7 +843,7 @@
     "messageformat": "Închide"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Caută"
@@ -987,13 +987,13 @@
     "messageformat": "Tu"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Pentru a trimite mesaje vocale, permite aplicației Signal Desktop accesul la microfonul tău."
+    "messageformat": "Pentru a trimite mesaje vocale, permite aplicației Wren Desktop accesul la microfonul tău."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Pentru a apela, trebuie să-i permiți lui Signal Desktop să-ți acceseze microfonul."
+    "messageformat": "Pentru a apela, trebuie să-i permiți lui Wren Desktop să-ți acceseze microfonul."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Pentru apeluri video, trebuie să-i permiți lui Signal Desktop să-ți acceseze camera."
+    "messageformat": "Pentru apeluri video, trebuie să-i permiți lui Wren Desktop să-ți acceseze camera."
   },
   "icu:allowAccess": {
     "messageformat": "Permite accesul"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal nu a putut fi actualizat. Mergi la {url} pentru a-l instala manual. Apoi, <contactSupportLink>contactează asistența</contactSupportLink> despre această problemă"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop se află probabil în carantină macOS, și nu va putea fi actualizat automat. Te rugăm să încearci să muți {app} în {folder} folosind Finder."
+    "messageformat": "Wren Desktop se află probabil în carantină macOS, și nu va putea fi actualizat automat. Te rugăm să încearci să muți {app} în {folder} folosind Finder."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Ștergi toate datele?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Încerci să asociezi un alt cont Signal la acest computer. Dacă continui, toate datele existente în prezent în Signal Desktop vor fi șterse."
+    "messageformat": "Încerci să asociezi un alt cont Signal la acest computer. Dacă continui, toate datele existente în prezent în Wren Desktop vor fi șterse."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Continuă"
@@ -2214,7 +2214,7 @@
     "messageformat": "Ștergi toate datele?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Ștergi toate datele și mesajele din această versiune de Signal Desktop? Contul tău Signal și datele de pe telefon sau alte dispozitive conectate nu vor fi șterse."
+    "messageformat": "Ștergi toate datele și mesajele din această versiune de Wren Desktop? Contul tău Signal și datele de pe telefon sau alte dispozitive conectate nu vor fi șterse."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Se deconectează și se șterg toate datele…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Această acțiune va elimina informațiile contului, profilul și toate mesajele tale. Vei fi eliminat/ă și din toate grupurile Signal. Aplicația se va închide după ce se încheie procesul."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Ai date învechite de la o instalare anterioara a Signal Desktop. Dacă alegi să continui, acestea vor fi șterse și vei începe de la zero."
+    "messageformat": "Ai date învechite de la o instalare anterioara a Wren Desktop. Dacă alegi să continui, acestea vor fi șterse și vei începe de la zero."
   },
   "icu:deleteOldData": {
     "messageformat": "Șterge Datele Vechi"
@@ -2292,7 +2292,7 @@
     "messageformat": "Eliminat parțial, dă clic pentru detalii"
   },
   "icu:expiredWarning": {
-    "messageformat": "Această versiune de Signal Desktop a expirat. Te rugăm actualizează la cea mai recentă versiune pentru a putea trimite mesaje în continuare."
+    "messageformat": "Această versiune de Wren Desktop a expirat. Te rugăm actualizează la cea mai recentă versiune pentru a putea trimite mesaje în continuare."
   },
   "icu:upgrade": {
     "messageformat": "Apasă pentru a deschide signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Actualizarea grupului a eșuat. Verifică conexiunea și încearcă din nou."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Apasă pentru a asocia din nou Signal Desktop cu dispozitivul tău mobil și pentru a continua să trimiți mesaje."
+    "messageformat": "Apasă pentru a asocia din nou Wren Desktop cu dispozitivul tău mobil și pentru a continua să trimiți mesaje."
   },
   "icu:unlinked": {
     "messageformat": "Disociat"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Dă clic ca să te reînscrii și să continui să dai mesaje. Probabil că aplicația Signal Desktop nu este înregistrată deoarece ți-ai înscris numărul de telefon în Signal de pe un alt dispozitiv."
+    "messageformat": "Dă clic ca să te reînscrii și să continui să dai mesaje. Probabil că aplicația Wren Desktop nu este înregistrată deoarece ți-ai înscris numărul de telefon în Signal de pe un alt dispozitiv."
   },
   "icu:unregistered": {
     "messageformat": "Nu mai este înregistrat(ă)"
@@ -4065,7 +4065,7 @@
     "messageformat": "Versiune de link necunoscută"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Acest link nu este acceptat de această versiune de Signal Desktop."
+    "messageformat": "Acest link nu este acceptat de această versiune de Wren Desktop."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Nu se poate realiza alăturarea la grup."
@@ -4818,7 +4818,7 @@
     "messageformat": "Această persoană nu folosește Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop nu poate trimite mesaje persoanelor de contact ce nu folosesc Signal. Roagă această persoană să instaleze Signal pentru a avea o conversație mai sigură."
+    "messageformat": "Wren Desktop nu poate trimite mesaje persoanelor de contact ce nu folosesc Signal. Roagă această persoană să instaleze Signal pentru a avea o conversație mai sigură."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Se verifică starea înregistrări persoanei de contact"
@@ -7055,7 +7055,7 @@
     "messageformat": "Se descarcă {currentBytes} din {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Ca să continui, actualizează Signal Desktop."
+    "messageformat": "Ca să continui, actualizează Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Actualizează"
@@ -7076,7 +7076,7 @@
     "messageformat": "Restartează Signal ca să instalezi actualizarea."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop nu a reușit să se actualizeze, dar există o nouă versiune disponibilă. Mergi la {downloadUrl} și instalează noua versiune manual, apoi fie contactezi serviciul de asistență sau raportezi un bug despre această problemă."
+    "messageformat": "Wren Desktop nu a reușit să se actualizeze, dar există o nouă versiune disponibilă. Mergi la {downloadUrl} și instalează noua versiune manual, apoi fie contactezi serviciul de asistență sau raportezi un bug despre această problemă."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Logo Signal"
@@ -9060,7 +9060,7 @@
     "messageformat": "Ștergi toate datele?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Toate datele actuale din Signal Desktop vor fi șterse. Apoi poți scana un cod QR și transfera istoricul mesajelor de pe telefon."
+    "messageformat": "Toate datele actuale din Wren Desktop vor fi șterse. Apoi poți scana un cod QR și transfera istoricul mesajelor de pe telefon."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Această versiune conține o serie de mici modificări și remedieri ale unor erori pentru ca Signal să funcționeze fără probleme.",

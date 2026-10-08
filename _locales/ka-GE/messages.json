@@ -825,7 +825,7 @@
     "messageformat": "სტიკერების ნაკრების შემქმნელი"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop-ის შესახებ"
+    "messageformat": "Wren Desktop-ის შესახებ"
   },
   "icu:screenShareWindow": {
     "messageformat": "ეკრანის გაზიარება"
@@ -843,7 +843,7 @@
     "messageformat": "გასვლა"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop-ი"
+    "messageformat": "Wren Desktop-ი"
   },
   "icu:search": {
     "messageformat": "ძიება"
@@ -987,13 +987,13 @@
     "messageformat": "შენ"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "აუდიო შეტყობინებების გასაგზავნად, მიეცი Signal Desktop-ს წვდომა შენს მიკროფონზე."
+    "messageformat": "აუდიო შეტყობინებების გასაგზავნად, მიეცი Wren Desktop-ს წვდომა შენს მიკროფონზე."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "დასარეკად Signal Desktop-ს შენს მიკროფონზე წვდომა უნდა მისცე."
+    "messageformat": "დასარეკად Wren Desktop-ს შენს მიკროფონზე წვდომა უნდა მისცე."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "ვიდეო ზარების განსახორციელებლად, Signal Desktop-ს შენს კამერაზე წვდომა უნდა მისცე."
+    "messageformat": "ვიდეო ზარების განსახორციელებლად, Wren Desktop-ს შენს კამერაზე წვდომა უნდა მისცე."
   },
   "icu:allowAccess": {
     "messageformat": "წვდომის მიცემა"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal-ი ვერ განახლდა. ხელით გადმოსაწერად ეწვიე {url}-ს. შემდეგ, <contactSupportLink>მხარდაჭერის გუნდს დაუკავშირდი</contactSupportLink> ამ პრობლემის თაობაზე"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "როგორც ჩანს, Signal Desktop-ი macOS კარანტინშია და ავტომატურ განახლებას ვერ შეძლებს. გთხოვთ, {app} Finder-ით {folder}-ში გადატანა სცადო."
+    "messageformat": "როგორც ჩანს, Wren Desktop-ი macOS კარანტინშია და ავტომატურ განახლებას ვერ შეძლებს. გთხოვთ, {app} Finder-ით {folder}-ში გადატანა სცადო."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "წავშალოთ ყველა მონაცემი?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "ამ დესკტოპზე Signal-ის სხვა ანგარიშის მიბმას ცდილობ. თუ განაგრძობ, Signal Desktop-ზე ამჟამად არსებული ყველა მონაცემი წაიშლება."
+    "messageformat": "ამ დესკტოპზე Signal-ის სხვა ანგარიშის მიბმას ცდილობ. თუ განაგრძობ, Wren Desktop-ზე ამჟამად არსებული ყველა მონაცემი წაიშლება."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "გაგრძელება"
@@ -2214,7 +2214,7 @@
     "messageformat": "წავშალოთ ყველა მონაცემი?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "გსურს, Signal Desktop-ის ამ ვერსიიდან ყველა მონაცემი და მიმოწერა წაშალო? შენი Signal-ის პროფილი და მონაცემები შენს ტელეფონზე ან სხვა დაკავშირებულ მოწყობილობებზე არ წაიშლება."
+    "messageformat": "გსურს, Wren Desktop-ის ამ ვერსიიდან ყველა მონაცემი და მიმოწერა წაშალო? შენი Signal-ის პროფილი და მონაცემები შენს ტელეფონზე ან სხვა დაკავშირებულ მოწყობილობებზე არ წაიშლება."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "მიმდინარეობს გათიშვა და ყველა მონაცემის წაშლა…"
@@ -2235,7 +2235,7 @@
     "messageformat": "ეს წაშლის შენი ანგარიშის ინფორმაციას, პროფილს და ყველა შეტყობინებას. ასევე წაიშლები Signal-ის ყველა ჯგუფიდან. აპი დაიხურება ამ პროცესის დასრულების შემდეგ."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "შენ გაქვს მოძველებული მონაცემები Signal Desktop-ის წინა ინსტალაციისდან. თუ გაგრძელებას აირჩევ, ის წაიშლება და ნულიდან დაიწყებ."
+    "messageformat": "შენ გაქვს მოძველებული მონაცემები Wren Desktop-ის წინა ინსტალაციისდან. თუ გაგრძელებას აირჩევ, ის წაიშლება და ნულიდან დაიწყებ."
   },
   "icu:deleteOldData": {
     "messageformat": "ძველი მონაცემების წაშლა"
@@ -2292,7 +2292,7 @@
     "messageformat": "ნაწილობრივ წაიშალა, დეტალებისთვის დააჭირე"
   },
   "icu:expiredWarning": {
-    "messageformat": "This version of Signal Desktop has expired. Please upgrade to the latest version to continue messaging."
+    "messageformat": "This version of Wren Desktop has expired. Please upgrade to the latest version to continue messaging."
   },
   "icu:upgrade": {
     "messageformat": "დააჭირე signal.org/download-ზე გადასასვლელად"
@@ -2565,13 +2565,13 @@
     "messageformat": "ჯგუფი ვერ განახლდა. შეამოწმე შენი ინტერნეტ კავშირი და თავიდან სცადე."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "დააწკაპუნე, რომ Signal Desktop-ი ხელახლა დააკავშირო შენს მობილურ მოწყობილობასთან და მიმოწერა განაგრძო."
+    "messageformat": "დააწკაპუნე, რომ Wren Desktop-ი ხელახლა დააკავშირო შენს მობილურ მოწყობილობასთან და მიმოწერა განაგრძო."
   },
   "icu:unlinked": {
     "messageformat": "Unlinked"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "დააკლიკე ხელახლა რეგისტრაციისთვის და მიმოწერის გასაგრძელებლად. Signal Desktop რეგისტრაციიდან მოხსნილია, სავარაუდოდ იმიტომ, რომ შენი ტელეფონის ნომერი Signal-ში სხვა მოწყობილობაზე დაარეგისტრირე."
+    "messageformat": "დააკლიკე ხელახლა რეგისტრაციისთვის და მიმოწერის გასაგრძელებლად. Wren Desktop რეგისტრაციიდან მოხსნილია, სავარაუდოდ იმიტომ, რომ შენი ტელეფონის ნომერი Signal-ში სხვა მოწყობილობაზე დაარეგისტრირე."
   },
   "icu:unregistered": {
     "messageformat": "აღარაა რეგისტრირებული"
@@ -4065,7 +4065,7 @@
     "messageformat": "ბმულის უცნობი ვერსია"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "ეს ბმული არ არის მხარდაჭერილი Signal Desktop-ის ამ ვერსიაზე."
+    "messageformat": "ეს ბმული არ არის მხარდაჭერილი Wren Desktop-ის ამ ვერსიაზე."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "ჯგუფში გაწევრიანება ვერ მოხერხდა"
@@ -4818,7 +4818,7 @@
     "messageformat": "ეს ადამიანი Signal-ს არ იყენებს"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop-ს არ აქვს Signal-ის გარე კონტაქტებთან მიმოწერის მხარდაჭერა. შესათავაზე ამ ადამიანს გადმოწეროს Signal-ი უფრო უსაფრთხო მიმოწერის გამოცდილების მისაღებად."
+    "messageformat": "Wren Desktop-ს არ აქვს Signal-ის გარე კონტაქტებთან მიმოწერის მხარდაჭერა. შესათავაზე ამ ადამიანს გადმოწეროს Signal-ი უფრო უსაფრთხო მიმოწერის გამოცდილების მისაღებად."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "კონტაქტის რეგისტრაციის სტატუსის შემოწმება"
@@ -7055,7 +7055,7 @@
     "messageformat": "იწერება {currentBytes} {totalBytes}-დან ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "გასაგრძელებლად განაახლე Signal Desktop."
+    "messageformat": "გასაგრძელებლად განაახლე Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "განახლება"
@@ -7076,7 +7076,7 @@
     "messageformat": "გადატვირთე Signal-ი, რომ განახლება გადმოწერო."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop-ის განახლება ვერ მოხერხდა, მაგრამ ახალი ვერსია ხელმისაწვდომია. გადადი {downloadUrl}-ზე და ახალი ვერსია ხელით გადმოწერე, შემდეგ ან მხარდაჭერის გუნდს დაუკავშირდი, ან ამ პრობლემის შესახებ განაცხადე."
+    "messageformat": "Wren Desktop-ის განახლება ვერ მოხერხდა, მაგრამ ახალი ვერსია ხელმისაწვდომია. გადადი {downloadUrl}-ზე და ახალი ვერსია ხელით გადმოწერე, შემდეგ ან მხარდაჭერის გუნდს დაუკავშირდი, ან ამ პრობლემის შესახებ განაცხადე."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal-ის ლოგო"
@@ -8349,10 +8349,10 @@
     "messageformat": "Signal desktop-ს მალე აღარ ექნება შენი კომპიუტერის {OS} ვერსიის მხარდაჭერა. Signal-ის გამოყენების გასაგრძელებლად, განაახლე შენი კომპიუტერის ოპერაციული სისტემა {expirationDate}-მდე. <learnMoreLink>გაიგე მეტი</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal Desktop-ი ამ კომპიუტერზე აღარ მუშაობს. იმისათვის, რომ Signal Desktop-ის გამოყენება ისევ შეძლო, შენი კომპიუტერის {OS}-ის ვერსია განაახლე. <learnMoreLink>გაიგე მეტი</learnMoreLink>"
+    "messageformat": "Wren Desktop-ი ამ კომპიუტერზე აღარ მუშაობს. იმისათვის, რომ Wren Desktop-ის გამოყენება ისევ შეძლო, შენი კომპიუტერის {OS}-ის ვერსია განაახლე. <learnMoreLink>გაიგე მეტი</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop-ი ამ კომპიუტერზე აღარ მუშაობს. იმისათვის, რომ Signal Desktop-ის გამოყენება ისევ შეძლო, შენი კომპიუტერის {OS}-ის ვერსია განაახლე."
+    "messageformat": "Wren Desktop-ი ამ კომპიუტერზე აღარ მუშაობს. იმისათვის, რომ Wren Desktop-ის გამოყენება ისევ შეძლო, შენი კომპიუტერის {OS}-ის ვერსია განაახლე."
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "დარედაქტებული"
@@ -9060,7 +9060,7 @@
     "messageformat": "წავშალოთ ყველა მონაცემი?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Signal Desktop-ზე ამჟამად არსებული ყველა მონაცემი წაიშლება. ამის შემდეგ შეძლებ QR კოდი დაასკანირო და შენი მობილურიდან მიმოწერის ისტორია გადმოიტანო."
+    "messageformat": "Wren Desktop-ზე ამჟამად არსებული ყველა მონაცემი წაიშლება. ამის შემდეგ შეძლებ QR კოდი დაასკანირო და შენი მობილურიდან მიმოწერის ისტორია გადმოიტანო."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "ეს ვერსია შეიცავს უამრავ მცირე შესწორებას და ბაგების გამოსწორებებს Signal-ის შეუფერხებლად მუშაობის შესანარჩუნებლად.",

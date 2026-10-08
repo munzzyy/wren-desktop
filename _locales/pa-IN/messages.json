@@ -825,7 +825,7 @@
     "messageformat": "ਸਟਿਕੱਰ ਪੈਕ ਨਿਰਮਾਤਾ"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop ਬਾਰੇ"
+    "messageformat": "Wren Desktop ਬਾਰੇ"
   },
   "icu:screenShareWindow": {
     "messageformat": "ਸਕਰੀਨ ਸਾਂਝੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
@@ -843,7 +843,7 @@
     "messageformat": "ਬਾਹਰ ਨਿਕਲੋ"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "ਖੋਜੋ"
@@ -987,13 +987,13 @@
     "messageformat": "ਤੁਸੀਂ"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "ਵੌਇਸ ਸੁਨੇਹੇ ਭੇਜਣ ਲਈ, Signal Desktop ਨੂੰ ਆਪਣੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।"
+    "messageformat": "ਵੌਇਸ ਸੁਨੇਹੇ ਭੇਜਣ ਲਈ, Wren Desktop ਨੂੰ ਆਪਣੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।"
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "ਕਾਲ ਕਰਨ ਲਈ, ਤੁਹਾਨੂੰ Signal Desktop ਨੂੰ ਆਪਣੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤਕ ਪਹੁੰਚ ਦੀ ਆਗਿਆ ਦੇਣੀ ਪਵੇਗੀ।"
+    "messageformat": "ਕਾਲ ਕਰਨ ਲਈ, ਤੁਹਾਨੂੰ Wren Desktop ਨੂੰ ਆਪਣੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਤਕ ਪਹੁੰਚ ਦੀ ਆਗਿਆ ਦੇਣੀ ਪਵੇਗੀ।"
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "ਵੀਡੀਓ ਕਾਲ ਕਰਨ ਵਾਸਤੇ, ਤੁਹਾਨੂੰ Signal Desktop ਨੂੰ ਆਪਣੇ ਕੈਮਰੇ ਤਕ ਪਹੁੰਚ ਦੀ ਆਗਿਆ ਦੇਣੀ ਪਵੇਗੀ।"
+    "messageformat": "ਵੀਡੀਓ ਕਾਲ ਕਰਨ ਵਾਸਤੇ, ਤੁਹਾਨੂੰ Wren Desktop ਨੂੰ ਆਪਣੇ ਕੈਮਰੇ ਤਕ ਪਹੁੰਚ ਦੀ ਆਗਿਆ ਦੇਣੀ ਪਵੇਗੀ।"
   },
   "icu:allowAccess": {
     "messageformat": "ਪਹੁੰਚ ਦੀ ਆਗਿਆ ਦਿਓ"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal ਨੂੰ ਅੱਪਡੇਟ ਨਹੀਂ ਕਰ ਸਕੇ। ਇਸ ਨੂੰ ਖੁਦ ਇੰਸਟਾਲ ਕਰਨ ਲਈ {url} 'ਤੇ ਜਾਓ। ਫਿਰ, ਇਸ ਸਮੱਸਿਆ ਬਾਰੇ <contactSupportLink>ਸਹਾਇਤਾ ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਰੋ</contactSupportLink>"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop ਸੰਭਾਵਤ ਰੂਪ ਵਿੱਚ ਇੱਕ macOS ਕੁਆਰੰਟੀਨ ਹੈ, ਅਤੇ ਆਪਣੇ ਆਪ ਅੱਪਡੇਟ ਨਹੀਂ ਹੋ ਸਕੇਗਾ। ਕਿਰਪਾ ਕਰਕੇ ਫ਼ਾਈਂਡਰ ਦੇ ਨਾਲ {app} ਨੂੰ {folder} ਵਿੱਚ ਲਿਜਾਉਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+    "messageformat": "Wren Desktop ਸੰਭਾਵਤ ਰੂਪ ਵਿੱਚ ਇੱਕ macOS ਕੁਆਰੰਟੀਨ ਹੈ, ਅਤੇ ਆਪਣੇ ਆਪ ਅੱਪਡੇਟ ਨਹੀਂ ਹੋ ਸਕੇਗਾ। ਕਿਰਪਾ ਕਰਕੇ ਫ਼ਾਈਂਡਰ ਦੇ ਨਾਲ {app} ਨੂੰ {folder} ਵਿੱਚ ਲਿਜਾਉਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
   },
   "icu:ok": {
     "messageformat": "ਠੀਕ ਹੈ"
@@ -1617,7 +1617,7 @@
     "messageformat": "ਕੀ ਸਾਰਾ ਡਾਟਾ ਮਿਟਾਉਣਾ ਹੈ?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "ਤੁਸੀਂ ਇਸ ਡੈਸਕਟੌਪ ਨਾਲ ਇੱਕ ਵੱਖਰੇ Signal ਖਾਤੇ ਨੂੰ ਲਿੰਕ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਹੇ ਹੋ। ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ Signal Desktop ਵਿੱਚ ਮੌਜੂਦ ਸਾਰਾ ਡਾਟਾ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"
+    "messageformat": "ਤੁਸੀਂ ਇਸ ਡੈਸਕਟੌਪ ਨਾਲ ਇੱਕ ਵੱਖਰੇ Signal ਖਾਤੇ ਨੂੰ ਲਿੰਕ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਹੇ ਹੋ। ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ Wren Desktop ਵਿੱਚ ਮੌਜੂਦ ਸਾਰਾ ਡਾਟਾ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "ਜਾਰੀ ਰੱਖੋ"
@@ -2214,7 +2214,7 @@
     "messageformat": "ਕੀ ਸਾਰਾ ਡਾਟਾ ਮਿਟਾਉਣਾ ਹੈ?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "ਕੀ Signal Desktop ਦੇ ਇਸ ਵਰਜ਼ਨ ਤੋਂ ਸਾਰਾ ਡਾਟਾ ਅਤੇ ਸੁਨੇਹਿਆਂ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ? ਤੁਹਾਡਾ Signal ਖਾਤਾ ਅਤੇ ਤੁਹਾਡੇ ਫ਼ੋਨ ਜਾਂ ਹੋਰ ਲਿੰਕ ਕੀਤੇ ਡਿਵਾਈਸਾਂ 'ਤੇ ਮੌਜੂਦ ਡਾਟਾ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾਵੇਗਾ।"
+    "messageformat": "ਕੀ Wren Desktop ਦੇ ਇਸ ਵਰਜ਼ਨ ਤੋਂ ਸਾਰਾ ਡਾਟਾ ਅਤੇ ਸੁਨੇਹਿਆਂ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ? ਤੁਹਾਡਾ Signal ਖਾਤਾ ਅਤੇ ਤੁਹਾਡੇ ਫ਼ੋਨ ਜਾਂ ਹੋਰ ਲਿੰਕ ਕੀਤੇ ਡਿਵਾਈਸਾਂ 'ਤੇ ਮੌਜੂਦ ਡਾਟਾ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾਵੇਗਾ।"
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "ਡਿਸਕਨੈਕਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ ਅਤੇ ਸਾਰਾ ਡਾਟਾ ਮਿਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ…"
@@ -2235,7 +2235,7 @@
     "messageformat": "ਅਜਿਹਾ ਕਰਨ ਨਾਲ ਤੁਹਾਡੇ ਖਾਤੇ ਦੀ ਜਾਣਕਾਰੀ, ਪ੍ਰੋਫਾਈਲ ਅਤੇ ਤੁਹਾਡੇ ਸਾਰੇ ਸੁਨੇਹੇ ਮਿਟਾ ਦਿੱਤੇ ਜਾਣਗੇ। ਤੁਹਾਨੂੰ ਸਾਰੇ Signal ਗਰੁੱਪਾਂ ਵਿੱਚੋਂ ਵੀ ਹਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਇਸ ਪ੍ਰਕਿਰਿਆ ਦੇ ਪੂਰਾ ਹੋਣ ਤੋਂ ਬਾਅਦ ਐਪ ਬੰਦ ਹੋ ਜਾਵੇਗੀ।"
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "ਤੁਹਾਡੇ ਕੋਲ Signal Desktop ਦੀ ਪਿਛਲੀ ਇੰਸਟਾਲੇਸ਼ਨ ਦਾ ਪੁਰਾਣਾ ਡਾਟਾ ਮੌਜੂਦ ਹੈ। ਜੇ ਤੁਸੀਂ ਅੱਗੇ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਮੁੱਢ ਤੋਂ ਸ਼ੁਰੂ ਕਰਨਾ ਪਵੇਗਾ।"
+    "messageformat": "ਤੁਹਾਡੇ ਕੋਲ Wren Desktop ਦੀ ਪਿਛਲੀ ਇੰਸਟਾਲੇਸ਼ਨ ਦਾ ਪੁਰਾਣਾ ਡਾਟਾ ਮੌਜੂਦ ਹੈ। ਜੇ ਤੁਸੀਂ ਅੱਗੇ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਮੁੱਢ ਤੋਂ ਸ਼ੁਰੂ ਕਰਨਾ ਪਵੇਗਾ।"
   },
   "icu:deleteOldData": {
     "messageformat": "ਪੁਰਾਣਾ ਡਾਟਾ ਮਿਟਾਓ"
@@ -2292,7 +2292,7 @@
     "messageformat": "ਅੰਸ਼ਕ ਤੌਰ 'ਤੇ ਮਿਟਾਇਆ ਗਿਆ, ਵੇਰਵਿਆਂ ਲਈ ਕਲਿੱਕ ਕਰੋ"
   },
   "icu:expiredWarning": {
-    "messageformat": "Signal Desktop ਦੇ ਇਸ ਸੰਸਕਰਣ ਦੀ ਮਿਆਦ ਪੁੱਗ ਚੁੱਕੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਮੈੇਸੇਜਿੰਗ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਤਾਜ਼ਾ ਸੰਸਕਰਣ ਲਈ ਅਪਗ੍ਰੇਡ ਕਰੋ।"
+    "messageformat": "Wren Desktop ਦੇ ਇਸ ਸੰਸਕਰਣ ਦੀ ਮਿਆਦ ਪੁੱਗ ਚੁੱਕੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਮੈੇਸੇਜਿੰਗ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਤਾਜ਼ਾ ਸੰਸਕਰਣ ਲਈ ਅਪਗ੍ਰੇਡ ਕਰੋ।"
   },
   "icu:upgrade": {
     "messageformat": "signal.org/download ‘ਤੇ ਜਾਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
@@ -2565,13 +2565,13 @@
     "messageformat": "ਗਰੁੱਪ ਨੂੰ ਅਪਡੇਟ ਕਰਨ ਵਿੱਚ ਅਸਫ਼ਲ। ਆਪਣਾ ਕਨੈਕਸ਼ਨ ਚੈੱਕ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
   },
   "icu:unlinkedWarning": {
-    "messageformat": "ਮੈਸੇਜਿੰਗ ਜਾਰੀ ਰੱਖਣ ਲਈ Signal Desktop ਨੂੰ ਆਪਣੇ ਮੋਬਾਈਲ ਡਿਵਾਈਸ ਨਾਲ ਦੁਬਾਰਾ ਲਿੰਕ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ।"
+    "messageformat": "ਮੈਸੇਜਿੰਗ ਜਾਰੀ ਰੱਖਣ ਲਈ Wren Desktop ਨੂੰ ਆਪਣੇ ਮੋਬਾਈਲ ਡਿਵਾਈਸ ਨਾਲ ਦੁਬਾਰਾ ਲਿੰਕ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ।"
   },
   "icu:unlinked": {
     "messageformat": "ਲਿੰਕ ਨਹੀਂ ਕੀਤਾ ਹੋਇਆ"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "ਦੁਬਾਰਾ ਰਜਿਸਟਰ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ ਅਤੇ ਸੁਨੇਹੇ ਭੇਜਣਾ ਜਾਰੀ ਰੱਖੋ। Signal Desktop ਅਨ-ਰਜਿਸਟਰ ਹੈ ਕਿਉਂਕਿ ਤੁਸੀਂ ਇੱਕ ਵੱਖਰੇ ਡਿਵਾਈਸ ’ਤੇ Signal ਨਾਲ ਆਪਣਾ ਫੋਨ ਨੰਬਰ ਰਜਿਸਟਰ ਕੀਤਾ ਸੀ।"
+    "messageformat": "ਦੁਬਾਰਾ ਰਜਿਸਟਰ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ ਅਤੇ ਸੁਨੇਹੇ ਭੇਜਣਾ ਜਾਰੀ ਰੱਖੋ। Wren Desktop ਅਨ-ਰਜਿਸਟਰ ਹੈ ਕਿਉਂਕਿ ਤੁਸੀਂ ਇੱਕ ਵੱਖਰੇ ਡਿਵਾਈਸ ’ਤੇ Signal ਨਾਲ ਆਪਣਾ ਫੋਨ ਨੰਬਰ ਰਜਿਸਟਰ ਕੀਤਾ ਸੀ।"
   },
   "icu:unregistered": {
     "messageformat": "ਹੁਣ ਰਜਿਸਟਰ ਨਹੀਂ ਹੈ"
@@ -4065,7 +4065,7 @@
     "messageformat": "ਅਣਜਾਣ ਲਿੰਕ ਸੰਸਕਰਣ"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "ਇਹ ਲਿੰਕ Signal Desktop ਦੇ ਇਸ ਸੰਸਕਰਣ ਦੁਆਰਾ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ।"
+    "messageformat": "ਇਹ ਲਿੰਕ Wren Desktop ਦੇ ਇਸ ਸੰਸਕਰਣ ਦੁਆਰਾ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ।"
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "ਗਰੁੱਪ ਵਿੱਚ ਸ਼ਾਮਲ ਨਹੀਂ ਹੋ ਸਕਦੇ"
@@ -4818,7 +4818,7 @@
     "messageformat": "ਇਹ ਵਿਅਕਤੀ Signal ਦੀ ਵਰਤੋਂ ਨਹੀਂ ਕਰ ਰਿਹਾ ਹੈ"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop ਗੈਰ-Signal ਸੰਪਰਕਾਂ ਦੇ ਨਾਲ ਸੁਨੇਹਿਆਂ ਦੇ ਲੈਣ-ਦੇਣ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ। ਵਧੇਰੇ ਸੁਰੱਖਿਅਤ ਮੈਸੇਜਿੰਗ ਅਨੁਭਵ ਲਈ ਇਸ ਵਿਅਕਤੀ ਨੂੰ Signal ਸਥਾਪਤ ਕਰਨ ਲਈ ਕਹੋ।"
+    "messageformat": "Wren Desktop ਗੈਰ-Signal ਸੰਪਰਕਾਂ ਦੇ ਨਾਲ ਸੁਨੇਹਿਆਂ ਦੇ ਲੈਣ-ਦੇਣ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ। ਵਧੇਰੇ ਸੁਰੱਖਿਅਤ ਮੈਸੇਜਿੰਗ ਅਨੁਭਵ ਲਈ ਇਸ ਵਿਅਕਤੀ ਨੂੰ Signal ਸਥਾਪਤ ਕਰਨ ਲਈ ਕਹੋ।"
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "ਸੰਪਰਕ ਦੇ ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਦਰਜੇ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
@@ -7055,7 +7055,7 @@
     "messageformat": "{totalBytes} ਵਿੱਚੋਂ {currentBytes} ({percentage,number,percent}) ਨੂੰ ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "ਜਾਰੀ ਰੱਖਣ ਲਈ, Signal Desktop ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ।"
+    "messageformat": "ਜਾਰੀ ਰੱਖਣ ਲਈ, Wren Desktop ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ।"
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "ਅੱਪਡੇਟ ਕਰੋ"
@@ -7076,7 +7076,7 @@
     "messageformat": "ਅੱਪਡੇਟ ਨੂੰ ਇੰਸਟਾਲ ਕਰਨ ਲਈ Signal ਨੂੰ ਮੁੜ ਚਾਲੂ ਕਰੋ।"
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop ਨੂੰ ਅੱਪਡੇਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ ਰਹੇ, ਪਰ ਇੱਕ ਨਵਾਂ ਵਰਜ਼ਨ ਉਪਲਬਧ ਹੈ। {downloadUrl} 'ਤੇ ਜਾਓ ਅਤੇ ਨਵਾਂ ਵਰਜ਼ਨ ਖੁਦ ਇੰਸਟਾਲ ਕਰੋ, ਫਿਰ ਇਸ ਸਮੱਸਿਆ ਬਾਰੇ ਸਹਾਇਤਾ ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਜਾਂ ਖ਼ਰਾਬੀ ਦੀ ਰਿਪੋਰਟ ਕਰੋ।"
+    "messageformat": "Wren Desktop ਨੂੰ ਅੱਪਡੇਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ ਰਹੇ, ਪਰ ਇੱਕ ਨਵਾਂ ਵਰਜ਼ਨ ਉਪਲਬਧ ਹੈ। {downloadUrl} 'ਤੇ ਜਾਓ ਅਤੇ ਨਵਾਂ ਵਰਜ਼ਨ ਖੁਦ ਇੰਸਟਾਲ ਕਰੋ, ਫਿਰ ਇਸ ਸਮੱਸਿਆ ਬਾਰੇ ਸਹਾਇਤਾ ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਜਾਂ ਖ਼ਰਾਬੀ ਦੀ ਰਿਪੋਰਟ ਕਰੋ।"
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal ਲੋਗੋ"
@@ -8346,13 +8346,13 @@
     "messageformat": "ਨਵਾਂ PIN ਬਣਾਇਆ ਗਿਆ।"
   },
   "icu:UnsupportedOSWarningDialog__body": {
-    "messageformat": "Signal Desktop ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਦੇ {OS} ਵਰਜਨ ਵਿੱਚ ਕੰਮ ਕਰਨਾ ਬੰਦ ਕਰ ਦੇਵੇਗਾ। Signal ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਰਹਿਣ ਲਈ, {expirationDate} ਤੱਕ ਆਪਣੇ ਕੰਪਿਊਟਰ ਦੇ ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ। <learnMoreLink>ਹੋਰ ਜਾਣੋ</learnMoreLink>"
+    "messageformat": "Wren Desktop ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਦੇ {OS} ਵਰਜਨ ਵਿੱਚ ਕੰਮ ਕਰਨਾ ਬੰਦ ਕਰ ਦੇਵੇਗਾ। Signal ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਰਹਿਣ ਲਈ, {expirationDate} ਤੱਕ ਆਪਣੇ ਕੰਪਿਊਟਰ ਦੇ ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ। <learnMoreLink>ਹੋਰ ਜਾਣੋ</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal Desktop ਹੁਣ ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ ਕੰਮ ਨਹੀਂ ਕਰਦਾ ਹੈ। Signal Desktop ਦੀ ਦੁਬਾਰਾ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਆਪਣੇ ਕੰਪਿਊਟਰ ਦੇ {OS} ਦਾ ਵਰਜ਼ਨ ਅੱਪਡੇਟ ਕਰੋ। <learnMoreLink>ਹੋਰ ਜਾਣੋ</learnMoreLink>"
+    "messageformat": "Wren Desktop ਹੁਣ ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ ਕੰਮ ਨਹੀਂ ਕਰਦਾ ਹੈ। Wren Desktop ਦੀ ਦੁਬਾਰਾ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਆਪਣੇ ਕੰਪਿਊਟਰ ਦੇ {OS} ਦਾ ਵਰਜ਼ਨ ਅੱਪਡੇਟ ਕਰੋ। <learnMoreLink>ਹੋਰ ਜਾਣੋ</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop ਹੁਣ ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ ਕੰਮ ਨਹੀਂ ਕਰਦਾ ਹੈ। Signal Desktop ਦੀ ਦੁਬਾਰਾ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਆਪਣੇ ਕੰਪਿਊਟਰ ਦੇ {OS} ਦਾ ਵਰਜ਼ਨ ਅੱਪਡੇਟ ਕਰੋ।"
+    "messageformat": "Wren Desktop ਹੁਣ ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ ਕੰਮ ਨਹੀਂ ਕਰਦਾ ਹੈ। Wren Desktop ਦੀ ਦੁਬਾਰਾ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਆਪਣੇ ਕੰਪਿਊਟਰ ਦੇ {OS} ਦਾ ਵਰਜ਼ਨ ਅੱਪਡੇਟ ਕਰੋ।"
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "ਸੋਧਿਆ ਗਿਆ"
@@ -9060,7 +9060,7 @@
     "messageformat": "ਕੀ ਸਾਰਾ ਡਾਟਾ ਮਿਟਾਉਣਾ ਹੈ?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Signal Desktop ਵਿੱਚ ਮੌਜੂਦ ਸਾਰਾ ਡਾਟਾ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਫਿਰ ਤੁਸੀਂ QR ਕੋਡ ਸਕੈਨ ਕਰ ਸਕਦੇ ਹੋ ਅਤੇ ਆਪਣੇ ਫ਼ੋਨ ਤੋਂ ਆਪਣੇ ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਟ੍ਰਾਂਸਫਰ ਕਰ ਸਕਦੇ ਹੋ।"
+    "messageformat": "Wren Desktop ਵਿੱਚ ਮੌਜੂਦ ਸਾਰਾ ਡਾਟਾ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਫਿਰ ਤੁਸੀਂ QR ਕੋਡ ਸਕੈਨ ਕਰ ਸਕਦੇ ਹੋ ਅਤੇ ਆਪਣੇ ਫ਼ੋਨ ਤੋਂ ਆਪਣੇ ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਟ੍ਰਾਂਸਫਰ ਕਰ ਸਕਦੇ ਹੋ।"
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Signal ਨੂੰ ਸੁਚਾਰੂ ਢੰਗ ਨਾਲ ਚੱਲਦਾ ਰੱਖਣ ਲਈ ਇਸ ਵਰਜ਼ਨ ਵਿੱਚ ਨਿੱਕੇ-ਮੋਟੇ ਸੁਧਾਰ ਅਤੇ ਬੱਗ ਠੀਕ ਕੀਤੇ ਗਏ ਹਨ।",

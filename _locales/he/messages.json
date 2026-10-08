@@ -825,7 +825,7 @@
     "messageformat": "יוצר חבילות מדבקות"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "אודות Signal Desktop"
+    "messageformat": "אודות Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "שיתוף מסך"
@@ -843,7 +843,7 @@
     "messageformat": "צא"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "חיפוש"
@@ -987,13 +987,13 @@
     "messageformat": "את/ה"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "כדי לשלוח הודעות קוליות, צריך לאפשר ל–Signal Desktop גישה למיקרופון שלך."
+    "messageformat": "כדי לשלוח הודעות קוליות, צריך לאפשר ל–Wren Desktop גישה למיקרופון שלך."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "לצורך התקשרות, אתה חייב להתיר אל Signal Desktop להשיג גישה אל המיקרופון שלך."
+    "messageformat": "לצורך התקשרות, אתה חייב להתיר אל Wren Desktop להשיג גישה אל המיקרופון שלך."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "לצורך התקשרות וידאו, אתה חייב להתיר אל Signal Desktop להשיג גישה אל המצלמה שלך."
+    "messageformat": "לצורך התקשרות וידאו, אתה חייב להתיר אל Wren Desktop להשיג גישה אל המצלמה שלך."
   },
   "icu:allowAccess": {
     "messageformat": "התר גישה"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal לא הצליחה להתעדכן. אפשר לבקר בכתובת {url} כדי להתקין באופן ידני. לאחר מכן, יש <contactSupportLink>ליצור קשר עם התמיכה</contactSupportLink> לגבי הבעיה הזו."
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop ככל הנראה בהסגר macOS, ולא יוכל להתעדכן באופן אוטומטי. אנא נסה להעביר את  {app} אל {folder} עם Finder."
+    "messageformat": "Wren Desktop ככל הנראה בהסגר macOS, ולא יוכל להתעדכן באופן אוטומטי. אנא נסה להעביר את  {app} אל {folder} עם Finder."
   },
   "icu:ok": {
     "messageformat": "אישור"
@@ -2235,7 +2235,7 @@
     "messageformat": "זה ימחק את מידע החשבון שלך, את הפרופיל שלך ואת כל ההודעות שלך. זה גם יסיר אתך מכל קבוצות Signal. האפליקציה תיסגר לאחר השלמת התהליך."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "יש לך נתונים מיושנים מהתקנה קודמת של Signal Desktop. אם בא לך להמשיך, הם יימחקו ו–Signal תתחיל מאפס."
+    "messageformat": "יש לך נתונים מיושנים מהתקנה קודמת של Wren Desktop. אם בא לך להמשיך, הם יימחקו ו–Signal תתחיל מאפס."
   },
   "icu:deleteOldData": {
     "messageformat": "מחיקת נתונים ישנים"
@@ -2292,7 +2292,7 @@
     "messageformat": "נמחק חלקית, יש ללחוץ לפרטים"
   },
   "icu:expiredWarning": {
-    "messageformat": "גרסה זו של Signal Desktop פגה. אנא שדרג אל הגרסה האחרונה כדי להמשיך בשליחת הודעות."
+    "messageformat": "גרסה זו של Wren Desktop פגה. אנא שדרג אל הגרסה האחרונה כדי להמשיך בשליחת הודעות."
   },
   "icu:upgrade": {
     "messageformat": "לחץ כדי ללכת אל signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "נכשל בעדכון הקבוצה. בדוק את החיבור שלך ונסה שוב."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "לחץ כדי לקשר מחדש את Signal Desktop אל המכשיר הנייד שלך כדי להמשיך בשליחת הודעות."
+    "messageformat": "לחץ כדי לקשר מחדש את Wren Desktop אל המכשיר הנייד שלך כדי להמשיך בשליחת הודעות."
   },
   "icu:unlinked": {
     "messageformat": "לא מקושר"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "יש ללחוץ כדי להירשם מחדש ולהמשיך לשלוח הודעות. Signal Desktop כבר לא רשומה, כנראה בגלל שרשמת את מספר הטלפון שלך ב–Signal על מכשיר אחר."
+    "messageformat": "יש ללחוץ כדי להירשם מחדש ולהמשיך לשלוח הודעות. Wren Desktop כבר לא רשומה, כנראה בגלל שרשמת את מספר הטלפון שלך ב–Signal על מכשיר אחר."
   },
   "icu:unregistered": {
     "messageformat": "ההרשמה כבר לא בתוקף"
@@ -4065,7 +4065,7 @@
     "messageformat": "גרסת קישור בלתי ידועה"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "קישור זה אינו נתמך ע״י גרסה זו של Signal Desktop."
+    "messageformat": "קישור זה אינו נתמך ע״י גרסה זו של Wren Desktop."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "לא ניתן להצטרף לקבוצה"
@@ -4818,7 +4818,7 @@
     "messageformat": "האיש הזה לא משתמש ב־Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop אינו תומך בהתכתבות עם אנשי קשר שאינם של Signal. בקש מהאיש הזה להתקין את Signal עבור חוויה מאובטחת יותר של התכתבות."
+    "messageformat": "Wren Desktop אינו תומך בהתכתבות עם אנשי קשר שאינם של Signal. בקש מהאיש הזה להתקין את Signal עבור חוויה מאובטחת יותר של התכתבות."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "בודק מעמד הרשמה של איש קשר"

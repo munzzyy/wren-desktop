@@ -726,7 +726,7 @@
     "messageformat": "Concept voor afbeeldingsbijlage: {path}"
   },
   "icu:decryptionErrorToast": {
-    "messageformat": "Er is in Signal Desktop een fout opgetreden bij het ontsleutelen van {name}, op apparaat {deviceId}"
+    "messageformat": "Er is in Wren Desktop een fout opgetreden bij het ontsleutelen van {name}, op apparaat {deviceId}"
   },
   "icu:Toast__ActionLabel--SubmitLog": {
     "messageformat": "Foutopsporingslog indienen"
@@ -825,7 +825,7 @@
     "messageformat": "Stickerpakketmaker"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Over Signal Desktop"
+    "messageformat": "Over Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Scherm delen"
@@ -843,7 +843,7 @@
     "messageformat": "Afsluiten"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Zoeken"
@@ -987,7 +987,7 @@
     "messageformat": "Jij"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Om een spraakbericht te versturen moet je Signal Desktop toegang tot de microfoon geven."
+    "messageformat": "Om een spraakbericht te versturen moet je Wren Desktop toegang tot de microfoon geven."
   },
   "icu:audioCallingPermissionNeeded": {
     "messageformat": "Signal heeft toegang tot je microfoon nodig om te bellen."
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal kon niet worden bijgewerkt. Bezoek {url} om handmatig een nieuwere versie te installeren. Neem vervolgens <contactSupportLink>contact op met Support </contactSupportLink>over dit probleem"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop bevindt zich waarschijnlijk in een MacOS quarantaine, waardoor het niet automatisch kan bijwerken. Probeer de directory {app} met Finder naar {folder} te verplaatsen."
+    "messageformat": "Wren Desktop bevindt zich waarschijnlijk in een MacOS quarantaine, waardoor het niet automatisch kan bijwerken. Probeer de directory {app} met Finder naar {folder} te verplaatsen."
   },
   "icu:ok": {
     "messageformat": "Begrepen"
@@ -1617,7 +1617,7 @@
     "messageformat": "Alle gegevens wissen?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Je probeert een ander Signal-account aan deze desktop te koppelen. Als je doorgaat, worden alle gegevens die nu in Signal Desktop staan gewist."
+    "messageformat": "Je probeert een ander Signal-account aan deze desktop te koppelen. Als je doorgaat, worden alle gegevens die nu in Wren Desktop staan gewist."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Doorgaan"
@@ -2214,7 +2214,7 @@
     "messageformat": "Alle gegevens wissen?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Alle gegevens en berichten wissen uit deze versie van Signal Desktop? Je Signal-account en gegevens op je telefoon of andere gekoppelde apparaten worden niet gewist."
+    "messageformat": "Alle gegevens en berichten wissen uit deze versie van Wren Desktop? Je Signal-account en gegevens op je telefoon of andere gekoppelde apparaten worden niet gewist."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "Bezig met ontkoppelen en wissen van alle gegevens…"
@@ -2235,7 +2235,7 @@
     "messageformat": "Hiermee worden alle accountgegevens, je profiel en al je berichten verwijderd. Je wordt ook verwijderd uit alle Signal-groepen. De app wordt gesloten nadat dit proces is voltooid."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Je hebt nog verouderde gegevens op je apparaat van een eerdere installatie van Signal Desktop. Als je ervoor kiest om verder te gaan, dan zullen alle gegevens worden gewist en zal je met een schone installatie van Signal Desktop beginnen."
+    "messageformat": "Je hebt nog verouderde gegevens op je apparaat van een eerdere installatie van Wren Desktop. Als je ervoor kiest om verder te gaan, dan zullen alle gegevens worden gewist en zal je met een schone installatie van Wren Desktop beginnen."
   },
   "icu:deleteOldData": {
     "messageformat": "Oude gegevens wissen"
@@ -2292,7 +2292,7 @@
     "messageformat": "Gedeeltelijk verwijderd, klik voor details"
   },
   "icu:expiredWarning": {
-    "messageformat": "Deze versie van Signal Desktop is verlopen. Werk bij naar de meest recente versie om gesprekken voort te kunnen zetten."
+    "messageformat": "Deze versie van Wren Desktop is verlopen. Werk bij naar de meest recente versie om gesprekken voort te kunnen zetten."
   },
   "icu:upgrade": {
     "messageformat": "Klik hier om signal.org/download te openen"
@@ -2565,13 +2565,13 @@
     "messageformat": "Het bijwerken van de groep is mislukt. Controleer je internetverbinding en probeer het opnieuw."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Klik hier om Signal Desktop opnieuw te koppelen aan de Signal-app op je telefoon. Dit is nodig om Signal Desktop te kunnen gebruiken."
+    "messageformat": "Klik hier om Wren Desktop opnieuw te koppelen aan de Signal-app op je telefoon. Dit is nodig om Wren Desktop te kunnen gebruiken."
   },
   "icu:unlinked": {
     "messageformat": "Ontkoppeld"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Tik om opnieuw te registreren en verder te gaan met berichten versturen. Signal Desktop is niet meer geregistreerd, waarschijnlijk omdat je je telefoonnummer bij Signal op een ander apparaat hebt geregistreerd."
+    "messageformat": "Tik om opnieuw te registreren en verder te gaan met berichten versturen. Wren Desktop is niet meer geregistreerd, waarschijnlijk omdat je je telefoonnummer bij Signal op een ander apparaat hebt geregistreerd."
   },
   "icu:unregistered": {
     "messageformat": "Niet meer geregistreerd"
@@ -4065,7 +4065,7 @@
     "messageformat": "Onbekend linkformaat"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Deze groepslink wordt niet langer ondersteund in deze versie van Signal Desktop."
+    "messageformat": "Deze groepslink wordt niet langer ondersteund in deze versie van Wren Desktop."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Kan niet lid worden van de groep"
@@ -4818,7 +4818,7 @@
     "messageformat": "Deze persoon maakt geen gebruik van Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop biedt geen ondersteuning voor het verzenden van berichten naar personen die niet geregistreerd zijn bij Signal. Vraag deze persoon om Signal te installeren om zo beveiligde gesprekken te kunnen voeren."
+    "messageformat": "Wren Desktop biedt geen ondersteuning voor het verzenden van berichten naar personen die niet geregistreerd zijn bij Signal. Vraag deze persoon om Signal te installeren om zo beveiligde gesprekken te kunnen voeren."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Controleren of deze persoon is geregistreerd bij Signal"
@@ -7055,7 +7055,7 @@
     "messageformat": "{currentBytes} van {totalBytes} ({percentage,number,percent}) aan het downloaden…"
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Om door te gaan, moet je Signal Desktop bijwerken."
+    "messageformat": "Om door te gaan, moet je Wren Desktop bijwerken."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Bijwerken"
@@ -7076,7 +7076,7 @@
     "messageformat": "Start Signal opnieuw om de update te installeren."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Signal Desktop kon niet worden bijgewerkt, maar er is een nieuwe versie beschikbaar. Ga naar {downloadUrl} en installeer de nieuwe versie handmatig. Neem vervolgens contact op met ondersteuning of dien een foutrapport in over dit probleem."
+    "messageformat": "Wren Desktop kon niet worden bijgewerkt, maar er is een nieuwe versie beschikbaar. Ga naar {downloadUrl} en installeer de nieuwe versie handmatig. Neem vervolgens contact op met ondersteuning of dien een foutrapport in over dit probleem."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Signal-logo"
@@ -8346,13 +8346,13 @@
     "messageformat": "Nieuwe pincode aangemaakt."
   },
   "icu:UnsupportedOSWarningDialog__body": {
-    "messageformat": "Signal Desktop ondersteunt binnenkort jouw computers versie van {OS} niet meer. Als je Signal wilt blijven gebruiken, moet je het besturingssysteem van je computer vóór {expirationDate} bijwerken. <learnMoreLink>Meer informatie</learnMoreLink>"
+    "messageformat": "Wren Desktop ondersteunt binnenkort jouw computers versie van {OS} niet meer. Als je Signal wilt blijven gebruiken, moet je het besturingssysteem van je computer vóór {expirationDate} bijwerken. <learnMoreLink>Meer informatie</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorDialog__body": {
-    "messageformat": "Signal Desktop werkt niet meer op deze computer. Werk de versie van {OS} op je computer bij om Signal Desktop weer te gebruiken. <learnMoreLink>Meer informatie</learnMoreLink>"
+    "messageformat": "Wren Desktop werkt niet meer op deze computer. Werk de versie van {OS} op je computer bij om Wren Desktop weer te gebruiken. <learnMoreLink>Meer informatie</learnMoreLink>"
   },
   "icu:UnsupportedOSErrorToast": {
-    "messageformat": "Signal Desktop werkt niet meer op deze computer. Werk de versie van {OS} op je computer bij om Signal Desktop weer te gebruiken."
+    "messageformat": "Wren Desktop werkt niet meer op deze computer. Werk de versie van {OS} op je computer bij om Wren Desktop weer te gebruiken."
   },
   "icu:MessageMetadata__edited": {
     "messageformat": "Bewerkt"
@@ -9060,7 +9060,7 @@
     "messageformat": "Alle gegevens wissen?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Alle huidige gegevens in Signal Desktop worden gewist. Vervolgens kun je een QR-code scannen en je chatgeschiedenis vanaf je telefoon overzetten."
+    "messageformat": "Alle huidige gegevens in Wren Desktop worden gewist. Vervolgens kun je een QR-code scannen en je chatgeschiedenis vanaf je telefoon overzetten."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Deze versie bevat een aantal kleine foutoplossingen waardoor Signal voor nog meer mensen goed werkt.",

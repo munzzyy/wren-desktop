@@ -987,7 +987,7 @@
     "messageformat": "আপনি"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "অডিও ম্যাসেজ পাঠাতে Signal Desktop-কে আপনার মাইক্রোফোন ব্যবহারের অনুমতি দিন।"
+    "messageformat": "অডিও ম্যাসেজ পাঠাতে Wren Desktop-কে আপনার মাইক্রোফোন ব্যবহারের অনুমতি দিন।"
   },
   "icu:audioCallingPermissionNeeded": {
     "messageformat": "কল করার জন্য, আপনাকে অবশ্যই Signal ডেস্কটপ-কে অবশ্যই আপনার মাইক্রোফোনের অ্যাক্সেস দিতে হবে।"
@@ -1617,7 +1617,7 @@
     "messageformat": "সকল ডেটা মুছে ফেলবেন?"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "আপনি এই ডেস্কটপের সাথে একটি ভিন্ন Signal অ্যাকাউন্ট লিংক করার চেষ্টা করছেন। আপনি যদি এগিয়ে যান, তাহলে বর্তমানে Signal Desktop-এ থাকা সব ডেটা মুছে ফেলা হবে।"
+    "messageformat": "আপনি এই ডেস্কটপের সাথে একটি ভিন্ন Signal অ্যাকাউন্ট লিংক করার চেষ্টা করছেন। আপনি যদি এগিয়ে যান, তাহলে বর্তমানে Wren Desktop-এ থাকা সব ডেটা মুছে ফেলা হবে।"
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "চালিয়ে যান"
@@ -2565,13 +2565,13 @@
     "messageformat": "গ্রুপটি আপডেট করতে ব্যর্থ হয়েছে। আপনার সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।"
   },
   "icu:unlinkedWarning": {
-    "messageformat": "বার্তা প্রেরণ অবিরত রাখতে আপনার মোবাইল ডিভাইসে  Signal Desktop পুনরায় লিঙ্ক করতে ক্লিক করুন।"
+    "messageformat": "বার্তা প্রেরণ অবিরত রাখতে আপনার মোবাইল ডিভাইসে  Wren Desktop পুনরায় লিঙ্ক করতে ক্লিক করুন।"
   },
   "icu:unlinked": {
     "messageformat": "বিচ্ছিন্ন হয়েছে"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "পুনরায় নিবন্ধন করতে এবং মেসেজ আদান-প্রদান চালিয়ে যেতে ক্লিক করুন। Signal Desktop সম্ভবত অনিবন্ধিত কারণ আপনি আপনার ফোন নম্বরটি অন্য কোনো ডিভাইসে Signal-এর সাথে নিবন্ধন করেছেন।"
+    "messageformat": "পুনরায় নিবন্ধন করতে এবং মেসেজ আদান-প্রদান চালিয়ে যেতে ক্লিক করুন। Wren Desktop সম্ভবত অনিবন্ধিত কারণ আপনি আপনার ফোন নম্বরটি অন্য কোনো ডিভাইসে Signal-এর সাথে নিবন্ধন করেছেন।"
   },
   "icu:unregistered": {
     "messageformat": "আর নিবন্ধিত নয়"
@@ -7055,7 +7055,7 @@
     "messageformat": "{totalBytes}-এর মধ্যে {currentBytes} ({percentage,number,percent}) ডাউনলোড হচ্ছে..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "চালিয়ে যেতে, Signal Desktop আপডেট করুন।"
+    "messageformat": "চালিয়ে যেতে, Wren Desktop আপডেট করুন।"
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "আপডেট করুন"
@@ -9060,7 +9060,7 @@
     "messageformat": "সকল ডেটা মুছে ফেলবেন?"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Signal Desktop-এ থাকা সব বর্তমান ডেটা মুছে ফেলা হবে। এরপর আপনি একটি QR কোড স্ক্যান করে আপনার ফোন থেকে মেসেজের ইতিহাস ট্রান্সফার করতে পারবেন।"
+    "messageformat": "Wren Desktop-এ থাকা সব বর্তমান ডেটা মুছে ফেলা হবে। এরপর আপনি একটি QR কোড স্ক্যান করে আপনার ফোন থেকে মেসেজের ইতিহাস ট্রান্সফার করতে পারবেন।"
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "সিগন্যালকে মসৃণভাবে চলমান রাখতে এই সংস্করণে অনেকগুলি ছোটখাট পরিবর্তন রয়েছে এবং বাগ সংশোধন করা হয়েছে।",

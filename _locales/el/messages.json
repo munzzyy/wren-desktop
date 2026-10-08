@@ -825,7 +825,7 @@
     "messageformat": "Δημιουργός πακέτου αυτοκολλήτων"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Σχετικά με το Signal Desktop"
+    "messageformat": "Σχετικά με το Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "Διαμοιρασμός οθόνης"
@@ -843,7 +843,7 @@
     "messageformat": "Έξοδος"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "Αναζήτηση"
@@ -987,13 +987,13 @@
     "messageformat": "Εσύ"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "Για να στείλεις ηχητικά μηνύματα, δώσε στη Signal Desktop πρόσβαση στο μικρόφωνό σου."
+    "messageformat": "Για να στείλεις ηχητικά μηνύματα, δώσε στη Wren Desktop πρόσβαση στο μικρόφωνό σου."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "Για κλήσεις, θα πρέπει να δώσεις στο Signal Desktop πρόσβαση στο μικρόφωνο."
+    "messageformat": "Για κλήσεις, θα πρέπει να δώσεις στο Wren Desktop πρόσβαση στο μικρόφωνο."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "Για βιντεοκλήσεις, θα πρέπει να δώσεις στο Signal Desktop πρόσβαση στην κάμερα."
+    "messageformat": "Για βιντεοκλήσεις, θα πρέπει να δώσεις στο Wren Desktop πρόσβαση στην κάμερα."
   },
   "icu:allowAccess": {
     "messageformat": "Να δοθεί πρόσβαση"
@@ -1026,7 +1026,7 @@
     "messageformat": "Το Signal δεν μπόρεσε να ενημερωθεί. Επισκέψου το {url} για να το εγκαταστήσεις χειροκίνητα. Έπειτα, <contactSupportLink>επικοινώνησε με την υποστήριξη</contactSupportLink> γι' αυτό το πρόβλημα"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Το Signal Desktop μάλλον βρίσκεται σε καραντίνα του macOS, και δεν θα μπορέσει να αναβαθμιστεί αυτόματα. Παρακαλώ προσπάθησε να μετακινήσεις το {app} στο {folder} με το Finder."
+    "messageformat": "Το Wren Desktop μάλλον βρίσκεται σε καραντίνα του macOS, και δεν θα μπορέσει να αναβαθμιστεί αυτόματα. Παρακαλώ προσπάθησε να μετακινήσεις το {app} στο {folder} με το Finder."
   },
   "icu:ok": {
     "messageformat": "OK"
@@ -1617,7 +1617,7 @@
     "messageformat": "Διαγραφή όλων των δεδομένων;"
   },
   "icu:Install__confirm-data-deletion__body": {
-    "messageformat": "Προσπαθείς να συνδέσεις έναν άλλο λογαριασμό Signal σε αυτόν τον υπολογιστή. Αν συνεχίσεις, όλα τα δεδομένα που υπάρχουν αυτή τη στιγμή στο Signal Desktop θα διαγραφούν."
+    "messageformat": "Προσπαθείς να συνδέσεις έναν άλλο λογαριασμό Signal σε αυτόν τον υπολογιστή. Αν συνεχίσεις, όλα τα δεδομένα που υπάρχουν αυτή τη στιγμή στο Wren Desktop θα διαγραφούν."
   },
   "icu:Install__confirm-data-deletion__continue": {
     "messageformat": "Συνέχεια"
@@ -2235,7 +2235,7 @@
     "messageformat": "Με αυτή την ενέργεια, τα στοιχεία του λογαριασμού σου, το προφίλ σου και όλα σου τα μηνύματα θα διαγραφούν. Επιπλέον, θα αφαιρεθείς από όλες τις ομάδες Signal. Η εφαρμογή θα κλείσει αφού ολοκληρωθεί αυτή η διαδικασία."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "Υπάρχουν παρωχημένα δεδομένα από μια προηγούμενη εγκατάσταση του Signal Desktop. Αν επιλέξεις να συνεχίσεις, αυτά θα διαγραφούν και θα ξεκινήσεις από την αρχή."
+    "messageformat": "Υπάρχουν παρωχημένα δεδομένα από μια προηγούμενη εγκατάσταση του Wren Desktop. Αν επιλέξεις να συνεχίσεις, αυτά θα διαγραφούν και θα ξεκινήσεις από την αρχή."
   },
   "icu:deleteOldData": {
     "messageformat": "Διαγραφή παλαιών δεδομένων"
@@ -2292,7 +2292,7 @@
     "messageformat": "Διαγράφηκε μερικώς, πάτα για λεπτομέρειες"
   },
   "icu:expiredWarning": {
-    "messageformat": "Αυτή η έκδοση του Signal Desktop έχει λήξει. Αναβάθμισε στην πιο πρόσφατη έκδοση για να συνεχίσεις τις συνομιλίες σου."
+    "messageformat": "Αυτή η έκδοση του Wren Desktop έχει λήξει. Αναβάθμισε στην πιο πρόσφατη έκδοση για να συνεχίσεις τις συνομιλίες σου."
   },
   "icu:upgrade": {
     "messageformat": "Κλικ για μετάβαση στο signal.org/download"
@@ -2565,13 +2565,13 @@
     "messageformat": "Αδυναμία ενημέρωσης της ομάδας. Έλεγξε τη σύνδεσή σου και ξαναπροσπάθησε."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "Κάνε κλικ για επανασύνδεση του Signal Desktop με το κινητό σου για να συνεχίσεις να συνομιλείς."
+    "messageformat": "Κάνε κλικ για επανασύνδεση του Wren Desktop με το κινητό σου για να συνεχίσεις να συνομιλείς."
   },
   "icu:unlinked": {
     "messageformat": "Αποσυνδεμένο"
   },
   "icu:unregisteredWarning": {
-    "messageformat": "Πάτα για να κάνεις εκ νέου εγγραφή και να συνεχίσεις να στέλνεις μηνύματα. Το Signal Desktop δεν έχει καταχωρηθεί, πιθανώς επειδή καταχώρησες τον αριθμό τηλεφώνου σου στο Signal από άλλη συσκευή."
+    "messageformat": "Πάτα για να κάνεις εκ νέου εγγραφή και να συνεχίσεις να στέλνεις μηνύματα. Το Wren Desktop δεν έχει καταχωρηθεί, πιθανώς επειδή καταχώρησες τον αριθμό τηλεφώνου σου στο Signal από άλλη συσκευή."
   },
   "icu:unregistered": {
     "messageformat": "Δεν υπάρχει πλέον εγγραφή"
@@ -4065,7 +4065,7 @@
     "messageformat": "Άγνωστη έκδοση συνδέσμου"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Αυτός ο σύνδεσμος δεν υποστηρίζεται από αυτή την έκδοση του Signal Desktop"
+    "messageformat": "Αυτός ο σύνδεσμος δεν υποστηρίζεται από αυτή την έκδοση του Wren Desktop"
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "Αδυναμία εισόδου στην ομάδα"
@@ -4818,7 +4818,7 @@
     "messageformat": "Αυτό το άτομο δεν χρησιμοποιεί Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Το Signal Desktop δεν υποστηρίζει την αποστολή μηνυμάτων σε επαφές εκτός Signal. Ζήτα από αυτό το άτομο να εγκαταστήσει το Signal για μια πιο ασφαλή εμπειρία επικοινωνίας."
+    "messageformat": "Το Wren Desktop δεν υποστηρίζει την αποστολή μηνυμάτων σε επαφές εκτός Signal. Ζήτα από αυτό το άτομο να εγκαταστήσει το Signal για μια πιο ασφαλή εμπειρία επικοινωνίας."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "Έλεγχος της κατάστασης εγγραφής της επαφής"
@@ -7055,7 +7055,7 @@
     "messageformat": "Λήψη {currentBytes} από {totalBytes} ({percentage,number,percent})..."
   },
   "icu:InstallScreenUpdateDialog--update-required__body": {
-    "messageformat": "Για να συνεχίσεις, ενημέρωσε το Signal Desktop."
+    "messageformat": "Για να συνεχίσεις, ενημέρωσε το Wren Desktop."
   },
   "icu:InstallScreenUpdateDialog--update-required__action-update": {
     "messageformat": "Ενημέρωση"
@@ -7076,7 +7076,7 @@
     "messageformat": "Κάνε επανεκκίνηση για να εγκατασταθεί η ενημέρωση."
   },
   "icu:InstallScreenUpdateDialog--cannot-update__body": {
-    "messageformat": "Η ενημέρωση του Signal Desktop απέτυχε, αλλά υπάρχει διαθέσιμη νέα έκδοση. Πήγαινε στο {downloadUrl} και κάνε εγκατάσταση της νέας έκδοσης με μη αυτόματο τρόπο και, στη συνέχεια, επικοινώνησε με την υποστήριξη ή γράψε το σφάλμα σχετικά με αυτό το πρόβλημα."
+    "messageformat": "Η ενημέρωση του Wren Desktop απέτυχε, αλλά υπάρχει διαθέσιμη νέα έκδοση. Πήγαινε στο {downloadUrl} και κάνε εγκατάσταση της νέας έκδοσης με μη αυτόματο τρόπο και, στη συνέχεια, επικοινώνησε με την υποστήριξη ή γράψε το σφάλμα σχετικά με αυτό το πρόβλημα."
   },
   "icu:StandaloneRegistration--signal-logo": {
     "messageformat": "Λογότυπο Signal"
@@ -9060,7 +9060,7 @@
     "messageformat": "Διαγραφή όλων των δεδομένων;"
   },
   "icu:DeleteDataAndRelinkConfirmationDialog__body": {
-    "messageformat": "Όλα τα τρέχοντα δεδομένα στο Signal Desktop θα διαγραφούν. Στη συνέχεια, μπορείς να σαρώσεις έναν κωδικό QR και να μεταφέρεις το ιστορικό των μηνυμάτων σου από το κινητό σου."
+    "messageformat": "Όλα τα τρέχοντα δεδομένα στο Wren Desktop θα διαγραφούν. Στη συνέχεια, μπορείς να σαρώσεις έναν κωδικό QR και να μεταφέρεις το ιστορικό των μηνυμάτων σου από το κινητό σου."
   },
   "icu:WhatsNew__bugfixes": {
     "messageformat": "Αυτή η έκδοση περιλαμβάνει διάφορες μικρές βελτιώσεις και αποσφαλματώσεις για να συνεχίσει το Signal να λειτουργεί ομαλά.",

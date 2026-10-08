@@ -825,7 +825,7 @@
     "messageformat": "स्टिकर पॅक उत्पादक"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "Signal Desktop बद्दल"
+    "messageformat": "Wren Desktop बद्दल"
   },
   "icu:screenShareWindow": {
     "messageformat": "स्क्रीन सामायिक करत आहे"
@@ -843,7 +843,7 @@
     "messageformat": "बंद करा"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "शोध"
@@ -987,13 +987,13 @@
     "messageformat": "आपण"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "व्हॉईस संदेश पाठविण्यासाठी, Signal Desktop ला आपला मायक्रोफोन अ‍ॅक्सेस करण्याची अनुमती द्या."
+    "messageformat": "व्हॉईस संदेश पाठविण्यासाठी, Wren Desktop ला आपला मायक्रोफोन अ‍ॅक्सेस करण्याची अनुमती द्या."
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "कॉलिंग साठी, Signal Desktop ला आपला मायक्रोफोन अॅक्सेस करण्याची अनुमती द्या."
+    "messageformat": "कॉलिंग साठी, Wren Desktop ला आपला मायक्रोफोन अॅक्सेस करण्याची अनुमती द्या."
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "व्हिडिओ कॉलिंग साठी, Signal Desktop ला आपला कॅमेरा अॅक्सेस करण्याची अनुमती द्या."
+    "messageformat": "व्हिडिओ कॉलिंग साठी, Wren Desktop ला आपला कॅमेरा अॅक्सेस करण्याची अनुमती द्या."
   },
   "icu:allowAccess": {
     "messageformat": "अॅक्सेस अनुमती द्या"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal अद्यतनित होऊ शकत नाही. हस्तचलित पद्धतीने इन्स्टॉल करण्यासाठी {url} ला भेट द्या. नंतर, या समस्येसाठी <contactSupportLink>सपोर्ट शी संपर्क</contactSupportLink> साधा"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop हे कदाचित macOS क्वॉरंटाईन मध्ये आहे, आणि स्वयं-अद्यतन करू शकणार नाही. कृपया{folder}यासोबत फाईंडरने {app}वर हलविण्याचा प्रयत्न करा."
+    "messageformat": "Wren Desktop हे कदाचित macOS क्वॉरंटाईन मध्ये आहे, आणि स्वयं-अद्यतन करू शकणार नाही. कृपया{folder}यासोबत फाईंडरने {app}वर हलविण्याचा प्रयत्न करा."
   },
   "icu:ok": {
     "messageformat": "ठीक"
@@ -2214,7 +2214,7 @@
     "messageformat": "सर्व डेटा हटवायचा?"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "Signal Desktop च्या या आवृत्तीमधील सर्व डेटा आणि संदेश हटवायचे? आपले Signal खाते आणि आपल्या फोनवरील डेटा किंवा इतर लिंंक केलेली डिव्हाइसेस हटवले जाणार नाहीत."
+    "messageformat": "Wren Desktop च्या या आवृत्तीमधील सर्व डेटा आणि संदेश हटवायचे? आपले Signal खाते आणि आपल्या फोनवरील डेटा किंवा इतर लिंंक केलेली डिव्हाइसेस हटवले जाणार नाहीत."
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "डिस्कनेक्ट करत आहे आणि सर्व डेटा हटवत आहे…"
@@ -2235,7 +2235,7 @@
     "messageformat": "यामुळे तुमच्या खात्याची माहिती, प्रोफाईल आणि तुमचे सगळे संदेश हटवले जातील. तुम्ही Signal च्या सगळ्या गटांमधूनही बाहेर काढले जाल. ही प्रक्रिया पूर्ण झाल्यानंतर ॲप बंद होईल."
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "आपल्याजवळ Signal Desktop च्या मागील स्थापनेचा कालबाह्य डेटा आहे. सुरू ठेवणे निवडल्यास, तो हटवला जाईल आणि आपण सुरुवातीपासून सुरुवात कराल."
+    "messageformat": "आपल्याजवळ Wren Desktop च्या मागील स्थापनेचा कालबाह्य डेटा आहे. सुरू ठेवणे निवडल्यास, तो हटवला जाईल आणि आपण सुरुवातीपासून सुरुवात कराल."
   },
   "icu:deleteOldData": {
     "messageformat": "जुना डेटा हटवा"
@@ -2292,7 +2292,7 @@
     "messageformat": "अंशतः हटवले, तपशील पाहण्यासाठी क्लिक करा"
   },
   "icu:expiredWarning": {
-    "messageformat": "Signal Desktop ची ही आवृत्ती कालबाह्य झाली आहे. संदेशन सुरू ठेवण्यासाठी कृपया नवीनतम आवृत्तीवर श्रेणीसुधारित करा."
+    "messageformat": "Wren Desktop ची ही आवृत्ती कालबाह्य झाली आहे. संदेशन सुरू ठेवण्यासाठी कृपया नवीनतम आवृत्तीवर श्रेणीसुधारित करा."
   },
   "icu:upgrade": {
     "messageformat": "signal.org/download वर जाण्यासाठी क्लिक करा"
@@ -2565,7 +2565,7 @@
     "messageformat": "गट अद्यतनित करण्यात अयशस्वी झाले. आपले कनेक्शन तपासा आणि पुन्हा प्रयत्न करा."
   },
   "icu:unlinkedWarning": {
-    "messageformat": "संदेश पाठवणे चालू ठेवण्यासाठी तुमच्या मोबाईल डिव्हाइसशी Signal Desktop पुन्हा लिंक करण्यासाठी क्लिक करा"
+    "messageformat": "संदेश पाठवणे चालू ठेवण्यासाठी तुमच्या मोबाईल डिव्हाइसशी Wren Desktop पुन्हा लिंक करण्यासाठी क्लिक करा"
   },
   "icu:unlinked": {
     "messageformat": "अनलिंक केले"
@@ -4065,7 +4065,7 @@
     "messageformat": "अज्ञात दुवा आवृत्ती"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "हा दुवा Signal Desktop ची या आवृत्तीद्वारे समर्थित नाही."
+    "messageformat": "हा दुवा Wren Desktop ची या आवृत्तीद्वारे समर्थित नाही."
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "गटात सामील होऊ शकत नाही"
@@ -4818,7 +4818,7 @@
     "messageformat": "हा व्यक्ती Signal वापरत नाही"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop हे Signal वर नसलेल्या संपर्कांना संदेश पाठवण्याचे समर्थन करत नाही. अधिक सुरक्षित संदेशन अनुभवासाठी या व्यक्तीला Signal स्थापन करण्यास विचारा."
+    "messageformat": "Wren Desktop हे Signal वर नसलेल्या संपर्कांना संदेश पाठवण्याचे समर्थन करत नाही. अधिक सुरक्षित संदेशन अनुभवासाठी या व्यक्तीला Signal स्थापन करण्यास विचारा."
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "संपर्काची नोंदणी स्थिती तपासत आहे"

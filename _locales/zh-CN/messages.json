@@ -825,7 +825,7 @@
     "messageformat": "表情包创建器"
   },
   "icu:aboutSignalDesktop": {
-    "messageformat": "关于 Signal Desktop"
+    "messageformat": "关于 Wren Desktop"
   },
   "icu:screenShareWindow": {
     "messageformat": "屏幕共享"
@@ -843,7 +843,7 @@
     "messageformat": "退出"
   },
   "icu:signalDesktop": {
-    "messageformat": "Signal Desktop"
+    "messageformat": "Wren Desktop"
   },
   "icu:search": {
     "messageformat": "搜索"
@@ -987,13 +987,13 @@
     "messageformat": "您"
   },
   "icu:audioPermissionNeeded": {
-    "messageformat": "发送语音消息前，请先允许 Signal Desktop 访问您的麦克风。"
+    "messageformat": "发送语音消息前，请先允许 Wren Desktop 访问您的麦克风。"
   },
   "icu:audioCallingPermissionNeeded": {
-    "messageformat": "为了呼叫，您必须允许 Signal Desktop 访问麦克风。"
+    "messageformat": "为了呼叫，您必须允许 Wren Desktop 访问麦克风。"
   },
   "icu:videoCallingPermissionNeeded": {
-    "messageformat": "为了视频呼叫，您必须允许 Signal Desktop 访问摄像头。"
+    "messageformat": "为了视频呼叫，您必须允许 Wren Desktop 访问摄像头。"
   },
   "icu:allowAccess": {
     "messageformat": "允许访问"
@@ -1026,7 +1026,7 @@
     "messageformat": "Signal 无法更新。请访问 {url} 以进行手动安装，然后<contactSupportLink>联系支持团队</contactSupportLink>反映此问题"
   },
   "icu:readOnlyVolume": {
-    "messageformat": "Signal Desktop 可能在 macOS 隔离区，无法自动升级。请用 Finder 移动{app}应用至{folder}。"
+    "messageformat": "Wren Desktop 可能在 macOS 隔离区，无法自动升级。请用 Finder 移动{app}应用至{folder}。"
   },
   "icu:ok": {
     "messageformat": "好"
@@ -2214,7 +2214,7 @@
     "messageformat": "是否删除所有数据？"
   },
   "icu:deleteAllDataBody": {
-    "messageformat": "要删除此版 Signal Desktop 中的所有数据和消息吗？您的 Signal 账户和您手机或其他已链接设备上的数据不会被删除。"
+    "messageformat": "要删除此版 Wren Desktop 中的所有数据和消息吗？您的 Signal 账户和您手机或其他已链接设备上的数据不会被删除。"
   },
   "icu:deleteAllDataProgress": {
     "messageformat": "正在断开连接并删除所有数据…"
@@ -2235,7 +2235,7 @@
     "messageformat": "这将会删除您的账户信息、个人资料以及全部消息。您也将会被移出所有 Signal 群组。Signal 应用将会在此流程完成后关闭。"
   },
   "icu:deleteOldIndexedDBData": {
-    "messageformat": "您先前安装的 Signal Desktop 中有旧的数据。如果选择继续，它将被删除，并且您将从头开始。"
+    "messageformat": "您先前安装的 Wren Desktop 中有旧的数据。如果选择继续，它将被删除，并且您将从头开始。"
   },
   "icu:deleteOldData": {
     "messageformat": "删除旧数据"
@@ -2292,7 +2292,7 @@
     "messageformat": "已部分删除，点击查看详情"
   },
   "icu:expiredWarning": {
-    "messageformat": "此版本的 Signal Desktop 已过期，请升级到最新版本以继续发送消息。"
+    "messageformat": "此版本的 Wren Desktop 已过期，请升级到最新版本以继续发送消息。"
   },
   "icu:upgrade": {
     "messageformat": "点击前往 signal.org/download"
@@ -2565,7 +2565,7 @@
     "messageformat": "无法升级该群组，请检查连接并重试。"
   },
   "icu:unlinkedWarning": {
-    "messageformat": "点击将 Signal Desktop 与您的移动设备重新关联，以便继续收发消息。"
+    "messageformat": "点击将 Wren Desktop 与您的移动设备重新关联，以便继续收发消息。"
   },
   "icu:unlinked": {
     "messageformat": "未连接"
@@ -4065,7 +4065,7 @@
     "messageformat": "未知链接版本"
   },
   "icu:GroupV2--join--unknown-link-version": {
-    "messageformat": "Signal Desktop 这个版本不支持该链接。"
+    "messageformat": "Wren Desktop 这个版本不支持该链接。"
   },
   "icu:GroupV2--join--link-revoked--title": {
     "messageformat": "无法加入群组"
@@ -4818,7 +4818,7 @@
     "messageformat": "此人未使用 Signal"
   },
   "icu:CompositionArea--sms-only__body": {
-    "messageformat": "Signal Desktop 不支持向非 Signal 联系人发送消息。请此人安装 Signal，以体验更安全的通信。"
+    "messageformat": "Wren Desktop 不支持向非 Signal 联系人发送消息。请此人安装 Signal，以体验更安全的通信。"
   },
   "icu:CompositionArea--sms-only__spinner-label": {
     "messageformat": "正在检查联系人的注册状态"
