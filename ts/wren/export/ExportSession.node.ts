@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 import { constants as fsConstants, createWriteStream } from 'node:fs';
+import type { WriteStream } from 'node:fs';
 import { copyFile, mkdir, open, rm, stat } from 'node:fs/promises';
 import type { FileHandle } from 'node:fs/promises';
 import { isAbsolute, join, normalize } from 'node:path';
@@ -219,6 +220,7 @@ export class ChatExportSession {
       return markMissing();
     }
 
+    let sink: WriteStream | undefined;
     try {
       if (!this.#mediaDirCreated) {
         await mkdir(mediaDir, { recursive: true });
@@ -229,6 +231,7 @@ export class ChatExportSession {
         if (source.localKey == null || source.size == null) {
           return markMissing();
         }
+        sink = createWriteStream(targetPath, { flags: 'wx' });
         await decryptAttachmentV2ToSink(
           {
             type: 'local',
@@ -237,13 +240,21 @@ export class ChatExportSession {
             size: source.size,
             idForLogging: `wren-export(${messageId})`,
           },
-          createWriteStream(targetPath, { flags: 'wx' })
+          sink
         );
       } else {
         await copyFile(sourcePath, targetPath, fsConstants.COPYFILE_EXCL);
       }
       return exportable;
     } catch {
+      // Windows keeps the file open until the stream closes, so rm fails or races it.
+      if (sink != null && !sink.closed) {
+        const closed = new Promise<void>(resolve => {
+          sink?.once('close', () => resolve());
+        });
+        sink.destroy();
+        await closed;
+      }
       await rm(targetPath, { force: true }).catch(() => undefined);
       return markMissing();
     }

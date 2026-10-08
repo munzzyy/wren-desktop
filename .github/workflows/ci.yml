@@ -48,11 +48,11 @@ jobs:
       - name: Lint intl
         run: pnpm run lint-intl
 
-      - name: Run node tests
-        run: xvfb-run --auto-servernum pnpm run test-node
-
       - name: Allow the Electron sandbox on Ubuntu 24.04
         run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Run node tests
+        run: xvfb-run --auto-servernum pnpm run test-node
 
       - name: Create preload cache
         run: xvfb-run --auto-servernum pnpm run build:preload-cache
@@ -90,13 +90,13 @@ jobs:
       - name: Run generate
         run: pnpm run generate
 
-      - name: Check TypeScript
-        run: pnpm run check:types
+      - name: Run node tests
+        run: pnpm run test-node
 
   macos:
     name: macOS
     runs-on: macos-latest
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    if: github.event.repository.private == false
     timeout-minutes: 30
     steps:
       - name: Checkout code
