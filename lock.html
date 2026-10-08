@@ -1,0 +1,201 @@
+<!-- Copyright 2026 Cole Munz -->
+<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+
+<!doctype html>
+<html>
+  <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none';
+            frame-src 'none';
+            form-action 'none';
+            font-src 'self';
+            img-src 'self';
+            object-src 'none';
+            script-src 'self';
+            style-src 'self' 'unsafe-inline';"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #fafafa;
+        --fg: #1b1b1b;
+        --muted: #5e5e5e;
+        --field: #ffffff;
+        --border: #d6d6d6;
+        --accent: #0f3d3e;
+        --accent-fg: #f2ede4;
+        --error: #c4122f;
+      }
+      :root.dark {
+        color-scheme: dark;
+        --bg: #191919;
+        --fg: #e9e9e9;
+        --muted: #a8a8a8;
+        --field: #262626;
+        --border: #3d3d3d;
+        --accent: #3f8f8c;
+        --accent-fg: #0b1d1d;
+        --error: #ff6b81;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family:
+          Inter,
+          -apple-system,
+          'Segoe UI',
+          system-ui,
+          sans-serif;
+        font-size: 14px;
+        user-select: none;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 32px;
+        gap: 12px;
+      }
+      main[hidden] {
+        display: none;
+      }
+      img {
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
+        margin-bottom: 8px;
+      }
+      h1 {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+        text-align: center;
+        line-height: 1.4;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      input {
+        width: 100%;
+        height: 40px;
+        padding: 0 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--field);
+        color: var(--fg);
+        font: inherit;
+        outline: none;
+      }
+      input:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent);
+      }
+      button {
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        background: var(--accent);
+        color: var(--accent-fg);
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      button:disabled {
+        opacity: 0.7;
+        cursor: default;
+      }
+      .spinner {
+        display: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid currentColor;
+        border-right-color: transparent;
+        animation: spin 0.8s linear infinite;
+      }
+      form.busy .spinner {
+        display: inline-block;
+      }
+      #status {
+        min-height: 2.8em;
+        color: var(--error);
+        font-size: 13px;
+      }
+      form.shake {
+        animation: shake 0.4s ease-in-out;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20%,
+        60% {
+          transform: translateX(-8px);
+        }
+        40%,
+        80% {
+          transform: translateX(8px);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        form.shake {
+          animation: none;
+        }
+        .spinner {
+          animation-duration: 2s;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="root" hidden>
+      <img src="images/signal-logo.svg" alt="" />
+      <h1 id="title"></h1>
+      <p id="prompt"></p>
+      <form id="form" autocomplete="off">
+        <input
+          id="passphrase"
+          type="password"
+          autocomplete="current-password"
+          spellcheck="false"
+          required
+        />
+        <button id="submit" type="submit">
+          <span class="spinner" aria-hidden="true"></span>
+          <span id="submit-label"></span>
+        </button>
+        <p id="status" role="status" aria-live="polite"></p>
+      </form>
+    </main>
+    <script type="module" src="bundles/dom/lock.js"></script>
+  </body>
+</html>

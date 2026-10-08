@@ -49,6 +49,7 @@ const sandboxPreload = {
   'preload/permissions': 'ts/windows/permissions/preload.preload.ts',
   'preload/screenShare': 'ts/windows/screenShare/preload.preload.ts',
   'preload/sticker-creator': 'ts/windows/sticker-creator/preload.preload.ts',
+  'preload/lock': 'ts/wren/lock/window/preload.preload.ts',
 };
 
 const sandboxDOM = {
@@ -59,6 +60,7 @@ const sandboxDOM = {
   'dom/pdf': 'ts/windows/pdf/app.dom.tsx',
   'dom/permissions': 'ts/windows/permissions/app.dom.tsx',
   'dom/screenShare': 'ts/windows/screenShare/app.dom.tsx',
+  'dom/lock': 'ts/wren/lock/window/start.dom.ts',
 };
 
 const defaults = {

@@ -16,6 +16,7 @@ export type MenuOptionsType = Readonly<{
 
 export type MenuActionsType = Readonly<{
   forceUpdate: () => unknown;
+  lockApp: () => unknown;
   openArtCreator: () => unknown;
   openContactUs: () => unknown;
   openForums: () => unknown;

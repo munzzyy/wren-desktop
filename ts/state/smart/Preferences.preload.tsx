@@ -80,6 +80,7 @@ import {
 } from '../selectors/nav.std.ts';
 import { getPreferredBadgeSelector } from '../selectors/badges.preload.ts';
 import { SmartProfileEditor } from './ProfileEditor.preload.tsx';
+import { SmartWrenLockSettings } from '../../wren/lock/SmartWrenLockSettings.preload.tsx';
 import { useNavActions } from '../ducks/nav.std.ts';
 import { NavTab } from '../../types/Nav.std.ts';
 import { renderToastManagerWithoutMegaphone } from './ToastManager.preload.tsx';
@@ -174,6 +175,10 @@ function renderNotificationProfilesCreateFlow(
 
 function renderProfileEditor(): JSX.Element {
   return <SmartProfileEditor />;
+}
+
+function renderWrenLockSettings(): JSX.Element {
+  return <SmartWrenLockSettings />;
 }
 
 function renderDonationsPane({
@@ -1216,6 +1221,7 @@ export function SmartPreferences(): JSX.Element | null {
           renderNotificationProfilesCreateFlow
         }
         renderProfileEditor={renderProfileEditor}
+        renderWrenLockSettings={renderWrenLockSettings}
         renderToastManager={renderToastManagerWithoutMegaphone}
         renderUpdateDialog={renderUpdateDialog}
         renderPreferencesChatFoldersPage={renderPreferencesChatFoldersPage}

@@ -143,6 +143,7 @@ import { getAppRootDir } from '../ts/util/appRootDir.main.ts';
 import { trackHeapSize } from '../ts/util/oomNotifier.node.ts';
 import { sendDummyKeystroke } from './WindowsNotifications.main.ts';
 import { maybeMigrateSafeStorageBackend } from '../ts/util/linuxPasswordStoreMigration.main.ts';
+import { LockController } from '../ts/wren/lock/lockController.main.ts';
 
 const { chmod, realpath, writeFile } = fsExtra;
 const { get, pick, isNumber, isBoolean, some, debounce, noop } = lodash;
@@ -268,6 +269,8 @@ if (!gotLock) {
     if (OS.isWindows()) {
       sendDummyKeystroke();
     }
+
+    wrenLock.focusLockWindow();
 
     // Someone tried to run a second instance, we should focus our window
     if (mainWindow) {
@@ -685,6 +688,19 @@ async function safeLoadURL(window: BrowserWindow, url: string): Promise<void> {
     }
   }
 }
+
+const wrenLock = new LockController({
+  config: userConfig,
+  log,
+  rootDir,
+  windowIcon,
+  devTools: defaultWebPrefs.devTools,
+  getI18n: () => getResolvedMessagesLocale().i18n,
+  getTheme: () => getResolvedThemeSetting({ ephemeralOnly: true }),
+  getSqlKeyFromKeychain: () => getSQLKey(),
+  relaunch: appRelaunch,
+  loadURL: safeLoadURL,
+});
 
 async function createWindow() {
   const primaryDisplay = screen.getPrimaryDisplay();
@@ -1724,6 +1740,10 @@ function generateSQLKey(): string {
 }
 
 function getSQLKey(): string {
+  if (wrenLock.isEnabled()) {
+    throw new Error('getSQLKey: the passphrase lock holds the key');
+  }
+
   let update = false;
   const isLinux = OS.isLinux();
   const legacyKeyValue = userConfig.get('key');
@@ -1871,13 +1891,14 @@ function handleSafeStorageDecryptionError(): 'continue' | 'quit' {
 }
 
 async function initializeSQL(
-  userDataPath: string
+  userDataPath: string,
+  unlockedKey: string | undefined
 ): Promise<{ ok: true; error: undefined } | { ok: false; error: Error }> {
   sqlInitTimeStart = Date.now();
 
   let key: string;
   try {
-    key = getSQLKey();
+    key = unlockedKey ?? getSQLKey();
   } catch (error) {
     try {
       // Initialize with *some* key to setup paths
@@ -2230,7 +2251,12 @@ app.on('ready', async () => {
 
   resolveTranslationsLocale();
 
-  sqlInitPromise = initializeSQL(userDataPath);
+  const unlockedKey = wrenLock.isEnabled()
+    ? await wrenLock.waitForUnlock(userDataPath)
+    : undefined;
+  wrenLock.installSettingsHandlers();
+
+  sqlInitPromise = initializeSQL(userDataPath, unlockedKey);
 
   // First run: configure Signal to minimize to tray. Additionally, on Windows
   // enable auto-start with start-in-tray so that starting from a Desktop icon
@@ -2478,6 +2504,7 @@ app.on('ready', async () => {
   ready = true;
 
   setupMenu();
+  wrenLock.startAutoLock();
 
   systemTrayService = new SystemTrayService({
     i18n: getResolvedMessagesLocale().i18n,
@@ -2514,6 +2541,7 @@ function setupMenu(options?: Partial<CreateTemplateOptionsType>) {
 
     // actions
     forceUpdate,
+    lockApp: () => wrenLock.lockFromMenu(),
     openArtCreator,
     openContactUs,
     openForums,

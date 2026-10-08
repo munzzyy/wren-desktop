@@ -35,6 +35,7 @@ const config = {
         'ts/windows/permissions/preload.preload.ts!',
         'ts/windows/screenShare/preload.preload.ts!',
         'ts/windows/sticker-creator/preload.preload.ts!',
+        'ts/wren/lock/window/preload.preload.ts!',
         // DOM
         'ts/windows/about/app.dom.tsx!',
         'ts/windows/calldiagnostic/app.dom.tsx!',
@@ -43,6 +44,7 @@ const config = {
         'ts/windows/pdf/app.dom.tsx!',
         'ts/windows/permissions/app.dom.tsx!',
         'ts/windows/screenShare/app.dom.tsx!',
+        'ts/wren/lock/window/start.dom.ts!',
         // Others
         'codemods/**/*.mjs',
         'scripts/**/*.mjs',
