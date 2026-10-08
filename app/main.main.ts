@@ -75,6 +75,7 @@ import * as userConfig from './user_config.main.ts';
 //   data directory has been set.
 import * as attachments from './attachments.node.ts';
 import * as attachmentChannel from './attachment_channel.main.ts';
+import * as wrenExport from './wren_export.main.ts';
 import * as bounce from '../ts/services/bounce.main.ts';
 import * as updater from '../ts/updater/index.main.ts';
 import { updateDefaultSession } from './updateDefaultSession.main.ts';
@@ -2437,6 +2438,7 @@ app.on('ready', async () => {
     sql,
     configDir: userDataPath,
   });
+  wrenExport.initialize({ configDir: userDataPath });
   sqlChannels.initialize(sql);
   PowerChannel.initialize({
     send(event) {
