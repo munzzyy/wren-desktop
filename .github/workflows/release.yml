@@ -1,0 +1,116 @@
+# Copyright 2026 Cole Munz
+# SPDX-License-Identifier: AGPL-3.0-only
+
+name: Release
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - name: linux
+            os: ubuntu-24.04
+            apt: libpulse0
+            files: |
+              release/*.deb
+              release/*.AppImage
+          - name: windows
+            os: windows-latest
+            apt: ''
+            files: |
+              release/*.exe
+          - name: macos
+            os: macos-latest
+            apt: ''
+            files: |
+              release/*.dmg
+              release/*.zip
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup environment
+        uses: ./.github/actions/setup
+        with:
+          apt-packages: ${{ matrix.apt }}
+          cache-electron-builder: true
+
+      - name: Run generate
+        run: pnpm run generate
+
+      - name: Build
+        run: pnpm run build:release --publish=never
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+          SKIP_SIGNING_SCRIPT: ${{ matrix.name == 'macos' && '1' || '' }}
+
+      - name: Upload installers
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: dist-${{ matrix.name }}
+          path: ${{ matrix.files }}
+          if-no-files-found: error
+
+  draft:
+    name: Draft release
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write # to create the draft release and attach the files
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+      TAG: ${{ github.ref_name }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Download installers
+        uses: actions/download-artifact@v4
+        with:
+          pattern: dist-*
+          merge-multiple: true
+          path: dist
+
+      - name: Write checksums and release notes
+        run: |
+          (cd dist && sha256sum -- * > SHA256SUMS)
+          base=$(jq -r .version package.json)
+          expires=$(date -u -d '+90 days' +%Y-%m-%d)
+          {
+            echo "Wren Desktop $TAG, built on Signal Desktop $base."
+            echo
+            echo "These builds are not signed. Windows SmartScreen and macOS Gatekeeper will warn you, and your Linux desktop has nothing to verify them against. Check the SHA-256 sums below against the file you downloaded before you run it."
+            echo
+            echo "Like Signal Desktop, this build stops working about 90 days after it was built, around $expires. Update before then. Wren Desktop does not update itself."
+            echo
+            echo "SHA-256:"
+            echo
+            echo '```'
+            cat dist/SHA256SUMS
+            echo '```'
+          } > release-notes.md
+          cat release-notes.md
+
+      - name: Create the draft release
+        run: |
+          gh release create "$TAG" --draft --verify-tag \
+            --title "Wren Desktop $TAG" \
+            --notes-file release-notes.md \
+            dist/*

@@ -1,23 +1,11 @@
-# Copyright 2021 Signal Messenger, LLC
+# Copyright 2026 Cole Munz
 # SPDX-License-Identifier: AGPL-3.0-only
 
 blank_issues_enabled: false
 contact_links:
-  - name: ✨ Feature request
-    url: https://community.signalusers.org/c/feature-requests/
-    about: Missing something in Signal? Let us know.
-  - name: 📚 Translation feedback
-    url: https://community.signalusers.org/c/translation-feedback/
-    about: Share feedback on translations
-  - name: 📃 User documentation
-    url: https://support.signal.org/
-    about: Search for any questions you have about Signal
-  - name: 💬 Community support
+  - name: Security problem
+    url: https://github.com/munzzyy/wren-desktop/blob/main/SECURITY.md
+    about: Email me, do not open a public issue.
+  - name: Problem with Signal itself
     url: https://community.signalusers.org/c/support/
-    about: Feel free to ask anything
-  - name: 📖 Contribution instructions
-    url: https://github.com/signalapp/Signal-Desktop/blob/main/CONTRIBUTING.md
-    about: Want to contribute to Signal Desktop? Start here.
-  - name: ❓ Other issue?
-    url: https://community.signalusers.org/
-    about: Search on the community forums
+    about: Account, registration and server problems belong with Signal.

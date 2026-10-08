@@ -5,34 +5,18 @@ body:
   - type: markdown
     attributes:
       value: |
-        Our bug tracker is ONLY for bugs. It is not for feature requests, questions, or comments.
+        This tracker is for bugs in Wren Desktop. Questions and feature ideas are welcome too, but a bug report needs a description of what happened and the debug log.
 
-        Please try these locations if you have a question or comment:
-        
-          https://community.signalusers.org/
-          http://support.signal.org/
-          support@signal.org
-        
-        Please fill out this template with all the information you have. We can't do much without
-        both the logs and a detailed description of what you've encountered. Please do your best!
   - type: checkboxes
     id: supported-version-and-no-duplicates
     attributes:
       label: "Using a supported version?"
-      description: "Search issues here: https://github.com/signalapp/Signal-Desktop/issues"
+      description: "Search issues here: https://github.com/munzzyy/wren-desktop/issues"
       options:
         - label: I have searched open and closed issues for duplicates.
           required: true
-        - label: I am using Signal-Desktop as provided by the Signal team, not a 3rd-party package.
+        - label: I am using a build from the Wren Desktop releases page, not a 3rd-party package.
           required: true
-  - type: markdown
-    attributes:
-      value: |
-        If you're using a 3rd-party package, please report it to them first.
-        For Flatpak: https://github.com/flathub/org.signal.Signal/issues
-        For Snap: https://github.com/snapcrafters/signal-desktop/issues
-        For Arch Linux: https://aur.archlinux.org/packages/signal-desktop-beta/
-        etc.
   - type: textarea
     id: description-of-bug
     attributes:
