@@ -1,0 +1,86 @@
+# Copyright 2026 Cole Munz
+# SPDX-License-Identifier: AGPL-3.0-only
+
+name: Sync Upstream
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions: {}
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+env:
+  SIGNAL_URL: https://github.com/signalapp/Signal-Desktop.git
+  SIGNAL_REPO: signalapp/Signal-Desktop
+  LABEL: upstream-merge
+
+jobs:
+  track:
+    name: Tracking issue
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write # to open, update or close the tracking issue
+    env:
+      GH_REPO: ${{ github.repository }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Find the newest Signal Desktop tag
+        id: newest
+        run: |
+          current=$(jq -r .version package.json)
+          rc=0
+          tag=$(git ls-remote --tags --refs "$SIGNAL_URL" 'v*' | python3 tools/latest-signal-tag.py --current "$current") || rc=$?
+          if [ "$rc" -ne 0 ] && [ "$rc" -ne 3 ]; then
+            echo "::error::could not read the Signal Desktop tags"
+            exit 1
+          fi
+          {
+            echo "current=$current"
+            echo "tag=$tag"
+            echo "behind=$([ "$rc" -eq 0 ] && echo yes || echo no)"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Write the issue text
+        if: steps.newest.outputs.behind == 'yes'
+        env:
+          CURRENT: ${{ steps.newest.outputs.current }}
+          TAG: ${{ steps.newest.outputs.tag }}
+        run: |
+          date=$(gh api "repos/$SIGNAL_REPO/commits/$TAG" --jq '.commit.committer.date[:10]')
+          {
+            echo "Signal Desktop \`$TAG\` is out, tagged on $date."
+            echo "Wren Desktop is on \`v$CURRENT\`."
+            echo
+            echo "Compare: https://github.com/$SIGNAL_REPO/compare/v$CURRENT...$TAG"
+            echo
+            echo "To merge: run \`tools/merge-upstream.sh\` on a clean checkout of main."
+          } | tee issue-body.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open, update or close the issue
+        env:
+          TAG: ${{ steps.newest.outputs.tag }}
+          BEHIND: ${{ steps.newest.outputs.behind }}
+        run: |
+          gh label create "$LABEL" --color 1d76db --description "Signal Desktop has a release Wren Desktop has not merged" --force
+          number=$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number // empty')
+          if [ "$BEHIND" = no ]; then
+            if [ -n "$number" ]; then
+              gh issue close "$number" --comment "Wren Desktop has caught up with Signal Desktop $TAG."
+            fi
+            exit 0
+          fi
+          title="Merge Signal Desktop $TAG"
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --title "$title" --body-file issue-body.md
+          else
+            gh issue create --title "$title" --body-file issue-body.md --label "$LABEL"
+          fi
