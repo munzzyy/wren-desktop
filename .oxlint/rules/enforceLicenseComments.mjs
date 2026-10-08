@@ -3,7 +3,8 @@
 // @ts-check
 import { ESLintUtils } from '@typescript-eslint/utils';
 
-const COMMENT_LINE_1_EXACT = /^ Copyright \d{4} Signal Messenger, LLC$/;
+const COMMENT_LINE_1_EXACT =
+  /^ Copyright \d{4} (?:Signal Messenger, LLC|Cole Munz)$/;
 const COMMENT_LINE_2_EXACT = /^ SPDX-License-Identifier: AGPL-3.0-only$/;
 
 const COMMENT_LINE_1_LOOSE = /Copyright (\d{4}) Signal Messenger, LLC/;
