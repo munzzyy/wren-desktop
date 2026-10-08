@@ -1,7 +1,7 @@
 // Copyright 2026 Cole Munz
 // SPDX-License-Identifier: AGPL-3.0-only
 
-export const REPLACEMENT_CHARACTER = String.fromCodePoint(0xfffd);
+const REPLACEMENT_CHARACTER = String.fromCodePoint(0xfffd);
 
 // Terminal controls and the bidi marks that can reorder what a reader sees:
 // C0 except tab and newline, DEL, C1, LRM/RLM, the embeddings and overrides,

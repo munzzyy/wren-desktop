@@ -205,9 +205,14 @@ export class LockController {
 
   installSettingsHandlers(): void {
     const { log, isMainWindowSender } = this.#options;
-    const fromMainWindow = (event: IpcMainInvokeEvent | IpcMainEvent) =>
-      isMainWindowSender(event.sender) &&
-      event.senderFrame === event.sender.mainFrame;
+    const fromMainWindow = (event: IpcMainInvokeEvent | IpcMainEvent) => {
+      const frame = event.senderFrame;
+      return (
+        isMainWindowSender(event.sender) &&
+        frame != null &&
+        frame.parent == null
+      );
+    };
 
     const handle = (
       channel: string,

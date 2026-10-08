@@ -1022,7 +1022,13 @@ let logger = sqlLogger;
 let databaseFilePath: string | undefined;
 let indexedDBPath: string | undefined;
 
+// Wren: a key probe that fails is expected, not worth a warning.
+let isProbingKey = false;
+
 setSqliteLogger((code, message) => {
+  if (isProbingKey && code === 'SQLITE_NOTADB') {
+    return;
+  }
   if (code === 'SQLITE_SCHEMA') {
     // Ignore query recompilation due to schema changes
     return;
@@ -1036,6 +1042,7 @@ setSqliteLogger((code, message) => {
 
 function opensWithKey(filePath: string, key: string): boolean {
   const db = new SQL(filePath) as WritableDB;
+  isProbingKey = true;
   try {
     keyDatabase(db, key);
     db.prepare('SELECT count(*) FROM sqlite_master').get();
@@ -1043,6 +1050,7 @@ function opensWithKey(filePath: string, key: string): boolean {
   } catch {
     return false;
   } finally {
+    isProbingKey = false;
     db.close();
   }
 }

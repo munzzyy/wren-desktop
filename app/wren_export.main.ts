@@ -195,9 +195,11 @@ export function initialize({
   exportConfig = config;
 
   const assertFromMainWindow = (event: IpcMainInvokeEvent): void => {
+    const frame = event.senderFrame;
     if (
       !isMainWindowSender(event.sender) ||
-      event.senderFrame !== event.sender.mainFrame
+      frame == null ||
+      frame.parent != null
     ) {
       throw new Error('wren-export: request from an unknown sender');
     }

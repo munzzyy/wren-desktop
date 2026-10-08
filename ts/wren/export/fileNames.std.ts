@@ -112,7 +112,7 @@ const PASSIVE_TYPES: Readonly<Record<string, PassiveTypeType>> = {
   'application/vnd.oasis.opendocument.presentation': { extensions: ['odp'] },
 };
 
-export const FALLBACK_EXTENSION = 'bin';
+const FALLBACK_EXTENSION = 'bin';
 
 function getPassiveType(contentType: string): PassiveTypeType | undefined {
   const essence = contentType.split(';')[0]?.trim().toLowerCase() ?? '';

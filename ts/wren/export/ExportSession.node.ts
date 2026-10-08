@@ -40,7 +40,7 @@ export type WriteResult = Readonly<{
   missing: number;
 }>;
 
-export const PARTIAL_SUFFIX = '.partial';
+const PARTIAL_SUFFIX = '.partial';
 const PARTIAL_PREFIX = '.wren-export-';
 
 export function isPartialExportName(name: string): boolean {
