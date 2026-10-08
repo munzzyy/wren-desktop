@@ -27,6 +27,7 @@ export const createTemplate = (
     isProduction,
     devTools,
     includeSetup,
+    lockApp,
     openContactUs,
     openForums,
     openJoinTheBeta,
@@ -54,6 +55,11 @@ export const createTemplate = (
         {
           label: i18n('icu:mainMenuCreateStickers'),
           click: openArtCreator,
+        },
+        {
+          label: i18n('icu:WrenLock__menu-item'),
+          accelerator: 'CmdOrCtrl+Alt+L',
+          click: lockApp,
         },
         {
           label: i18n('icu:mainMenuSettings'),

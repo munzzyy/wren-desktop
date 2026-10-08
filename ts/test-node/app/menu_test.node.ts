@@ -15,6 +15,7 @@ import type { LoggerType } from '../../types/Logging.std.ts';
 import { HourCyclePreference } from '../../types/I18N.std.ts';
 
 const forceUpdate = stub();
+const lockApp = stub();
 const openArtCreator = stub();
 const openContactUs = stub();
 const openForums = stub();
@@ -98,7 +99,7 @@ const getExpectedHelpMenu = (
     ...(includeAbout
       ? ([
           { type: 'separator' },
-          { label: 'About Signal Desktop', click: showAbout },
+          { label: 'About Wren Desktop', click: showAbout },
         ] as MenuListType)
       : []),
   ],
@@ -106,9 +107,9 @@ const getExpectedHelpMenu = (
 
 const EXPECTED_MACOS: MenuListType = [
   {
-    label: 'Signal Desktop',
+    label: 'Wren Desktop',
     submenu: [
-      { label: 'About Signal Desktop', click: showAbout },
+      { label: 'About Wren Desktop', click: showAbout },
       { type: 'separator' },
       {
         label: 'Preferences…',
@@ -129,6 +130,7 @@ const EXPECTED_MACOS: MenuListType = [
     label: '&File',
     submenu: [
       { label: 'Create/upload sticker pack', click: openArtCreator },
+      { label: 'Lock Wren', accelerator: 'CmdOrCtrl+Alt+L', click: lockApp },
       { type: 'separator' },
       { accelerator: 'CmdOrCtrl+W', label: 'Close Window', role: 'close' },
     ],
@@ -154,6 +156,7 @@ const EXPECTED_WINDOWS: MenuListType = [
     label: '&File',
     submenu: [
       { label: 'Create/upload sticker pack', click: openArtCreator },
+      { label: 'Lock Wren', accelerator: 'CmdOrCtrl+Alt+L', click: lockApp },
       {
         label: 'Preferences…',
         accelerator: 'CommandOrControl+,',
@@ -226,6 +229,7 @@ describe('createTemplate', () => {
 
   const actions = {
     forceUpdate,
+    lockApp,
     openArtCreator,
     openContactUs,
     openForums,

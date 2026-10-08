@@ -12096,5 +12096,233 @@
   "icu:WhatsNew__8.30--1": {
     "messageformat": "We also added a convenient shortcut to open your system settings on Windows if you try to join a video call and Signal doesn't have permission to access the camera. Now it's easier to see what you need to do so that people can see you.",
     "description": "(Deleted 2026/10/07)  Release notes for 8.30"
+  },
+  "icu:WrenLock__title": {
+    "messageformat": "Wren is locked",
+    "description": "Lock screen: heading and window title"
+  },
+  "icu:WrenLock__prompt": {
+    "messageformat": "Enter your passphrase to open your messages.",
+    "description": "Lock screen: text under the heading"
+  },
+  "icu:WrenLock__placeholder": {
+    "messageformat": "Passphrase",
+    "description": "Lock screen: placeholder of the passphrase field"
+  },
+  "icu:WrenLock__unlock": {
+    "messageformat": "Unlock",
+    "description": "Lock screen: button that unlocks the app"
+  },
+  "icu:WrenLock__checking": {
+    "messageformat": "Checking…",
+    "description": "Lock screen: button label while the passphrase is being checked"
+  },
+  "icu:WrenLock__wrong": {
+    "messageformat": "That passphrase is wrong.",
+    "description": "Lock screen: shown after a wrong passphrase"
+  },
+  "icu:WrenLock__wrong-with-remaining": {
+    "messageformat": "{count, plural, one {That passphrase is wrong. # more wrong try erases everything Wren keeps on this computer.} other {That passphrase is wrong. # more wrong tries erase everything Wren keeps on this computer.}}",
+    "description": "Lock screen: shown after a wrong passphrase when wipe after failed attempts is on; count is the number of tries left"
+  },
+  "icu:WrenLock__unreadable": {
+    "messageformat": "Wren can't read its lock settings",
+    "description": "Error dialog title when the passphrase lock settings in config.json are damaged"
+  },
+  "icu:WrenLock__unreadable-detail": {
+    "messageformat": "The passphrase lock settings in config.json are damaged, so Wren can't open your messages. Restore config.json from a backup, or delete Wren's data folder to start over.",
+    "description": "Error dialog body when the passphrase lock settings are damaged"
+  },
+  "icu:WrenLock__menu-item": {
+    "messageformat": "Lock Wren",
+    "description": "App menu item that locks the app"
+  },
+  "icu:WrenLock__not-enabled": {
+    "messageformat": "Set a passphrase lock in Settings > Privacy first.",
+    "description": "Dialog shown when Lock Wren is chosen but no passphrase lock is set"
+  },
+  "icu:WrenLock__section": {
+    "messageformat": "App lock",
+    "description": "Settings > Privacy: header of the passphrase lock section"
+  },
+  "icu:WrenLock__section-footer": {
+    "messageformat": "The passphrase protects the message database on this computer. If you forget it, there is no way to get those messages back. Your phone is not affected.",
+    "description": "Settings > Privacy: footer under the passphrase lock section"
+  },
+  "icu:WrenLock__passphrase-label": {
+    "messageformat": "Passphrase lock",
+    "description": "Settings > Privacy: passphrase lock row label"
+  },
+  "icu:WrenLock__passphrase-description--off": {
+    "messageformat": "Ask for a passphrase every time Wren opens.",
+    "description": "Settings > Privacy: passphrase lock row description when the lock is off"
+  },
+  "icu:WrenLock__passphrase-description--on": {
+    "messageformat": "On. Wren asks for your passphrase every time it opens.",
+    "description": "Settings > Privacy: passphrase lock row description when the lock is on"
+  },
+  "icu:WrenLock__set": {
+    "messageformat": "Set passphrase",
+    "description": "Settings > Privacy: button that sets a passphrase"
+  },
+  "icu:WrenLock__change": {
+    "messageformat": "Change",
+    "description": "Settings > Privacy: button that changes the passphrase"
+  },
+  "icu:WrenLock__turn-off": {
+    "messageformat": "Turn off",
+    "description": "Settings > Privacy: button that turns the passphrase lock off"
+  },
+  "icu:WrenLock__lock-now": {
+    "messageformat": "Lock now",
+    "description": "Settings > Privacy: button that locks the app right away"
+  },
+  "icu:WrenLock__duress-label": {
+    "messageformat": "Duress passphrase",
+    "description": "Settings > Privacy: duress passphrase row label"
+  },
+  "icu:WrenLock__duress-description--off": {
+    "messageformat": "A second passphrase that erases everything Wren keeps on this computer at once when someone types it on the lock screen.",
+    "description": "Settings > Privacy: duress row description when none is set"
+  },
+  "icu:WrenLock__duress-description--on": {
+    "messageformat": "Set. Typing it on the lock screen erases everything Wren keeps on this computer at once.",
+    "description": "Settings > Privacy: duress row description when one is set"
+  },
+  "icu:WrenLock__duress-set": {
+    "messageformat": "Set",
+    "description": "Settings > Privacy: button that sets a duress passphrase"
+  },
+  "icu:WrenLock__duress-remove": {
+    "messageformat": "Remove",
+    "description": "Settings > Privacy: button that removes the duress passphrase"
+  },
+  "icu:WrenLock__wipe-after-label": {
+    "messageformat": "Wipe after failed attempts",
+    "description": "Settings > Privacy: label of the wipe after failed attempts setting"
+  },
+  "icu:WrenLock__wipe-after-description": {
+    "messageformat": "Erase everything Wren keeps on this computer after this many wrong passphrases in a row.",
+    "description": "Settings > Privacy: description of the wipe after failed attempts setting"
+  },
+  "icu:WrenLock__wipe-after-off": {
+    "messageformat": "Off",
+    "description": "Settings > Privacy: option that turns wipe after failed attempts off"
+  },
+  "icu:WrenLock__wipe-after-count": {
+    "messageformat": "{count, plural, one {# attempt} other {# attempts}}",
+    "description": "Settings > Privacy: option for wipe after failed attempts"
+  },
+  "icu:WrenLock__auto-lock-label": {
+    "messageformat": "Lock automatically",
+    "description": "Settings > Privacy: label of the auto lock setting"
+  },
+  "icu:WrenLock__auto-lock-description": {
+    "messageformat": "Lock after the computer has been idle this long.",
+    "description": "Settings > Privacy: description of the auto lock setting"
+  },
+  "icu:WrenLock__auto-lock-never": {
+    "messageformat": "Never",
+    "description": "Settings > Privacy: option that turns auto lock off"
+  },
+  "icu:WrenLock__auto-lock-minutes": {
+    "messageformat": "{minutes, plural, one {# minute} other {# minutes}}",
+    "description": "Settings > Privacy: option for the auto lock setting"
+  },
+  "icu:WrenLock__system-lock-label": {
+    "messageformat": "Lock when the computer locks",
+    "description": "Settings > Privacy: label of the lock on screen lock switch"
+  },
+  "icu:WrenLock__system-lock-description": {
+    "messageformat": "Also locks when the computer goes to sleep.",
+    "description": "Settings > Privacy: description of the lock on screen lock switch"
+  },
+  "icu:WrenLock__dialog-set-title": {
+    "messageformat": "Set a passphrase",
+    "description": "Passphrase dialog title when turning the lock on"
+  },
+  "icu:WrenLock__dialog-change-title": {
+    "messageformat": "Change passphrase",
+    "description": "Passphrase dialog title when changing the passphrase"
+  },
+  "icu:WrenLock__dialog-off-title": {
+    "messageformat": "Turn off passphrase lock",
+    "description": "Passphrase dialog title when turning the lock off"
+  },
+  "icu:WrenLock__dialog-duress-title": {
+    "messageformat": "Set a duress passphrase",
+    "description": "Passphrase dialog title when setting a duress passphrase"
+  },
+  "icu:WrenLock__dialog-set-body": {
+    "messageformat": "Wren will ask for this every time it opens. Write it down somewhere safe. If you forget it, the messages on this computer are gone for good.",
+    "description": "Passphrase dialog text when turning the lock on"
+  },
+  "icu:WrenLock__dialog-off-body": {
+    "messageformat": "Enter your passphrase. Wren goes back to keeping its key in your system keychain.",
+    "description": "Passphrase dialog text when turning the lock off"
+  },
+  "icu:WrenLock__dialog-duress-body": {
+    "messageformat": "Typing this on the lock screen erases everything Wren keeps on this computer at once, with no question asked. It can't be the same as your passphrase. Pick something you won't type by accident.",
+    "description": "Passphrase dialog text when setting a duress passphrase"
+  },
+  "icu:WrenLock__field-current": {
+    "messageformat": "Current passphrase",
+    "description": "Passphrase dialog: field label"
+  },
+  "icu:WrenLock__field-new": {
+    "messageformat": "New passphrase",
+    "description": "Passphrase dialog: field label"
+  },
+  "icu:WrenLock__field-repeat": {
+    "messageformat": "Repeat passphrase",
+    "description": "Passphrase dialog: field label"
+  },
+  "icu:WrenLock__field-duress": {
+    "messageformat": "Duress passphrase",
+    "description": "Passphrase dialog: field label"
+  },
+  "icu:WrenLock__strength-weak": {
+    "messageformat": "Weak. A longer passphrase is much harder to guess.",
+    "description": "Passphrase dialog: strength note for a short passphrase"
+  },
+  "icu:WrenLock__strength-fair": {
+    "messageformat": "Fair. A few more words would make it strong.",
+    "description": "Passphrase dialog: strength note for a medium passphrase"
+  },
+  "icu:WrenLock__strength-strong": {
+    "messageformat": "Strong.",
+    "description": "Passphrase dialog: strength note for a long passphrase"
+  },
+  "icu:WrenLock__working": {
+    "messageformat": "This takes a second…",
+    "description": "Passphrase dialog: shown while the passphrase is being processed"
+  },
+  "icu:WrenLock__save": {
+    "messageformat": "Save",
+    "description": "Passphrase dialog: confirm button"
+  },
+  "icu:WrenLock__error-mismatch": {
+    "messageformat": "The two passphrases don't match.",
+    "description": "Passphrase dialog: error"
+  },
+  "icu:WrenLock__error-too-short": {
+    "messageformat": "Use at least {min, number} characters.",
+    "description": "Passphrase dialog: error when the passphrase is too short"
+  },
+  "icu:WrenLock__error-wrong": {
+    "messageformat": "That passphrase is wrong.",
+    "description": "Passphrase dialog: error when the current passphrase is wrong"
+  },
+  "icu:WrenLock__error-same-as-passphrase": {
+    "messageformat": "The duress passphrase can't be the same as your passphrase.",
+    "description": "Passphrase dialog: error"
+  },
+  "icu:WrenLock__error-same-as-duress": {
+    "messageformat": "That is your duress passphrase. Pick a different one.",
+    "description": "Passphrase dialog: error"
+  },
+  "icu:WrenLock__error-failed": {
+    "messageformat": "Something went wrong. Try again.",
+    "description": "Passphrase dialog: generic error"
   }
 }
