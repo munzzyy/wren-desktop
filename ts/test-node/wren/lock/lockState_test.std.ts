@@ -6,8 +6,10 @@ import lodash from 'lodash';
 
 import type { LockStateType } from '../../../wren/lock/lockState.std.ts';
 import {
+  getIdleSeconds,
   parseLockState,
   serializeLockState,
+  shouldAutoLock,
 } from '../../../wren/lock/lockState.std.ts';
 import { getPassphraseStrength } from '../../../wren/lock/passphraseStrength.std.ts';
 
@@ -100,6 +102,51 @@ describe('wren/lock/passphraseStrength', () => {
     assert.strictEqual(
       getPassphraseStrength('quiet river under old stone'),
       'strong'
+    );
+  });
+});
+
+describe('wren/lock auto-lock clock', () => {
+  const NOW = 10_000_000;
+
+  it('negative control: system idle alone still locks', () => {
+    const idle = getIdleSeconds({
+      systemIdleSeconds: 6 * 60,
+      lastActivityMs: NOW,
+      nowMs: NOW,
+    });
+    assert.isTrue(shouldAutoLock(5, idle));
+  });
+
+  it('locks on app idle when the system reports 0, as on Wayland', () => {
+    const idle = getIdleSeconds({
+      systemIdleSeconds: 0,
+      lastActivityMs: NOW - 5 * 60 * 1000,
+      nowMs: NOW,
+    });
+    assert.strictEqual(idle, 300);
+    assert.isTrue(shouldAutoLock(5, idle));
+    assert.isFalse(shouldAutoLock(15, idle));
+  });
+
+  it('recent input keeps it unlocked and off never locks', () => {
+    const idle = getIdleSeconds({
+      systemIdleSeconds: 0,
+      lastActivityMs: NOW - 1000,
+      nowMs: NOW,
+    });
+    assert.isFalse(shouldAutoLock(5, idle));
+    assert.isFalse(shouldAutoLock(0, 1e9));
+  });
+
+  it('ignores a clock that went backwards and a bad system value', () => {
+    assert.strictEqual(
+      getIdleSeconds({
+        systemIdleSeconds: Number.NaN,
+        lastActivityMs: NOW + 60_000,
+        nowMs: NOW,
+      }),
+      0
     );
   });
 });

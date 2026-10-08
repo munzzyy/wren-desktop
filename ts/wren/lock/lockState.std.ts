@@ -15,6 +15,32 @@ export function isAutoLockMinutes(
   return AUTO_LOCK_OPTIONS.some(option => option === value);
 }
 
+// Wayland reports a system idle time of 0 forever, so Wren also keeps its own
+// clock of the last input in its windows and goes by whichever is longer.
+export function getIdleSeconds({
+  systemIdleSeconds,
+  lastActivityMs,
+  nowMs,
+}: Readonly<{
+  systemIdleSeconds: number;
+  lastActivityMs: number;
+  nowMs: number;
+}>): number {
+  const appIdleSeconds = Math.max(
+    0,
+    Math.floor((nowMs - lastActivityMs) / 1000)
+  );
+  const systemIdle = Number.isFinite(systemIdleSeconds) ? systemIdleSeconds : 0;
+  return Math.max(systemIdle, appIdleSeconds);
+}
+
+export function shouldAutoLock(
+  autoLockMinutes: AutoLockMinutesType,
+  idleSeconds: number
+): boolean {
+  return autoLockMinutes > 0 && idleSeconds >= autoLockMinutes * 60;
+}
+
 export type LockStateType = Readonly<{
   version: 1;
   salt: string;

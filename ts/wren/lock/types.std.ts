@@ -74,9 +74,12 @@ export const LockIpc = {
   setAutoLockMinutes: 'wren-lock:set-auto-lock-minutes',
   setLockOnSystemLock: 'wren-lock:set-lock-on-system-lock',
   lockNow: 'wren-lock:lock-now',
+  activity: 'wren-lock:activity',
   windowInfo: 'wren-lock:window-info',
   unlock: 'wren-lock:unlock',
 } as const;
+
+export const ACTIVITY_PING_INTERVAL = 10 * 1000;
 
 declare global {
   // oxlint-disable-next-line typescript/consistent-type-definitions

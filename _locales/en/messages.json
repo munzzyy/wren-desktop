@@ -12286,7 +12286,7 @@
     "description": "Settings > Privacy: label of the auto lock setting"
   },
   "icu:WrenLock__auto-lock-description": {
-    "messageformat": "Lock after the computer has been idle this long.",
+    "messageformat": "Lock after you haven't used Wren for this long.",
     "description": "Settings > Privacy: description of the auto lock setting"
   },
   "icu:WrenLock__auto-lock-never": {

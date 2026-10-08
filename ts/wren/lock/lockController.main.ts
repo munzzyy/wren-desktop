@@ -3,8 +3,15 @@
 
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import type { IpcMainInvokeEvent } from 'electron';
-import { app, BrowserWindow, dialog, ipcMain, powerMonitor } from 'electron';
+import type { IpcMainInvokeEvent, WebContents } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  dialog,
+  ipcMain,
+  powerMonitor,
+  webContents,
+} from 'electron';
 
 import type { LoggerType } from '../../types/Logging.std.ts';
 import type { LocalizerType } from '../../types/I18N.std.ts';
@@ -18,9 +25,11 @@ import { isWipeAfter, resetFailedAttempts } from './failedAttemptPolicy.std.ts';
 import type { LockStateType } from './lockState.std.ts';
 import {
   LOCK_STATE_CONFIG_KEY,
+  getIdleSeconds,
   isAutoLockMinutes,
   parseLockState,
   serializeLockState,
+  shouldAutoLock,
 } from './lockState.std.ts';
 import type {
   LockErrorType,
@@ -79,6 +88,8 @@ export class LockController {
   #busy = false;
 
   #autoLockStarted = false;
+
+  #lastActivityMs = Date.now();
 
   constructor(options: LockControllerOptionsType) {
     this.#options = options;
@@ -249,12 +260,48 @@ export class LockController {
     powerMonitor.on('lock-screen', onSystemLock);
     powerMonitor.on('suspend', onSystemLock);
 
-    setInterval(() => {
-      const minutes = this.#readState()?.autoLockMinutes ?? 0;
-      if (minutes > 0 && powerMonitor.getSystemIdleTime() >= minutes * 60) {
-        this.#lockNow('idle');
+    this.#lastActivityMs = Date.now();
+    const watch = (contents: WebContents) => {
+      contents.on('before-input-event', () => this.#noteActivity());
+    };
+    for (const contents of webContents.getAllWebContents()) {
+      watch(contents);
+    }
+    app.on('web-contents-created', (_event, contents) => watch(contents));
+    ipcMain.on(LockIpc.activity, event => {
+      if (BrowserWindow.fromWebContents(event.sender) != null) {
+        this.#noteActivity();
       }
-    }, IDLE_CHECK_INTERVAL).unref();
+    });
+
+    setInterval(() => this.#checkAutoLock(), IDLE_CHECK_INTERVAL).unref();
+  }
+
+  #noteActivity(): void {
+    this.#lastActivityMs = Date.now();
+  }
+
+  #checkAutoLock(): void {
+    const state = this.#readState();
+    if (!state) {
+      return;
+    }
+    // Linux desktops that never send lock-screen still report 'locked' here.
+    if (
+      state.lockOnSystemLock &&
+      powerMonitor.getSystemIdleState(1) === 'locked'
+    ) {
+      this.#lockNow('system lock');
+      return;
+    }
+    const idleSeconds = getIdleSeconds({
+      systemIdleSeconds: powerMonitor.getSystemIdleTime(),
+      lastActivityMs: this.#lastActivityMs,
+      nowMs: Date.now(),
+    });
+    if (shouldAutoLock(state.autoLockMinutes, idleSeconds)) {
+      this.#lockNow('idle');
+    }
   }
 
   lockFromMenu(): void {

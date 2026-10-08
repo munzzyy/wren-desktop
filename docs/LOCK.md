@@ -41,8 +41,8 @@ If the data folder is your home folder, the system's app data folder, a parent o
 
 - Lock Wren in the File menu, or Ctrl+Alt+L (Cmd+Option+L on macOS). Ctrl+Shift+L was the first pick, but Signal already uses it to open the conversation menu.
 - Lock now in Settings.
-- Lock automatically after 5, 15, 30 or 60 minutes with no keyboard or mouse input on the computer.
-- Lock when the computer locks or goes to sleep.
+- Lock automatically after 5, 15, 30 or 60 minutes without you using Wren. Wren keeps its own clock of the last key press, click, scroll or mouse move in its windows, asks the system how long the whole computer has been idle, and goes by whichever is longer. So it locks even while you're busy in another app, and it still works on Wayland, where the system's idle time is always zero.
+- Lock when the computer locks or goes to sleep. Wren listens for the lock and sleep events, and every 15 seconds also asks the system whether the screen is locked, which catches Linux desktops that never send the lock event.
 
 Locking restarts Wren, so the database handle and the key leave memory with the old process and the lock window is what comes back.
 
